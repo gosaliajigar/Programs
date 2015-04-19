@@ -37,12 +37,8 @@ public class MainClass {
 	 * @return
 	 */
 	private static boolean checkPrime(final int number) {
-		if (number == 0) {
+		if (number == 0 || number == 1) {
 			return false;
-		}
-
-		if (number == 1) {
-			return true;
 		}
 
 		for (int i = 2; i < number / 2; i++) {
