@@ -19,7 +19,7 @@ public class MainClass {
 		Dog d1 = new Dog("red");
 		Dog d2 = new Dog("white");
 		Dog d3 = new Dog("black");
-		Dog d4 = new Dog("white");
+		Dog d4 = new Dog("red");
 
 		Map<Dog, Integer> map = new HashMap<Dog, Integer>();
 		System.out.println(MainClass.printMapUsingIterator(map));
@@ -27,14 +27,21 @@ public class MainClass {
 		map.put(d2, 2);
 		map.put(d3, 3);
 		// d4 won't be inserted in Map as key Dog has equals and hashCode
-		// implementation which will identify that d4(red) is same as d1(red).
+		// implementation which will identify that d4(red) is same as d1(red),
+		// hence it would override d1 by updating the key=4.
 		// In absence of equals and hashCode implementation, d4(red) is inserted
 		// into map.
 		map.put(d4, 4);
 		System.out.println(MainClass.printMapUsingIterator(map));
 		System.out.println("Size of Map     : " + map.size());
+		// In absence of equals and hashCode implementation, it wouldn't find
+		// dog with red color.
 		System.out.println("Red is at       : " + map.get(new Dog("red")));
+		// In absence of equals and hashCode implementation, it wouldn't find
+		// dog with red color.
 		System.out.println("Deleting key at : " + map.get(new Dog("red")));
+		// In absence of equals and hashCode implementation, it wouldn't delete
+		// dog with red color.
 		map.remove(new Dog("red"));
 		System.out.println(MainClass.printMapUsingEntrySet(map));
 		System.out.println("Size of Map     : " + map.size());

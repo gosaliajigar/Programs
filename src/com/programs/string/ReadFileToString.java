@@ -24,11 +24,19 @@ public class ReadFileToString {
 	public static void main(final String[] args) throws IOException {
 		String fileName = "C:/Windows/System32/drivers/etc/hosts";
 		String contents = readUsingApacheCommonsIO(fileName);
+		System.out.println(contents);
+		System.out.println(contents.length());
+		System.out.println("-------------------------------------");
 		contents = readUsingBufferedReader(fileName);
 		System.out.println(contents);
 		System.out.println(contents.length());
 	}
 
+	/**
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	private static String readUsingBufferedReader(final String fileName)
 			throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -38,12 +46,17 @@ public class ReadFileToString {
 			stringBuilder.append(line).append(
 					System.getProperty("line.separator"));
 		}
-		// delete the last ls
+		// delete the last line-separator
 		stringBuilder.deleteCharAt(stringBuilder.length() - 1);
 		reader.close();
 		return stringBuilder.toString();
 	}
 
+	/**
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	private static String readUsingApacheCommonsIO(final String fileName)
 			throws IOException {
 		return FileUtils.readFileToString(new File(fileName),

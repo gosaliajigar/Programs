@@ -35,6 +35,8 @@ public class Matrix {
 			column = scanner.nextInt();
 		} while (column < 0 || column > 3);
 
+		scanner.close();
+
 		substituteMatrix(multi, row, column);
 
 		System.out.println();

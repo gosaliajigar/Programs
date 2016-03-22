@@ -24,6 +24,8 @@ public class UsingBitwiseAnd {
 
 		int number = scanner.nextInt();
 
+		scanner.close();
+
 		StringBuilder displayString = new StringBuilder();
 
 		displayString.append("Entered number <").append(number).append("> is ");

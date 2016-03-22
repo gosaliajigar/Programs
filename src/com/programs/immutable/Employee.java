@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 /**
- * Immutable Employee Class
+ * Immutable Employee Class<br>
+ * 	1. Class must be final so that it can be extended<br>
+ * 	2. Class shouldn't have any setters<br>
+ * 	3. Constructor and Getters must return clone of objects instead of address<br>
  *
  * @author "Jigar Gosalia"
  *
@@ -66,19 +69,22 @@ public final class Employee {
 		this.departmentsMap = tempMap;
 	}
 
+
 	/**
 	 * Constructor performing Shallow Copy
 	 *
-	 * @param i
-	 * @param n
-	 * @param hm
+	 * @param id
+	 * @param name
+	 * @param departmentsMap
 	 */
-	/**
-	 * public Employee(final int id, final String name, final
-	 * HashMap<String,String> departmentsMap){
-	 * System.out.println("Performing Shallow Copy for Object initialization");
-	 * this.id=id; this.name=name; this.departmentsMap=departmentsMap; }
-	 */
+	/*
+	public Employee(final int id, final String name, final HashMap<String, String> departmentsMap) {
+		System.out.println("Performing Shallow Copy for Object initialization");
+		this.id = id;
+		this.name = name;
+		this.departmentsMap = departmentsMap;
+	}
+	*/
 
 	@Override
 	public String toString() {

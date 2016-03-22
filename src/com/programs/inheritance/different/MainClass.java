@@ -28,9 +28,12 @@ public class MainClass {
 
 		superSubClassSamePackage.publicMethod();
 		superClass.publicMethod();
+		// Different Package classes don't have access to protected methods
+		// superClass.protectedMethod();
 
 		subClassSamePackage.publicMethod();
-		subClassSamePackage.protectedMethod();
+		// Inherited protected methods are not accessible outside super class package
+		// subClassSamePackage.protectedMethod();
 
 		subClassDifferentPackage.publicMethod();
 		subClassDifferentPackage.protectedMethod();

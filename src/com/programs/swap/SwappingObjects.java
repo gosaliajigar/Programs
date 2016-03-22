@@ -26,6 +26,11 @@ public class SwappingObjects {
 			this.x = x;
 			this.y = y;
 		}
+
+		@Override
+		public String toString() {
+			return "Point[x=" + this.x + ";y=" + this.y + "]";
+		}
 	}
 
 	/**
@@ -35,13 +40,17 @@ public class SwappingObjects {
 		SwappingObjects s = new SwappingObjects();
 		Point A = s.new Point(0, 0);
 		Point B = s.new Point(10, 10);
+		System.out.println("Before Copy ...");
+		System.out.println(A);
+		System.out.println(B);
+		System.out.println();
 		swapShallowCopy(A, B);
-		System.out.println("A.x:" + A.x + " " + "A.y:" + A.y);
-		System.out.println("B.x:" + B.x + " " + "B.y:" + B.y);
+		System.out.println(A);
+		System.out.println(B);
 		System.out.println();
 		swapDeepCopy(A, B);
-		System.out.println("A.x:" + A.x + " " + "A.y:" + A.y);
-		System.out.println("B.x:" + B.x + " " + "B.y:" + B.y);
+		System.out.println(A);
+		System.out.println(B);
 	}
 
 	/**

@@ -3,6 +3,8 @@
  */
 package com.programs.palindrome;
 
+import java.util.Arrays;
+
 /**
  * @author "Jigar Gosalia"
  *
@@ -19,7 +21,8 @@ public class PalindromeCheck {
 		System.out.println();
 		System.out.println("Using isPalindromeWithoutAnyOtherClass");
 		System.out.println("--------------------------------------");
-		System.out.println("Null         : " + isPalindromeWithoutAnyOtherClass(null));
+		String nullString = null;
+		System.out.println("Null         : " + isPalindromeWithoutAnyOtherClass(nullString));
 		System.out.println("Empty String : "
 				+ isPalindromeWithoutAnyOtherClass(""));
 		System.out.println("a            : " + isPalindromeWithoutAnyOtherClass("a"));
@@ -33,7 +36,7 @@ public class PalindromeCheck {
 		System.out.println();
 		System.out.println("Using isPalindromeWithStringBuilder");
 		System.out.println("--------------------------------------");
-		System.out.println("Null         : " + isPalindromeWithStringBuilder(null));
+		System.out.println("Null         : " + isPalindromeWithStringBuilder(nullString));
 		System.out.println("Empty String : "
 				+ isPalindromeWithStringBuilder(""));
 		System.out.println("a            : " + isPalindromeWithStringBuilder("a"));
@@ -43,6 +46,15 @@ public class PalindromeCheck {
 		System.out.println("HellooolleH  : "
 				+ isPalindromeWithStringBuilder("HelloolleH"));
 
+	}
+
+	/**
+	 * @param inputArray
+	 * @return
+	 */
+	public static boolean isPalindromeWithoutAnyOtherClass(
+			final char[] inputArray) {
+		return isPalindromeWithoutAnyOtherClass(Arrays.toString(inputArray));
 	}
 
 	/**
@@ -70,6 +82,15 @@ public class PalindromeCheck {
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * @param inputArray
+	 * @return
+	 */
+	public static boolean isPalindromeWithStringBuilder(
+			final char[] inputArray) {
+		return isPalindromeWithStringBuilder(Arrays.toString(inputArray));
 	}
 
 	/**

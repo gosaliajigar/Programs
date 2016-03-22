@@ -21,6 +21,7 @@ public class FibonacciNthElement {
 					.print("Enter Valid value for retrieving nth element in fibonacci series : ");
 			number = scanner.nextInt();
 		}
+		scanner.close();
 		System.out.println();
 
 		long start = System.currentTimeMillis();
@@ -43,10 +44,7 @@ public class FibonacciNthElement {
 	 * @return
 	 */
 	public static int fibonacciRecursive(final int number) {
-		if (number == 0 || number == 1) {
-			return number;
-		}
-		return (fibonacciRecursive(number - 1) + fibonacciRecursive(number - 2));
+		return ((number == 1 || number == 2) ? 1 : (fibonacciRecursive(number - 1) + fibonacciRecursive(number - 2)));
 	}
 
 	/**

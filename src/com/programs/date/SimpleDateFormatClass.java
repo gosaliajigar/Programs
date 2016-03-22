@@ -25,6 +25,7 @@ public class SimpleDateFormatClass {
 					.println("Input date should be atleast 8 characters ... ");
 			stringDate = scanner.nextLine();
 		}
+		scanner.close();
 
 		Date parsedDate;
 		try {

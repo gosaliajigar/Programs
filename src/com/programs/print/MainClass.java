@@ -27,6 +27,8 @@ public class MainClass {
 
 		int length = scanner.nextInt();
 
+		scanner.close();
+
 		System.out.println();
 
 		for (int i = 1; i <= length; i++) {

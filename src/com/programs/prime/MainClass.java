@@ -15,19 +15,21 @@ public class MainClass {
 	 */
 	public static void main(final String[] args) {
 
+		System.out.print("Enter number to check if its a PRIME number: ");
+
 		Scanner scanner = new Scanner(System.in);
 
 		int number = scanner.nextInt();
 
-		System.out.print("Enetered number to check if its a PRIME number");
+		scanner.close();
 
 		System.out.println();
 
 		if (checkPrime(number)) {
-			System.out.println("Enetered number <" + number
+			System.out.println("Entered number <" + number
 					+ "> is PRIME number");
 		} else {
-			System.out.println("Enetered number <" + number
+			System.out.println("Entered number <" + number
 					+ "> is not PRIME number");
 		}
 	}

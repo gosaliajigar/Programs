@@ -10,7 +10,6 @@ public class SwapUsingAdditionSubtraction {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-
 		int a = 2, b = 3;
 		System.out.println("Swapping using Addition-Subtraction Operator ...");
 		System.out.println("Before - a:" + a + " " + "b:" + b);
@@ -18,6 +17,5 @@ public class SwapUsingAdditionSubtraction {
 		b = a - b;
 		a = a - b;
 		System.out.println("After  - a:" + a + " " + "b:" + b);
-
 	}
 }

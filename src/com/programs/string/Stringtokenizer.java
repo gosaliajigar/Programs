@@ -49,7 +49,7 @@ public class Stringtokenizer {
 		System.out.print("String split with delimiter         (" + delimiter
 				+ " ) : ");
 		StringTokenizer stringTokenizer = new StringTokenizer(line, delimiter);
-		while (stringTokenizer.hasMoreElements()) {
+		while (stringTokenizer.hasMoreTokens()) {
 			System.out.print(stringTokenizer.nextToken() + " ");
 		}
 		System.out.println();

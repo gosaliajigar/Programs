@@ -30,6 +30,7 @@ public class Braces {
 			System.out.println("Do you want to continue [y/n] ? ");
 			choice = scanner.nextLine();
 		}
+		scanner.close();
 	}
 
 	/**
@@ -44,6 +45,9 @@ public class Braces {
 		int count = 0;
 
 		if (braces != null && !braces.isEmpty()) {
+			// This condition is ONLY on assumption that input string has only
+			// braces. If input string has characters other than braces then,
+			// delete below condition.
 			if (braces.length() % 2 != 0) {
 				return false;
 			}
@@ -64,9 +68,7 @@ public class Braces {
 			if (count != 0) {
 				return false;
 			}
-			return true;
-		} else {
-			return false;
 		}
+		return true;
 	}
 }

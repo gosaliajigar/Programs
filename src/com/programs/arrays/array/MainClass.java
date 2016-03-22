@@ -1,6 +1,8 @@
 package com.programs.arrays.array;
 
 /**
+ * Array of arrays.
+ * 
  * @author "Jigar Gosalia"
  *
  */

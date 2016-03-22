@@ -29,7 +29,7 @@ public class StringToCharToString {
 		System.out.println();
 
 		// char to String
-		// We can also use String.valueOf(char c) or String Consutructor new
+		// We can also use String.valueOf(char c) or String Constructor new
 		// String(char c)
 		String s = Character.toString(c);
 		System.out.println("char -> String : " + s);

@@ -46,6 +46,9 @@ public class MainClass {
 			range = scanner.nextInt();
 			System.out.println();
 		}
+
+		scanner.close();
+
 		printArmstrongNumberRange(range);
 	}
 

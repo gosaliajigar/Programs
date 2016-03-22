@@ -52,6 +52,7 @@ public class BracesWithStack {
 					stack.pop();
 				} else {
 					valid = false;
+					break;
 				}
 			}
 		}

@@ -22,15 +22,15 @@ public class SubClassSamePackage extends SuperClass {
 	 * @see com.programs.inheritance.SuperClass#protectedMethod()
 	 */
 	@Override
-	public void protectedMethod() {
-		System.out.println("I am public in SubClassSamePackage");
+	protected void protectedMethod() {
+		System.out.println("I am protected in SubClassSamePackage, who was protected in SuperClass");
 	}
 
 	/**
 	 *
 	 */
 	public void notPresentInSuperClass() {
-		System.out.println("I am not present in SuperClass");
+		System.out.println("I am in SubClassSamePackage and not present in SuperClass");
 	}
 
 	/**

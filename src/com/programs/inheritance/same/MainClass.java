@@ -32,6 +32,9 @@ public class MainClass {
 		superClass.publicMethod();
 
 		// Downcasting
+		// Downcasting allows us to call methods present in subclass but
+		// not present in super class provided the reference type is 
+		// super class
 		((SubClassSamePackage) superClass).notPresentInSuperClass();
 
 		SuperClass.staticPublicMethod();
@@ -42,5 +45,8 @@ public class MainClass {
 		SubClassSamePackage subClassSamePackage = new SubClassSamePackage();
 		// Same Package has access to inherited default methods
 		subClassSamePackage.defaultMethod();
+
+		// Protected methods are accessible in same package
+		subClassSamePackage.protectedMethod();
 	}
 }

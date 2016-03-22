@@ -21,6 +21,8 @@ public class MainClass {
 
 		int number = scanner.nextInt();
 
+		scanner.close();
+
 		System.out.println();
 
 		System.out.println("isPowerOfTwo()-- is " + number

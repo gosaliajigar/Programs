@@ -17,21 +17,18 @@ public class Factorial {
 		int number = -1;
 		Scanner scanner = new Scanner(System.in);
 		while (number < 0) {
-			System.out
-					.print("Enter Valid Number for finding factorial (>=0) : ");
+			System.out.print("Enter Valid Number for finding factorial (>=0) : ");
 			number = scanner.nextInt();
 		}
-
+		scanner.close();
 		long start = System.currentTimeMillis();
-		System.out.println("Recursively : Factorial of " + "(" + number + ") : "
-				+ factorialRecursive(number));
+		System.out.println("Recursively : Factorial of " + "(" + number + ")   : " + factorialRecursive(number));
 		long end = System.currentTimeMillis();
-		System.out.println("Time Taken by recursion : " + (end - start));
+		System.out.println("Time Taken by recursion          : " + (end - start));
 		start = System.currentTimeMillis();
-		System.out.println("Non-Recursively Factorial of " + "(" + number + ") : "
-				+ factorialNonRecursive(number));
+		System.out.println("Non-Recursively Factorial of " + "(" + number + ") : " + factorialNonRecursive(number));
 		end = System.currentTimeMillis();
-		System.out.println("Time Taken by non-recursion : " + (end - start));
+		System.out.println("Time Taken by non-recursion      : " + (end - start));
 	}
 
 	/**
@@ -39,14 +36,9 @@ public class Factorial {
 	 * @return
 	 */
 	public static int factorialNonRecursive(int n) {
-
 		int factorial = 1;
 
-		if (n == 0) {
-			return factorial;
-		}
-
-		while (n > 0) {
+		while (n > 1) {
 			factorial = n * factorial;
 			n--;
 		}
@@ -58,10 +50,6 @@ public class Factorial {
 	 * @return
 	 */
 	public static int factorialRecursive(final int n) {
-		if (n == 0) {
-			return 1;
-		} else {
-			return (n * factorialRecursive(n - 1));
-		}
+		return ((n == 0) ? 1 : (n * factorialRecursive(n - 1)));
 	}
 }

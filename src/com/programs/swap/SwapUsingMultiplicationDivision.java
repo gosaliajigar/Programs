@@ -1,6 +1,8 @@
 package com.programs.swap;
 
 /**
+ * Limitation: any of the number can't be 0.
+ * 
  * @author "Jigar Gosalia"
  *
  */
