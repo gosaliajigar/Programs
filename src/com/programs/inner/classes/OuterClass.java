@@ -7,42 +7,54 @@ package com.programs.inner.classes;
 public class OuterClass {
 
 	private static String name = "OuterClass";
-	private int i;
-	protected int j;
-	int k;
-	public int l;
+
+	private int privateField;
+
+	protected int protectedField;
+
+	int packageField;
+
+	public int publicField;
 
 	// OuterClass constructor
 	public OuterClass(final int i, final int j, final int k, final int l) {
-		this.i = i;
-		this.j = j;
-		this.k = k;
-		this.l = l;
+		this.privateField = i;
+		this.protectedField = j;
+		this.packageField = k;
+		this.publicField = l;
 	}
 
-	public int getI() {
-		return i;
+	public int getPrivateField() {
+		return privateField;
 	}
 
 	// static nested class, can access OuterClass static variables/methods
 	static class StaticNestedClass {
-		private int a;
-		protected int b;
-		int c;
-		public int d;
+		private int staticNestedClassPrivateField;
+		protected int staticNestedClassProtectedField;
+		int staticNestedClassPackageField;
+		public int staticNestedClassPublicField;
 
 		public int getA() {
-			return a;
+			return staticNestedClassPrivateField;
 		}
 
 		public String getName() {
 			return name;
 		}
+
+		@Override
+		public String toString() {
+			return staticNestedClassPublicField + ", " + staticNestedClassPackageField + ", "
+					+ staticNestedClassProtectedField + ", " + staticNestedClassPrivateField + ", " + getName();
+		}
 	}
 
-	// inner class, non static and can access all the variables/methods of outer
-	// class
-	class InnerClass {
+	/**
+	 * Non-static Inner class can access all the variables/methods of outer class
+	 *
+	 */
+	class NonStaticInnerClass {
 		private int w;
 		protected int x;
 		int y;
@@ -53,15 +65,15 @@ public class OuterClass {
 		}
 
 		public void setValues() {
-			w = i;
-			x = j;
-			y = k;
-			z = l;
+			w = privateField;
+			x = protectedField;
+			y = packageField;
+			z = publicField;
 		}
 
 		@Override
 		public String toString() {
-			return "w=" + w + ":x=" + x + ":y=" + y + ":z=" + z;
+			return "w=" + w + ":x=" + x + ":y=" + y + ":z=" + z + ":name=" + getName();
 		}
 
 		public String getName() {
@@ -69,30 +81,53 @@ public class OuterClass {
 		}
 	}
 
-	// local inner class
+	/**
+	 * Method to hold local inner class
+	 * 
+	 * @param initial
+	 */
 	public void print(final String initial) {
 		// local inner class inside the method
 		class Logger {
 			String name;
 
+			/**
+			 * @param name
+			 */
 			public Logger(final String name) {
 				this.name = name;
 			}
 
+			/**
+			 * @param str
+			 */
 			public void log(final String str) {
 				System.out.println(name + ": " + str);
+			}
+
+			/**
+			 * Local Inner class accessing OuterClass fields
+			 */
+			public void logAll() {
+				System.out.println(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
+				System.out.println(OuterClass.name);
 			}
 		}
 
 		Logger logger = new Logger(initial);
+		logger.log(logger.name);
+		logger.logAll();
+
+		// method accessing OuterClass fields
 		logger.log(name);
-		logger.log("" + i);
-		logger.log("" + j);
-		logger.log("" + k);
-		logger.log("" + l);
+		logger.log(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
 	}
 
-	// anonymous inner class
+	/**
+	 * Anonymous inner class
+	 * 
+	 * @param string
+	 */
 	public void getHello(final String string) {
 
 		// anonymous inner class implementing AnonymousInterface
@@ -100,7 +135,16 @@ public class OuterClass {
 
 			@Override
 			public String print(final String string) {
+				logAll();
 				return string;
+			}
+		
+			/**
+			 * Anonymous class accessing OuterClass fields
+			 */
+			public void logAll() {
+				System.out.println(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
+				System.out.println(OuterClass.name);
 			}
 		};
 	}

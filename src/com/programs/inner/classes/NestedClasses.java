@@ -1,8 +1,8 @@
 package com.programs.inner.classes;
 
 //nested classes can be used in import for easy instantiation
-import com.programs.inner.classes.OuterClass.InnerClass;
-import com.programs.inner.classes.OuterClass.StaticNestedClass;
+// import com.programs.inner.classes.OuterClass.NonStaticInnerClass;
+// import com.programs.inner.classes.OuterClass.StaticNestedClass;
 
 /**
  * @author "Jigar Gosalia"
@@ -13,26 +13,25 @@ public class NestedClasses {
 	public static void main(final String[] args) {
 		OuterClass outer = new OuterClass(1, 2, 3, 4);
 
-		// static nested classes example
-		StaticNestedClass staticNestedClass = new StaticNestedClass();
-		StaticNestedClass staticNestedClass1 = new StaticNestedClass();
+		// Static nested classes
+		OuterClass.StaticNestedClass staticNestedClass = new OuterClass.StaticNestedClass();
+		staticNestedClass.staticNestedClassPackageField = 10;
+		staticNestedClass.staticNestedClassProtectedField = 20;
+		staticNestedClass.staticNestedClassPublicField = 30;
+		System.out.println("StaticInnerClass: " + staticNestedClass);
+		System.out.println();
 
-		System.out.println(staticNestedClass.getName());
-		staticNestedClass.d = 10;
-		System.out.println(staticNestedClass.d);
-		System.out.println(staticNestedClass1.d);
+		// Non Static Inner class
+		OuterClass.NonStaticInnerClass nonStaticInnerClass = outer.new NonStaticInnerClass();
+		System.out.println("NonStaticInnerClass: " + nonStaticInnerClass);
+		nonStaticInnerClass.setValues();
+		System.out.println("NonStaticInnerClass: " + nonStaticInnerClass);
+		System.out.println();
 
-		// inner class example
-		InnerClass innerClass = outer.new InnerClass();
-		System.out.println(innerClass.getName());
-		System.out.println(innerClass);
-		innerClass.setValues();
-		System.out.println(innerClass);
-
-		// calling method using local inner class
+		// Calling method having local inner class
 		outer.print("Outer");
 
-		// calling method using anonymous inner class
+		// Calling method having anonymous inner class
 		outer.getHello("Hellow");
 	}
 }
