@@ -19,6 +19,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(1)<br><br>
+	 * 
 	 * Add Node to the front of Linked List
 	 *
 	 * @param data
@@ -32,6 +34,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * Add Node to the rear of Linked List
 	 *
 	 * @param data
@@ -51,6 +55,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * Delete node that matches data
 	 *
 	 * @param data
@@ -82,6 +88,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(1)<br><br>
+	 * 
 	 * Return the front object's data
 	 *
 	 * @return
@@ -95,6 +103,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * Print the singleLinkedList
 	 */
 	public void print() {
@@ -111,6 +121,8 @@ public class SingleLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * Returns size of single linked list
 	 *
 	 * @return

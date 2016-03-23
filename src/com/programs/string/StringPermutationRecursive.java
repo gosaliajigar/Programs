@@ -21,6 +21,8 @@ public class StringPermutationRecursive {
 				+ permutationFinder(sample1));
 		System.out.println("\nPermutations for " + sample2 + " are: \n"
 				+ permutationFinder(sample2));
+		System.out.println();
+		permutation("ABC");
 	}
 
 	/**
@@ -63,5 +65,20 @@ public class StringPermutationRecursive {
 		// Concatenate String (String till position "j" + character + String
 		// from position "j")
 		return begin + c + end;
+	}
+
+	public static void permutation(String str) { 
+	    permutation("", str);
+	}
+
+	private static void permutation(String prefix, String str) {
+	    int n = str.length();
+	    if (n == 0) {
+	    	System.out.print(prefix + " ");
+	    } else {
+	    	for (int i = 0; i < n; i++) {
+	    		permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
+	    	}
+	    }
 	}
 }

@@ -1,10 +1,12 @@
 package com.programs.datastructure.linkedlist;
 
 /**
+ * Operations on SinglyLinkedList and their Time Complexity
+ * 
  * @author "Jigar Gosalia"
  *
  */
-public class MainClass {
+public class SinglyLinkedListMainClass {
 
 	/**
 	 * @param args

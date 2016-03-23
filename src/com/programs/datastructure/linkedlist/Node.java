@@ -7,6 +7,7 @@ package com.programs.datastructure.linkedlist;
  *
  */
 public class Node {
+
 	/**
 	 * Data stored in this node
 	 */

@@ -1,7 +1,7 @@
 package com.programs.string;
 
 /**
- *
+ * 
  * @author "Jigar Gosalia"
  *
  */
@@ -11,7 +11,8 @@ public class StringCombination {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		combineRecursive("abc", new StringBuffer(), 0);
+		String input = "ABC";
+		combineRecursive(input, new StringBuffer(), 0);
 	}
 
 	/**
