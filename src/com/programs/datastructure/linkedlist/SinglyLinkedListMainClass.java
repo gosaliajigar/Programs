@@ -12,7 +12,7 @@ public class SinglyLinkedListMainClass {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		SingleLinkedList singleLinkedList = new SingleLinkedList();
+		SinglyLinkedList singleLinkedList = new SinglyLinkedList();
 
 		System.out.println("Printing size of Single Linked List : " + singleLinkedList.size());
 		System.out.println("Printing Single Linked List ... ");

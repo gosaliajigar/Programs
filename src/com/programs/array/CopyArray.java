@@ -39,7 +39,8 @@ public class CopyArray {
 		System.out.println("systemArrayCopy Address : " + systemArrayCopy);
 
 		System.out.println();
-		// Arrays.copyOf copies content from source array to destination array
+		// Arrays.copyOf creates a new array and copies content from source
+		// array to destination array. Internally it uses System.arraycopy
 		System.out.println("Using Arrays.copyOf");
 		System.out.println("-------------------");
 		arraysCopyOf = Arrays.copyOf(charArray, 2);

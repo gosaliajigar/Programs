@@ -4,7 +4,7 @@ package com.programs.datastructure.linkedlist;
  * @author "Jigar Gosalia"
  *
  */
-public class SingleLinkedList {
+public class SinglyLinkedList {
 
 	/**
 	 *
@@ -14,7 +14,7 @@ public class SingleLinkedList {
 	/**
 	 *
 	 */
-	public SingleLinkedList() {
+	public SinglyLinkedList() {
 		start = null;
 	}
 
@@ -115,8 +115,11 @@ public class SingleLinkedList {
 		}
 
 		while (current != null) {
-			System.out.println(current);
+			System.out.print(current);
 			current = current.getNext();
+			if (current != null) {
+				System.out.print(", ");
+			}
 		}
 	}
 
@@ -137,5 +140,25 @@ public class SingleLinkedList {
 			size++;
 		}
 		return size;
+	}
+
+	/**
+	 * @return
+	 */
+	public Node getStart() {
+		return this.start;
+	}
+
+	/**
+	 * @return
+	 */
+	public Node getRear() {
+		Node current = start;
+		Node previous = current;
+		while (current != null) {
+			previous = current;
+			current = current.getNext();
+		}
+		return previous;
 	}
 }

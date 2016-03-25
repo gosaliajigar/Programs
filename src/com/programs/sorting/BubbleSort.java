@@ -21,10 +21,10 @@ public class BubbleSort {
 	 *
 	 * @param inputArray
 	 */
-	public static <T> void bubbleSort(final T[] inputArray) {
+	public static <T extends Comparable<T>> void bubbleSort(final T[] inputArray) {
 		for (int i = 0; i < inputArray.length; i++) {
 			for (int j = i; j < inputArray.length - i - 1; j++) {
-				if (((Comparable)inputArray[j]).compareTo((Comparable)inputArray[j + 1]) > 0) {
+				if (inputArray[j].compareTo(inputArray[j + 1]) > 0) {
 					T temp = inputArray[j + 1];
 					inputArray[j + 1] = inputArray[j];
 					inputArray[j] = temp;
