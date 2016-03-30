@@ -17,95 +17,31 @@ import java.util.List;
 public class TreeTraversal {
 
 	/**
-	 * 
-	 */
-	private static Node root;
-
-	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
 		int[] array = { 27, 14, 35, 10, 19, 31, 42 };
-		create(array);
-		System.out.println("Tree: " + root);
+		BinarySearchTree bstTree = new BinarySearchTree();
+		bstTree.create(array);
+		System.out.println("Tree: " + bstTree.getRoot());
 		System.out.println();
-		Node node = search(31);
+		Node node = bstTree.search(31);
 		System.out.println((node != null) ? "Element(31) found: " + node : "Element(31) not found");
-		node = search(15);
+		node = bstTree.search(15);
 		System.out.println((node != null) ? "Element(15) found: " + node : "Element(15) not found");
 		System.out.println();
 		System.out.printf("Pre Order Traversal   : ");
-		preOrderTraversal(root);
+		preOrderTraversal(bstTree.getRoot());
 		System.out.println();
 		System.out.printf("In Order Traversal    : ");
-		inOrderTraversal(root);
+		inOrderTraversal(bstTree.getRoot());
 		System.out.println();
 		System.out.printf("Post Order Traversal  : ");
-		postOrderTraversal(root);
+		postOrderTraversal(bstTree.getRoot());
 		System.out.println();
 		System.out.printf("Level Order Traversal : ");
-		levelOrderTraversal(root);
-	}
-
-	/**
-	 * @param array
-	 */
-	public static void create(int array[]) {
-		for (int index = 0; index < array.length; index++) {
-			insert(array[index]);
-		}
-	}
-
-	/**
-	 * @param data
-	 */
-	private static void insert(int data) {
-		Node node = new Node(data, null, null);
-		Node parent;
-		if (root == null) {
-			root = node;
-		} else {
-			Node current = root;
-			parent = null;
-			while(true) {
-				if (data > current.getData()) {
-					parent = current;
-					current = current.getRight();
-					if (current == null) {
-						parent.setRight(node);
-						break;
-					}
-				} else if (data <= current.getData()) {
-					parent = current;
-					current = current.getLeft();
-					if (current == null) {
-						parent.setLeft(node);;
-						break;
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 * @param data
-	 * @return
-	 */
-	private static Node search(int data) {
-		Node node = null;
-		Node current = root;
-		while(current != null) {
-			if (data > current.getData()) {
-				current = current.getRight();
-			} else if (data < current.getData()) {
-				current = current.getLeft();
-			} else {
-				node = current;
-				break;
-			}
-		}
-		return node;
+		levelOrderTraversal(bstTree.getRoot());
 	}
 
 	/**
