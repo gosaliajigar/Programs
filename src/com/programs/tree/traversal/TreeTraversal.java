@@ -1,10 +1,14 @@
 package com.programs.tree.traversal;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Tree Traversal<br>
- * 1. Pre Order Tree Traversal  (P-L-R)<br>
- * 2. In Order Tree Traversal   (L-P-R)<br>
- * 3. Post Order Tree Traversal (L-R-P)<br>
+ * 1. Pre Order Tree Traversal   (P-L-R)<br>
+ * 2. In Order Tree Traversal    (L-P-R)<br>
+ * 3. Post Order Tree Traversal  (L-R-P)<br>
+ * 4. Level Order Tree Traversal (Level)<br>
  * <br>
  * 
  * @author "Jigar Gosalia"
@@ -31,14 +35,17 @@ public class TreeTraversal {
 		node = search(15);
 		System.out.println((node != null) ? "Element(15) found: " + node : "Element(15) not found");
 		System.out.println();
-		System.out.printf("Pre Order Traversal : ");
+		System.out.printf("Pre Order Traversal   : ");
 		preOrderTraversal(root);
 		System.out.println();
-		System.out.printf("In Order Traversal  : ");
+		System.out.printf("In Order Traversal    : ");
 		inOrderTraversal(root);
 		System.out.println();
-		System.out.printf("Post Order Traversal: ");
+		System.out.printf("Post Order Traversal  : ");
 		postOrderTraversal(root);
+		System.out.println();
+		System.out.printf("Level Order Traversal : ");
+		levelOrderTraversal(root);
 	}
 
 	/**
@@ -141,5 +148,27 @@ public class TreeTraversal {
 			System.out.printf(node.getData() + " ");
 		}
 		return;
+	}
+
+	/**
+	 * Level Order Tree Traversal (Print by Level)
+	 * 
+	 * @param node
+	 */
+	private static void levelOrderTraversal(Node root) {
+		List<Node> queue = new LinkedList<Node>();
+		if (root != null) {
+			queue.add(root);
+			while (!queue.isEmpty()) {
+				Node node = queue.remove(0);
+				System.out.printf(node.getData() + " ");
+				if (node.getLeft() != null) {
+					queue.add(node.getLeft());
+				}
+				if (node.getRight() != null) {
+					queue.add(node.getRight());
+				}
+			}
+		}
 	}
 }
