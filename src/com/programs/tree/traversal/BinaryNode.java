@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.programs.tree.traversal;
 
 /**
@@ -9,18 +6,18 @@ package com.programs.tree.traversal;
  * @author "Jigar Gosalia"
  *
  */
-public class Node {
+public class BinaryNode {
 
 	int data;
 
-	Node left;
+	BinaryNode left;
 
-	Node right;
+	BinaryNode right;
 
 	/**
 	 * @param data
 	 */
-	public Node(int data) {
+	public BinaryNode(int data) {
 		super();
 		this.data = data;
 		this.left = null;
@@ -32,7 +29,7 @@ public class Node {
 	 * @param left
 	 * @param right
 	 */
-	public Node(int data, Node left, Node right) {
+	public BinaryNode(int data, BinaryNode left, BinaryNode right) {
 		super();
 		this.data = data;
 		this.left = left;
@@ -56,28 +53,28 @@ public class Node {
 	/**
 	 * @return
 	 */
-	public Node getLeft() {
+	public BinaryNode getLeft() {
 		return left;
 	}
 
 	/**
 	 * @param left
 	 */
-	public void setLeft(Node left) {
+	public void setLeft(BinaryNode left) {
 		this.left = left;
 	}
 
 	/**
 	 * @return
 	 */
-	public Node getRight() {
+	public BinaryNode getRight() {
 		return right;
 	}
 
 	/**
 	 * @param right
 	 */
-	public void setRight(Node right) {
+	public void setRight(BinaryNode right) {
 		this.right = right;
 	}
 

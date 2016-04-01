@@ -11,7 +11,7 @@ public class BinarySearchTree {
 	/**
 	 * 
 	 */
-	private Node root;
+	private BinaryNode root;
 
 	public BinarySearchTree () {
 		super();
@@ -21,7 +21,7 @@ public class BinarySearchTree {
 	/**
 	 * @return
 	 */
-	public Node getRoot() {
+	public BinaryNode getRoot() {
 		return root;
 	}
 
@@ -38,12 +38,12 @@ public class BinarySearchTree {
 	 * @param data
 	 */
 	public void insert(int data) {
-		Node node = new Node(data, null, null);
-		Node parent;
+		BinaryNode node = new BinaryNode(data, null, null);
+		BinaryNode parent;
 		if (root == null) {
 			root = node;
 		} else {
-			Node current = root;
+			BinaryNode current = root;
 			parent = null;
 			while(true) {
 				if (data > current.getData()) {
@@ -69,9 +69,9 @@ public class BinarySearchTree {
 	 * @param data
 	 * @return
 	 */
-	public Node search(int data) {
-		Node node = null;
-		Node current = root;
+	public BinaryNode search(int data) {
+		BinaryNode node = null;
+		BinaryNode current = root;
 		while(current != null) {
 			if (data > current.getData()) {
 				current = current.getRight();

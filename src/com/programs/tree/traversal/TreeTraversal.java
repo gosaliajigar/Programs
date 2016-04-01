@@ -26,7 +26,7 @@ public class TreeTraversal {
 		bstTree.create(array);
 		System.out.println("Tree: " + bstTree.getRoot());
 		System.out.println();
-		Node node = bstTree.search(31);
+		BinaryNode node = bstTree.search(31);
 		System.out.println((node != null) ? "Element(31) found: " + node : "Element(31) not found");
 		node = bstTree.search(15);
 		System.out.println((node != null) ? "Element(15) found: " + node : "Element(15) not found");
@@ -49,7 +49,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	private static void preOrderTraversal(Node node) {
+	public static void preOrderTraversal(BinaryNode node) {
 		if (node != null) {
 			System.out.printf(node.getData() + " ");
 			preOrderTraversal(node.getLeft());
@@ -63,7 +63,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	private static void inOrderTraversal(Node node) {
+	public static void inOrderTraversal(BinaryNode node) {
 		if (node != null) {
 			inOrderTraversal(node.getLeft());
 			System.out.printf(node.getData() + " ");
@@ -77,7 +77,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	private static void postOrderTraversal(Node node) {
+	public static void postOrderTraversal(BinaryNode node) {
 		if (node != null) {
 			postOrderTraversal(node.getLeft());
 			postOrderTraversal(node.getRight());
@@ -91,12 +91,12 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	private static void levelOrderTraversal(Node root) {
-		List<Node> queue = new LinkedList<Node>();
+	public static void levelOrderTraversal(BinaryNode root) {
+		List<BinaryNode> queue = new LinkedList<BinaryNode>();
 		if (root != null) {
 			queue.add(root);
 			while (!queue.isEmpty()) {
-				Node node = queue.remove(0);
+				BinaryNode node = queue.remove(0);
 				System.out.printf(node.getData() + " ");
 				if (node.getLeft() != null) {
 					queue.add(node.getLeft());
