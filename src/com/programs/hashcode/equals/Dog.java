@@ -1,8 +1,8 @@
 package com.programs.hashcode.equals;
 
 /**
- * Dog Class implements equals and hashCode
- *
+ * Dog Class implements equals and hashCode.
+ *  
  * @author "Jigar Gosalia"
  *
  */

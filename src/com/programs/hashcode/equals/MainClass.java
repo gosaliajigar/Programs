@@ -6,6 +6,44 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
+ * Understanding importance of hashcode and equals method.<br>
+ * <br>
+ * <b>Override only hashCode</b><br>
+ * <br>
+ * Imagine you have this<br>
+ * 
+ * Dog first = new Dog("white");<br>
+ * Dog second = new Dog("white");<br>
+ * <br>
+ * If you only override hashCode then when you call map.put(first,someValue) it
+ * takes first, calculates its hashCode and stores it in a given bucket. Then
+ * when you call map.put(second,someOtherValue) it should replace first with
+ * second as per the Map Documentation because they are equal (according to our
+ * definition).<br>
+ * <br>
+ * But the problem is that equals was not redefined, so when the map hashes
+ * second and iterates through the bucket looking if there is an object k such
+ * that second.equals(k) is true it won't find any as second.equals(first) will
+ * be false.<br>
+ * <br>
+ * <br>
+ * <b>Override only equals</b><br>
+ * <br>
+ * If only equals is overridden, then when you call map.put(first,someValue)
+ * first will hash to some bucket and when you call
+ * map.put(second,someOtherValue) it will hash to some other bucket (as they
+ * have a different hashCode). So, although they are equal, as they don't hash
+ * to the same bucket, the map can't realize it and both of them stay in the
+ * map. <br>
+ * <br>
+ * <b>Override neither hashCode nor equals</b><br>
+ * <br>
+ * map.put(first,someValue) and map.put(second,someOtherValue) both will be
+ * inserted into map in absence of hashcode and equals method. Also when you do
+ * map.get(new Dog("white")), it wouldn't return any value back as it
+ * wouldn't be able to find that object in absence of equals method.<br>
+ * <br>
+ * 
  * @author "Jigar Gosalia"
  *
  */
