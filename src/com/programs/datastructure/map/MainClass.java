@@ -16,11 +16,14 @@ public class MainClass {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		map.put(21, 12);
 		map.put(25, 121);
+		System.out.println("HashMap(" + map.size() + ")");
 		map.put(29, 100);
 		map.put(30, 151);
 		map.put(33, 15);
 		map.put(35, 89);
-
+		map.put(28, 28);
+		System.out.println("HashMap(" + map.size() + ")");
+		System.out.println();
 		map.display();
 		System.out.println();
 
@@ -50,7 +53,7 @@ public class MainClass {
 
 		System.out.println("Remove Key(29): " + map.remove(29));
 		map.display();
-		
+		System.out.println("HashMap(" + map.size() + ")");		
 	}
 
 	/**

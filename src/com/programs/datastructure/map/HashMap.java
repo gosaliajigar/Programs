@@ -17,13 +17,15 @@ public class HashMap<K, V> implements Map<K, V> {
 
 	private Entry<K, V>[] table;
 
-	private final int CAPACITY = 4;
+	private final double loadFactor = 0.75;
+
+	private static final int TABLE_SIZE = 4;
 
 	/**
 	 * 
 	 */
 	public HashMap() {
-		table = new Entry[CAPACITY];
+		table = new Entry[TABLE_SIZE];
 	}
 
 	/* (non-Javadoc)
@@ -32,6 +34,10 @@ public class HashMap<K, V> implements Map<K, V> {
 	@Override
 	public void put(K key, V value) {
 		if (key != null) {
+			if (count >= (table.length * loadFactor)) {
+				resize();
+			}
+
 			int hash = hashcode(key);
 
 			Entry<K, V> entry = new Entry<K, V>(key, value, null);
@@ -210,10 +216,22 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/**
+	 * 
+	 */
+	private void resize() {
+		int size = (int) (table.length * 1.5);
+		Entry<K, V>[] newTable = new Entry[size];
+		for (int index = 0; index < table.length; index++) {
+			newTable[index] = table[index];
+		}
+		table = newTable;
+	}
+
+	/**
 	 * @param key
 	 * @return
 	 */
 	private int hashcode(K key) {
-		return (Math.abs(key.hashCode()) % CAPACITY);
+		return (Math.abs(key.hashCode()) % TABLE_SIZE);
 	}
 }
