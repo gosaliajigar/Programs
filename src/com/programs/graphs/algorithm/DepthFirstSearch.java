@@ -24,16 +24,15 @@ public class DepthFirstSearch {
 
 	private static int SIZE = 8;
 
-	private static Vertex[] listOfVertices = new Vertex[SIZE];
+	private static Vertex[] vertices = new Vertex[SIZE];
 
-	private static int[][] adjacentMatrix = new int[SIZE][SIZE];
+	private static int[][] edges = new int[SIZE][SIZE];
 
-	private static int vertexCount = 0;
+	private static int count = 0;
 
 	private static Stack stack = new Stack(SIZE);
 
 	// graph functions
-
 	/**
 	 * Add vertex to the vertex list
 	 * 
@@ -41,7 +40,7 @@ public class DepthFirstSearch {
 	 */
 	private static void addVertex(char label) {
 		Vertex vertex = new Vertex(label, false);
-		listOfVertices[vertexCount++] = vertex;
+		vertices[count++] = vertex;
 	}
 
 	/**
@@ -51,8 +50,8 @@ public class DepthFirstSearch {
 	 * @param end
 	 */
 	private static void addEdge(int start, int end) {
-		adjacentMatrix[start][end] = 1;
-		adjacentMatrix[end][start] = 1;
+		edges[start][end] = 1;
+		edges[end][start] = 1;
 	}
 
 	/**
@@ -61,7 +60,7 @@ public class DepthFirstSearch {
 	 * @param index
 	 */
 	private static void displayVertex(int index) {
-		System.out.println(listOfVertices[index]);
+		System.out.println(vertices[index]);
 	}
 
 	/**
@@ -71,8 +70,8 @@ public class DepthFirstSearch {
 	 * @return
 	 */
 	private static int getAdjacentUnvisitedVertex(int vertexIndex) {
-		for (int index = 0; index < vertexCount; index++) {
-			if (adjacentMatrix[vertexIndex][index] == 1 && listOfVertices[index].isVisited() == false) {
+		for (int index = 0; index < count; index++) {
+			if (edges[vertexIndex][index] == 1 && vertices[index].isVisited() == false) {
 				return index;
 			}
 		}
@@ -86,7 +85,7 @@ public class DepthFirstSearch {
 	 */
 	private static void depthFirstSearch() throws Exception {
 		// mark first node as visited
-		listOfVertices[0].setVisited(true);
+		vertices[0].setVisited(true);
 
 		// display the vertex
 		displayVertex(0);
@@ -102,15 +101,15 @@ public class DepthFirstSearch {
 			if (unvisitedVertex == -1) {
 				stack.pop();
 			} else {
-				listOfVertices[unvisitedVertex].setVisited(true);
+				vertices[unvisitedVertex].setVisited(true);
 				displayVertex(unvisitedVertex);
 				stack.push(unvisitedVertex);
 			}
 		}
 
 		// stack is empty, search is complete, reset the visited flag
-		for (int index = 0; index < vertexCount; index++) {
-			listOfVertices[index].setVisited(false);
+		for (int index = 0; index < count; index++) {
+			vertices[index].setVisited(false);
 		}
 	}
 
@@ -119,14 +118,14 @@ public class DepthFirstSearch {
 	 */
 	private static void displayEdges() {
 		System.out.print("  ");
-		for (int x = 0; x < vertexCount; x++) {
-			System.out.print(listOfVertices[x].getLabel() + " ");
+		for (int x = 0; x < count; x++) {
+			System.out.print(vertices[x].getLabel() + " ");
 		}
 		System.out.println();
-		for (int x = 0; x < vertexCount; x++) {
-			System.out.print(listOfVertices[x].getLabel() + " ");
-			for (int y = 0; y < vertexCount; y++) {
-				System.out.print(adjacentMatrix[x][y] + " ");
+		for (int x = 0; x < count; x++) {
+			System.out.print(vertices[x].getLabel() + " ");
+			for (int y = 0; y < count; y++) {
+				System.out.print(edges[x][y] + " ");
 			}
 			System.out.println();
 		}
@@ -137,8 +136,8 @@ public class DepthFirstSearch {
 	 * 
 	 */
 	private static void displayVertices() {
-		for (int index = 0; index < vertexCount; index++) {
-			System.out.println("Location(" + index + "): " + listOfVertices[index]);
+		for (int index = 0; index < count; index++) {
+			System.out.println("Location(" + index + "): " + vertices[index]);
 		}
 		System.out.println();
 	}
@@ -149,7 +148,7 @@ public class DepthFirstSearch {
 	private static void resetEdges() {
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {
-				adjacentMatrix[x][y] = 0;
+				edges[x][y] = 0;
 			}
 		}
 	}

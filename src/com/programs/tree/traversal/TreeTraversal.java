@@ -1,7 +1,7 @@
 package com.programs.tree.traversal;
 
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Queue;
 
 /**
  * Tree Traversal<br>
@@ -92,11 +92,11 @@ public class TreeTraversal {
 	 * @param node
 	 */
 	public static void levelOrderTraversal(BinaryNode root) {
-		List<BinaryNode> queue = new LinkedList<BinaryNode>();
+		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
 		if (root != null) {
 			queue.add(root);
 			while (!queue.isEmpty()) {
-				BinaryNode node = queue.remove(0);
+				BinaryNode node = queue.remove();
 				System.out.printf(node.getData() + " ");
 				if (node.getLeft() != null) {
 					queue.add(node.getLeft());
