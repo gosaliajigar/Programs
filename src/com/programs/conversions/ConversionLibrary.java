@@ -38,9 +38,8 @@ public class ConversionLibrary {
 	public static int bin2dec(String binary) {
 		int decimal = 0;
 		for (int index = 0; index < binary.length(); index++) {
-			int multiplier = ((binary.charAt(index) == '1') ? 1 : 0); 
-			decimal = (multiplier * (int) Math.pow(2, binary.length() - 1 - index))
-					+ decimal;
+			int multiplier = ((binary.charAt(index) == '1') ? 1 : 0);
+			decimal = (multiplier * (int) Math.pow(2, binary.length() - 1 - index)) + decimal;
 		}
 		return decimal;
 	}
@@ -79,8 +78,8 @@ public class ConversionLibrary {
 	public static int oct2dec(String octal) {
 		int decimal = 0;
 		for (int index = 0; index < octal.length(); index++) {
-			decimal = (Integer.parseInt(String.valueOf(octal.charAt(index)))
-					* (int) Math.pow(8, octal.length() - 1 - index)) + decimal;
+			int multiplier = Integer.parseInt(String.valueOf(octal.charAt(index)));
+			decimal = (multiplier * (int) Math.pow(8, octal.length() - 1 - index)) + decimal;
 		}
 		return decimal;
 	}
@@ -113,12 +112,8 @@ public class ConversionLibrary {
 	public static int hex2dec(String hex) {
 		int decimal = 0;
 		for (int index = 0; index < hex.length(); index++) {
-			if (hex.charAt(index) >= 'A' && hex.charAt(index) <= 'F') {
-				decimal = (getDecValue(hex.charAt(index)) * (int) Math.pow(16, hex.length() - 1 - index)) + decimal;
-			} else {
-				decimal = (Integer.parseInt(String.valueOf(hex.charAt(index)))
-						* (int) Math.pow(16, hex.length() - 1 - index)) + decimal;
-			}
+			int multiplier = getDecValue(hex.charAt(index));
+			decimal = (multiplier * (int) Math.pow(16, hex.length() - 1 - index)) + decimal;
 		}
 		return decimal;
 	}
@@ -229,7 +224,7 @@ public class ConversionLibrary {
 		int integer = 0;
 		for (int index = 0; index < ascii.length(); index++) {
 			if (ascii.charAt(index) >= '0' && ascii.charAt(index) <= '9') {
-				integer = (integer*10) + getDecValue(ascii.charAt(index));
+				integer = (integer * 10) + getDecValue(ascii.charAt(index));
 			} else {
 				throw new Exception("Is not an Integer : " + ascii.charAt(index));
 			}

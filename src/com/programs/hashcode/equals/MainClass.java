@@ -12,8 +12,8 @@ import java.util.Map.Entry;
  * <br>
  * Imagine you have this<br>
  * 
- * Dog first = new Dog("white");<br>
- * Dog second = new Dog("white");<br>
+ * Dog first = new Dog("white", 1);<br>
+ * Dog second = new Dog("white", 1);<br>
  * <br>
  * If you only override hashCode then when you call map.put(first,someValue) it
  * takes first, calculates its hashCode and stores it in a given bucket. Then
@@ -24,7 +24,8 @@ import java.util.Map.Entry;
  * But the problem is that equals was not redefined, so when the map hashes
  * second and iterates through the bucket looking if there is an object k such
  * that second.equals(k) is true it won't find any as second.equals(first) will
- * be false.<br>
+ * be false. Hence it will insert both first and second dogs in map in SAME
+ * bucket instead of overriding first by second.<br>
  * <br>
  * <br>
  * <b>Override only equals</b><br>
@@ -34,14 +35,15 @@ import java.util.Map.Entry;
  * map.put(second,someOtherValue) it will hash to some other bucket (as they
  * have a different hashCode). So, although they are equal, as they don't hash
  * to the same bucket, the map can't realize it and both of them stay in the
- * map. <br>
+ * map. Hence it will insert both first and second dogs in map in DIFFERENT
+ * bucket instead of overriding first by second.<br>
  * <br>
  * <b>Override neither hashCode nor equals</b><br>
  * <br>
  * map.put(first,someValue) and map.put(second,someOtherValue) both will be
  * inserted into map in absence of hashcode and equals method. Also when you do
- * map.get(new Dog("white")), it wouldn't return any value back as it
- * wouldn't be able to find that object in absence of equals method.<br>
+ * map.get(new Dog("white")), it wouldn't return any value back as it wouldn't
+ * be able to find that object in absence of equals method.<br>
  * <br>
  * 
  * @author "Jigar Gosalia"
@@ -54,10 +56,10 @@ public class MainClass {
 	 */
 	public static void main(final String[] arg) {
 
-		Dog d1 = new Dog("red");
-		Dog d2 = new Dog("white");
-		Dog d3 = new Dog("black");
-		Dog d4 = new Dog("red");
+		Dog d1 = new Dog("red", 1);
+		Dog d2 = new Dog("white", 1);
+		Dog d3 = new Dog("black", 1);
+		Dog d4 = new Dog("red", 1);
 
 		Map<Dog, Integer> map = new HashMap<Dog, Integer>();
 		System.out.println(MainClass.printMapUsingIterator(map));
@@ -74,13 +76,13 @@ public class MainClass {
 		System.out.println("Size of Map     : " + map.size());
 		// In absence of equals and hashCode implementation, it wouldn't find
 		// dog with red color.
-		System.out.println("Red is at       : " + map.get(new Dog("red")));
+		System.out.println("Red is at       : " + map.get(new Dog("red", 1)));
 		// In absence of equals and hashCode implementation, it wouldn't find
 		// dog with red color.
-		System.out.println("Deleting key at : " + map.get(new Dog("red")));
+		System.out.println("Deleting key at : " + map.get(new Dog("red", 1)));
 		// In absence of equals and hashCode implementation, it wouldn't delete
 		// dog with red color.
-		map.remove(new Dog("red"));
+		map.remove(new Dog("red", 1));
 		System.out.println(MainClass.printMapUsingEntrySet(map));
 		System.out.println("Size of Map     : " + map.size());
 	}
@@ -98,8 +100,7 @@ public class MainClass {
 
 		while (iterator.hasNext()) {
 			Entry<Dog, Integer> entry = iterator.next();
-			prettyMapFormat.append(entry.getKey().getColor()).append("=")
-					.append(entry.getValue());
+			prettyMapFormat.append(entry.getKey().getColor()).append("=").append(entry.getValue());
 			if (iterator.hasNext()) {
 				prettyMapFormat.append(", ");
 			}
@@ -117,10 +118,9 @@ public class MainClass {
 		prettyMapFormat.append("Printing Map    : ");
 		prettyMapFormat.append("{");
 		for (Entry<Dog, Integer> entry : map.entrySet()) {
-			prettyMapFormat.append(entry.getKey().getColor()).append("=")
-					.append(entry.getValue()).append(", ");
+			prettyMapFormat.append(entry.getKey().getColor()).append("=").append(entry.getValue()).append(", ");
 		}
-		prettyMapFormat.delete(prettyMapFormat.length()-2, prettyMapFormat.length());
+		prettyMapFormat.delete(prettyMapFormat.length() - 2, prettyMapFormat.length());
 		prettyMapFormat.append("}");
 		return prettyMapFormat.toString();
 	}

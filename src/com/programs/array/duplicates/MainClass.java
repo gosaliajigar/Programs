@@ -17,7 +17,7 @@ public class MainClass {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		String[] withDuplicates = new String[] { "one", "two", "three", "one" };
+		String[] withDuplicates = new String[] { "one", "two", "three", "one", "two" };
 		String[] withoutDuplicates = new String[] { "one", "two", "three" };
 
 		System.out
@@ -47,6 +47,9 @@ public class MainClass {
 		System.out
 				.println("Find duplicate value in array without duplicate         : "
 						+ findDuplicate(withoutDuplicates));
+		System.out
+				.println("Find all duplicate values in array with duplicate       : "
+						+ findAllDuplicate(withDuplicates));
 
 	}
 
@@ -123,4 +126,27 @@ public class MainClass {
 		}
 		return null;
 	}
+
+
+	/**
+	 * Adds the specified element to this set if it is not already present. More
+	 * formally, adds the specified element e to this set if the set contains no
+	 * element e2 such that (e==null ? e2==null : e.equals(e2)). If this set
+	 * already contains the element, the call leaves the set unchanged and
+	 * returns false.
+	 * 
+	 * @param input
+	 * @return
+	 */
+	public static Set<String> findAllDuplicate(final String[] input) {
+		Set<String> tempSet = new HashSet<String>();
+		Set<String> duplicates = new HashSet<String>();
+		for (String str : input) {
+			if (!tempSet.add(str)) {
+				duplicates.add(str);
+			}
+		}
+		return duplicates;
+	}
+
 }

@@ -14,10 +14,16 @@ public class Dog {
 	private String color;
 
 	/**
+	 * 
+	 */
+	private int type;
+
+	/**
 	 * @param color
 	 */
-	Dog(final String color) {
+	public Dog(final String color, final int type) {
 		this.setColor(color);
+		this.setType(type);
 	}
 
 	/**
@@ -34,6 +40,20 @@ public class Dog {
 		this.color = color;
 	}
 
+	/**
+	 * @return
+	 */
+	public int getType() {
+		return type;
+	}
+
+	/**
+	 * @param type
+	 */
+	public void setType(int type) {
+		this.type = type;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -42,6 +62,7 @@ public class Dog {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
+		result = prime * result + type;
 		return result;
 	}
 
@@ -62,16 +83,16 @@ public class Dog {
 				return false;
 		} else if (!color.equals(other.color))
 			return false;
+		if (type != other.type)
+			return false;
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Dog : [" + color + "]";
+		return "Dog [color=" + color + ", type=" + type + "]";
 	}
 }
