@@ -23,63 +23,48 @@ import java.util.Arrays;
  */
 public class QuickSort {
 
-	/**
-	 * 
-	 */
-	private static Integer[] intArray = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
+	/*	 */
+	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
 
 	/**
 	 * @param num1
 	 * @param num2
 	 */
-	public static void swap(int num1, int num2) {
-		int temp = intArray[num1];
-		intArray[num1] = intArray[num2];
-		intArray[num2] = temp;
+	public static void swap(int[] array, int num1, int num2) {
+		int temp = array[num1];
+		array[num1] = array[num2];
+		array[num2] = temp;
 	}
 
 	/**
-	 * @param left
-	 * @param right
+	 * @param p
+	 * @param q
 	 * @param pivot
 	 * @return
 	 */
-	public static int partition(int left, int right, int pivot) {
-		int leftPointer = left - 1;
-		int rightPointer = right;
-
-		while (true) {
-
-			while (intArray[++leftPointer] < pivot) {
-				// do nothing
-			}
-
-			while (rightPointer > 0 && intArray[--rightPointer] > pivot) {
-				// do nothing
-			}
-
-			if (leftPointer >= rightPointer) {
-				break;
-			} else {
-				swap(leftPointer, rightPointer);
+	public static int partition(int[] array, int p, int q) {
+		int x = array[p];
+		int i = p;
+		for (int j = p+1; j < q; j++) {
+			if (array[j] <= x) {
+				i = i + 1;
+				swap(array, i, j);
 			}
 		}
-		swap(leftPointer, right);
-		return leftPointer;
+		swap(array, p, i);
+		System.out.println(" - " + Arrays.toString(array));
+		return x;
 	}
 
 	/**
-	 * @param left
-	 * @param right
+	 * @param p
+	 * @param r
 	 */
-	public static void quickSort(int left, int right) {
-		if (right - left <= 0) {
-			return;
-		} else {
-			int pivot = intArray[right];
-			int partitionPoint = partition(left, right, pivot);
-			quickSort(left, partitionPoint - 1);
-			quickSort(partitionPoint + 1, right);
+	public static void quickSort(int[] array, int p, int r) {
+		if (p < r) {
+			int q = partition(array, p, r);
+			quickSort(array, p, q - 1);
+			quickSort(array, q + 1, r);
 		}
 	}
 
@@ -87,8 +72,10 @@ public class QuickSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.printf("Input Array: " + Arrays.toString(intArray));
-		quickSort(0, intArray.length - 1);
-		System.out.printf("Output Array: " + Arrays.toString(intArray));
+		System.out.printf("Input Array  : " + Arrays.toString(array));
+		System.out.println();
+		quickSort(array, 0, array.length);
+		System.out.println();
+		System.out.printf("Output Array : " + Arrays.toString(array));
 	}
 }

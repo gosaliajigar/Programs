@@ -44,19 +44,17 @@ public class InsertionSort {
 			valueToInsert = inputArray[position];
 
 			// select the hole position where number is to be inserted
-			holePosition = position;
+			holePosition = position - 1;
 
 			// check if previous no. is larger than value to be inserted
-			while (holePosition > 0 && inputArray[holePosition - 1] > valueToInsert) {
+			while (holePosition >= 0 && inputArray[holePosition] > valueToInsert) {
 				iterations++;
-				inputArray[holePosition] = inputArray[holePosition - 1];
+				inputArray[holePosition + 1] = inputArray[holePosition];
 				holePosition--;
 			}
 
-			if (holePosition != position) {
-				// insert the number at hole position
-				inputArray[holePosition] = valueToInsert;
-			}
+			// insert the number at hole position
+			inputArray[holePosition + 1] = valueToInsert;
 		}
 		System.out.println("Iterations:<" + iterations + "> Size:<" + inputArray.length + ">");
 		System.out.println("-" + Arrays.toString(inputArray));
