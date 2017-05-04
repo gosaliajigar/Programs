@@ -1,4 +1,4 @@
-package com.programs.datastructure.linkedlist;
+package datastructure.linkedlist;
 
 /**
  * Check if a given list is circular using two pointers.

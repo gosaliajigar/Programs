@@ -1,4 +1,4 @@
-package com.programs.datastructure.table;
+package datastructure.table;
 
 /**
  * HashEntry for HashTable.

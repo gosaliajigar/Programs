@@ -1,4 +1,4 @@
-package com.programs.tree.traversal;
+package tree.traversal;
 
 import java.util.LinkedList;
 import java.util.Queue;

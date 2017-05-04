@@ -1,4 +1,4 @@
-package com.programs.hashcode.equals;
+package hashcode.equals;
 
 /**
  * Dog Class implements equals and hashCode.

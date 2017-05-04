@@ -1,4 +1,4 @@
-package com.programs.factorial;
+package factorial;
 
 import java.util.Scanner;
 

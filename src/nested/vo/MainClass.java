@@ -1,4 +1,4 @@
-package com.programs.nested.vo;
+package nested.vo;
 
 import java.lang.reflect.Field;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package com.programs.nested.vo;
+package nested.vo;
 
 /**
  * @author "Jigar Gosalia"

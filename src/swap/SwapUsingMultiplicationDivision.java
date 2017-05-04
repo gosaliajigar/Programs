@@ -1,4 +1,4 @@
-package com.programs.swap;
+package swap;
 
 /**
  * Limitation: any of the number can't be 0.

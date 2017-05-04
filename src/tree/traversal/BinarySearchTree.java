@@ -1,4 +1,4 @@
-package com.programs.tree.traversal;
+package tree.traversal;
 
 /**
  * Binary Search Tree BST and its operations.

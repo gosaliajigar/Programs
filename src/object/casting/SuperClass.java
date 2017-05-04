@@ -1,4 +1,4 @@
-package com.programs.object.casting;
+package object.casting;
 
 /**
  *

@@ -1,4 +1,4 @@
-package com.programs.datastructure.map;
+package datastructure.map;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +29,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#put(java.lang.Object, java.lang.Object)
+	 * @see datastructure.map.Map#put(java.lang.Object, java.lang.Object)
 	 */
 	@Override
 	public void put(K key, V value) {
@@ -72,7 +72,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#get(java.lang.Object)
+	 * @see datastructure.map.Map#get(java.lang.Object)
 	 */
 	@Override
 	public V get(K key) {
@@ -119,7 +119,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#entrySet()
+	 * @see datastructure.map.Map#entrySet()
 	 */
 	@Override
 	public Set<Entry<K, V>> entrySet() {
@@ -135,7 +135,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#containsKey(java.lang.Object)
+	 * @see datastructure.map.Map#containsKey(java.lang.Object)
 	 */
 	@Override
 	public boolean containsKey(K key) {
@@ -153,7 +153,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#containsValue(java.lang.Object)
+	 * @see datastructure.map.Map#containsValue(java.lang.Object)
 	 */
 	@Override
 	public boolean containsValue(V value) {
@@ -170,7 +170,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#isEmpty()
+	 * @see datastructure.map.Map#isEmpty()
 	 */
 	@Override
 	public boolean isEmpty() {
@@ -178,7 +178,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#keySet()
+	 * @see datastructure.map.Map#keySet()
 	 */
 	@Override
 	public Set<K> keySet() {
@@ -194,7 +194,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.datastructure.map.Map#size()
+	 * @see datastructure.map.Map#size()
 	 */
 	@Override
 	public int size() {

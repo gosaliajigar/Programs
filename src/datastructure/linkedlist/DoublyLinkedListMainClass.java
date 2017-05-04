@@ -1,4 +1,4 @@
-package com.programs.datastructure.linkedlist;
+package datastructure.linkedlist;
 
 /**
  * Operations on DoublyLinkedList and their Time Complexity

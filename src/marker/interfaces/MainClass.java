@@ -1,4 +1,4 @@
-package com.programs.marker.interfaces;
+package marker.interfaces;
 
 /**
  * Demonstrating Cloned copy

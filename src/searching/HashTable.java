@@ -1,4 +1,4 @@
-package com.programs.searching;
+package searching;
 
 /**
  * Hash Table is a data structure which store data in associative manner. In

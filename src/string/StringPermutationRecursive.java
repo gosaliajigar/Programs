@@ -1,4 +1,4 @@
-package com.programs.string;
+package string;
 
 /**
  * Java Program to find all permutations of a String recursively

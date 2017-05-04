@@ -1,7 +1,7 @@
-package com.programs.add.numbers;
+package add.numbers;
 
-import com.programs.datastructure.linkedlist.Node;
-import com.programs.datastructure.linkedlist.SinglyLinkedList;
+import datastructure.linkedlist.Node;
+import datastructure.linkedlist.SinglyLinkedList;
 
 /**
  * Add numbers in singly linked list

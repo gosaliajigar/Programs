@@ -1,4 +1,4 @@
-package com.programs.arrays.array;
+package arrays.array;
 
 /**
  * Array of arrays.

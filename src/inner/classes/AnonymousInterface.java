@@ -1,4 +1,4 @@
-package com.programs.inner.classes;
+package inner.classes;
 
 /**
  * @author "Jigar Gosalia"

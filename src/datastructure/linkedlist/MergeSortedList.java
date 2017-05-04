@@ -1,4 +1,4 @@
-package com.programs.datastructure.linkedlist;
+package datastructure.linkedlist;
 
 /**
  * Merge two sorted list using a temporary sentinel node at start.

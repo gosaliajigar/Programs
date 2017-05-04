@@ -1,4 +1,4 @@
-package com.programs.searching;
+package searching;
 
 /**
  * Binary search is a fast search algorithm with run-time complexity of Ο(log

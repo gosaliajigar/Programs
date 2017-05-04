@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.programs.palindrome;
+package palindrome;
 
 import java.util.Arrays;
 

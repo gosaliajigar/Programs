@@ -1,6 +1,6 @@
-package com.programs.graphs.algorithm;
+package graphs.algorithm;
 
-import com.programs.datastructure.stack.Stack;
+import datastructure.stack.Stack;
 
 /**
  * Depth First Search algorithm(DFS) traverses a graph in a depth-ward motion

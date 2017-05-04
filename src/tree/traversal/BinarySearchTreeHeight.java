@@ -1,4 +1,4 @@
-package com.programs.tree.traversal;
+package tree.traversal;
 
 /**
  * Find height of Binary Search Tree.

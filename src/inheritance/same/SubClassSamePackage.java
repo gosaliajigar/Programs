@@ -1,4 +1,4 @@
-package com.programs.inheritance.same;
+package inheritance.same;
 
 /**
  * @author "Jigar Gosalia"
@@ -9,7 +9,7 @@ public class SubClassSamePackage extends SuperClass {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see com.programs.inheritance.SuperClass#publicMethod()
+	 * @see inheritance.SuperClass#publicMethod()
 	 */
 	@Override
 	public void publicMethod() {
@@ -19,7 +19,7 @@ public class SubClassSamePackage extends SuperClass {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see com.programs.inheritance.SuperClass#protectedMethod()
+	 * @see inheritance.SuperClass#protectedMethod()
 	 */
 	@Override
 	protected void protectedMethod() {

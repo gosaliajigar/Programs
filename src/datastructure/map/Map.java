@@ -1,4 +1,4 @@
-package com.programs.datastructure.map;
+package datastructure.map;
 
 import java.util.Set;
 

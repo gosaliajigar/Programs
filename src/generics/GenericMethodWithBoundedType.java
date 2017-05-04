@@ -1,4 +1,4 @@
-package com.programs.generics;
+package generics;
 
 /**
  * Generic Method with Bounded Types

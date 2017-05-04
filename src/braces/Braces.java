@@ -1,4 +1,4 @@
-package com.programs.braces;
+package braces;
 
 import java.util.Scanner;
 

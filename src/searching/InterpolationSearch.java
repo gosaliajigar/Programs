@@ -1,4 +1,4 @@
-package com.programs.searching;
+package searching;
 
 /**
  * Interpolation search is an improved variant of binary search. This search

@@ -1,4 +1,4 @@
-package com.programs.object.casting;
+package object.casting;
 
 /**
  * @author "Jigar Gosalia"
@@ -7,7 +7,7 @@ package com.programs.object.casting;
 class SubClass extends SuperClass {
 
 	/* (non-Javadoc)
-	 * @see com.programs.object.casting.SuperClass#print()
+	 * @see object.casting.SuperClass#print()
 	 */
 	@Override
 	public void print() {

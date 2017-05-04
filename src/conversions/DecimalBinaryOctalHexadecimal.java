@@ -1,4 +1,4 @@
-package com.programs.conversions;
+package conversions;
 
 /**
  * Conversion between Decimal, Binary, Octal and Hexadecimal.

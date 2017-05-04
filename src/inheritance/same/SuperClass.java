@@ -1,4 +1,4 @@
-package com.programs.inheritance.same;
+package inheritance.same;
 
 /**
  * @author "Jigar Gosalia"

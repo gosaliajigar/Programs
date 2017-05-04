@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.programs.datastructure.stack;
+package datastructure.stack;
 
 /**
  * @author "Jigar Gosalia"

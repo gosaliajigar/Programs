@@ -1,4 +1,4 @@
-package com.programs.producer.consumer;
+package producer.consumer;
 
 /**
  * Synchronized SharedBuffer implementation.

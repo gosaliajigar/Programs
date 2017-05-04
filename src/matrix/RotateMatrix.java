@@ -1,4 +1,4 @@
-package com.programs.matrix;
+package matrix;
 
 /**
  * Rotate Matrix by 90 degrees.

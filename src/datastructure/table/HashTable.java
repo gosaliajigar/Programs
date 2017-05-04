@@ -1,4 +1,4 @@
-package com.programs.datastructure.table;
+package datastructure.table;
 
 /**
  * HashTable Implementation with Linear Probing.<br>

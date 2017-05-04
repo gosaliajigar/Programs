@@ -1,6 +1,6 @@
-package com.programs.inheritance.different;
+package inheritance.different;
 
-import com.programs.inheritance.same.SuperClass;
+import inheritance.same.SuperClass;
 
 /**
  * @author "Jigar Gosalia"
@@ -9,7 +9,7 @@ import com.programs.inheritance.same.SuperClass;
 public class SubClassDifferentPackage extends SuperClass {
 
 	/* (non-Javadoc)
-	 * @see com.programs.inheritance.SuperClass#publicMethod()
+	 * @see inheritance.SuperClass#publicMethod()
 	 */
 	@Override
 	public void publicMethod() {
@@ -17,7 +17,7 @@ public class SubClassDifferentPackage extends SuperClass {
 	}
 
 	/* (non-Javadoc)
-	 * @see com.programs.inheritance.SuperClass#protectedMethod()
+	 * @see inheritance.SuperClass#protectedMethod()
 	 */
 	@Override
 	public void protectedMethod() {

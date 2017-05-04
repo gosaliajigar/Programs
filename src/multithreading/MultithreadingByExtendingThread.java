@@ -1,4 +1,4 @@
-package com.programs.multithreading;
+package multithreading;
 
 /**
  * @author "Jigar Gosalia"

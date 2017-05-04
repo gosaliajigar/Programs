@@ -1,4 +1,4 @@
-package com.programs.searching;
+package searching;
 
 /**
  * Linear search is a very simple search algorithm. In this type of search, a

@@ -1,7 +1,7 @@
-package com.programs.inheritance.different;
+package inheritance.different;
 
-import com.programs.inheritance.same.SubClassSamePackage;
-import com.programs.inheritance.same.SuperClass;
+import inheritance.same.SubClassSamePackage;
+import inheritance.same.SuperClass;
 
 /**
  *

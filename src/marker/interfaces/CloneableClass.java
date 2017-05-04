@@ -1,4 +1,4 @@
-package com.programs.marker.interfaces;
+package marker.interfaces;
 
 /**
  * Class implementing Cloneable

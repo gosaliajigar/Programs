@@ -1,4 +1,4 @@
-package com.programs.recursion;
+package recursion;
 
 /**
  * 

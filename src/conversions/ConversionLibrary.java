@@ -1,4 +1,4 @@
-package com.programs.conversions;
+package conversions;
 
 /**
  * Conversion Library for conversion between ... <br>

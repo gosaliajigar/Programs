@@ -1,8 +1,8 @@
-package com.programs.inner.classes;
+package inner.classes;
 
 //nested classes can be used in import for easy instantiation
-// import com.programs.inner.classes.OuterClass.NonStaticInnerClass;
-// import com.programs.inner.classes.OuterClass.StaticNestedClass;
+// import inner.classes.OuterClass.NonStaticInnerClass;
+// import inner.classes.OuterClass.StaticNestedClass;
 
 /**
  * @author "Jigar Gosalia"

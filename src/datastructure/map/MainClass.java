@@ -1,8 +1,8 @@
-package com.programs.datastructure.map;
+package datastructure.map;
 
 import java.util.Set;
 
-import com.programs.datastructure.map.Map.Entry;
+import datastructure.map.Map.Entry;
 
 /**
  * Demonstrate Custom HashMap implementation.

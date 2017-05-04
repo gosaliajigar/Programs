@@ -1,4 +1,4 @@
-package com.programs.serializable;
+package serializable;
 
 import java.io.File;
 import java.io.FileOutputStream;

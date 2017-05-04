@@ -1,4 +1,4 @@
-package com.programs.armstrong;
+package armstrong;
 import java.util.Scanner;
 
 /**

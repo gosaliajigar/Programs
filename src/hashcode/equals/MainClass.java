@@ -1,4 +1,4 @@
-package com.programs.hashcode.equals;
+package hashcode.equals;
 
 import java.util.HashMap;
 import java.util.Iterator;

@@ -1,4 +1,4 @@
-package com.programs.comparable.comparator;
+package comparable.comparator;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.programs.versions;
+package versions;
 
 /**
  * Compare versions and return -1, 0 and 1 appropriately.

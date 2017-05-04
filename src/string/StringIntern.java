@@ -1,4 +1,4 @@
-package com.programs.string;
+package string;
 
 /**
  * <b>String automatically calls intern() on literal constants so technically,

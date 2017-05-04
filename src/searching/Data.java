@@ -1,4 +1,4 @@
-package com.programs.searching;
+package searching;
 
 /**
  * Data element for Hash Table

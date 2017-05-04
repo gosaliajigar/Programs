@@ -1,4 +1,4 @@
-package com.programs.swap;
+package swap;
 
 /**
  * @author "Jigar Gosalia"

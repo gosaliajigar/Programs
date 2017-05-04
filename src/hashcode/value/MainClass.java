@@ -1,4 +1,4 @@
-package com.programs.hashcode.value;
+package hashcode.value;
 
 /**
  * HashCode for any Object
@@ -14,7 +14,7 @@ public class MainClass {
 	public static void main(final String[] args) {
 		MainClass mainClass = new MainClass();
 
-		// Prints com.programs.hashcode.value.MainClass + @ +
+		// Prints hashcode.value.MainClass + @ +
 		// Integer.toHexString(mainClass.hashCode())
 		System.out.println(mainClass);
 		System.out.println(Integer.toHexString(mainClass.hashCode()));

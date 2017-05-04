@@ -1,4 +1,4 @@
-package com.programs.marker.interfaces;
+package marker.interfaces;
 
 /**
  * @author "Jigar Gosalia"

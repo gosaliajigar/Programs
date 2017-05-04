@@ -1,4 +1,4 @@
-package com.programs.power;
+package power;
 
 import java.util.Scanner;
 

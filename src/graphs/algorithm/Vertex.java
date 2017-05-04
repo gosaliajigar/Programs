@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.programs.graphs.algorithm;
+package graphs.algorithm;
 
 /**
  * Vertex for Graph Traversal Algorithms

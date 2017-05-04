@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.programs.serializable;
+package serializable;
 
 import java.io.Serializable;
 
