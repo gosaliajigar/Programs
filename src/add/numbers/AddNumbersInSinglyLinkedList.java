@@ -44,11 +44,11 @@ public class AddNumbersInSinglyLinkedList {
 			int one = 0;
 			int two = 0;
 			if (startOne != null) {
-				one = (int) startOne.getData();
+				one = (Integer) startOne.getData();
 				startOne = startOne.getNext();
 			}
 			if (startTwo != null) {
-				two = (int) startTwo.getData();
+				two = (Integer) startTwo.getData();
 				startTwo = startTwo.getNext();
 			}
 			int sum = carry + one + two;

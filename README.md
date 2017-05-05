@@ -4,5 +4,5 @@ Programs
 Most common Java Programs ... 
 
 
-Note : You might have to download external jars from the ExternalJars directory to run some of the java programs
+NOTE : You need to download and import external jars from the ExternalJars directory to run some of the java programs
 

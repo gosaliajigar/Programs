@@ -21,3 +21,9 @@ hs_err_pid*
 
 target/
 bin/
+
+# Eclipse Files
+
+.classpath
+.project
+

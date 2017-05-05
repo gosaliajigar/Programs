@@ -84,11 +84,11 @@ public class MergeSortedList {
 		Node start = list;
 		while (odd != null || even != null) {
 			if (odd != null && even != null) {
-				if ((int)odd.getData() < (int)even.getData()) {
+				if ((Integer)odd.getData() < (Integer)even.getData()) {
 					list.setNext(odd);
 					odd = odd.getNext();
 					list = list.getNext();
-				} else if ((int)odd.getData() > (int)even.getData()) {
+				} else if ((Integer)odd.getData() > (Integer)even.getData()) {
 					list.setNext(even);
 					even = even.getNext();
 					list = list.getNext();
