@@ -54,15 +54,29 @@ public class Dog {
 		this.type = type;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
+	 * 
 	 */
 	@Override
 	public int hashCode() {
+		/* According to Joshua Bloch's Effective Java<br>
+		 * <br>
+		 * The value 31 was chosen because it is an odd prime. If it were even and
+		 * the multiplication overflowed, information would be lost, as
+		 * multiplication by 2 is equivalent to shifting.<br> <br>
+		 * <br>
+		 * The advantage of using a prime is less clear, but it is traditional. A
+		 * nice property of 31 is that the multiplication can be replaced by a shift
+		 * and a subtraction for better performance: 31 * i == (i << 5) - i. Modern
+		 * VMs do this sort of optimization automatically.
+		 */
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + type;
+		result = 31 * (31 * 1 + color.hashCode()) + type;
 		return result;
 	}
 
