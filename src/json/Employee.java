@@ -2,6 +2,12 @@ package json;
 
 import java.util.Arrays;
 
+/**
+ * Java Class for JSON conversion.
+ * 
+ * @author "Jigar Gosalia"
+ *
+ */
 public class Employee {
 
 	private long id;
