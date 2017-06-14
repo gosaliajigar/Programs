@@ -55,12 +55,14 @@ public final class LRUCache<K, V> {
 	}
 
 	private void remove(Node<K, V> node) {
+		// node can be head
 		if (node.getPrevious() != null) {
 			node.getPrevious().setNext(node.getNext());
 		} else {
 			head = node.getNext();
 		}
 
+		// node can be tail
 		if (node.getNext() != null) {
 			node.getNext().setPrevious(node.getPrevious());
 		} else {
