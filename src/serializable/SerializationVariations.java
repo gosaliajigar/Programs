@@ -33,7 +33,7 @@ public class SerializationVariations {
 		// serializing object
 		write(blackNissan);
 
-		System.out.println("Create new object with different non-final static");
+		System.out.println("Create new object with different make (non-final static)");
 		// creating another object with different make (non-final static)
 		Car redToyota = new Car("Toyota", true, 2000, 23000, "RED", true);
 		System.out.println();

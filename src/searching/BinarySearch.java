@@ -44,7 +44,7 @@ public class BinarySearch {
 
 		while (lowerBound <= upperBound) {
 			iterations++;
-			middle = lowerBound + ((upperBound - lowerBound) / 2);
+			middle = ((upperBound + lowerBound) / 2);
 			// data is greater than value at middle, hence it is more towards
 			// upperBound, so move lowerBound
 			if (array[middle] < data) {

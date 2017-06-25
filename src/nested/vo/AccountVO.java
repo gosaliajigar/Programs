@@ -5,10 +5,30 @@ package nested.vo;
  *
  */
 public class AccountVO {
+	
+	/**
+	 * 
+	 */
+	private int id;
+	
 	/**
 	 * 
 	 */
 	private CustomerVO customerVO;
+
+	/**
+	 * @return
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return
@@ -29,6 +49,6 @@ public class AccountVO {
 	 */
 	@Override
 	public String toString() {
-		return "AccountVO[Customer=" + this.customerVO + "]";
+		return "AccountVO[id=" + this.id + ";Customer=" + this.customerVO + "]";
 	}
 }

@@ -32,12 +32,17 @@ public class HashTable {
 	/**
 	 * 
 	 */
+	private static int count = 0;
+
+	/**
+	 * 
+	 */
 	private static Data[] hashArray = new Data[SIZE];
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		insert(1, 20);
 		insert(2, 70);
 		insert(42, 80);
@@ -85,8 +90,11 @@ public class HashTable {
 	 * @param key
 	 * @param value
 	 */
-	private static void insert(int key, int value) {
+	private static void insert(int key, int value) throws Exception {
 
+		if (count >= SIZE) {
+			throw new Exception("HashTable full");
+		}
 		Data data = new Data(key, value);
 
 		// get the hash
@@ -98,6 +106,7 @@ public class HashTable {
 			hashIndex = (hashIndex + 1) % SIZE;
 		}
 		hashArray[hashIndex] = data;
+		count++;
 	}
 
 	/**
@@ -155,6 +164,7 @@ public class HashTable {
 
 				// assign a dummy item at deleted position
 				hashArray[hashIndex] = new Data(-1, -1);
+				count--;
 				return temp;
 			}
 

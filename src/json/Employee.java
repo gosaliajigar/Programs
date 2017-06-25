@@ -16,6 +16,8 @@ public class Employee {
 
 	private int[] tasks;
 
+	private Department department;
+
 	public Employee() {}
 
 	public Employee(long id, String name, int[] tasks) {
@@ -23,6 +25,15 @@ public class Employee {
 		this.id = id;
 		this.name = name;
 		this.tasks = tasks;
+		this.department = null;
+	}
+
+	public Employee(long id, String name, int[] tasks, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.tasks = tasks;
+		this.department = department;
 	}
 
 	public long getId() {
@@ -37,10 +48,14 @@ public class Employee {
 		return tasks;
 	}
 
+	public Department getDepartment() {
+		return department;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", tasks="
-				+ Arrays.toString(tasks) + "]";
+				+ Arrays.toString(tasks) + ", department=" + department + "]";
 	}
 
 }

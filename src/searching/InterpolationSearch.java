@@ -11,7 +11,7 @@ package searching;
  * to probe the position of desired data.<br>
  * <br>
  * 
- * Interpolation search search a particular item by computing the probe
+ * Interpolation Search searches a particular item by computing the probe
  * position. Initially probe position is the position of the middle most item of
  * the collection. <br>
  * <br>

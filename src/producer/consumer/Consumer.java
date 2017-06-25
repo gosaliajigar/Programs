@@ -28,7 +28,7 @@ class Consumer extends Thread {
 	public void run() {
 		for (int iteration = 0; iteration < 10; iteration++) {
 			int value = sharedBuffer.get();
-			System.out.println("Consumer #" + this.id + " got: " + value);
+			System.out.println(" - Consumer #" + this.id + " got: " + value);
 			System.out.println();
 		}
 	}

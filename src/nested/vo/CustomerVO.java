@@ -44,6 +44,6 @@ public class CustomerVO {
 	 */
 	@Override
 	public String toString() {
-		return "CustomerVO[ID=" + this.id + ";Name=" + this.name + "]";
+		return "CustomerVO[id=" + this.id + ";name=" + this.name + "]";
 	}
 }

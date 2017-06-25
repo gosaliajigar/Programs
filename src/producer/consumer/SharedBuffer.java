@@ -10,36 +10,37 @@ public class SharedBuffer {
 
 	private int contents;
 
-	private boolean available = false;
+	private boolean isReadyForReading = false;
 
 	/**
 	 * @return
 	 */
 	public synchronized int get() {
-		while (available == false) {
+		while (isReadyForReading == false) {
 			try {
 				wait();
 			} catch (InterruptedException exception) {
 				exception.printStackTrace();
 			}
 		}
-		available = false;
+		int data = contents; 
+		isReadyForReading = false;
 		notifyAll();
-		return contents;
+		return data;
 	}
 
 	/**
 	 * @param value
 	 */
 	public synchronized void put(int value) {
-		while (available == true) {
+		while (isReadyForReading == true) {
 			try {
 				wait();
 			} catch (InterruptedException exception) {
 				exception.printStackTrace();
 			}
 		}
-		available = true;
+		isReadyForReading = true;
 		contents = value;
 		notifyAll();
 	}

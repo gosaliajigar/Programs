@@ -52,8 +52,7 @@ public class PalindromeCheck {
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindromeWithoutAnyOtherClass(
-			final char[] inputArray) {
+	public static boolean isPalindromeWithoutAnyOtherClass(final char[] inputArray) {
 		return isPalindromeWithoutAnyOtherClass(Arrays.toString(inputArray));
 	}
 
@@ -61,8 +60,7 @@ public class PalindromeCheck {
 	 * @param inputString
 	 * @return
 	 */
-	public static boolean isPalindromeWithoutAnyOtherClass(
-			final String inputString) {
+	public static boolean isPalindromeWithoutAnyOtherClass(final String inputString) {
 		if (inputString == null) {
 			return false;
 		}
@@ -74,8 +72,7 @@ public class PalindromeCheck {
 		// Note usage of toLowerCase as primitive char doesn't have any methods
 		// to do that
 		for (int i = 0; i <= inputString.length() / 2; i++) {
-			if (inputString.toLowerCase().charAt(i) == inputString
-					.toLowerCase().charAt(inputString.length() - i - 1)) {
+			if (inputString.toLowerCase().charAt(i) == inputString.toLowerCase().charAt(inputString.length() - i - 1)) {
 				continue;
 			} else {
 				return false;
@@ -88,8 +85,7 @@ public class PalindromeCheck {
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindromeWithStringBuilder(
-			final char[] inputArray) {
+	public static boolean isPalindromeWithStringBuilder(final char[] inputArray) {
 		return isPalindromeWithStringBuilder(Arrays.toString(inputArray));
 	}
 

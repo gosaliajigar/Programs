@@ -26,7 +26,7 @@ public class CloneableClass implements Cloneable {
 	/**
 	 *
 	 */
-	private CompositeClass compositeClass = new CompositeClass();
+	private CompositeClass compositeClass;
 
 	/**
 	 * @return
@@ -92,5 +92,12 @@ public class CloneableClass implements Cloneable {
 	@Override
 	public CloneableClass clone() throws CloneNotSupportedException {
 		return new CloneableClass();
+	}
+
+	/**
+	 * 
+	 */
+	public CloneableClass() {
+		this.compositeClass = new CompositeClass();
 	}
 }

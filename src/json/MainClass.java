@@ -24,7 +24,7 @@ import com.google.gson.Gson;
  */
 public class MainClass {
 
-	private static final String json = "{\"id\" : 1001,\"name\" : \"James\",\"tasks\":[13, 34, 34, 15, 67, 35, 12, 81]}";
+	private static final String json = "{\"id\" : 1001,\"name\" : \"James\",\"tasks\":[13, 34, 34, 15, 67, 35, 12, 81],\"department\" : {\"name\" : \"HR\"}}";
 
 	public static void main(String[] args) throws Exception {
 		useGsonLibrary();
@@ -56,7 +56,9 @@ public class MainClass {
 		for (int index = 0; index < tasks.length; index++) {
 			tasks[index] = tasksList.get(index).intValue();
 		}
-		Employee jsonEmployee = new Employee(id, name, tasks);
+		String dname = (String) ((JSONObject) jsonObject.get("department")).get("name");
+		Department department = new Department(dname);
+		Employee jsonEmployee = new Employee(id, name, tasks, department);
 		System.out.println("JSON -> Java: " + jsonEmployee);
 		System.out.println("Java -> JSON: " + jsonObject);
 	}

@@ -33,7 +33,6 @@ public class MainClass {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-
 		BankVO parentObject = (BankVO) createObject(BankVO.class.getName(), "");
 		System.out.println();
 		System.out.println(parentObject);

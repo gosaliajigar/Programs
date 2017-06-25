@@ -1,6 +1,7 @@
 package pascal.triangle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Print Pascal Triangle
@@ -14,7 +15,7 @@ public class PascalTriangle {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		for (ArrayList<Integer> row : generate(4)) {
+		for (List<Integer> row : generate(6)) {
 			System.out.println(row);
 		}
 	}

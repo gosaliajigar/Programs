@@ -26,10 +26,7 @@ public class Inverse {
 			StringBuilder value = new StringBuilder(complementValue);
 			String reverse = value.reverse().toString();
 			for (int index = 0; index < reverse.length(); index++) {
-				int multiplier = 0;
-				if (reverse.charAt(index) == '1') {
-					multiplier = 1;
-				}
+				int multiplier = ((reverse.charAt(index) == '1') ? 1 : 0);
 				decimal += multiplier * (int)(Math.pow(2, index));
 			}
 		}

@@ -51,9 +51,8 @@ public class MainClass {
 	 */
 	public static void displayArray(final Object[][] array) {
 		for (int i = 0; i < array.length; i++) {
-			System.out.print("Row : " + i + " ");
 			for (int j = 0; j < array[i].length; j++) {
-				System.out.print(array[i][j] + " ");
+				System.out.printf("%-8s ", array[i][j]);
 			}
 			System.out.println();
 		}

@@ -109,7 +109,7 @@ public class HeapOperations {
 
 	public static Heap copy(Heap heap, int heapSize) {
 		Heap newHeap = new Heap(new int[heapSize], heapSize);
-		for (int index = 0; index < heapSize; index++) {
+		for (int index = 0; index < heap.heapSize; index++) {
 			newHeap.a[index] = heap.a[index];
 		}
 		return newHeap;
