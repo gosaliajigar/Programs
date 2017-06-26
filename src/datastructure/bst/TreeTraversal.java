@@ -1,4 +1,4 @@
-package tree.traversal;
+package datastructure.bst;
 
 import java.util.LinkedList;
 import java.util.Queue;

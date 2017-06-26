@@ -7,18 +7,18 @@ import datastructure.stack.Stack;
  * and uses a <b>stack</b> to remember to get the next vertex to start a search
  * when a dead end occurs in any iteration.<br>
  * <br>
- * <b>Rule 1</b> − Visit adjacent unvisited vertex. Mark it visited. Display it.
- * Push it in a stack.<br>
+ * <b>Rule 1</b> − Visit adjacent unvisited vertex. Mark it visited. Display
+ * it. Push it in a stack.<br>
  * <br>
- * <b>Rule 2</b> − If no adjacent vertex found, pop up a vertex from stack. (It
- * will pop up all the vertices from the stack which do not have adjacent
+ * <b>Rule 2</b> − If no adjacent vertex found, pop up a vertex from stack.
+ * (It will pop up all the vertices from the stack which do not have adjacent
  * vertices.)<br>
  * <br>
  * <b>Rule 3</b> − Repeat Rule 1 and Rule 2 until stack is empty.<br>
  * <br>
  * 
  * @author "Jigar Gosalia"
- *
+ * 
  */
 public class DepthFirstSearch {
 
@@ -71,7 +71,8 @@ public class DepthFirstSearch {
 	 */
 	private static int getAdjacentUnvisitedVertex(int vertexIndex) {
 		for (int index = 0; index < count; index++) {
-			if (edges[vertexIndex][index] == 1 && vertices[index].isVisited() == false) {
+			if (edges[vertexIndex][index] == 1
+					&& vertices[index].isVisited() == false) {
 				return index;
 			}
 		}

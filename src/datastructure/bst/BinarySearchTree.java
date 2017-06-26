@@ -1,4 +1,4 @@
-package tree.traversal;
+package datastructure.bst;
 
 /**
  * Binary Search Tree BST and its operations.

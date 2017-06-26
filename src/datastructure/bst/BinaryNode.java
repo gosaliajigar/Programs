@@ -1,4 +1,4 @@
-package tree.traversal;
+package datastructure.bst;
 
 /**
  * Node for Tree Traversal

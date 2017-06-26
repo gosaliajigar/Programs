@@ -12,8 +12,8 @@ public class StringCombinationRecursive {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		String input = "ABC";
-		combineRecursive(input, new StringBuffer(), 0);
+		String input = "ABCDEF";
+		combineRecursive(input, new StringBuilder(), 0);
 	}
 
 	/**
@@ -21,11 +21,10 @@ public class StringCombinationRecursive {
 	 * @param output
 	 * @param index
 	 */
-	public static void combineRecursive(final String input,
-			final StringBuffer output, final int index) {
+	public static void combineRecursive(final String input, final StringBuilder output, final int index) {
 		for (int i = index; i < input.length(); i++) {
 			output.append(input.charAt(i));
-			System.out.print(output + " ");
+			System.out.println(output);
 			combineRecursive(input, output, i + 1);
 			output.deleteCharAt(output.length() - 1);
 		}
