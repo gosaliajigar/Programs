@@ -76,7 +76,7 @@ public class Dog {
 		int result = 1;
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + type;
-		result = 31 * (31 * 1 + color.hashCode()) + type;
+		// result = 31 * (31 * 1 + color.hashCode()) + type;
 		return result;
 	}
 

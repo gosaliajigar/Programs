@@ -30,7 +30,7 @@ class Producer extends Thread {
 			sharedBuffer.put(data);
 			System.out.println("Producer #" + this.id + " put: " + data);
 			try {
-				sleep((int) (Math.random() * 100));
+				sleep((int) (Math.random() * 1000));
 			} catch (InterruptedException exception) {
 				exception.printStackTrace();
 			}

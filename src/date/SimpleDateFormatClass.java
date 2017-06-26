@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * SimpleDateFormat Example
+ * @link http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
  *
  * @author "Jigar Gosalia"
  *

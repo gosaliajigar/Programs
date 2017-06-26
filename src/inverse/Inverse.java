@@ -47,11 +47,9 @@ public class Inverse {
 
 	private static String dec2bin(int value) {
 		StringBuilder binary = new StringBuilder();
-		int remainder = 0;
-		int quotient = 0;
 		while (value != 0) {
-			remainder = value % 2;
-			quotient = value / 2;
+			int remainder = value % 2;
+			int quotient = value / 2;
 			binary.append(remainder);
 			value = quotient;
 		}

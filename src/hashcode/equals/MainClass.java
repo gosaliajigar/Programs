@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Understanding importance of hashcode and equals method.<br>
+ * Understanding importance of hashcode() and equals() method.<br>
  * <br>
  * <b>Override only hashCode</b><br>
  * <br>
@@ -42,7 +42,7 @@ import java.util.Map.Entry;
  * <br>
  * map.put(first,someValue) and map.put(second,someOtherValue) both will be
  * inserted into map in absence of hashcode and equals method. Also when you do
- * map.get(new Dog("white")), it wouldn't return any value back as it wouldn't
+ * map.get(new Dog("white", 1)), it wouldn't return any value back as it wouldn't
  * be able to find that object in absence of equals method.<br>
  * <br>
  * 

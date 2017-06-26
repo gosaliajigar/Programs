@@ -6,7 +6,7 @@ package inner.classes;
  */
 public class OuterClass {
 
-	private static String name = "OuterClass";
+	private static String staticField = "OuterClass";
 
 	private int privateField;
 
@@ -40,7 +40,7 @@ public class OuterClass {
 		}
 
 		public String getName() {
-			return name;
+			return staticField;
 		}
 
 		@Override
@@ -77,7 +77,7 @@ public class OuterClass {
 		}
 
 		public String getName() {
-			return name;
+			return staticField;
 		}
 	}
 
@@ -110,7 +110,7 @@ public class OuterClass {
 			 */
 			public void logAll() {
 				System.out.println(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
-				System.out.println(OuterClass.name);
+				System.out.println(OuterClass.staticField);
 			}
 		}
 
@@ -119,7 +119,7 @@ public class OuterClass {
 		logger.logAll();
 
 		// method accessing OuterClass fields
-		logger.log(name);
+		logger.log(staticField);
 		logger.log(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
 	}
 
@@ -144,7 +144,7 @@ public class OuterClass {
 			 */
 			public void logAll() {
 				System.out.println(privateField + ", " + protectedField + ", " + packageField + ", " + publicField);
-				System.out.println(OuterClass.name);
+				System.out.println(OuterClass.staticField);
 			}
 		};
 	}

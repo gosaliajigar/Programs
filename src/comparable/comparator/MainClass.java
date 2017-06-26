@@ -40,33 +40,28 @@ public class MainClass {
 
 		// sorting employees array using Comparable interface implementation
 		Arrays.sort(employeeWithComparable);
-		System.out.println("Default Sorting of Employees list by Comparable:\n"
-				+ Arrays.toString(employeeWithComparable));
+		System.out.println("Default Sorting of Employees list by Comparable:\n"	+ Arrays.toString(employeeWithComparable));
 		System.out.println();
 
 		// sort employees array using Comparator by Salary
 		Arrays.sort(employeeWithComparable, EmployeeWithComparable.SalaryComparator);
-		System.out.println("Employees list sorted by Salary:\n"
-				+ Arrays.toString(employeeWithComparable));
+		System.out.println("Employees list sorted by Salary:\n" + Arrays.toString(employeeWithComparable));
 		System.out.println();
 
 		// sort employees array using Comparator by Age
 		Arrays.sort(employeeWithComparable,	EmployeeWithComparable.AgeComparator);
-		System.out.println("Employees list sorted by Age:\n"
-				+ Arrays.toString(employeeWithComparable));
+		System.out.println("Employees list sorted by Age:\n" + Arrays.toString(employeeWithComparable));
 		System.out.println();
 
 		// sort employees array using Comparator by Name
 		Arrays.sort(employeeWithComparable, EmployeeWithComparable.NameComparator);
-		System.out.println("Employees list sorted by Name:\n"
-				+ Arrays.toString(employeeWithComparable));
+		System.out.println("Employees list sorted by Name:\n" + Arrays.toString(employeeWithComparable));
 		System.out.println();
 
 		// Employees list sorted by ID and then name using Comparator class
 		employeeWithComparable[0] = new EmployeeWithComparable(1, "Mikey", 25, 10000);
 		Arrays.sort(employeeWithComparable, new EmployeeComparatorByIdAndName());
-		System.out.println("Employees list sorted by ID and Name:\n"
-				+ Arrays.toString(employeeWithComparable));
+		System.out.println("Employees list sorted by ID and Name:\n" + Arrays.toString(employeeWithComparable));
 		System.out.println();
 	}
 }

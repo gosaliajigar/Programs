@@ -30,11 +30,9 @@ public class CopyArray {
 		// System.arraycopy copies content from source array to destination array
 		System.out.println("Using System.arraycopy");
 		System.out.println("----------------------");
-		System.out.println("Before - Copied Array   : "
-				+ Arrays.toString(systemArrayCopy));
+		System.out.println("Before - Copied Array   : " + Arrays.toString(systemArrayCopy));
 		System.arraycopy(charArray, 0, systemArrayCopy, 0, charArray.length);
-		System.out.println("After - Copied Array    : "
-				+ Arrays.toString(systemArrayCopy));
+		System.out.println("After - Copied Array    : "	+ Arrays.toString(systemArrayCopy));
 		System.out.println("charArray Address       : " + charArray);
 		System.out.println("systemArrayCopy Address : " + systemArrayCopy);
 
@@ -44,8 +42,7 @@ public class CopyArray {
 		System.out.println("Using Arrays.copyOf");
 		System.out.println("-------------------");
 		arraysCopyOf = Arrays.copyOf(charArray, 2);
-		System.out.println("After - Copied Array    : "
-				+ Arrays.toString(arraysCopyOf));
+		System.out.println("After - Copied Array    : " + Arrays.toString(arraysCopyOf));
 		System.out.println("charArray Address       : " + charArray);
 		System.out.println("arraysCopyOf Address    : " + arraysCopyOf);
 
@@ -54,8 +51,7 @@ public class CopyArray {
 		System.out.println("Using Object.clone");
 		System.out.println("-------------------");
 		cloneCharArray = charArray.clone();
-		System.out.println("After - Copied Array    : "
-				+ Arrays.toString(cloneCharArray));
+		System.out.println("After - Copied Array    : " + Arrays.toString(cloneCharArray));
 		System.out.println("charArray Address       : " + charArray);
 		System.out.println("cloneCharArray Address  : " + cloneCharArray);
 	}
