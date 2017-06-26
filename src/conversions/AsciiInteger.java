@@ -33,8 +33,7 @@ public class AsciiInteger {
 		try {
 			if (index != ConversionLibrary.atoi(ConversionLibrary.itoa(index))) {
 				System.out.println();
-				System.out.println("atoi and itoa failed <" + index + "> != <"
-						+ ConversionLibrary.atoi(ConversionLibrary.itoa(index)) + ">");
+				System.out.println("atoi and itoa failed <" + index + "> != <" + ConversionLibrary.atoi(ConversionLibrary.itoa(index)) + ">");
 				match = false;
 			}
 		} catch (Exception exception) {

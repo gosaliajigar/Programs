@@ -16,8 +16,7 @@ public class DecimalBinaryOctalHexadecimal {
 		System.out.printf("%3s %3s %3s %10s", "Dec", "Oct", "Hex", "Bin");
 		System.out.println();
 		for (int index = 0; index < 256; index++) {
-			System.out.printf("%3d %3s %3s %10s", index, ConversionLibrary.dec2oct(index),
-					ConversionLibrary.dec2hex(index), ConversionLibrary.dec2bin(index));
+			System.out.printf("%3d %3s %3s %10s", index, ConversionLibrary.dec2oct(index), ConversionLibrary.dec2hex(index), ConversionLibrary.dec2bin(index));
 			if (!verify(index)) {
 				break;
 			}
