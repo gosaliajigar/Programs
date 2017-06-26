@@ -55,7 +55,6 @@ public class Stack {
 	 * @param element
 	 */
 	public void push(final int element) {
-
 		if (!isFull()) {
 			// increment top, insert item
 			stackArray[++top] = element;

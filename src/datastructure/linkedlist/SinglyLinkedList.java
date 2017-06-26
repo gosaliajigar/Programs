@@ -74,6 +74,7 @@ public class SinglyLinkedList {
 			start = previous.getNext();
 			previous = current;
 			current = previous.getNext();
+			return;
 		}
 
 		while (current != null) {
