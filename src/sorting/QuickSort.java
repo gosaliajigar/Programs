@@ -43,17 +43,18 @@ public class QuickSort {
 	 * @return
 	 */
 	public static int partition(int[] array, int p, int q) {
-		int x = array[p];
-		int i = p;
-		for (int j = p+1; j < q; j++) {
+		// pivot = rear element
+		int x = array[q];
+		int i = p-1;
+		for (int j = p; j < q; j++) {
 			if (array[j] <= x) {
 				i = i + 1;
 				swap(array, i, j);
 			}
 		}
-		swap(array, p, i);
+		swap(array, q, i+1);
 		System.out.println(" - " + Arrays.toString(array));
-		return x;
+		return (i+1);
 	}
 
 	/**
@@ -74,7 +75,7 @@ public class QuickSort {
 	public static void main(String[] args) {
 		System.out.printf("Input Array  : " + Arrays.toString(array));
 		System.out.println();
-		quickSort(array, 0, array.length);
+		quickSort(array, 0, array.length - 1);
 		System.out.println();
 		System.out.printf("Output Array : " + Arrays.toString(array));
 	}
