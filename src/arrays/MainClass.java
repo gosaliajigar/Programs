@@ -1,4 +1,4 @@
-package arrays.array;
+package arrays;
 
 /**
  * Array of arrays.

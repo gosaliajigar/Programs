@@ -1,4 +1,4 @@
-package array.duplicates;
+package array;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
  * @author "Jigar Gosalia"
  *
  */
-public class MainClass {
+public class Duplicates {
 
 	/**
 	 * @param args
