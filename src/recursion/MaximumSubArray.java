@@ -14,7 +14,7 @@ import java.util.Arrays;
  * <br>
  * Time complexity of finding maximum sub-array is O(nlogn).
  * 
- * @author Jigar Gosalia
+ * @author "Jigar Gosalia"
  * 
  */
 public class MaximumSubArray {
@@ -63,8 +63,7 @@ public class MaximumSubArray {
 	 * @param high
 	 * @return
 	 */
-	private static SubArray maxCrossSubArray(int[] values, int low, int mid,
-			int high) {
+	private static SubArray maxCrossSubArray(int[] values, int low, int mid, int high) {
 		int sum = 0;
 		int maxLeft = low;
 		int maxRight = high;
@@ -135,15 +134,13 @@ public class MaximumSubArray {
 
 		@Override
 		public String toString() {
-			return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum
-					+ "]";
+			return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum + "]";
 		}
 	}
 
 	public static final void main(String[] args) {
 		int[] values = { 5, 15, -30, 10, -5, 40, 10 };
-		System.out.println("Maximum sub-array for array"
-				+ Arrays.toString(values) + ": " + maxSubArray(values, 0, 6));
+		System.out.println("Maximum sub-array for array" + Arrays.toString(values) + ": " + maxSubArray(values, 0, 6));
 	}
 
 }
