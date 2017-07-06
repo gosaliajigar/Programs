@@ -1,5 +1,6 @@
 package datastructure.table;
 
+
 /**
  * HashTable Implementation with Linear Probing.<br>
  * <br>
@@ -69,14 +70,16 @@ public class HashTable<K, V> {
 	@Override
 	public String toString() {
 		StringBuilder data = new StringBuilder();
+		data.append("{");
 		for (HashEntry<K, V> entry : table) {
-			if (entry != null && entry.getKey() != null) {
-				data.append(entry.getKey()).append(" : ").append(entry.getValue()).append(",");
+			if (entry != null) {
+				data.append(entry.getKey()).append("=").append(entry.getValue()).append(", ");
 			}
 		}
-		if (data.length() > 0) {
-			data.deleteCharAt(data.length() - 1);
+		if (data.toString().endsWith(", ")) {
+			data.delete(data.length() - 2, data.length());
 		}
+		data.append("}");
 		return data.toString();
 	}
 
