@@ -5,8 +5,14 @@ import java.util.Map;
 
 /**
  * "hello" & "billion" will be anagrams when {h, e, b, i, i, n} are deleted and
- * only left characters are {l, l, o}
- * 
+ * only left characters are {l, l, o}<br>
+ * <br>
+ *  1. count character and their occurrences of both the strings<br>
+ *  2. collect all characters in final map<br>
+ *  3. iterate over final map and get the delta of counts from both maps<br>
+ *  4. sum all the counts of all characters in final map to get no. of 
+ *     characters that need to be deleted for anagrams.<br>
+ *      
  * @author "Jigar Gosalia"
  * 
  */
@@ -49,6 +55,9 @@ public class Anagram {
 			}
 		}
 
+		System.out.println(oneMap);
+		System.out.println(twoMap);
+		System.out.println(finalMap);
 		for (Character character : finalMap.keySet()) {
 			int delta = 0;
 			delta = Math.abs(((oneMap.get(character) != null) ? oneMap
