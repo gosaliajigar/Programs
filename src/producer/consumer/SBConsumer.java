@@ -6,7 +6,7 @@ package producer.consumer;
  * @author "Jigar Gosalia"
  *
  */
-class Consumer extends Thread {
+class SBConsumer extends Thread {
 
 	private SharedBuffer sharedBuffer;
 
@@ -16,7 +16,7 @@ class Consumer extends Thread {
 	 * @param sharedBuffer
 	 * @param id
 	 */
-	public Consumer(SharedBuffer sharedBuffer, int id) {
+	public SBConsumer(SharedBuffer sharedBuffer, int id) {
 		this.sharedBuffer = sharedBuffer;
 		this.id = id;
 	}

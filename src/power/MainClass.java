@@ -25,9 +25,9 @@ public class MainClass {
 
 		System.out.println();
 
-		System.out.println("usingMinusPowerOfTwo()         -- is " + number + " power of two :" + usingMinusPowerOfTwo(number));
-		System.out.println("usingBruteForcePowerOfTwo()    -- is " + number  + " power of two :" + usingBruteForcePowerOfTwo(number));
-		System.out.println("usingShiftOperatorPowerOfTwo() -- is " + number + " power of two :" + usingShiftOperatorPowerOfTwo(number));
+		System.out.println("usingMinusPowerOfTwo()         -- is " + number + " power of two :" + usingMinusPowerOfTwo(Math.abs(number)));
+		System.out.println("usingBruteForcePowerOfTwo()    -- is " + number  + " power of two :" + usingBruteForcePowerOfTwo(Math.abs(number)));
+		System.out.println("usingShiftOperatorPowerOfTwo() -- is " + number + " power of two :" + usingShiftOperatorPowerOfTwo(Math.abs(number)));
 	}
 
 	/**

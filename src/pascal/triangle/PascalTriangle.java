@@ -24,9 +24,9 @@ public class PascalTriangle {
 	 * @param numRows
 	 * @return
 	 */
-	public static ArrayList<ArrayList<Integer>> generate(int numRows) {
+	public static List<ArrayList<Integer>> generate(int numRows) {
 
-		ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
 
 		if (numRows <= 0)
 			return result;

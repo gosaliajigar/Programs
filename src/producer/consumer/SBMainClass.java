@@ -6,15 +6,15 @@ package producer.consumer;
  * @author "Jigar Gosalia"
  *
  */
-public class MainClass {
+public class SBMainClass {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		SharedBuffer sharedBuffer = new SharedBuffer();
-		Producer producer = new Producer(sharedBuffer, 1);
-		Consumer consumer = new Consumer(sharedBuffer, 1);
+		SBProducer producer = new SBProducer(sharedBuffer, 1);
+		SBConsumer consumer = new SBConsumer(sharedBuffer, 1);
 		producer.start();
 		consumer.start();
 	}
