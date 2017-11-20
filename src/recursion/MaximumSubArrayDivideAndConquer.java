@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @author "Jigar Gosalia"
  * 
  */
-public class MaximumSubArray {
+public class MaximumSubArrayDivideAndConquer {
 
 	/**
 	 * Divide and Conquer problem by finding max sub-array either on left side,
@@ -63,7 +63,8 @@ public class MaximumSubArray {
 	 * @param high
 	 * @return
 	 */
-	private static SubArray maxCrossSubArray(int[] values, int low, int mid, int high) {
+	private static SubArray maxCrossSubArray(int[] values, int low, int mid,
+			int high) {
 		int sum = 0;
 		int maxLeft = low;
 		int maxRight = high;
@@ -134,13 +135,25 @@ public class MaximumSubArray {
 
 		@Override
 		public String toString() {
-			return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum + "]";
+			return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum
+					+ "]";
 		}
 	}
 
 	public static final void main(String[] args) {
-		int[] values = { 5, 15, -30, 10, -5, 40, 10 };
-		System.out.println("Maximum sub-array for array" + Arrays.toString(values) + ": " + maxSubArray(values, 0, 6));
+		int[] values = { 5, -15, 30, 10, 15, -40, 10 };
+		System.out.println("Maximum sub-array for array"
+				+ Arrays.toString(values) + ": " + maxSubArray(values, 0, 6));
+		System.out.println(maxSubArray(values));
 	}
 
+	public static int maxSubArray(int[] A) {
+		int newsum = A[0];
+		int max = A[0];
+		for (int i = 1; i < A.length; i++) {
+			newsum = Math.max(newsum + A[i], A[i]);
+			max = Math.max(max, newsum);
+		}
+		return max;
+	}
 }
