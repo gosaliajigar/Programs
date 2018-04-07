@@ -42,7 +42,7 @@ public class MainClass {
 
 		while (range > 999) {
 			System.out
-					.print("Enter valid [0-999] range to get Armstrong number : ");
+					.print("Enter valid [0-999] range to all Armstrong numbers : ");
 			range = scanner.nextInt();
 			System.out.println();
 		}

@@ -25,8 +25,8 @@ public class FindPeak {
 		if (left <= right) {
 			int mid = ((left + right) / 2);
 			// Compare middle element with its neighbors (if neighbors exist)
-			if ((mid == 0 || a[mid - 1] <= a[mid])
-					&& (mid == n - 1 || a[mid + 1] <= a[mid])) {
+			if ((mid == 0 || a[mid - 1] < a[mid])
+					&& (mid == n - 1 || a[mid + 1] < a[mid])) {
 				return mid;
 				// If middle element is not peak and its left neighbor is
 				// greater than it, then left half must have a peak element
@@ -46,7 +46,9 @@ public class FindPeak {
 	 */
 	public static void main(String[] args) {
 		int[] A = { 1, 3, 20, 4, 1, 0 };
-		System.out.println("Input : " + Arrays.toString(A));
-		System.out.println("Peak  : " + peak(A, 0, A.length - 1, A.length));
+		System.out.println("Peak Index" 
+								+ Arrays.toString(A) 
+								+ " : " 
+								+ peak(A, 0, A.length - 1, A.length));
 	}
 }

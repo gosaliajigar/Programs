@@ -1,7 +1,7 @@
 package array;
 
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Collections;
 
 /**
  *
@@ -25,6 +25,9 @@ public class ArraySort {
 		Arrays.sort(intArr);
 		System.out.println(Arrays.toString(intArr));
 		Arrays.sort(strArr);
+		System.out.println(Arrays.toString(strArr));
+		// reverse the order by using collections helper methods
+		Arrays.sort(strArr, Collections.reverseOrder());
 		System.out.println(Arrays.toString(strArr));
 	}
 }

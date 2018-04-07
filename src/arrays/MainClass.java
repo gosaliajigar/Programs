@@ -43,6 +43,7 @@ public class MainClass {
 				{ "Good", "Morning" } };
 
 		displayArray(shortHand);
+		System.out.println();
 		displayArray(arrayOfArrays);
 	}
 

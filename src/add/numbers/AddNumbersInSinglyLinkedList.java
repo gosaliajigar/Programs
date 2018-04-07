@@ -17,7 +17,7 @@ public class AddNumbersInSinglyLinkedList {
 	public static void main(String[] args) {
 		SinglyLinkedList listOne = new SinglyLinkedList();
 		SinglyLinkedList listTwo = new SinglyLinkedList();
-		listOne.addFront(1);
+		listOne.addFront(9);
 		listOne.addFront(9);
 		listOne.addFront(9);
 		listOne.print();
@@ -60,6 +60,12 @@ public class AddNumbersInSinglyLinkedList {
 				result.addRear(sum);
 			}
 		}
+		// if carry is greater than 0 then add another node
+		// with it's value
+		if (carry != 0) {
+			result.addRear(carry);
+		}
+
 		return result;
 	}
 }

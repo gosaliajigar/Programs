@@ -162,4 +162,30 @@ public class SinglyLinkedList {
 		}
 		return previous;
 	}
+
+	/**
+	 * recursively print singly linked list
+	 * 
+	 * @param start
+	 */
+	public void recursivePrint(Node start) {
+		if (start == null) {
+			return;
+		}
+		System.out.print(start.getData() + " ");
+		recursivePrint(start.getNext());
+	}
+
+	/**
+	 * recursively print singly linked list in reverse
+	 * 
+	 * @param start
+	 */
+	public void recursiveReversePrint(Node start) {
+		if (start == null) {
+			return;
+		}
+		recursiveReversePrint(start.getNext());
+		System.out.print(start.getData() + " ");
+	}
 }

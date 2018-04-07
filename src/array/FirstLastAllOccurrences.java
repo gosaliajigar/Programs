@@ -21,8 +21,7 @@ public class FirstLastAllOccurrences {
 	 * @param n
 	 * @return
 	 */
-	private static int firstOccurrence(int[] a, int left, int right, int x,
-			int n) {
+	private static int firstOccurrence(int[] a, int left, int right, int x,	int n) {
 		if (left <= right) {
 			int mid = ((left + right) / 2);
 			if (a[mid] == x && (mid == 0 || a[mid - 1] < x)) {
@@ -31,7 +30,6 @@ public class FirstLastAllOccurrences {
 				return firstOccurrence(a, (mid + 1), right, x, n);
 			} else {
 				return firstOccurrence(a, left, (mid - 1), x, n);
-
 			}
 		}
 		return -1;

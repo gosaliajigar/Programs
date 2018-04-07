@@ -25,8 +25,9 @@ public class Anagram {
 		String one = "hello";
 		String two = "billion";
 		Map<Character, Integer> map = anagram(one, two);
-		System.out.println(map);
-		System.out.println(count(map));
+		System.out.println();
+		System.out.println("Characters to be deleted          : " + map);
+		System.out.println("Count of characters to be deleted : " + count(map));
 	}
 
 	/**
@@ -55,9 +56,9 @@ public class Anagram {
 			}
 		}
 
-		System.out.println(oneMap);
-		System.out.println(twoMap);
-		System.out.println(finalMap);
+		System.out.println("Character Count : " + oneMap);
+		System.out.println("Character Count : " + twoMap);
+		System.out.println("All characters  : " + finalMap);
 		for (Character character : finalMap.keySet()) {
 			int delta = 0;
 			delta = Math.abs(((oneMap.get(character) != null) ? oneMap

@@ -30,6 +30,17 @@ public class SinglyLinkedListMainClass {
 		singleLinkedList.print();
 
 		System.out.println();
+		System.out.print("Priting Single Linked List (recursively)         : ");
+		Node current = singleLinkedList.start;
+		singleLinkedList.recursivePrint(current);
+
+		System.out.println();
+		System.out.print("Priting Single Linked List (reverse recursively) : ");
+		current = singleLinkedList.start;
+		singleLinkedList.recursiveReversePrint(current);
+		System.out.println();
+
+		System.out.println();
 		System.out.println("Deleting node with data : 3");
 		singleLinkedList.deleteNode("3");
 		System.out.println();
@@ -40,5 +51,7 @@ public class SinglyLinkedListMainClass {
 
 		System.out.println("Printing First Element in Single Linked List ... ");
 		System.out.println(singleLinkedList.getFront());
+	
+		
 	}
 }
