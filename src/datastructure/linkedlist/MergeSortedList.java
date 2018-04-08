@@ -48,7 +48,7 @@ public class MergeSortedList {
 	 * @param even
 	 */
 	private static void populateOne(SinglyLinkedList even) {
-		for (int index = 0; index < 10; index++) {
+		for (int index = 1; index < 10; index++) {
 			if (index % 2 == 0) {
 				even.addRear(index);
 			}

@@ -1,9 +1,5 @@
 package datastructure.map;
 
-import java.util.Set;
-
-import datastructure.map.Map.Entry;
-
 /**
  * Demonstrate Custom HashMap implementation.
  * 
@@ -15,21 +11,19 @@ public class MainClass {
 	public static void main(String[] args) {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		map.put(21, 12);
-		map.put(25, 121);
-		System.out.println("HashMap(" + map.size() + ")");
 		map.put(29, 100);
+		map.put(83, 100);
 		map.put(30, 151);
 		map.put(33, 15);
 		map.put(35, 89);
 		map.put(28, 28);
-		System.out.println("HashMap(" + map.size() + ")");
+		System.out.println("HashMap size: " + map.size());
+
 		System.out.println();
 		map.display();
+		
 		System.out.println();
-
-		displayEntrySet(map.entrySet());
-		System.out.println();
-		displaySet(map.keySet());
+		System.out.println(map.keySet());
 		System.out.println();
 
 		System.out.println("Key(21)=" + map.get(21));
@@ -43,36 +37,30 @@ public class MainClass {
 
 		System.out.println("Remove Key(21): " + map.remove(21));
 		System.out.println("Remove Key(51): " + map.remove(51));
+		System.out.println("HashMap size: " + map.size());
 		map.display();
 		System.out.println();
 
 		System.out.println("Remove Key(21): " + map.remove(21));
 		System.out.println("Remove Key(51): " + map.remove(51));
+		System.out.println("HashMap size: " + map.size());
 		map.display();
 		System.out.println();
 
 		System.out.println("Remove Key(29): " + map.remove(29));
-		map.display();
-		System.out.println("HashMap(" + map.size() + ")");		
-	}
-
-	/**
-	 * @param keySet
-	 */
-	private static <K> void displaySet(Set<K> keySet) {
-		for (K key: keySet) {
-			System.out.print("{" + key + "}");
-		}
+		System.out.println("HashMap size: " + map.size());
+		map.display();		
 		System.out.println();
-	}
 
-	/**
-	 * @param entrySet
-	 */
-	private static <K, V> void displayEntrySet(Set<Entry<K, V>> entrySet) {
-		for (Entry<K, V> entry: entrySet) {
-			System.out.print("{key=" + entry.key + ";value=" + entry.value + "}");
-		}
+		System.out.println("Adding Key(81)");
+		map.put(81, 81);
+		System.out.println("HashMap size: " + map.size());
+		map.display();
+		System.out.println();
+
+		System.out.println("Remove Key(81): " + map.remove(81));
+		System.out.println("HashMap size: " + map.size());
+		map.display();
 		System.out.println();
 	}
 }

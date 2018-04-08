@@ -162,8 +162,16 @@ public class DoublyLinkedList {
 	public void delete(Object data) {
 		DoubleNode current = find(data);
 		if (current != null) {
-			current.getPrevious().setNext(current.getNext());
-			current.getNext().setPrevious(current.getPrevious());
+			if (current.getPrevious() != null) {
+				current.getPrevious().setNext(current.getNext());
+			} else {
+				front = current.getNext();
+			}
+			if (current.getNext() != null) {
+				current.getNext().setPrevious(current.getPrevious());
+			} else {
+				rear = current.getPrevious();
+			}
 			current.setNext(null);
 			current.setPrevious(null);
 			count--;

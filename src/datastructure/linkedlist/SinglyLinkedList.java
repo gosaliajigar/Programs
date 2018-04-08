@@ -6,14 +6,8 @@ package datastructure.linkedlist;
  */
 public class SinglyLinkedList {
 
-	/**
-	 *
-	 */
 	Node start;
 
-	/**
-	 *
-	 */
 	public SinglyLinkedList() {
 		start = null;
 	}
@@ -62,28 +56,26 @@ public class SinglyLinkedList {
 	 * @param data
 	 */
 	public void deleteNode(final Object data) {
+		if (start == null) {
+			return;
+		}
+
 		Node previous = start;
 
-		if (previous == null) {
+		if (previous != null && previous.getData().equals(data)) {
+			start = previous.getNext();
 			return;
 		}
 
 		Node current = previous.getNext();
 
-		if (previous != null && previous.getData().equals(data)) {
-			start = previous.getNext();
-			previous = current;
-			current = previous.getNext();
-			return;
-		}
-
 		while (current != null) {
 			if (current.getData().equals(data)) {
 				previous.setNext(current.getNext());
-				current = previous.getNext();
+				return;
 			} else {
-				previous = previous.getNext();
-				current = previous.getNext();
+				previous = current;
+				current = current.getNext();
 			}
 		}
 	}
@@ -144,6 +136,8 @@ public class SinglyLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(1)<br><br>
+	 * 
 	 * @return
 	 */
 	public Node getStart() {
@@ -151,6 +145,8 @@ public class SinglyLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * @return
 	 */
 	public Node getRear() {
@@ -164,6 +160,8 @@ public class SinglyLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * recursively print singly linked list
 	 * 
 	 * @param start
@@ -177,6 +175,8 @@ public class SinglyLinkedList {
 	}
 
 	/**
+	 * Time Complexity : O(n)<br><br>
+	 * 
 	 * recursively print singly linked list in reverse
 	 * 
 	 * @param start

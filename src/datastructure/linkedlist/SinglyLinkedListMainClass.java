@@ -49,7 +49,7 @@ public class SinglyLinkedListMainClass {
 		singleLinkedList.print();
 		System.out.println();
 
-		System.out.println("Printing First Element in Single Linked List ... ");
+		System.out.print("Printing First Element in Single Linked List : ");
 		System.out.println(singleLinkedList.getFront());
 	
 		

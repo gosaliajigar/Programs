@@ -34,41 +34,23 @@ public class HashMap<K, V> implements Map<K, V> {
 	@Override
 	public void put(K key, V value) {
 		if (key != null) {
+			Entry<K, V> entry = find(key);
+			if (entry != null) {
+				entry.value = value;
+				return;
+			}
 			if (count >= (table.length * loadFactor)) {
-				resize();
+				rehash();
 			}
-
 			int hash = hashcode(key);
-
-			Entry<K, V> entry = new Entry<K, V>(key, value, null);
-
-			if (table[hash] == null) {
-				count++;
-				table[hash] = entry;
-			} else {
-				Entry<K, V> previous = null;
-				Entry<K, V> current = table[hash];
-				// we have reached last entry of bucket.
-				while (current != null) {
-					if (current.key.equals(key)) {
-						// node has to be insert on first of
-						// bucket.
-						if (previous == null) {
-							entry.next = current.next;
-							table[hash] = entry;
-						} else {
-							entry.next = current.next;
-							previous.next = entry;
-						}
-						count++;
-						return;
-					}
-					previous = current;
-					current = current.next;
-				}
-				previous.next = entry;
+			Entry<K, V> newEntry = new Entry<K, V>(key, value, null);
+			if (table[hash] != null) {
+				newEntry.next = table[hash];
 			}
+			count++;
+			table[hash] = newEntry;
 		}
+
 	}
 
 	/* (non-Javadoc)
@@ -104,7 +86,8 @@ public class HashMap<K, V> implements Map<K, V> {
 			while (current != null) {
 				if (current.key.equals(key)) {
 					if (previous == null) {
-						table[hash] = table[hash].next;
+						current = current.next;
+						table[hash] = current;
 					} else {
 						previous.next = current.next;
 					}
@@ -139,17 +122,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	 */
 	@Override
 	public boolean containsKey(K key) {
-		int hash = hashcode(key);
-		if (table[hash] != null) {
-			Entry<K, V> entry = table[hash];
-			while (entry != null) {
-				if (entry.key.equals(key)) {
-					return true;
-				}
-				entry = entry.next;
-			}
-		}
-		return false;
+		return (find(key) != null);
 	}
 
 	/* (non-Javadoc)
@@ -201,30 +174,29 @@ public class HashMap<K, V> implements Map<K, V> {
 		return count;
 	}
 
-	/**
-	 * 
-	 */
 	public void display() {
-		for (int index = 0; index < table.length; index++) {
-			Entry<K, V> entry = table[index];
-			while (entry != null) {
-				System.out.print("{key=" + entry.key + ";value=" + entry.value + "}");
-				entry = entry.next;
-			}
-			System.out.println();
+		for (Entry<K, V> entry: entrySet()) {
+			System.out.print("{key=" + entry.key + ";value=" + entry.value + "}");
 		}
+		System.out.println();
 	}
 
-	/**
-	 * 
-	 */
-	private void resize() {
+	private void rehash() {
 		int size = (int) (table.length * 1.5);
+		System.out.println(" -- resizing from " + table.length + " to " + size);
 		Entry<K, V>[] newTable = new Entry[size];
-		for (int index = 0; index < table.length; index++) {
-			newTable[index] = table[index];
+		int newCount = 0;
+		for (Entry<K, V> entry : entrySet()) {
+			int hash = (Math.abs(entry.key.hashCode()) % size);
+			Entry<K, V> newEntry = new Entry<K, V>(entry.key, entry.value, null);
+			if (newTable[hash] != null) {
+				newEntry.next = newTable[hash];
+			}
+			newCount++;
+			newTable[hash] = newEntry;
 		}
 		table = newTable;
+		count = newCount;
 	}
 
 	/**
@@ -232,6 +204,20 @@ public class HashMap<K, V> implements Map<K, V> {
 	 * @return
 	 */
 	private int hashcode(K key) {
-		return (Math.abs(key.hashCode()) % TABLE_SIZE);
+		return (Math.abs(key.hashCode()) % table.length);
+	}
+
+	private Entry<K, V> find(K key) {
+		int hash = hashcode(key);
+		if (table[hash] != null) {
+			Entry<K, V> entry = table[hash];
+			while (entry != null) {
+				if (entry.key.equals(key)) {
+					return entry;
+				}
+				entry = entry.next;
+			}
+		}
+		return null;
 	}
 }
