@@ -37,15 +37,14 @@ public class SelectionSort {
 	public static void selectionSort(Integer[] inputArray) {
 
 		int iterations = 0;
-		int indexMin, i, j;
 
 		// loop through all numbers
-		for (i = 0; i < inputArray.length - 1; i++) {
+		for (int i = 0; i < inputArray.length - 1; i++) {
 			// set current element as minimum
-			indexMin = i;
+			int indexMin = i;
 
 			// check the element to be minimum
-			for (j = i + 1; j < inputArray.length; j++) {
+			for (int j = i + 1; j < inputArray.length; j++) {
 				iterations++;
 				if (inputArray[j] < inputArray[indexMin]) {
 					indexMin = j;

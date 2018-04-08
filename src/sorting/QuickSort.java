@@ -27,13 +27,13 @@ public class QuickSort {
 	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
 
 	/**
-	 * @param num1
-	 * @param num2
+	 * @param one
+	 * @param two
 	 */
-	public static void swap(int[] array, int num1, int num2) {
-		int temp = array[num1];
-		array[num1] = array[num2];
-		array[num2] = temp;
+	public static void swap(int[] array, int one, int two) {
+		int temp = array[one];
+		array[one] = array[two];
+		array[two] = temp;
 	}
 
 	/**
@@ -44,10 +44,10 @@ public class QuickSort {
 	 */
 	public static int partition(int[] array, int p, int q) {
 		// pivot = rear element
-		int x = array[q];
+		int pivot = array[q];
 		int i = p-1;
 		for (int j = p; j < q; j++) {
-			if (array[j] <= x) {
+			if (array[j] <= pivot) {
 				i = i + 1;
 				swap(array, i, j);
 			}
@@ -73,10 +73,15 @@ public class QuickSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.printf("Input Array  : " + Arrays.toString(array));
+		System.out.println("Input Array  : " + Arrays.toString(array));
 		System.out.println();
+		System.out.println(" - " + Arrays.toString(array));
 		quickSort(array, 0, array.length - 1);
 		System.out.println();
 		System.out.printf("Output Array : " + Arrays.toString(array));
 	}
 }
+
+
+
+

@@ -41,7 +41,7 @@ public class CountingSort {
 		System.out.println("STEP2 C: " + Arrays.toString(C));
 		System.out.println();
 
-		// get count
+		// get count of number itself and numbers less than itself
 		for (int index = 1; index < C.length; index++) {
 			C[index] = C[index] + C[index - 1];
 		}

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * Merge sort is a sorting technique based on divide and conquer technique. With
- * worst-case time complexity being Ο(n log n), it is one of the most respected
+ * worst-case time complexity being O(n log n), it is one of the most respected
  * algorithms.<br>
  * <br>
  * 
@@ -19,10 +19,8 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-	/*	 */
 	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
 
-	/*	 */
 	private static int[] temp = new int[array.length];
 
 	/**
@@ -60,7 +58,7 @@ public class MergeSort {
 		int left, right, i;
 
 		// Compare numbers from both the halves and copy them sorted in temp
-		for (left = low, right = mid + 1, i = low; left <= mid && right <= high; i++) {
+		for (i = low, left = low, right = mid + 1; left <= mid && right <= high; i++) {
 	        if (array[left] <= array[right])
 	        	temp[i] = array[left++];
 	        else

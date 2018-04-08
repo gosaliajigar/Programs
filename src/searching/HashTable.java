@@ -24,19 +24,10 @@ package searching;
  */
 public class HashTable {
 
-	/**
-	 * 
-	 */
 	private static final int SIZE = 20;
 
-	/**
-	 * 
-	 */
 	private static int count = 0;
 
-	/**
-	 * 
-	 */
 	private static Data[] hashArray = new Data[SIZE];
 
 	/**
@@ -60,21 +51,13 @@ public class HashTable {
 
 		Data item = search(37);
 
-		if (item != null) {
-			System.out.println("Element found: " + item);
-		} else {
-			System.out.println("Element not found");
-		}
+		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
 
 		delete(item);
 
 		item = search(37);
 
-		if (item != null) {
-			System.out.println("Element found: " + item);
-		} else {
-			System.out.println("Element not found");
-		}
+		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
 	}
 
 	/**
@@ -91,7 +74,6 @@ public class HashTable {
 	 * @param value
 	 */
 	private static void insert(int key, int value) throws Exception {
-
 		if (count >= SIZE) {
 			throw new Exception("HashTable full");
 		}
@@ -123,18 +105,19 @@ public class HashTable {
 	 * @return
 	 */
 	private static Data search(int key) {
-
 		// get the hash
 		int hashIndex = hashCode(key);
 
+		int iterations = 0;
 		// move in array until an empty
-		while (hashArray[hashIndex] != null) {
+		while (hashArray[hashIndex] != null && iterations <= SIZE) {
 
 			if (hashArray[hashIndex].getKey() == key)
 				return hashArray[hashIndex];
 
 			// go to next cell and wrap around the table
 			hashIndex = (hashIndex + 1) % SIZE;
+			iterations++;
 		}
 		return null;
 	}
@@ -156,8 +139,10 @@ public class HashTable {
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
 
+		int iterations = 0;
+
 		// move in array until an empty
-		while (hashArray[hashIndex] != null) {
+		while (hashArray[hashIndex] != null && iterations <= SIZE) {
 
 			if (hashArray[hashIndex].getKey() == data.getKey()) {
 				Data temp = hashArray[hashIndex];
@@ -170,13 +155,11 @@ public class HashTable {
 
 			// go to next cell and wrap around the table
 			hashIndex = (hashIndex + 1) % SIZE;
+			iterations++;
 		}
 		return null;
 	}
 
-	/**
-	 * 
-	 */
 	private static void display() {
 		for (int index = 0; index < hashArray.length; index++) {
 			System.out.println("Location(" + index + "):" + hashArray[index]);

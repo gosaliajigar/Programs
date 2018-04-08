@@ -18,8 +18,8 @@ public class SwapUsingMultiplicationDivision {
 				.println("Swapping using Multiplication-Division Operator ...");
 		System.out.println("Before - a:" + a + " " + "b:" + b);
 		a = a * b;
-		b = a / b;
-		a = a / b;
+		b = a / b; // a * b / b nullifies b ==> a
+		a = a / b; // a * b / a nullifies a ==> b
 		System.out.println("After  - a:" + a + " " + "b:" + b);
 	}
 }

@@ -1,7 +1,7 @@
 package searching;
 
 /**
- * Binary search is a fast search algorithm with run-time complexity of Ο(log
+ * Binary search is a fast search algorithm with run-time complexity of O(log
  * n). This search algorithm works on the principle of divide and conquer. For
  * this algorithm to work properly the data collection should be in <b>sorted form</b>.<br>
  * <br>
