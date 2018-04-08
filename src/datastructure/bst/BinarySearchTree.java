@@ -8,9 +8,6 @@ package datastructure.bst;
  */
 public class BinarySearchTree {
 
-	/**
-	 * 
-	 */
 	private BinaryNode root;
 
 	public BinarySearchTree () {

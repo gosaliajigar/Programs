@@ -116,17 +116,7 @@ public class HeapOperations {
 	}
 
 	public static int[] populateArray() {
-		int[] array = new int[11];
-		array[0] = 16;
-		array[1] = 4;
-		array[2] = 10;
-		array[3] = 14;
-		array[4] = 7;
-		array[5] = 9;
-		array[6] = 3;
-		array[7] = 2;
-		array[8] = 8;
-		array[9] = 1;
+		int[] array = {16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
 		return array;
 	}
 
@@ -167,15 +157,15 @@ public class HeapOperations {
 		System.out.println("Display     : " + heap);
 		System.out.println();
 
-
 		// copying heap to newHeap as heapSize is 0 at end of sorting
 		// which will be a problem to display heap
-		Heap newHeap = HeapOperations.copy(heap, 9);
+		Heap newHeap = HeapOperations.copy(heap, 8);
 		System.out.println("Display     : " + newHeap);
 		// heap sort
 		HeapOperations.heapSort(newHeap);
-		heap = HeapOperations.copy(newHeap, 9);
-		System.out.println("Sort        : " + heap);
+		heap = HeapOperations.copy(newHeap, 8);
+		newHeap.heapSize = newHeap.a.length;
+		System.out.println("Sort        : " + newHeap);
 	}
 }
 

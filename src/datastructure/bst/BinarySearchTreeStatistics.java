@@ -222,7 +222,6 @@ public class BinarySearchTreeStatistics {
 			mirrorTree(node.getLeft());
 			mirrorTree(node.getRight());
 		}
-		
 	}
 
 	public static boolean compare2Trees(BinaryNode nodeA, BinaryNode nodeB) {
