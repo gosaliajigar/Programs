@@ -8,14 +8,8 @@ package hashcode.equals;
  */
 public class Dog {
 
-	/**
-	 *
-	 */
 	private String color;
 
-	/**
-	 * 
-	 */
 	private int type;
 
 	/**
@@ -77,6 +71,7 @@ public class Dog {
 		result = prime * result + ((color == null) ? 0 : color.hashCode());
 		result = prime * result + type;
 		// result = 31 * (31 * 1 + color.hashCode()) + type;
+		// result = 31^2 + 31*color.hashCode() + type
 		return result;
 	}
 
@@ -85,14 +80,14 @@ public class Dog {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (this == obj)
+			return true;
+		if (this.getClass() != obj.getClass())
 			return false;
 		Dog other = (Dog) obj;
-		if (color == null) {
+		if (this.color == null) {
 			if (other.color != null)
 				return false;
 		} else if (!color.equals(other.color))
@@ -101,10 +96,7 @@ public class Dog {
 			return false;
 		return true;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
 	@Override
 	public String toString() {
 		return "Dog [color=" + color + ", type=" + type + "]";

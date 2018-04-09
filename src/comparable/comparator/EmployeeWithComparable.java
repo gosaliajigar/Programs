@@ -11,24 +11,12 @@ import java.util.Comparator;
 public class EmployeeWithComparable implements
 		Comparable<EmployeeWithComparable> {
 
-	/**
-	 *
-	 */
 	private int id;
 
-	/**
-	 *
-	 */
 	private String name;
 
-	/**
-	 *
-	 */
 	private int age;
 
-	/**
-	 *
-	 */
 	private long salary;
 
 	/**

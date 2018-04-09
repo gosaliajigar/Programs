@@ -6,14 +6,8 @@ package nested.vo;
  */
 public class CustomerVO {
 
-	/**
-	 * 
-	 */
 	private String name;
 
-	/**
-	 * 
-	 */
 	private int id;
 
 	/**

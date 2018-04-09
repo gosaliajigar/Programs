@@ -1,6 +1,7 @@
 package comparable.comparator;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * This class shows how to sort custom objects array/list implementing
@@ -30,6 +31,16 @@ public class MainClass {
 		// System.out.println("Default Sorting of Employees list:\n"
 		//		+ Arrays.toString(employeeWithoutComparable));
 		// System.out.println();
+		// BUT if you pass a comparator along with it then it can be sorted
+		System.out.println("Sort an array without comparable but with comparator: ");
+		Arrays.sort(employeeWithoutComparable, new Comparator<EmployeeWithoutComparable>() {
+			@Override
+			public int compare(EmployeeWithoutComparable o1, EmployeeWithoutComparable o2) {
+				return ((Integer)o1.getId()).compareTo(o2.getId());
+			}
+		});
+		System.out.println(Arrays.toString(employeeWithoutComparable));
+		System.out.println();
 
 		// sorting custom object array
 		EmployeeWithComparable[] employeeWithComparable = new EmployeeWithComparable[4];

@@ -1,6 +1,6 @@
 package graphs.algorithm;
 
-import datastructure.stack.Stack;
+import java.util.Stack;
 
 /**
  * Depth First Search algorithm(DFS) traverses a graph in a depth-ward motion
@@ -30,7 +30,7 @@ public class DepthFirstSearch {
 
 	private static int count = 0;
 
-	private static Stack stack = new Stack(SIZE);
+	private static Stack<Integer> stack = new Stack<Integer>();
 
 	// graph functions
 	/**
@@ -114,9 +114,6 @@ public class DepthFirstSearch {
 		}
 	}
 
-	/**
-	 * 
-	 */
 	private static void displayEdges() {
 		System.out.print("  ");
 		for (int x = 0; x < count; x++) {
@@ -133,9 +130,6 @@ public class DepthFirstSearch {
 		System.out.println();
 	}
 
-	/**
-	 * 
-	 */
 	private static void displayVertices() {
 		for (int index = 0; index < count; index++) {
 			System.out.println("Location(" + index + "): " + vertices[index]);
@@ -143,9 +137,6 @@ public class DepthFirstSearch {
 		System.out.println();
 	}
 
-	/**
-	 * 
-	 */
 	private static void resetEdges() {
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {

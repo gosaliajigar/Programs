@@ -30,8 +30,7 @@ public class GenericMethodWithBoundedType {
 	 * @param z
 	 * @return
 	 */
-	public static <T extends Comparable<T>> T maximum(final T x, final T y,
-			final T z) {
+	public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
 		// assume x is initially the largest
 		T max = x;
 		if (y.compareTo(max) > 0) {

@@ -15,7 +15,7 @@ public class PascalTriangle {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		for (List<Integer> row : generate(6)) {
+		for (List<Integer> row : generate(10)) {
 			System.out.println(row);
 		}
 	}
@@ -24,21 +24,21 @@ public class PascalTriangle {
 	 * @param numRows
 	 * @return
 	 */
-	public static List<ArrayList<Integer>> generate(int numRows) {
+	public static List<List<Integer>> generate(int numRows) {
 
-		List<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
 		if (numRows <= 0)
 			return result;
 
-		ArrayList<Integer> previousRow = new ArrayList<Integer>();
+		List<Integer> previousRow = new ArrayList<Integer>();
 
 		previousRow.add(1);
 
 		result.add(previousRow);
 
 		for (int i = 2; i <= numRows; i++) {
-			ArrayList<Integer> currentRow = new ArrayList<Integer>();
+			List<Integer> currentRow = new ArrayList<Integer>();
 			// first
 			currentRow.add(1);
 			// middle

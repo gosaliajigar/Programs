@@ -4,12 +4,12 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
-*
-* Write Java code to validate the sequence of braces using Stack Data Structure
-*
-* @author "Jigar Gosalia"
-*
-*/
+ *
+ * Write Java code to validate the sequence of braces using Stack Data Structure
+ *
+ * @author "Jigar Gosalia"
+ *
+ */
 public class BracesWithStack {
 
 	/**
@@ -21,11 +21,10 @@ public class BracesWithStack {
 		Scanner scanner = new Scanner(System.in);
 		while (choice.equals("y")) {
 			System.out.println();
-			System.out
-					.println("Enter sequence of braces to check its validity ... ");
+			System.out.println("Enter sequence of braces to check its validity ... ");
 			braces = scanner.nextLine();
-			System.out.printf("Entered sequence of braces %s is : "
-					+ (validateBraces(braces) ? "valid\n\n" : "invalid\n\n"),
+			System.out.printf(
+					"Entered sequence of braces %s is : " + (validateBraces(braces) ? "valid\n\n" : "invalid\n\n"),
 					braces);
 			System.out.println("Do you want to continue [y/n] ? ");
 			choice = scanner.nextLine();
@@ -47,7 +46,7 @@ public class BracesWithStack {
 				stack.push("(");
 			}
 			if (braces.charAt(i) == ')') {
-			  // Check stack before popping to avoid Exception
+				// Check stack before popping to avoid Exception
 				if (!stack.isEmpty()) {
 					stack.pop();
 				} else {

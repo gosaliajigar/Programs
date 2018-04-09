@@ -6,14 +6,8 @@ package nested.vo;
  */
 public class AccountVO {
 	
-	/**
-	 * 
-	 */
 	private int id;
 	
-	/**
-	 * 
-	 */
 	private CustomerVO customerVO;
 
 	/**

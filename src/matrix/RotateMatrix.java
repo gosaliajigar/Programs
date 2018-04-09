@@ -57,8 +57,7 @@ public class RotateMatrix {
 			int start = x;
 			// end stands for ending x and y coordinate of elements
 			int end = n - x - 1;
-			// y stands for range of possible y-coordinate of matrix during
-			// rotation
+			// y stands for range of possible y-coordinate of matrix during rotation
 			for (int y = start; y < end; y++) {
 				int shift = y - start;
 				int temp = matrix[start][y];

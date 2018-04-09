@@ -59,8 +59,7 @@ public class Matrix {
 	/**
 	 * @param array
 	 */
-	public static void substituteMatrix(final int[][] array, final int row,
-			final int column) {
+	public static void substituteMatrix(final int[][] array, final int row, final int column) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
 				if (i == row || j == column) {

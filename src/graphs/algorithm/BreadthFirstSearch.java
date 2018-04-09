@@ -8,19 +8,15 @@ import java.util.Queue;
  * motion and uses a <b>queue</b> to remember to get the next vertex to start a
  * search when a dead end occurs in any iteration.<br>
  * <br>
- * <b>Rule 1</b> − Visit adjacent unvisited vertex. Mark it visited. Display it.
+ * <b>Rule 1</b> Visit adjacent unvisited vertex. Mark it visited. Display it.
  * Insert it in a queue.<br>
  * <br>
- * <b>Rule 2</b> − If no adjacent vertex found, remove the first vertex from
+ * <b>Rule 2</b> If no adjacent vertex found, remove the first vertex from
  * queue.<br>
  * <br>
- * <b>Rule 3</b> − Repeat Rule 1 and Rule 2 until queue is empty.<br>
+ * <b>Rule 3</b> Repeat Rule 1 and Rule 2 until queue is empty.<br>
  * <br>
  * 
- * @author "Jigar Gosalia"
- *
- */
-/**
  * @author "Jigar Gosalia"
  *
  */
@@ -112,15 +108,12 @@ public class BreadthFirstSearch {
 			}
 		}
 
-		// stack is empty, search is complete, reset the visited flag
+		// queue is empty, search is complete, reset the visited flag
 		for (int index = 0; index < count; index++) {
 			vertices[index].setVisited(false);
 		}
 	}
 
-	/**
-	 * 
-	 */
 	private static void displayEdges() {
 		System.out.print("  ");
 		for (int x = 0; x < count; x++) {
@@ -137,9 +130,6 @@ public class BreadthFirstSearch {
 		System.out.println();
 	}
 
-	/**
-	 * 
-	 */
 	private static void displayVertices() {
 		for (int index = 0; index < count; index++) {
 			System.out.println("Location(" + index + "): " + vertices[index]);
@@ -147,9 +137,6 @@ public class BreadthFirstSearch {
 		System.out.println();
 	}
 
-	/**
-	 * 
-	 */
 	private static void resetEdges() {
 		for (int x = 0; x < SIZE; x++) {
 			for (int y = 0; y < SIZE; y++) {

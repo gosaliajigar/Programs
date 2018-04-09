@@ -7,10 +7,8 @@ package object.casting;
  */
 class SuperClass {
 
-	/**
-	 *
-	 */
 	public void print() {
 		System.out.println("print : I am from SuperClass");
 	}
+
 }

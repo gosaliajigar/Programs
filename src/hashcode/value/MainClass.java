@@ -13,7 +13,6 @@ public class MainClass {
 	 */
 	public static void main(final String[] args) {
 		MainClass mainClass = new MainClass();
-
 		// Prints hashcode.value.MainClass + @ +
 		// Integer.toHexString(mainClass.hashCode())
 		System.out.println(mainClass);

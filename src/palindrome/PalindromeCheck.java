@@ -1,6 +1,3 @@
-/**
- *
- */
 package palindrome;
 
 import java.util.Arrays;
@@ -15,36 +12,38 @@ public class PalindromeCheck {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		System.out
-				.println("Checking whether the following strings are Palindrome or not ... ");
+		System.out.println("Checking whether the following strings are Palindrome or not ... ");
 
 		System.out.println();
-		System.out.println("Using isPalindromeWithoutAnyOtherClass");
+		System.out.println("Using isPalindrome");
 		System.out.println("--------------------------------------");
 		String nullString = null;
-		System.out.println("Null         : " + isPalindromeWithoutAnyOtherClass(nullString));
-		System.out.println("Empty String : "
-				+ isPalindromeWithoutAnyOtherClass(""));
-		System.out.println("a            : " + isPalindromeWithoutAnyOtherClass("a"));
-		System.out.println("Hello        : "
-				+ isPalindromeWithoutAnyOtherClass("Hello"));
-		System.out.println("Hellooolleh  : "
-				+ isPalindromeWithoutAnyOtherClass("Helloolleh"));
-		System.out.println("HellooolleH  : "
-				+ isPalindromeWithoutAnyOtherClass("HelloolleH"));
+		System.out.println("Null         : " + isPalindrome(nullString));
+		System.out.println("Empty String : " + isPalindrome(""));
+		System.out.println("a            : " + isPalindrome("a"));
+		System.out.println("Hello        : " + isPalindrome("Hello"));
+		System.out.println("Hellooolleh  : " + isPalindrome("Helloolleh"));
+		System.out.println("HellooolleH  : " + isPalindrome("HelloolleH"));
 
 		System.out.println();
-		System.out.println("Using isPalindromeWithStringBuilder");
+		System.out.println("Using isPalindromeSB");
 		System.out.println("--------------------------------------");
-		System.out.println("Null         : " + isPalindromeWithStringBuilder(nullString));
-		System.out.println("Empty String : "
-				+ isPalindromeWithStringBuilder(""));
-		System.out.println("a            : " + isPalindromeWithStringBuilder("a"));
-		System.out.println("Hello        : " + isPalindromeWithStringBuilder("Hello"));
-		System.out.println("Hellooolleh  : "
-				+ isPalindromeWithStringBuilder("Helloolleh"));
-		System.out.println("HellooolleH  : "
-				+ isPalindromeWithStringBuilder("HelloolleH"));
+		System.out.println("Null         : " + isPalindromeSB(nullString));
+		System.out.println("Empty String : " + isPalindromeSB(""));
+		System.out.println("a            : " + isPalindromeSB("a"));
+		System.out.println("Hello        : " + isPalindromeSB("Hello"));
+		System.out.println("Hellooolleh  : " + isPalindromeSB("Helloolleh"));
+		System.out.println("HellooolleH  : " + isPalindromeSB("HelloolleH"));
+
+		System.out.println();
+		System.out.println("Using isPalindromeR");
+		System.out.println("--------------------------------------");
+		System.out.println("Null         : " + isPalindromeR(nullString));
+		System.out.println("Empty String : " + isPalindromeR(""));
+		System.out.println("a            : " + isPalindromeR("a"));
+		System.out.println("Hello        : " + isPalindromeR("Hello"));
+		System.out.println("Hellooolleh  : " + isPalindromeR("Helloolleh"));
+		System.out.println("HellooolleH  : " + isPalindromeR("HelloolleH"));
 
 	}
 
@@ -52,27 +51,17 @@ public class PalindromeCheck {
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindromeWithoutAnyOtherClass(final char[] inputArray) {
-		return isPalindromeWithoutAnyOtherClass(Arrays.toString(inputArray));
-	}
-
-	/**
-	 * @param inputString
-	 * @return
-	 */
-	public static boolean isPalindromeWithoutAnyOtherClass(final String inputString) {
-		if (inputString == null) {
+	public static boolean isPalindrome(final char[] inputArray) {
+		if (inputArray == null) {
 			return false;
 		}
 
-		if (inputString.length() <= 1) {
+		if (inputArray.length <= 1) {
 			return true;
 		}
 
-		// Note usage of toLowerCase as primitive char doesn't have any methods
-		// to do that
-		for (int i = 0; i <= inputString.length() / 2; i++) {
-			if (inputString.toLowerCase().charAt(i) == inputString.toLowerCase().charAt(inputString.length() - i - 1)) {
+		for (int i = 0; i <= inputArray.length/2; i++) {
+			if (String.valueOf(inputArray[i]).equalsIgnoreCase(String.valueOf(inputArray[inputArray.length - i - 1]))) {
 				continue;
 			} else {
 				return false;
@@ -82,18 +71,26 @@ public class PalindromeCheck {
 	}
 
 	/**
+	 * @param inputString
+	 * @return
+	 */
+	public static boolean isPalindrome(final String inputString) {
+		return isPalindrome(inputString.toCharArray());
+	}
+
+	/**
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindromeWithStringBuilder(final char[] inputArray) {
-		return isPalindromeWithStringBuilder(Arrays.toString(inputArray));
+	public static boolean isPalindromeSB(final char[] inputArray) {
+		return isPalindromeSB(Arrays.toString(inputArray));
 	}
 
 	/**
 	 * @param inputString
 	 * @return
 	 */
-	public static boolean isPalindromeWithStringBuilder(final String inputString) {
+	public static boolean isPalindromeSB(final String inputString) {
 		if (inputString == null) {
 			return false;
 		}
@@ -105,5 +102,23 @@ public class PalindromeCheck {
 		StringBuilder stringBuilder = new StringBuilder(inputString);
 		stringBuilder.reverse();
 		return stringBuilder.toString().equalsIgnoreCase(inputString);
+	}
+
+	/**
+	 * case sensitive recursive palindrome check
+	 * 
+	 * @param input
+	 * @return
+	 */
+	public static boolean isPalindromeR(String input) {
+		if (input != null) {
+			if (input.length() <= 1) {
+				return true;
+			}
+			if (input.charAt(0) == input.charAt(input.length() - 1)) {
+				return isPalindromeR(input.substring(1, input.length()-1));
+			}
+		}
+		return false;
 	}
 }

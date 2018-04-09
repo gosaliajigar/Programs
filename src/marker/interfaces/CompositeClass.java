@@ -6,9 +6,6 @@ package marker.interfaces;
  */
 public class CompositeClass {
 
-	/**
-	 *
-	 */
 	private int m;
 
 	/**

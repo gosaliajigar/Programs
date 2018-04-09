@@ -6,9 +6,6 @@ package nested.vo;
  */
 public class BankVO {
 
-	/**
-	 * 
-	 */
 	private AccountVO accountVO;
 
 	/**

@@ -3,6 +3,8 @@ package array;
 import java.util.Arrays;
 
 /**
+ * Merge sorted array in place
+ * 
  * @author "Jigar Gosalia"
  *
  */

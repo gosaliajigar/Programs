@@ -1,13 +1,12 @@
 package date;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 /**
  * SimpleDateFormat Example
- * @link http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+ * @link http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
  *
  * @author "Jigar Gosalia"
  *
@@ -23,7 +22,7 @@ public class SimpleDateFormatClass {
 		String stringDate = "";
 		while (stringDate.length() != 8) {
 			System.out
-					.println("Input date should be atleast 8 characters ... ");
+					.println("Input date should be atleast 8 characters (yyyyMMdd) ... ");
 			stringDate = scanner.nextLine();
 		}
 		scanner.close();
@@ -31,14 +30,12 @@ public class SimpleDateFormatClass {
 		Date parsedDate;
 		try {
 			parsedDate = simpleDateFormat.parse(stringDate);
-
 			if (!simpleDateFormat.format(parsedDate).equals(stringDate)) {
-				System.out.printf("Input date %s is not in format yyyyMMdd\n",
-						stringDate);
+				System.out.printf("Input date %s is not in format yyyyMMdd\n", stringDate);
 			} else {
 				System.out.println("Parsed Date : " + parsedDate);
 			}
-		} catch (ParseException exception) {
+		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
 	}

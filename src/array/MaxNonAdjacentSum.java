@@ -10,7 +10,6 @@ import java.util.Arrays;
  */
 public class MaxNonAdjacentSum {
 
-
 	/**
 	 * @param a
 	 * @return

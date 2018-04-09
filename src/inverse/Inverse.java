@@ -19,11 +19,11 @@ public class Inverse {
 		System.out.println("Inverse    : " + inverseValue);
 	}
 
-	private static int bin2dec(String complementValue) {
+	private static int bin2dec(String binary) {
 		int decimal = 0;
-		if (complementValue != null
-				&& complementValue.length() > 0) {
-			StringBuilder value = new StringBuilder(complementValue);
+		if (binary != null
+				&& binary.length() > 0) {
+			StringBuilder value = new StringBuilder(binary);
 			String reverse = value.reverse().toString();
 			for (int index = 0; index < reverse.length(); index++) {
 				int multiplier = ((reverse.charAt(index) == '1') ? 1 : 0);
@@ -33,10 +33,10 @@ public class Inverse {
 		return decimal;
 	}
 
-	private static String complement(String dec2binValue) {
+	private static String complement(String binary) {
 		StringBuilder complement = new StringBuilder();
-		for (int index = 0; index < dec2binValue.length(); index++) {
-			if (dec2binValue.charAt(index) == '0') {
+		for (int index = 0; index < binary.length(); index++) {
+			if (binary.charAt(index) == '0') {
 				complement.append("1");
 			} else {
 				complement.append("0");
@@ -45,13 +45,11 @@ public class Inverse {
 		return complement.toString();
 	}
 
-	private static String dec2bin(int value) {
+	private static String dec2bin(int decimal) {
 		StringBuilder binary = new StringBuilder();
-		while (value != 0) {
-			int remainder = value % 2;
-			int quotient = value / 2;
-			binary.append(remainder);
-			value = quotient;
+		while (decimal != 0) {
+			binary.append(decimal % 2);
+			decimal = decimal / 2;
 		}
 		return binary.reverse().toString();
 	}

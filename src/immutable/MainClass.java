@@ -1,6 +1,7 @@
 package immutable;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author "Jigar Gosalia"
@@ -15,18 +16,17 @@ public class MainClass {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		HashMap<String, String> departmentsMap = new HashMap<String, String>();
+		Map<String, String> departmentsMap = new HashMap<String, String>();
 		departmentsMap.put("1", "first");
 		departmentsMap.put("2", "second");
 		String name = "original";
 		int id = 10;
 		Employee employee = new Employee(id, name, departmentsMap);
 
-		System.out.println("Is name same as employee.name? "
+		System.out.println("Is name same as employee.name                    ? "
 				+ (name == employee.getName()));
-		System.out
-				.println("Is departmentsMap same as employee.departmentsMap? "
-						+ (departmentsMap == employee.getDepartmentsMap()));
+		System.out.println("Is departmentsMap same as employee.departmentsMap? "
+				+ (departmentsMap == employee.getDepartmentsMap()));
 		System.out.println();
 
 		System.out.println("Printing Employee ... ");
@@ -42,10 +42,9 @@ public class MainClass {
 		System.out.println(employee.toString());
 		System.out.println();
 
-		HashMap<String, String> departmentsMapTest = employee
-				.getDepartmentsMap();
+		Map<String, String> departmentsMapTest = employee.getDepartmentsMap();
 		departmentsMapTest.put("4", "fourth");
-		employee.getDepartmentsMap().put("5", "fivth");
+		employee.getDepartmentsMap().put("5", "fifth");
 		System.out
 				.println("Printing Employee after changing variable from accessor methods ... ");
 		System.out.println(employee.toString());

@@ -22,9 +22,8 @@ public class ConversionLibrary {
 		}
 		String binary = new String();
 		while (decimal != 0) {
-			int remainder = decimal % 2;
+			binary = (decimal % 2) + binary;
 			decimal /= 2;
-			binary = remainder + binary;
 		}
 		return binary;
 	}
@@ -53,12 +52,11 @@ public class ConversionLibrary {
 	public static String dec2oct(int decimal) {
 		String octal = new String();
 		while (decimal != 0) {
-			int remainder = decimal % 8;
+			octal = (decimal % 8) + octal;
 			decimal /= 8;
-			octal = remainder + octal;
 		}
 		if (octal.length() == 0) {
-			octal = "000" + octal;
+			octal = "000";
 		}
 		if (octal.length() == 1) {
 			octal = "00" + octal;
@@ -96,9 +94,8 @@ public class ConversionLibrary {
 		}
 		String hex = new String();
 		while (decimal != 0) {
-			int remainder = decimal % 16;
+			hex = getHexValue(decimal % 16) + hex;
 			decimal /= 16;
-			hex = getHexValue(remainder) + hex;
 		}
 		return hex;
 	}
@@ -244,8 +241,7 @@ public class ConversionLibrary {
 			return "0";
 		}
 		while (integer != 0) {
-			int remainder = integer % 10;
-			ascii = remainder + ascii;
+			ascii = (integer % 10) + ascii;
 			integer = integer / 10;
 		}
 		return ascii;

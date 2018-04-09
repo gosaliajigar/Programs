@@ -42,8 +42,7 @@ public class MainClass {
 		// inherited default methods
 		// subClassSamePackage.defaultMethod();
 
-		// Different Package Subclasses don't have access to inherited default
-		// methods
+		// Different Package Subclasses don't have access to inherited default methods
 		// subClassDifferentPackage.defaultMethod();
 	}
 }

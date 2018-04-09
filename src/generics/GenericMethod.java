@@ -39,13 +39,12 @@ public class GenericMethod {
 	 * Example with one Generic Type with primitive types
 	 *
 	 * @param inputArray
-	 * @param elementPosition
+	 * @param position
 	 * @return
 	 */
-	public static <T> T getElement(final T[] inputArray,
-			final int elementPosition) {
-		T returnElement = inputArray[elementPosition];
-		return returnElement;
+	public static <T> T getElement(final T[] inputArray, final int position) {
+		T element = inputArray[position];
+		return element;
 	}
 
 	/**

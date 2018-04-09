@@ -7,7 +7,6 @@ import java.util.Scanner;
 /**
  * Find running median using heaps.
  * 
- * 
  * @author "Jigar Gosalia"
  *
  */
@@ -31,7 +30,7 @@ public class RunningMedian {
 			double median = getRunningMedian(value);
 			System.out.println("MaxHeap : " + lowerValues);
 			System.out.println("MinHeap : " + higherValues);
-			System.out.println("Media   : " + median);
+			System.out.println("Median  : " + median);
 			System.out.println();
 		}
 	}

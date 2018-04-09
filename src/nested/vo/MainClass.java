@@ -12,9 +12,6 @@ import java.util.List;
  */
 public class MainClass {
 
-	/**
-	 * 
-	 */
 	private static List<String> PRIMITIVE_TYPE = new LinkedList<String>();
 
 	static {
@@ -45,14 +42,14 @@ public class MainClass {
 	 */
 	public static Object createObject(String vo, String tabs) throws Exception {
 
-		Object 	object = Class.forName(vo).newInstance();
+		Object object = Class.forName(vo).newInstance();
 
 		System.out.println(tabs + "Creating Object : " + object.getClass());
 
 		tabs += "-";
 
-		if (Class.forName(vo).getDeclaredFields().length > 0) {
-			for (Field field : Class.forName(vo).getDeclaredFields()) {
+		if (object.getClass().getDeclaredFields().length > 0) {
+			for (Field field : object.getClass().getDeclaredFields()) {
 				if (!isPrimitive(field)) {
 					field.setAccessible(true);
 					field.set(object, createObject(field.getType().getName(), tabs));

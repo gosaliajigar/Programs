@@ -8,24 +8,12 @@ package marker.interfaces;
  */
 public class CloneableClass implements Cloneable {
 
-	/**
-	 *
-	 */
 	private int i;
 
-	/**
-	 *
-	 */
 	private int j;
 
-	/**
-	 *
-	 */
 	private int k;
 
-	/**
-	 *
-	 */
 	private CompositeClass compositeClass;
 
 	/**
@@ -94,9 +82,6 @@ public class CloneableClass implements Cloneable {
 		return new CloneableClass();
 	}
 
-	/**
-	 * 
-	 */
 	public CloneableClass() {
 		this.compositeClass = new CompositeClass();
 	}

@@ -3,7 +3,6 @@ package array;
 import java.util.Arrays;
 
 /**
- *
  * Write code to initialize and display Arrays
  *
  * @author "Jigar Gosalia"

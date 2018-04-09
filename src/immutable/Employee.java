@@ -1,7 +1,7 @@
 package immutable;
 
 import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.Map;
 
 /**
  * Immutable Employee Class<br>
@@ -14,20 +14,11 @@ import java.util.Map.Entry;
  */
 public final class Employee {
 
-	/**
-	 *
-	 */
 	private final int id;
 
-	/**
-	 *
-	 */
 	private final String name;
 
-	/**
-	 *
-	 */
-	private final HashMap<String, String> departmentsMap;
+	private final Map<String, String> departmentsMap;
 
 	/**
 	 * @return
@@ -46,9 +37,10 @@ public final class Employee {
 	/**
 	 * Access function for mutable objects
 	 */
-	@SuppressWarnings("unchecked")
-	public HashMap<String, String> getDepartmentsMap() {
-		return (HashMap<String, String>) departmentsMap.clone();
+	public Map<String, String> getDepartmentsMap() {
+		Map<String, String> departments = new HashMap<String, String>();
+		departments.putAll(this.departmentsMap);
+		return departments;
 	}
 
 	/**
@@ -58,17 +50,12 @@ public final class Employee {
 	 * @param name
 	 * @param departmentsMap
 	 */
-	public Employee(final int id, final String name,
-			final HashMap<String, String> departmentsMap) {
+	public Employee(int id, String name, Map<String, String> departmentsMap) {
 		this.id = id;
 		this.name = name;
-		HashMap<String, String> tempMap = new HashMap<String, String>();
-		for (Entry<String, String> entry : departmentsMap.entrySet()) {
-			tempMap.put(entry.getKey(), entry.getValue());
-		}
-		this.departmentsMap = tempMap;
+		this.departmentsMap = new HashMap<String, String>();
+		this.departmentsMap.putAll(departmentsMap);
 	}
-
 
 	/**
 	 * Constructor performing Shallow Copy

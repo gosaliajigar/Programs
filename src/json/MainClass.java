@@ -1,8 +1,6 @@
 package json;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,12 +12,12 @@ import com.google.gson.Gson;
 
 /**
  * JSON can be converted into Java objects in 3 ways ... <br>
- *  1. Gson Library<br>
- *  2. JSON Simple Library<br>
- *  3. Jackson Library<br>
+ * 1. Gson Library<br>
+ * 2. JSON Simple Library<br>
+ * 3. Jackson Library<br>
  * <br>
  * 
- * @author jgosalia
+ * @author "Jigar Gosalia"
  *
  */
 public class MainClass {
@@ -46,15 +44,12 @@ public class MainClass {
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
 		long id = (Long) jsonObject.get("id");
 		String name = (String) jsonObject.get("name");
-		List<Long> tasksList = new ArrayList<Long>();
 		JSONArray values = (JSONArray) jsonObject.get("tasks");
+		int[] tasks = new int[values.size()];
+		int index = 0;
 		Iterator<Long> iterator = values.iterator();
 		while (iterator.hasNext()) {
-			tasksList.add(iterator.next());
-		}
-		int[] tasks = new int[tasksList.size()];
-		for (int index = 0; index < tasks.length; index++) {
-			tasks[index] = tasksList.get(index).intValue();
+			tasks[index++] = iterator.next().intValue();
 		}
 		String dname = (String) ((JSONObject) jsonObject.get("department")).get("name");
 		Department department = new Department(dname);

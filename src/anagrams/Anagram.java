@@ -61,11 +61,12 @@ public class Anagram {
 		System.out.println("All characters  : " + finalMap);
 		for (Character character : finalMap.keySet()) {
 			int delta = 0;
-			delta = Math.abs(((oneMap.get(character) != null) ? oneMap
-					.get(character) : 0)
-					- ((twoMap.get(character) != null) ? twoMap.get(character)
-							: 0));
-			finalMap.put(character, delta);
+			int oneCount = ((oneMap.get(character) != null) ? oneMap
+					.get(character) : 0); 
+			int twoCount = ((twoMap.get(character) != null) ? twoMap.get(character)
+					: 0); 
+			delta = oneCount - twoCount;
+			finalMap.put(character, Math.abs(delta));
 		}
 		return finalMap;
 	}

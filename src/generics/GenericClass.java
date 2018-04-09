@@ -10,9 +10,6 @@ package generics;
  */
 public class GenericClass<T> {
 
-	/**
-	 *
-	 */
 	private T value;
 
 	/**

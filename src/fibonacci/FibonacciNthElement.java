@@ -1,5 +1,6 @@
 package fibonacci;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -37,9 +38,21 @@ public class FibonacciNthElement {
 		end = System.currentTimeMillis();
 		System.out.println("Time Taken by non-recursion : " + (end - start));
 		System.out.println();
+
+		int[] d = new int[number + 1];
+		start = System.currentTimeMillis();
+		System.out.println("Recursively Fibonacci series " + number
+				+ "th element with memoization: " + fibonacciWithMemoization(d, number));
+		end = System.currentTimeMillis();
+		System.out.println("Time Taken by non-recursion : " + (end - start));
+		System.out.println();
+		System.out.println("dictionary : " + Arrays.toString(d));
 	}
 
 	/**
+	 * Time complexity : O(2^n)
+	 * Tight bound will be golden ratio raised to n : O((1.68)^n)
+	 * 
 	 * @param number
 	 * @return
 	 */
@@ -48,6 +61,8 @@ public class FibonacciNthElement {
 	}
 
 	/**
+	 * Time complexity : O(n)
+	 * 
 	 * @param number
 	 * @return
 	 */
@@ -62,5 +77,27 @@ public class FibonacciNthElement {
 			current = next;
 		}
 		return next;
+	}
+
+	/**
+	 * Time complexity : O(n)
+	 * 
+	 * @param dictionary
+	 * @param number
+	 * @return
+	 */
+	public static int fibonacciWithMemoization(int[] dictionary, int number) {
+		if (number == 0 || number == 1) {
+			return number;
+		} else {
+			int fibo = dictionary[number];
+			// check if its already calculated or not
+			if (fibo == 0) {
+				// calculate it and save it for future reference
+				fibo = fibonacciWithMemoization(dictionary, number-1) + fibonacciWithMemoization(dictionary, number-2);
+				dictionary[number] = fibo;
+			}
+			return fibo;
+		}
 	}
 }

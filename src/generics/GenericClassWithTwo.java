@@ -11,14 +11,8 @@ package generics;
  */
 public class GenericClassWithTwo<T, E> {
 
-	/**
-	 *
-	 */
 	private T name;
 
-	/**
-	 *
-	 */
 	private E value;
 
 	/**

@@ -1,6 +1,3 @@
-/**
- *
- */
 package odd.even;
 
 import java.util.Scanner;
