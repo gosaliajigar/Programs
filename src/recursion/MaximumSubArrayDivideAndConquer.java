@@ -3,7 +3,6 @@ package recursion;
 import java.util.Arrays;
 
 /**
- * 
  * Given a location in an array, maximum sub-array can be either on ...<br>
  * 1. Left side of location<br>
  * 2. Right side of location<br>

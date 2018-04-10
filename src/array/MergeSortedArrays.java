@@ -18,6 +18,7 @@ public class MergeSortedArrays {
 		int[] B = {2, 3, 8, 13};
 		System.out.println("A: " + Arrays.toString(A));
 		System.out.println("B: " + Arrays.toString(B));
+		System.out.println("C: " + Arrays.toString(mergeN(A, B)));
 		merge(A, B);
 		System.out.println();
 		System.out.println("A: " + Arrays.toString(A));
@@ -48,6 +49,36 @@ public class MergeSortedArrays {
 				b[i] = last;
 			}
 		}
+	}
+
+	/**
+	 * merge using an extra array
+	 * 
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	private static int[] mergeN(int[] a, int[] b) {
+		int i=0, j=0, k=0;
+		int[] c = new int[a.length + b.length];
+		while (i < a.length && j < b.length) {
+			if (a[i] < b[j]) {
+				c[k++] = a[i++];
+			} else if (a[i] > b [j]) {
+				c[k++] = b[j++];
+			} else {
+				c[k++] = a[i++];
+				c[k++] = b[j++];
+			}
+		}
+		while (i < a.length) {
+			c[k++] = a[i++];
+		}
+		
+		while (j < b.length) {
+			c[k++] = b[j++];
+		}
+		return c;
 	}
 
 }

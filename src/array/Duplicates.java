@@ -21,35 +21,26 @@ public class Duplicates {
 		String[] withoutDuplicates = new String[] { "one", "two", "three" };
 
 		System.out
-				.println("Checking array with duplicate using brute force         : "
-						+ bruteforce(withDuplicates));
+				.println("W duplicates using brute force        : "	+ bruteforce(withDuplicates));
 		System.out
-				.println("Checking array without any duplicate using brute force  : "
-						+ bruteforce(withoutDuplicates));
+				.println("W/O duplicates using brute force      : " + bruteforce(withoutDuplicates));
 
 		System.out
-				.println("Checking array with duplicate using Set and List        : "
-						+ checkDuplicateUsingSet(withDuplicates));
+				.println("W duplicates using Set and List       : " + usingSet(withDuplicates));
 		System.out
-				.println("Checking array without any duplicate using Set and List : "
-						+ checkDuplicateUsingSet(withoutDuplicates));
+				.println("W/O duplicates using Set and List     : " + usingSet(withoutDuplicates));
 
 		System.out
-				.println("Checking array with duplicate using Set and List        : "
-						+ checkDuplicateUsingAdd(withDuplicates));
+				.println("W duplicates using Set and List       : " + usingSetNList(withDuplicates));
 		System.out
-				.println("Checking array without any duplicate using Set and List : "
-						+ checkDuplicateUsingAdd(withoutDuplicates));
+				.println("W/O duplicates using Set and List     : " + usingSetNList(withoutDuplicates));
 
 		System.out
-				.println("Find duplicate value in array with duplicate            : "
-						+ findDuplicate(withDuplicates));
+				.println("Find duplicate value W duplicate      : " + findDuplicate(withDuplicates));
 		System.out
-				.println("Find duplicate value in array without duplicate         : "
-						+ findDuplicate(withoutDuplicates));
+				.println("Find duplicate value W/O duplicate    : " + findDuplicate(withoutDuplicates));
 		System.out
-				.println("Find all duplicate values in array with duplicate       : "
-						+ findAllDuplicate(withDuplicates));
+				.println("Find All duplicate values W duplicate : " + findAllDuplicate(withDuplicates));
 
 	}
 
@@ -80,13 +71,10 @@ public class Duplicates {
 	 * @param input
 	 * @return
 	 */
-	public static boolean checkDuplicateUsingSet(final String[] input) {
+	public static boolean usingSet(final String[] input) {
 		List<String> inputList = Arrays.asList(input);
 		Set<String> inputSet = new HashSet<String>(inputList);
-		if (inputSet.size() < inputList.size()) {
-			return true;
-		}
-		return false;
+		return (inputSet.size() < inputList.size());
 	}
 
 	/**
@@ -97,7 +85,7 @@ public class Duplicates {
 	 * @param input
 	 * @return
 	 */
-	public static boolean checkDuplicateUsingAdd(final String[] input) {
+	public static boolean usingSetNList(final String[] input) {
 		Set<String> tempSet = new HashSet<String>();
 		for (String str : input) {
 			if (!tempSet.add(str)) {

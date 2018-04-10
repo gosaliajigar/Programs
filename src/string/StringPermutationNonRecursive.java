@@ -17,30 +17,28 @@ public class StringPermutationNonRecursive {
 	public static void main(final String[] args) {
 		String sample1 = "ABC";
 		String sample2 = "123";
-		System.out.println("\nPermutations for " + sample1 + " are: \n"
-				+ permutationFinder(sample1));
-		System.out.println("\nPermutations for " + sample2 + " are: \n"
-				+ permutationFinder(sample2));
+		System.out.println("\nPermutations <" + sample1 + ">: \n" + permutationFinder(sample1));
+		System.out.println("\nPermutations <" + sample2 + ">: \n" + permutationFinder(sample2));
 		System.out.println();
 	}
 
 	/**
-	 * @param inputString
+	 * @param input
 	 * @return
 	 */
-	public static Set<String> permutationFinder(final String inputString) {
+	public static Set<String> permutationFinder(final String input) {
 		Set<String> permutation = new HashSet<String>();
 		// Handling error scenarios
-		if (inputString == null) {
+		if (input == null) {
 			return null;
-		} else if (inputString.length() == 0) {
+		} else if (input.length() == 0) {
 			permutation.add("");
 			return permutation;
 		}
 		// first character
-		char firstCharacter = inputString.charAt(0);
+		char firstCharacter = input.charAt(0);
 		// Full string without first character
-		String reminderString = inputString.substring(1);
+		String reminderString = input.substring(1);
 		Set<String> words = permutationFinder(reminderString);
 		for (String string : words) {
 			for (int i = 0; i <= string.length(); i++) {
@@ -51,16 +49,16 @@ public class StringPermutationNonRecursive {
 	}
 
 	/**
-	 * @param inputString
+	 * @param input
 	 * @param c
 	 * @param j
 	 * @return
 	 */
-	public static String charInsert(final String inputString, final char c, final int j) {
+	public static String charInsert(String input, char c, int j) {
 		// Extract String till position "j"
-		String begin = inputString.substring(0, j);
+		String begin = input.substring(0, j);
 		// Extract String from position "j"
-		String end = inputString.substring(j);
+		String end = input.substring(j);
 		// Concatenate String (String till position "j" + character + String
 		// from position "j")
 		return begin + c + end;

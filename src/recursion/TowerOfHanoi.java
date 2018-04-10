@@ -27,13 +27,13 @@ public class TowerOfHanoi {
 		moveTower(this.numOfDisks, 1, 3, 2);
 	}
 
-	public void moveTower(int numOfDisks, int original, int destination, int extra) {
+	public void moveTower(int numOfDisks, int source, int destination, int extra) {
 		if (numOfDisks == 1) {
-			move(numOfDisks, original, destination);
+			move(numOfDisks, source, destination);
 		} else {
-			moveTower(numOfDisks - 1, original, extra, destination);
-			move(numOfDisks, original, destination);
-			moveTower(numOfDisks - 1, extra, destination, original);
+			moveTower(numOfDisks - 1, source, extra, destination);
+			move(numOfDisks, source, destination);
+			moveTower(numOfDisks - 1, extra, destination, source);
 		}
 	}
 

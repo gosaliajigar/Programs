@@ -18,10 +18,9 @@ public class FirstLastAllOccurrences {
 	 * @param left
 	 * @param right
 	 * @param x
-	 * @param n
 	 * @return
 	 */
-	private static int firstOccurrence(int[] a, int left, int right, int x,	int n) {
+	private static int firstOccurrence(int[] a, int left, int right, int x, int n) {
 		if (left <= right) {
 			int mid = ((left + right) / 2);
 			if (a[mid] == x && (mid == 0 || a[mid - 1] < x)) {
@@ -43,7 +42,6 @@ public class FirstLastAllOccurrences {
 	 * @param left
 	 * @param right
 	 * @param x
-	 * @param n
 	 * @return
 	 */
 	private static int lastOccurrence(int[] a, int left, int right, int x, int n) {
@@ -64,10 +62,10 @@ public class FirstLastAllOccurrences {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] A = { 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 };
+		int[] input = { 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 };
 		int find = 2;
-		int first = firstOccurrence(A, 0, A.length - 1, find, A.length);
-		int last = lastOccurrence(A, 0, A.length - 1, find, A.length);
+		int first = firstOccurrence(input, 0, input.length - 1, find, input.length);
+		int last = lastOccurrence(input, 0, input.length - 1, find, input.length);
 		int all = last - first + 1;
 		System.out.printf("First Occurrence(%d) : %d\n", find, first);
 		System.out.printf("Last Occurrence(%d)  : %d\n", find, last);

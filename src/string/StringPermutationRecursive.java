@@ -15,33 +15,26 @@ public class StringPermutationRecursive {
 		String sample1 = "ABC";
 		String sample2 = "123";
 		System.out.println("\nPermutations for " + sample1 + " are:");
-		permutation(sample1);
+		permutation("", sample1);
 		System.out.println();
 		System.out.println("\nPermutations for " + sample2 + " are:");
-		permutation(sample2);
+		permutation("", sample2);
 		System.out.println();
-	}
-
-	/**
-	 * @param str
-	 */
-	public static void permutation(String str) { 
-	    permutation("", str);
 	}
 
 	/**
 	 * @param prefix
-	 * @param str
+	 * @param input
 	 */
-	private static void permutation(String prefix, String str) {
-	    int n = str.length();
+	private static void permutation(String prefix, String input) {
+	    int n = input.length();
 	    // Base Condition
 	    if (n == 0) {
-	    	System.out.println(prefix);
+	    	System.out.print(prefix + " ");
 	    } else {
 	    	// Recursive Condition
 	    	for (int i = 0; i < n; i++) {
-	    		permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
+	    		permutation(prefix + input.charAt(i), input.substring(0, i) + input.substring(i+1, n));
 	    	}
 	    }
 	}
