@@ -32,16 +32,14 @@ class BQConsumer implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				String item = consume(queue.take());
+				String item = queue.take();
 				System.out.println(" - Consumer #" + this.id + " got: " + item);
 				System.out.println();
+				Thread.sleep(2000);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private String consume(String item) {
-		return item;
-	}
 }

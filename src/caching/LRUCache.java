@@ -35,7 +35,7 @@ public final class LRUCache<K, V> {
 		return null;
 	}
 
-	public void set(K key, V value) {
+	public void put(K key, V value) {
 		if (map.containsKey(key)) {
 			Node<K, V> old = map.get(key);
 			old.setValue(value);
@@ -46,10 +46,8 @@ public final class LRUCache<K, V> {
 			if (map.size() >= capacity) {
 				map.remove(tail.getKey());
 				remove(tail);
-				setHead(newNode);
-			} else {
-				setHead(newNode);
 			}
+			setHead(newNode);
 			map.put(key, newNode);
 		}
 	}
@@ -131,4 +129,20 @@ class Node<K, V> {
 	public void setNext(Node<K, V> next) {
 		this.next = next;
 	}
+
+	public static void main(String[] args) {
+		LRUCache<String, Integer> cache = new LRUCache<String, Integer>(5);
+		cache.put("1", 1);
+		cache.put("2", 2);
+		cache.put("3", 3);
+		cache.put("4", 4);
+		System.out.println(cache);
+		cache.put("5", 5);
+		System.out.println(cache);
+		cache.put("2", 6);
+		System.out.println(cache);
+		cache.put("6", 6);
+		System.out.println(cache);
+	}
 }
+

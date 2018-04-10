@@ -24,7 +24,7 @@ package string;
  * compares memory locations, while equals() method compares the content stored
  * in two objects.<br>
  * <br>
- * <b>Why and When to Intern ?</b><br>
+ * <b>Why and When to Intern?</b><br>
  * <br>
  * Though Java automatically interns all Strings by default, remember that we
  * only need to intern strings when they are not constants, and we want to be

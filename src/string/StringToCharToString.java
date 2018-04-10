@@ -13,8 +13,7 @@ public class StringToCharToString {
 		// String to char array
 		String string = "123";
 		char[] charArray = string.toCharArray();
-		System.out.println("String -> char array : "
-				+ Arrays.toString(charArray));
+		System.out.println("String -> char array : " + Arrays.toString(charArray));
 		System.out.println();
 
 		// char array to String
@@ -29,8 +28,8 @@ public class StringToCharToString {
 		System.out.println();
 
 		// char to String
-		// We can also use String.valueOf(char c) or String Constructor new
-		// String(char c)
+		// We can also use String.valueOf(char c) or String Constructor
+		// new String(char c)
 		String s = Character.toString(c);
 		System.out.println("char -> String : " + s);
 	}

@@ -2,7 +2,7 @@ package string;
 
 /**
  *
- * Explains String.compareTo
+ * Explains String.compareTo ([0-9] [A-Z] [a-z])
  *
  * @author "Jigar Gosalia"
  *

@@ -33,18 +33,14 @@ class BQProducer implements Runnable {
 	public void run() {
 		try {
 			while (true) {
-				String item = produce();
+				String item = String.valueOf(new Date().toString());
 				System.out.println("Producer #" + this.id + " put: " + item);
 				queue.put(item);
-				Thread.sleep(3000);
+				Thread.sleep(1000);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-
-	private String produce() {
-		return String.valueOf(new Date().getTime());
 	}
 
 }

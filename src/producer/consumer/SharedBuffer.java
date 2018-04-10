@@ -16,7 +16,8 @@ public class SharedBuffer {
 	 * @return
 	 */
 	public synchronized int get() {
-		while (isReadyForReading == false) {
+		// while not ready for reading WAIT
+		while (!isReadyForReading) {
 			try {
 				wait();
 			} catch (InterruptedException exception) {
@@ -33,7 +34,8 @@ public class SharedBuffer {
 	 * @param value
 	 */
 	public synchronized void put(int value) {
-		while (isReadyForReading == true) {
+		// while ready for reading WAIT to write
+		while (isReadyForReading) {
 			try {
 				wait();
 			} catch (InterruptedException exception) {

@@ -12,10 +12,9 @@ public class RemoveCharacter {
 	 * @param args
 	 */
 	public static void main(final String[] args) {
-		String inputString = "Hello";
-		System.out.println("inputString : " + inputString);
-		System.out.println("finalString : "
-				+ inputString.replaceAll(Character.toString('l'), ""));
-		System.out.println("inputString : " + inputString);
+		String input = "Hello";
+		System.out.println("input : " + input);
+		System.out.println("final : " + input.replaceAll(Character.toString('l'), ""));
+		System.out.println("input : " + input);
 	}
 }

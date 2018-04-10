@@ -17,6 +17,8 @@ import org.apache.commons.io.FileUtils;
  */
 public class ReadFileToString {
 
+	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
 	/**
 	 * @param args
 	 * @throws IOException
@@ -37,19 +39,17 @@ public class ReadFileToString {
 	 * @return
 	 * @throws IOException
 	 */
-	private static String readUsingBufferedReader(final String fileName)
-			throws IOException {
+	private static String readUsingBufferedReader(final String fileName) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
 		String line = null;
-		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder lines = new StringBuilder();
 		while ((line = reader.readLine()) != null) {
-			stringBuilder.append(line).append(
-					System.getProperty("line.separator"));
+			lines.append(line).append(LINE_SEPARATOR);
 		}
 		// delete the last line-separator
-		stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+		lines.deleteCharAt(lines.length() - 1);
 		reader.close();
-		return stringBuilder.toString();
+		return lines.toString();
 	}
 
 	/**
@@ -57,9 +57,7 @@ public class ReadFileToString {
 	 * @return
 	 * @throws IOException
 	 */
-	private static String readUsingApacheCommonsIO(final String fileName)
-			throws IOException {
-		return FileUtils.readFileToString(new File(fileName),
-				Charset.defaultCharset());
+	private static String readUsingApacheCommonsIO(final String fileName) throws IOException {
+		return FileUtils.readFileToString(new File(fileName), Charset.defaultCharset());
 	}
 }
