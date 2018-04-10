@@ -25,9 +25,9 @@ public class MainClass {
 
 		System.out.println();
 
-		System.out.println("usingMinusPowerOfTwo()         -- is " + number + " power of two :" + usingMinusPowerOfTwo(Math.abs(number)));
-		System.out.println("usingBruteForcePowerOfTwo()    -- is " + number  + " power of two :" + usingBruteForcePowerOfTwo(Math.abs(number)));
-		System.out.println("usingShiftOperatorPowerOfTwo() -- is " + number + " power of two :" + usingShiftOperatorPowerOfTwo(Math.abs(number)));
+		System.out.println("usingMinusPowerOfTwo()         -- is " + number + " power of two :" + usingMinus(Math.abs(number)));
+		System.out.println("usingBruteForcePowerOfTwo()    -- is " + number  + " power of two :" + usingBruteForce(Math.abs(number)));
+		System.out.println("usingShiftOperatorPowerOfTwo() -- is " + number + " power of two :" + usingConsecutiveNumberCheck(Math.abs(number)));
 	}
 
 	/**
@@ -39,7 +39,7 @@ public class MainClass {
 	 * @param number
 	 * @return
 	 */
-	private static boolean usingMinusPowerOfTwo(final int number) {
+	private static boolean usingMinus(final int number) {
 		if (number <= 0) {
 			throw new IllegalArgumentException("number: " + number);
 		}
@@ -56,7 +56,7 @@ public class MainClass {
 	 * @param number
 	 * @return
 	 */
-	private static boolean usingBruteForcePowerOfTwo(final int number) {
+	private static boolean usingBruteForce(final int number) {
 		int square = 1;
 		while (number >= square) {
 			if (number == square) {
@@ -73,7 +73,7 @@ public class MainClass {
 	 * @param number
 	 * @return
 	 */
-	private static boolean usingShiftOperatorPowerOfTwo(final int number) {
+	private static boolean usingConsecutiveNumberCheck(final int number) {
 		if (number <= 0) {
 			throw new IllegalArgumentException("number: " + number);
 		}

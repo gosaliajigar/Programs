@@ -1,7 +1,6 @@
 package recursion;
 
 /**
- * 
  * The mission is to move all the disks to some another tower without violating
  * the sequence of arrangement. The below mentioned are few rules which are to
  * be followed for tower of hanoi -<br>

@@ -1,6 +1,3 @@
-/**
- *
- */
 package serializable;
 
 import java.io.Serializable;
@@ -13,29 +10,14 @@ import java.io.Serializable;
  */
 public class Employee implements Serializable {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = -8215836970789336272L;
 
-	/**
-	 *
-	 */
 	private int number;
 
-	/**
-	 *
-	 */
 	private String name;
 
-	/**
-	 *
-	 */
 	private String address;
 
-	/**
-	 *
-	 */
 	private transient String SSN;
 
 	/**
@@ -44,8 +26,7 @@ public class Employee implements Serializable {
 	 * @param address
 	 * @param SSN
 	 */
-	public Employee(final int number, final String name, final String address,
-			final String SSN) {
+	public Employee(int number, String name, String address, String SSN) {
 		this.number = number;
 		this.name = name;
 		this.address = address;
@@ -78,13 +59,6 @@ public class Employee implements Serializable {
 	 */
 	public String getSSN() {
 		return SSN;
-	}
-
-	/**
-	 * @return
-	 */
-	public static long getSerialVersionUID() {
-		return Employee.serialVersionUID;
 	}
 
 	@Override

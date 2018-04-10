@@ -22,9 +22,7 @@ class Car implements Serializable {
 
 	// instance variable
 	private int id;
-
 	private int price;
-
 	private String color;
 
 	// transient variable
@@ -64,16 +62,14 @@ class Car implements Serializable {
 	}
 
 	public void print() {
-		System.out.println("SerialVersionUID (final static field) : "
-				+ serialVersionUID);
+		System.out.println("SerialVersionUID (final static field) : " + serialVersionUID);
 		System.out.println("logger      (final static field)      : " + logger);
 		System.out.println("make        (static field)            : " + make);
 		System.out.println("isCouple    (field)                   : " + isCoupe);
 		System.out.println("id          (instance variable)       : " + id);
 		System.out.println("price       (instance variable)       : " + price);
 		System.out.println("color       (instance variable)       : " + color);
-		System.out.println("isAutomatic (transient variable)      : "
-				+ isAutomatic);
+		System.out.println("isAutomatic (transient variable)      : " + isAutomatic);
 		System.out.println("thread      (non-serializable field)  : " + thread);
 	}
 
