@@ -64,11 +64,12 @@ public class InterpolationSearch {
 				break;
 			}
 		}
-		System.out.println("No of Iterations             : " + iterations);
+		System.out.println("No of Iterations                  : " + iterations);
 		System.out.println("Theoretical Iterations(log(log n)): "
 				+ (Math.log((Math.log(a.length) / Math.log(2))) / Math.log(2)));
+		System.out.println();
 		if (index != -1) {
-			System.out.println("Found " + x + " at location: " + index);
+			System.out.println("Found " + x + " at location   : " + index);
 		} else {
 			System.out.println("Couldn't find " + x);
 		}
