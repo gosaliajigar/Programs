@@ -42,7 +42,7 @@ public class FibonacciNthElement {
 		int[] d = new int[number + 1];
 		start = System.currentTimeMillis();
 		System.out.println("Recursively Fibonacci series " + number
-				+ "th element with memoization: " + fibonacciWithMemoization(d, number));
+				+ "th element with memoization: " + fibMemoization(d, number));
 		end = System.currentTimeMillis();
 		System.out.println("Time Taken by non-recursion : " + (end - start));
 		System.out.println();
@@ -82,22 +82,20 @@ public class FibonacciNthElement {
 	/**
 	 * Time complexity : O(n)
 	 * 
-	 * @param dictionary
-	 * @param number
+	 * @param d
+	 * @param n
 	 * @return
 	 */
-	public static int fibonacciWithMemoization(int[] dictionary, int number) {
-		if (number == 0 || number == 1) {
-			return number;
+	public static int fibMemoization(int[] d, int n) {
+		if (n == 0 || n == 1) {
+			return n;
 		} else {
-			int fibo = dictionary[number];
 			// check if its already calculated or not
-			if (fibo == 0) {
+			if (d[n] == 0) {
 				// calculate it and save it for future reference
-				fibo = fibonacciWithMemoization(dictionary, number-1) + fibonacciWithMemoization(dictionary, number-2);
-				dictionary[number] = fibo;
+				d[n] = fibMemoization(d, n-1) + fibMemoization(d, n-2);
 			}
-			return fibo;
+			return d[n];
 		}
 	}
 }

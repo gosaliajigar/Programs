@@ -19,7 +19,7 @@ import java.util.Arrays;
  */
 public class MergeSort {
 
-	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
+	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5, 2, 2, 1, 1 };
 
 	private static int[] temp = new int[array.length];
 
@@ -33,48 +33,48 @@ public class MergeSort {
 	}
 
 	/**
-	 * @param array
+	 * @param a
 	 * @param low
 	 * @param high
 	 */
-	private static void sort(int[] array, int low, int high) {
+	private static void sort(int[] a, int low, int high) {
 		if (low < high) {
 			int mid = (low + high) / 2;
-			sort(array, low, mid);
-			sort(array, mid + 1, high);
-			merge(array, low, mid, high);
+			sort(a, low, mid);
+			sort(a, mid + 1, high);
+			merge(a, low, mid, high);
 		}
 		return;
 	}
 
 	/**
-	 * @param array
+	 * @param a
 	 * @param low
 	 * @param mid
 	 * @param high
 	 */
-	private static void merge(int[] array, int low, int mid, int high) {
+	private static void merge(int[] a, int low, int mid, int high) {
 		int left=low, right=mid+1, i=low;
 
 		// Compare numbers from both the halves and copy them sorted in temp
 		while (left<= mid && right <= high) {
-	        if (array[left] <= array[right])
-	        	temp[i++] = array[left++];
+	        if (a[left] <= a[right])
+	        	temp[i++] = a[left++];
 	        else
-	        	temp[i++] = array[right++];
+	        	temp[i++] = a[right++];
 		}
 
 		// if right half is completed
 		while (left <= mid)
-			temp[i++] = array[left++];
+			temp[i++] = a[left++];
 
 		// if left half is completed
 		while (right <= high)
-		    temp[i++] = array[right++];
+		    temp[i++] = a[right++];
 
 		// copy sorted array back to original array
 		for (i = low; i <= high; i++)
-		        array[i] = temp[i];
+		        a[i] = temp[i];
 	}
 
 	/**

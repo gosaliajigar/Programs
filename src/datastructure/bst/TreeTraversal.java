@@ -3,6 +3,8 @@ package datastructure.bst;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import datastructure.bst.BinarySearchTree.Node;
+
 /**
  * Tree Traversal<br>
  * 1. Pre Order Tree Traversal   (P-L-R)<br>
@@ -10,6 +12,11 @@ import java.util.Queue;
  * 3. Post Order Tree Traversal  (L-R-P)<br>
  * 4. Level Order Tree Traversal (Level)<br>
  * <br>
+ * 
+ * 					27
+ * 			14				35
+ * 		10		19		31		42
+ * 									57
  * 
  * @author "Jigar Gosalia"
  *
@@ -21,12 +28,12 @@ public class TreeTraversal {
 	 */
 	public static void main(String[] args) {
 
-		int[] array = { 27, 14, 35, 10, 19, 31, 42 };
+		int[] array = { 27, 14, 35, 10, 19, 31, 42, 57 };
 		BinarySearchTree bstTree = new BinarySearchTree();
 		bstTree.create(array);
 		System.out.println("Tree: " + bstTree.getRoot());
 		System.out.println();
-		BinaryNode node = bstTree.search(31);
+		Node node = bstTree.search(31);
 		System.out.println((node != null) ? "Element(31) found: " + node : "Element(31) not found");
 		node = bstTree.search(15);
 		System.out.println((node != null) ? "Element(15) found: " + node : "Element(15) not found");
@@ -49,7 +56,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	public static void preOrderTraversal(BinaryNode node) {
+	public static void preOrderTraversal(Node node) {
 		if (node != null) {
 			System.out.printf(node.getData() + " ");
 			preOrderTraversal(node.getLeft());
@@ -63,7 +70,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	public static void inOrderTraversal(BinaryNode node) {
+	public static void inOrderTraversal(Node node) {
 		if (node != null) {
 			inOrderTraversal(node.getLeft());
 			System.out.printf(node.getData() + " ");
@@ -77,7 +84,7 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	public static void postOrderTraversal(BinaryNode node) {
+	public static void postOrderTraversal(Node node) {
 		if (node != null) {
 			postOrderTraversal(node.getLeft());
 			postOrderTraversal(node.getRight());
@@ -91,12 +98,12 @@ public class TreeTraversal {
 	 * 
 	 * @param node
 	 */
-	public static void levelOrderTraversal(BinaryNode root) {
-		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+	public static void levelOrderTraversal(Node root) {
+		Queue<Node> queue = new LinkedList<Node>();
 		if (root != null) {
 			queue.add(root);
 			while (!queue.isEmpty()) {
-				BinaryNode node = queue.remove();
+				Node node = queue.remove();
 				System.out.printf(node.getData() + " ");
 				if (node.getLeft() != null) {
 					queue.add(node.getLeft());

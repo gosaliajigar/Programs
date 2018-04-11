@@ -24,7 +24,7 @@ import java.util.Arrays;
 public class QuickSort {
 
 	/*	 */
-	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
+	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5, 2, 2, 1, 1 };
 
 	/**
 	 * @param one
@@ -38,22 +38,22 @@ public class QuickSort {
 
 	/**
 	 * @param p
-	 * @param q
+	 * @param r
 	 * @param pivot
 	 * @return
 	 */
-	public static int partition(int[] array, int p, int q) {
+	public static int partition(int[] a, int p, int r) {
 		// pivot = rear element
-		int pivot = array[q];
+		int pivot = a[r];
 		int i = p-1;
-		for (int j = p; j < q; j++) {
-			if (array[j] <= pivot) {
+		for (int j = p; j < r; j++) {
+			if (a[j] <= pivot) {
 				i = i + 1;
-				swap(array, i, j);
+				swap(a, i, j);
 			}
 		}
-		swap(array, q, i+1);
-		System.out.println(" - " + Arrays.toString(array));
+		swap(a, r, i+1);
+		System.out.println(" - " + Arrays.toString(a));
 		return (i+1);
 	}
 

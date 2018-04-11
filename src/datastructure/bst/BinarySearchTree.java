@@ -8,7 +8,7 @@ package datastructure.bst;
  */
 public class BinarySearchTree {
 
-	private BinaryNode root;
+	private Node root;
 
 	public BinarySearchTree () {
 		super();
@@ -18,7 +18,7 @@ public class BinarySearchTree {
 	/**
 	 * @return
 	 */
-	public BinaryNode getRoot() {
+	public Node getRoot() {
 		return root;
 	}
 
@@ -35,14 +35,15 @@ public class BinarySearchTree {
 	 * @param data
 	 */
 	public void insert(int data) {
-		BinaryNode node = new BinaryNode(data, null, null);
-		BinaryNode parent;
+		Node node = new Node(data, null, null);
+		Node parent;
 		if (root == null) {
 			root = node;
 		} else {
-			BinaryNode current = root;
+			Node current = root;
 			parent = null;
 			while(true) {
+				// > scenario
 				if (data > current.getData()) {
 					parent = current;
 					current = current.getRight();
@@ -50,7 +51,8 @@ public class BinarySearchTree {
 						parent.setRight(node);
 						break;
 					}
-				} else if (data <= current.getData()) {
+					// <= scenario
+				} else {
 					parent = current;
 					current = current.getLeft();
 					if (current == null) {
@@ -66,9 +68,9 @@ public class BinarySearchTree {
 	 * @param data
 	 * @return
 	 */
-	public BinaryNode search(int data) {
-		BinaryNode node = null;
-		BinaryNode current = root;
+	public Node search(int data) {
+		Node node = null;
+		Node current = root;
 		while(current != null) {
 			if (data > current.getData()) {
 				current = current.getRight();
@@ -81,4 +83,86 @@ public class BinarySearchTree {
 		}
 		return node;
 	}
+
+	public static class Node {
+
+		int data;
+
+		Node left;
+
+		Node right;
+
+		/**
+		 * @param data
+		 */
+		public Node(int data) {
+			super();
+			this.data = data;
+			this.left = null;
+			this.right = null;
+		}
+
+		/**
+		 * @param data
+		 * @param left
+		 * @param right
+		 */
+		public Node(int data, Node left, Node right) {
+			super();
+			this.data = data;
+			this.left = left;
+			this.right = right;
+		}
+
+		/**
+		 * @return
+		 */
+		public int getData() {
+			return data;
+		}
+
+		/**
+		 * @param data
+		 */
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		/**
+		 * @return
+		 */
+		public Node getLeft() {
+			return left;
+		}
+
+		/**
+		 * @param left
+		 */
+		public void setLeft(Node left) {
+			this.left = left;
+		}
+
+		/**
+		 * @return
+		 */
+		public Node getRight() {
+			return right;
+		}
+
+		/**
+		 * @param right
+		 */
+		public void setRight(Node right) {
+			this.right = right;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "Node [data=" + data + ", left=" + left + ", right=" + right + "]";
+		}
+	}
+
 }

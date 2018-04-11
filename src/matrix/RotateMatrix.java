@@ -50,21 +50,28 @@ public class RotateMatrix {
 	 * @param matrix
 	 */
 	private static void rotate(int[][] matrix) {
+		if (matrix == null || matrix.length == 0 || matrix.length != matrix[0].length) {
+			return;
+		}
 		int n = matrix.length;
-		// x stands for range of possible x-coordinate of matrix during rotation
+		// layer stands for range of possible x-coordinate of matrix during rotation
 		for (int x = 0; x < (n / 2); x++) {
-			// start stands for starting x and y coordinate of elements
-			int start = x;
-			// end stands for ending x and y coordinate of elements
-			int end = n - x - 1;
+			// first stands for starting x and y coordinate of elements
+			int first = x;
+			// last stands for ending x and y coordinate of elements
+			int last = n - 1 - x;
 			// y stands for range of possible y-coordinate of matrix during rotation
-			for (int y = start; y < end; y++) {
-				int shift = y - start;
-				int temp = matrix[start][y];
-				matrix[start][y] = matrix[end - shift][start];
-				matrix[end - shift][start] = matrix[end][end - shift];
-				matrix[end][end - shift] = matrix[y][end];
-				matrix[y][end] = temp;
+			for (int y = first; y < last; y++) {
+				int shift = y - first;
+				int top = matrix[first][y];
+				// top = left
+				matrix[first][y] = matrix[last - shift][first];
+				// left = bottom
+				matrix[last - shift][first] = matrix[last][last - shift];
+				// bottom = right
+				matrix[last][last - shift] = matrix[y][last];
+				// right = top
+				matrix[y][last] = top;
 			}
 		}
 	}

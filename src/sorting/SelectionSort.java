@@ -27,7 +27,7 @@ public class SelectionSort {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Integer[] intArr = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
+		Integer[] intArr = { 9, 8, 7, 6, 3, 1, 2, 4, 5, 2, 1, 2, 2, 2 };
 		selectionSort(intArr);
 	}
 

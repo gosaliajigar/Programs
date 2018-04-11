@@ -3,6 +3,8 @@ package datastructure.bst;
 import java.util.LinkedList;
 import java.util.List;
 
+import datastructure.bst.BinarySearchTree.Node;
+
 /**
  * Find statistics of Binary Search Tree.
  * 
@@ -55,7 +57,7 @@ public class BinarySearchTreeStatistics {
 		System.out.println("All Paths              : ");
 		allPaths(tree.getRoot(), new LinkedList<Integer>(),0);
 		System.out.println();
-		BinaryNode mirrorRoot = mirror();
+		Node mirrorRoot = mirror();
 		System.out.println();
 		// compare tree and its mirror
 		System.out.println("Compare 2 trees        : " + compare2Trees(tree.getRoot(), mirrorRoot));
@@ -71,19 +73,19 @@ public class BinarySearchTreeStatistics {
 		System.out.println();
 	}
 
-	public static int findHeight(BinaryNode node) {
+	public static int findHeight(Node node) {
 		return ((node == null) ? 0 : (1 + Math.max(findHeight(node.left), findHeight(node.right))));
 	}
 
-	public static int findTotalNodes(BinaryNode node) {
+	public static int findTotalNodes(Node node) {
 		return ((node == null) ? 0 : (1 + findTotalNodes(node.left) + findTotalNodes(node.right)));
 	}
 
-	public static int sumOfNodeData(BinaryNode node) {
+	public static int sumOfNodeData(Node node) {
 		return ((node == null) ? 0 : (node.getData() + sumOfNodeData(node.left) + sumOfNodeData(node.right)));
 	}
 
-	public static int noOfLeafNodes(BinaryNode node) {
+	public static int noOfLeafNodes(Node node) {
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null
@@ -94,7 +96,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int noOfInternalNodes(BinaryNode node) {
+	public static int noOfInternalNodes(Node node) {
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null
@@ -105,7 +107,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int noOfEdges(BinaryNode node) {
+	public static int noOfEdges(Node node) {
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null
@@ -119,11 +121,11 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int findDepth(BinaryNode node) {
+	public static int findDepth(Node node) {
 		return findMaxDepth(node);
 	}
 
-	public static int findMaxDepth(BinaryNode node) {
+	public static int findMaxDepth(Node node) {
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null
@@ -134,7 +136,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int noOfLeftNodes(BinaryNode node) {
+	public static int noOfLeftNodes(Node node) {
 		if (node == null) {
 			return 0;
 		} else if(node.getLeft() == null) {
@@ -144,7 +146,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int noOfRightNodes(BinaryNode node) {
+	public static int noOfRightNodes(Node node) {
 		if (node == null) {
 			return 0;
 		} else if(node.getRight() == null) {
@@ -154,7 +156,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static boolean hasPathSum(BinaryNode node, int sum) {
+	public static boolean hasPathSum(Node node, int sum) {
 		if (node == null) {
 			return (sum == 0);
 		} else {
@@ -176,7 +178,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static void allPaths(BinaryNode node, LinkedList<Integer> path, int length) {
+	public static void allPaths(Node node, LinkedList<Integer> path, int length) {
 		if (node == null) {
 			return;
 		} else {
@@ -198,13 +200,13 @@ public class BinarySearchTreeStatistics {
 		System.out.println();
 	}
 
-	public static BinaryNode mirror() {
+	public static Node mirror() {
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.create(array);
 		System.out.print("Before mirroring       : ");
 		TreeTraversal.inOrderTraversal(tree.getRoot());
 		System.out.println();
-		BinaryNode node = tree.getRoot();
+		Node node = tree.getRoot();
 		mirrorTree(node);
 		System.out.print("After mirroring        : ");
 		TreeTraversal.inOrderTraversal(tree.getRoot());
@@ -212,11 +214,11 @@ public class BinarySearchTreeStatistics {
 		return node;
 	}
 
-	private static void mirrorTree(BinaryNode node) {
+	private static void mirrorTree(Node node) {
 		if (node == null) {
 			return;
 		} else {
-			BinaryNode temp = node.getLeft();
+			Node temp = node.getLeft();
 			node.setLeft(node.getRight());
 			node.setRight(temp);
 			mirrorTree(node.getLeft());
@@ -224,7 +226,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static boolean compare2Trees(BinaryNode nodeA, BinaryNode nodeB) {
+	public static boolean compare2Trees(Node nodeA, Node nodeB) {
 		if (nodeA == null && nodeB == null) {
 			return true;
 		} else if (nodeA.getData() == nodeB.getData()
@@ -236,7 +238,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static boolean isBST(BinaryNode node, int min, int max) {
+	public static boolean isBST(Node node, int min, int max) {
 		if (node == null) {
 			return true;
 		} 
