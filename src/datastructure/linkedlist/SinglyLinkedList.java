@@ -4,12 +4,16 @@ package datastructure.linkedlist;
  * @author "Jigar Gosalia"
  *
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList<T> {
 
-	Node start;
+	private Node<T> root;
 
 	public SinglyLinkedList() {
-		start = null;
+		root = null;
+	}
+
+	public Node<T> getRoot() {
+		return this.root;
 	}
 
 	/**
@@ -19,12 +23,12 @@ public class SinglyLinkedList {
 	 *
 	 * @param data
 	 */
-	public void addFront(final Object data) {
+	public void addFront(final T data) {
 		// create a reference to the start node with new data
-		Node node = new Node(data, start);
+		Node<T> node = new Node<T>(data, root);
 
 		// assign our start to a new node
-		start = node;
+		root = node;
 	}
 
 	/**
@@ -34,9 +38,9 @@ public class SinglyLinkedList {
 	 *
 	 * @param data
 	 */
-	public void addRear(final Object data) {
-		Node node = new Node(data, null);
-		Node current = start;
+	public void addRear(final T data) {
+		Node<T> node = new Node<T>(data, null);
+		Node<T> current = root;
 
 		if (current != null) {
 			while (current.getNext() != null) {
@@ -55,27 +59,27 @@ public class SinglyLinkedList {
 	 *
 	 * @param data
 	 */
-	public void deleteNode(final Object data) {
-		if (start == null) {
-			return;
-		}
+	public void deleteNode(final T data) {
+		if (root != null) {
+			Node<T> previous = root;
 
-		Node previous = start;
-
-		if (previous != null && previous.getData().equals(data)) {
-			start = previous.getNext();
-			return;
-		}
-
-		Node current = previous.getNext();
-
-		while (current != null) {
-			if (current.getData().equals(data)) {
-				previous.setNext(current.getNext());
+			if (previous != null && previous.getData().equals(data)) {
+				root = previous.getNext();
+				previous.setNext(null);
 				return;
-			} else {
-				previous = current;
-				current = current.getNext();
+			}
+
+			Node<T> current = previous.getNext();
+
+			while (current != null) {
+				if (current.getData().equals(data)) {
+					previous.setNext(current.getNext());
+					current.setNext(null);
+					return;
+				} else {
+					previous = current;
+					current = current.getNext();
+				}
 			}
 		}
 	}
@@ -87,9 +91,9 @@ public class SinglyLinkedList {
 	 *
 	 * @return
 	 */
-	public Object getFront() {
-		if (start != null) {
-			return start.getData();
+	public T getFront() {
+		if (root != null) {
+			return root.getData();
 		} else {
 			return null;
 		}
@@ -101,7 +105,7 @@ public class SinglyLinkedList {
 	 * Print the singleLinkedList
 	 */
 	public void print() {
-		Node current = start;
+		Node<T> current = root;
 
 		if (current == null) {
 			System.out.println("SingleLinkedList is Empty");
@@ -126,7 +130,7 @@ public class SinglyLinkedList {
 	public int size() {
 		int size = 0;
 
-		Node current = start;
+		Node<T> current = root;
 
 		while (current != null) {
 			current = current.getNext();
@@ -140,8 +144,8 @@ public class SinglyLinkedList {
 	 * 
 	 * @return
 	 */
-	public Node getStart() {
-		return this.start;
+	public Node<T> getStart() {
+		return this.root;
 	}
 
 	/**
@@ -149,14 +153,14 @@ public class SinglyLinkedList {
 	 * 
 	 * @return
 	 */
-	public Node getRear() {
-		Node current = start;
-		Node previous = current;
-		while (current != null) {
-			previous = current;
-			current = current.getNext();
+	public Node<T> getRear() {
+		Node<T> current = root;
+		if (current != null) {
+			while(current.getNext() != null) {
+				current = current.getNext();
+			}
 		}
-		return previous;
+		return current;
 	}
 
 	/**
@@ -164,14 +168,13 @@ public class SinglyLinkedList {
 	 * 
 	 * recursively print singly linked list
 	 * 
-	 * @param start
+	 * @param node
 	 */
-	public void recursivePrint(Node start) {
-		if (start == null) {
-			return;
+	public void recursivePrint(Node<T> node) {
+		if (node != null) {
+			System.out.print(node.getData() + " ");
+			recursivePrint(node.getNext());
 		}
-		System.out.print(start.getData() + " ");
-		recursivePrint(start.getNext());
 	}
 
 	/**
@@ -179,13 +182,12 @@ public class SinglyLinkedList {
 	 * 
 	 * recursively print singly linked list in reverse
 	 * 
-	 * @param start
+	 * @param node
 	 */
-	public void recursiveReversePrint(Node start) {
-		if (start == null) {
-			return;
+	public void recursiveReversePrint(Node<T> node) {
+		if (node != null) {
+			recursiveReversePrint(node.getNext());
+			System.out.print(node.getData() + " ");
 		}
-		recursiveReversePrint(start.getNext());
-		System.out.print(start.getData() + " ");
 	}
 }

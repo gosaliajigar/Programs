@@ -4,31 +4,19 @@ package datastructure.linkedlist;
  * @author "Jigar Gosalia"
  *
  */
-public class DoublyLinkedList {
+public class DoublyLinkedList<T> {
 
-	/**
-	 * 
-	 */
 	int count;
 
-	/**
-	 * 
-	 */
-	DoubleNode front;
+	DoubleNode<T> head;
 
-	/**
-	 * 
-	 */
-	DoubleNode rear;
+	DoubleNode<T> tail;
 
-	/**
-	 * 
-	 */
 	public DoublyLinkedList() {
 		super();
 		this.count = 0;
-		this.front = null;
-		this.rear = null;
+		this.head = null;
+		this.tail = null;
 	}
 
 	/**
@@ -36,11 +24,11 @@ public class DoublyLinkedList {
 	 * 
 	 * @return
 	 */
-	public Object getFront() throws Exception {
+	public T getFront() throws Exception {
 		if (isEmpty()) {
 			throw new Exception("Empty Doubly Linked List!");
 		}
-		return front.getData();
+		return head.getData();
 	}
 
 	/**
@@ -48,11 +36,11 @@ public class DoublyLinkedList {
 	 * 
 	 * @return
 	 */
-	public Object getRear() throws Exception {
+	public T getRear() throws Exception {
 		if (isEmpty()) {
 			throw new Exception("Empty Doubly Linked List!");
 		}
-		return rear.getData();
+		return tail.getData();
 	}
 
 	/**
@@ -61,7 +49,7 @@ public class DoublyLinkedList {
 	 * @param data
 	 * @return
 	 */
-	public boolean contains(Object data) {
+	public boolean contains(T data) {
 		return (find(data) != null) ? true : false;
 	}
 
@@ -70,15 +58,15 @@ public class DoublyLinkedList {
 	 * 
 	 * @param data
 	 */
-	public void addFront(Object data) {
-		DoubleNode node = new DoubleNode(data);
+	public void addFront(T data) {
+		DoubleNode<T> node = new DoubleNode<T>(data);
 		if (isEmpty()) {
-			rear = node;
+			tail = node;
 		} else {
-			front.setPrevious(node);
+			head.setPrevious(node);
 		}
-		node.setNext(front);
-		front = node;
+		node.setNext(head);
+		head = node;
 		count++;
 	}
 
@@ -87,15 +75,15 @@ public class DoublyLinkedList {
 	 * 
 	 * @param data
 	 */
-	public void addRear(Object data) {
-		DoubleNode node = new DoubleNode(data);
+	public void addRear(T data) {
+		DoubleNode<T> node = new DoubleNode<T>(data);
 		if (isEmpty()) {
-			front = node;
+			head = node;
 		} else {
-			rear.setNext(node);
+			tail.setNext(node);
 		}
-		node.setPrevious(rear);
-		rear = node;
+		node.setPrevious(tail);
+		tail = node;
 		count++;
 	}
 
@@ -104,10 +92,10 @@ public class DoublyLinkedList {
 	 * 
 	 * @param data
 	 */
-	public void add(Object newData, Object findData) throws Exception {
-		DoubleNode node = new DoubleNode(newData);
-		DoubleNode current = find(findData);
-		if (findData != null) {
+	public void add(T newData, T findData) throws Exception {
+		DoubleNode<T> node = new DoubleNode<T>(newData);
+		DoubleNode<T> current = find(findData);
+		if (current != null) {
 			node.setNext(current.getNext());
 			node.setPrevious(current);
 			current.setNext(node);
@@ -128,10 +116,10 @@ public class DoublyLinkedList {
 			throw new Exception("Empty Doubly Linked List!");
 		}
 		if (count == 1) {
-			front = rear = null;
+			head = tail = null;
 		} else {
-			front = front.getNext();
-			front.setPrevious(null);
+			head = head.getNext();
+			head.setPrevious(null);
 		}
 		count--;
 	}
@@ -146,10 +134,10 @@ public class DoublyLinkedList {
 			throw new Exception("Empty Doubly Linked List!");
 		}
 		if (count == 1) {
-			front = rear = null;
+			head = tail = null;
 		} else {
-			rear = rear.getPrevious();
-			rear.setNext(null);
+			tail = tail.getPrevious();
+			tail.setNext(null);
 		}
 		count--;
 	}
@@ -159,18 +147,20 @@ public class DoublyLinkedList {
 	 * 
 	 * @param data
 	 */
-	public void delete(Object data) {
-		DoubleNode current = find(data);
+	public void delete(T data) {
+		DoubleNode<T> current = find(data);
 		if (current != null) {
+			// current is head
 			if (current.getPrevious() != null) {
 				current.getPrevious().setNext(current.getNext());
 			} else {
-				front = current.getNext();
+				head = current.getNext();
 			}
+			// current is tail
 			if (current.getNext() != null) {
 				current.getNext().setPrevious(current.getPrevious());
 			} else {
-				rear = current.getPrevious();
+				tail = current.getPrevious();
 			}
 			current.setNext(null);
 			current.setPrevious(null);
@@ -193,7 +183,7 @@ public class DoublyLinkedList {
 	 * @return
 	 */
 	public boolean isEmpty() {
-		return (count == 0) ? true : false;
+		return (count == 0);
 	}
 
 	/**
@@ -212,7 +202,7 @@ public class DoublyLinkedList {
 	 */
 	public String printBackward() {
 		StringBuilder data = new StringBuilder();
-		DoubleNode current = rear;
+		DoubleNode<T> current = tail;
 		data.append("DoublyLinkedList(B:" + size() + "):[");
 		while (current != null) {
 			data.append(current.getData());
@@ -230,7 +220,7 @@ public class DoublyLinkedList {
 	 */
 	public String toString() {
 		StringBuilder data = new StringBuilder();
-		DoubleNode current = front;
+		DoubleNode<T> current = head;
 		data.append("DoublyLinkedList(F:" + size() + "):[");
 		while (current != null) {
 			data.append(current.getData());
@@ -249,8 +239,8 @@ public class DoublyLinkedList {
 	 * @param data
 	 * @return
 	 */
-	private DoubleNode find(Object data) {
-		DoubleNode current = front;
+	private DoubleNode<T> find(T data) {
+		DoubleNode<T> current = head;
 		while (current != null) {
 			if (current.getData().equals(data)) {
 				return current;

@@ -31,12 +31,12 @@ public class SinglyLinkedListMainClass {
 
 		System.out.println();
 		System.out.print("Priting Single Linked List (recursively)         : ");
-		Node current = singleLinkedList.start;
+		Node current = singleLinkedList.getRoot();
 		singleLinkedList.recursivePrint(current);
 
 		System.out.println();
 		System.out.print("Priting Single Linked List (reverse recursively) : ");
-		current = singleLinkedList.start;
+		current = singleLinkedList.getRoot();
 		singleLinkedList.recursiveReversePrint(current);
 		System.out.println();
 

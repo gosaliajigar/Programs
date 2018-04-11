@@ -6,43 +6,43 @@ package datastructure.linkedlist;
  * @author "Jigar Gosalia"
  *
  */
-public class Node {
+public class Node<T> {
 
 	/**
 	 * Data stored in this node
 	 */
-	private Object data;
+	private T data;
 
 	/**
 	 * Store a reference to the next node in this
 	 */
-	private Node next;
+	private Node<T> next;
 
 	/**
 	 * @return
 	 */
-	public Object getData() {
+	public T getData() {
 		return data;
 	}
 
 	/**
 	 * @param data
 	 */
-	public void setData(Object data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
 	/**
 	 * @return
 	 */
-	public Node getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
 
 	/**
 	 * @param next
 	 */
-	public void setNext(Node next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 
@@ -50,7 +50,7 @@ public class Node {
 	 * @param data
 	 * @param next
 	 */
-	public Node(final Object data, final Node next) {
+	public Node(final T data, final Node<T> next) {
 		this.data = data;
 		this.next = next;
 	}
