@@ -249,4 +249,162 @@ public class DoublyLinkedList<T> {
 		}
 		return null;
 	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(final String[] args) {
+
+		try {
+			DoublyLinkedList<String> doublyLinkedList = new DoublyLinkedList<String>();
+
+			System.out.println("Printing size of Doubly Linked List : " + doublyLinkedList.size());
+			System.out.println("Printing Doubly Linked List ... ");
+			doublyLinkedList.printForward();
+			doublyLinkedList.printBackward();
+			doublyLinkedList.addRear("1");
+			doublyLinkedList.addFront("0");
+			doublyLinkedList.addRear("2");
+			doublyLinkedList.addRear("3");
+			doublyLinkedList.addRear("4");
+			doublyLinkedList.addFront("-1");
+			System.out.println();
+
+			System.out.println("Printing size of Doubly Linked List : " + doublyLinkedList.size());
+			System.out.println("Printing Doubly Linked List ... ");
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+			System.out.println("Deleting node with data : 3");
+			doublyLinkedList.delete("3");
+			System.out.println();
+
+			System.out.println("Printing size of Doubly Linked List : " + doublyLinkedList.size());
+			System.out.println("Printing Doubly Linked List ... ");
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+			System.out.println("Printing First Element in Doubly Linked List ... ");
+			doublyLinkedList.deleteFront();
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+			
+			System.out.println("Printing First Element in Doubly Linked List ... ");
+			doublyLinkedList.deleteFront();
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+			System.out.println("Printing First Element in Doubly Linked List ... ");
+			doublyLinkedList.deleteFront();
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+			System.out.println("Printing First Element in Doubly Linked List ... ");
+			doublyLinkedList.deleteFront();
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+			System.out.println("Printing First Element in Doubly Linked List ... ");
+			doublyLinkedList.deleteFront();
+			System.out.println(doublyLinkedList.printForward());
+			System.out.println(doublyLinkedList.printBackward());
+			System.out.println();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static class DoubleNode<T> {
+
+		/**
+		 * Data stored in this node
+		 */
+		private T data;
+
+		/**
+		 * Store a reference to the next node in this
+		 */
+		private DoubleNode<T> next;
+
+		/**
+		 * Store a reference to the previous node in this
+		 */
+		private DoubleNode<T> previous;
+
+		/**
+		 * @return
+		 */
+		public T getData() {
+			return data;
+		}
+
+		/**
+		 * @param data
+		 */
+		public void setData(T data) {
+			this.data = data;
+		}
+
+		/**
+		 * @return
+		 */
+		public DoubleNode<T> getNext() {
+			return next;
+		}
+
+		/**
+		 * @param next
+		 */
+		public void setNext(DoubleNode<T> next) {
+			this.next = next;
+		}
+
+		/**
+		 * @return
+		 */
+		public DoubleNode<T> getPrevious() {
+			return previous;
+		}
+
+		/**
+		 * @param previous
+		 */
+		public void setPrevious(DoubleNode<T> previous) {
+			this.previous = previous;
+		}
+
+		/**
+		 * @param data
+		 * @param next
+		 */
+		public DoubleNode(T data, DoubleNode<T> next, DoubleNode<T> previous) {
+			this.data = data;
+			this.next = next;
+			this.previous = previous;
+		}
+
+		/**
+		 * @param data
+		 */
+		public DoubleNode(final T data) {
+			this.data = data;
+			this.next = null;
+			this.previous = null;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "DoubleNode:[Data=" + data + "]";
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package datastructure.linkedlist;
 
+import datastructure.linkedlist.SinglyLinkedList.Node;
+
 /**
  * Merge two sorted list using a temporary sentinel node at start.
  * 
@@ -8,25 +10,19 @@ package datastructure.linkedlist;
  */
 public class MergeSortedList {
 
-	/**
-	 * 
-	 */
-	private static SinglyLinkedList even = new SinglyLinkedList();
+	private static SinglyLinkedList<Integer> even = new SinglyLinkedList<Integer>();
 
-	/**
-	 * 
-	 */
-	private static SinglyLinkedList odd = new SinglyLinkedList();
+	private static SinglyLinkedList<Integer> odd = new SinglyLinkedList<Integer>();
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		populateOne(even);
+		populateEven(even);
 
-		populateTwo(odd);
+		populateOdd(odd);
 
-		Node list = merge(odd.getStart(), even.getStart());
+		Node<Integer> list = merge(odd.getRoot(), even.getRoot());
 
 		print(list);
 	}
@@ -34,7 +30,7 @@ public class MergeSortedList {
 	/**
 	 * @param odd
 	 */
-	private static void populateTwo(SinglyLinkedList odd) {
+	private static void populateOdd(SinglyLinkedList<Integer> odd) {
 		for (int index = 0; index < 20; index++) {
 			if (index % 2 != 0) {
 				odd.addRear(index);
@@ -47,7 +43,7 @@ public class MergeSortedList {
 	/**
 	 * @param even
 	 */
-	private static void populateOne(SinglyLinkedList even) {
+	private static void populateEven(SinglyLinkedList<Integer> even) {
 		for (int index = 1; index < 10; index++) {
 			if (index % 2 == 0) {
 				even.addRear(index);
@@ -60,9 +56,9 @@ public class MergeSortedList {
 	/**
 	 * @param list
 	 */
-	private static void print(Node list) {
+	private static void print(Node<Integer> list) {
 		System.out.println();
-		Node current = list;
+		Node<Integer> current = list;
 		while (current != null) {
 			System.out.print(current.getData());
 			current = current.getNext();
@@ -74,42 +70,42 @@ public class MergeSortedList {
 	}
 
 	/**
-	 * @param odd
-	 * @param even
+	 * @param one
+	 * @param two
 	 * @return
 	 */
-	private static Node merge(Node odd, Node even) {
+	private static Node<Integer> merge(Node<Integer> one, Node<Integer> two) {
 		// Sentinel Node
-		Node list = new Node(0, null);
-		Node start = list;
-		while (odd != null || even != null) {
-			if (odd != null && even != null) {
-				if ((Integer)odd.getData() < (Integer)even.getData()) {
-					list.setNext(odd);
-					odd = odd.getNext();
-					list = list.getNext();
-				} else if ((Integer)odd.getData() > (Integer)even.getData()) {
-					list.setNext(even);
-					even = even.getNext();
-					list = list.getNext();
+		Node<Integer> head = new Node<Integer>(0, null);
+		Node<Integer> current = head;
+		while (one != null || two != null) {
+			if (one != null && two != null) {
+				if (one.getData() < two.getData()) {
+					current.setNext(one);
+					one = one.getNext();
+					current = current.getNext();
+				} else if (one.getData() > two.getData()) {
+					current.setNext(two);
+					two = two.getNext();
+					current = current.getNext();
 				} else {
-					list.setNext(odd);
-					odd = odd.getNext();
-					list = list.getNext();
-					list.setNext(even);
-					even = even.getNext();
-					list = list.getNext();
+					current.setNext(one);
+					one = one.getNext();
+					current = current.getNext();
+					current.setNext(two);
+					two = two.getNext();
+					current = current.getNext();
 				}
-			} else if (odd != null) {
-				list.setNext(odd);
-				odd = odd.getNext();
-				list = list.getNext();
-			} else if (even != null) {
-				list.setNext(even);
-				even = even.getNext();
-				list = list.getNext();
+			} else if (one != null) {
+				current.setNext(one);
+				one = one.getNext();
+				current = current.getNext();
+			} else if (two != null) {
+				current.setNext(two);
+				two = two.getNext();
+				current = current.getNext();
 			}
 		}
-		return start;
+		return head;
 	}
 }

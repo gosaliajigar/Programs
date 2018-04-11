@@ -1,35 +1,35 @@
 package datastructure.linkedlist;
 
+import datastructure.linkedlist.SinglyLinkedList.Node;
+
 /**
- * Check if a given list is circular using two pointers.
- * 
+ * Check if a given list is circular using two pointers.<br>
+ * <br>
+ * Floyd's tortoise and the hare algorithm<br>
+ * <br>
  * @author "Jigar Gosalia"
  *
  */
 public class CircularLinkedList {
 
-	/**
-	 * 
-	 */
-	private static SinglyLinkedList start = new SinglyLinkedList();
+	private static SinglyLinkedList<Integer> head = new SinglyLinkedList<Integer>();
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
-		create(start);
-		System.out.println("is Cyclic: " + hasCycle(start.getStart()));
+		create(head);
+		System.out.println("is Cyclic: " + hasCycle(head.getRoot()));
 
 		// Attach rear to start
-		start.getRear().setNext(start.getStart());
-		System.out.println("is Cyclic: " + hasCycle(start.getStart()));
+		head.getRear().setNext(head.getStart());
+		System.out.println("is Cyclic: " + hasCycle(head.getRoot()));
 	}
 
 	/**
 	 * @param start
 	 */
-	private static void create(SinglyLinkedList start) {
+	private static void create(SinglyLinkedList<Integer> start) {
 		for (int index = 0; index < 10; index++) {
 			start.addFront(index);
 		}
@@ -39,9 +39,9 @@ public class CircularLinkedList {
 	 * @param head
 	 * @return
 	 */
-	public static boolean hasCycle(Node head) {
-		Node fast = head;
-		Node slow = head;
+	public static boolean hasCycle(Node<Integer> head) {
+		Node<Integer> fast = head;
+		Node<Integer> slow = head;
 
 		while (fast != null && fast.getNext() != null) {
 			slow = slow.getNext();

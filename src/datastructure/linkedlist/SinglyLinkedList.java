@@ -190,4 +190,107 @@ public class SinglyLinkedList<T> {
 			System.out.print(node.getData() + " ");
 		}
 	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(final String[] args) {
+		SinglyLinkedList<String> singleLinkedList = new SinglyLinkedList<String>();
+
+		System.out.println("Printing size of Single Linked List : " + singleLinkedList.size());
+		System.out.println("Printing Single Linked List ... ");
+		singleLinkedList.print();
+		singleLinkedList.addRear("1");
+		singleLinkedList.addFront("0");
+		singleLinkedList.addRear("2");
+		singleLinkedList.addRear("3");
+		singleLinkedList.addRear("4");
+		singleLinkedList.addFront("-1");
+
+		System.out.println();
+		System.out.println("Printing size of Single Linked List : " + singleLinkedList.size());
+		System.out.println("Printing Single Linked List ... ");
+		singleLinkedList.print();
+
+		System.out.println();
+		System.out.print("Priting Single Linked List (recursively)         : ");
+		Node<String> current = singleLinkedList.getRoot();
+		singleLinkedList.recursivePrint(current);
+
+		System.out.println();
+		System.out.print("Priting Single Linked List (reverse recursively) : ");
+		current = singleLinkedList.getRoot();
+		singleLinkedList.recursiveReversePrint(current);
+		System.out.println();
+
+		System.out.println();
+		System.out.println("Deleting node with data : 3");
+		singleLinkedList.deleteNode("3");
+		System.out.println();
+
+		System.out.println("Printing size of Single Linked List : " + singleLinkedList.size());		System.out.println("Printing Single Linked List ... ");
+		singleLinkedList.print();
+		System.out.println();
+
+		System.out.print("Printing First Element in Single Linked List : ");
+		System.out.println(singleLinkedList.getFront());
+	}
+
+	public static class Node<T> {
+
+		/**
+		 * Data stored in this node
+		 */
+		private T data;
+
+		/**
+		 * Store a reference to the next node in this
+		 */
+		private Node<T> next;
+
+		/**
+		 * @return
+		 */
+		public T getData() {
+			return data;
+		}
+
+		/**
+		 * @param data
+		 */
+		public void setData(T data) {
+			this.data = data;
+		}
+
+		/**
+		 * @return
+		 */
+		public Node<T> getNext() {
+			return next;
+		}
+
+		/**
+		 * @param next
+		 */
+		public void setNext(Node<T> next) {
+			this.next = next;
+		}
+
+		/**
+		 * @param data
+		 * @param next
+		 */
+		public Node(final T data, final Node<T> next) {
+			this.data = data;
+			this.next = next;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "Node:[Data=" + data + "]";
+		}
+	}
 }

@@ -1,7 +1,7 @@
 package add.numbers;
 
-import datastructure.linkedlist.Node;
 import datastructure.linkedlist.SinglyLinkedList;
+import datastructure.linkedlist.SinglyLinkedList.Node;
 
 /**
  * Add numbers in singly linked list
@@ -15,8 +15,8 @@ public class AddNumbersInSinglyLinkedList {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SinglyLinkedList listOne = new SinglyLinkedList();
-		SinglyLinkedList listTwo = new SinglyLinkedList();
+		SinglyLinkedList<Integer> listOne = new SinglyLinkedList<Integer>();
+		SinglyLinkedList<Integer> listTwo = new SinglyLinkedList<Integer>();
 		listOne.addFront(9);
 		listOne.addFront(9);
 		listOne.addFront(9);
@@ -25,7 +25,7 @@ public class AddNumbersInSinglyLinkedList {
 		listTwo.addFront(1);
 		listTwo.addFront(1);
 		listTwo.print();
-		SinglyLinkedList listThree = add(listOne, listTwo);
+		SinglyLinkedList<Integer> listThree = add(listOne, listTwo);
 		System.out.println();
 		listThree.print();
 	}
@@ -35,10 +35,10 @@ public class AddNumbersInSinglyLinkedList {
 	 * @param listTwo
 	 * @return
 	 */
-	private static SinglyLinkedList add(SinglyLinkedList listOne, SinglyLinkedList listTwo) {
-		SinglyLinkedList result = new SinglyLinkedList();
-		Node startOne = listOne.getStart();
-		Node startTwo = listTwo.getStart();
+	private static SinglyLinkedList<Integer> add(SinglyLinkedList<Integer> listOne, SinglyLinkedList<Integer> listTwo) {
+		SinglyLinkedList<Integer> result = new SinglyLinkedList<Integer>();
+		Node<Integer> startOne = listOne.getStart();
+		Node<Integer> startTwo = listTwo.getStart();
 		int carry = 0;
 		while (startOne != null || startTwo != null) {
 			int one = 0;
