@@ -18,14 +18,14 @@ public class AddNumbersInSinglyLinkedList {
 		SinglyLinkedList<Integer> listOne = new SinglyLinkedList<Integer>();
 		SinglyLinkedList<Integer> listTwo = new SinglyLinkedList<Integer>();
 		listOne.addFront(9);
-		listOne.addFront(9);
+		listOne.addFront(7);
 		listOne.addFront(9);
 		listOne.print();
 		System.out.println();
-		listTwo.addFront(1);
+		listTwo.addFront(2);
 		listTwo.addFront(1);
 		listTwo.print();
-		SinglyLinkedList<Integer> listThree = add(listOne, listTwo);
+		SinglyLinkedList<Integer> listThree = add(listOne.getRoot(), listTwo.getRoot());
 		System.out.println();
 		listThree.print();
 	}
@@ -35,26 +35,24 @@ public class AddNumbersInSinglyLinkedList {
 	 * @param listTwo
 	 * @return
 	 */
-	private static SinglyLinkedList<Integer> add(SinglyLinkedList<Integer> listOne, SinglyLinkedList<Integer> listTwo) {
+	private static SinglyLinkedList<Integer> add(Node<Integer> rootOne, Node<Integer> rootTwo) {
 		SinglyLinkedList<Integer> result = new SinglyLinkedList<Integer>();
-		Node<Integer> startOne = listOne.getStart();
-		Node<Integer> startTwo = listTwo.getStart();
 		int carry = 0;
-		while (startOne != null || startTwo != null) {
+		while (rootOne != null || rootTwo != null) {
 			int one = 0;
 			int two = 0;
-			if (startOne != null) {
-				one = (Integer) startOne.getData();
-				startOne = startOne.getNext();
+			if (rootOne != null) {
+				one = (Integer) rootOne.getData();
+				rootOne = rootOne.getNext();
 			}
-			if (startTwo != null) {
-				two = (Integer) startTwo.getData();
-				startTwo = startTwo.getNext();
+			if (rootTwo != null) {
+				two = (Integer) rootTwo.getData();
+				rootTwo = rootTwo.getNext();
 			}
 			int sum = carry + one + two;
 			carry = 0;
 			if (sum > 9) {
-				carry = sum / 10;
+				carry = 1;
 				result.addRear(sum % 10);
 			} else {
 				result.addRear(sum);
