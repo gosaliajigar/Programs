@@ -36,41 +36,41 @@ public class InterpolationSearch {
 	}
 
 	/**
-	 * @param array
-	 * @param data
+	 * @param a
+	 * @param x
 	 */
-	private static void interpolationSearch(int[] array, int data) {
+	private static void interpolationSearch(int[] a, int x) {
 		int index = -1;
-		int lowerBound = 0;
-		int upperBound = array.length - 1;
+		int low = 0;
+		int high = a.length - 1;
 		int iterations = 0;
-		int middle;
+		int mid;
 
-		while (lowerBound <= upperBound) {
+		while (low <= high) {
 			iterations++;
-			middle = lowerBound + (((upperBound - lowerBound) / (array[upperBound] - array[lowerBound]))
-					* (data - array[lowerBound]));
+			mid = low + (((high - low) / (a[high] - a[low]))
+					* (x - a[low]));
 			// data is greater than value at middle, hence it is more towards
 			// upperBound, so move lowerBound
-			if (array[middle] < data) {
-				lowerBound = middle + 1;
+			if (a[mid] < x) {
+				low = mid + 1;
 				// data is smaller than value at middle, hence it is more
 				// towards lowerBound, so move upperBound
-			} else if (array[middle] > data) {
-				upperBound = middle - 1;
+			} else if (a[mid] > x) {
+				high = mid - 1;
 				// found data at middle
 			} else {
-				index = middle;
+				index = mid;
 				break;
 			}
 		}
 		System.out.println("No of Iterations             : " + iterations);
 		System.out.println("Theoretical Iterations(log(log n)): "
-				+ (Math.log((Math.log(array.length) / Math.log(2))) / Math.log(2)));
+				+ (Math.log((Math.log(a.length) / Math.log(2))) / Math.log(2)));
 		if (index != -1) {
-			System.out.println("Found " + data + " at location: " + index);
+			System.out.println("Found " + x + " at location: " + index);
 		} else {
-			System.out.println("Couldn't find " + data);
+			System.out.println("Couldn't find " + x);
 		}
 	}
 

@@ -26,25 +26,25 @@ public class LinearSearch {
 	}
 
 	/**
-	 * @param array
-	 * @param data
+	 * @param a
+	 * @param x
 	 */
-	private static void linearSearch(int[] array, int data) {
+	private static void linearSearch(int[] a, int x) {
 		int index = -1;
 		int iterations = 0;
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < a.length; i++) {
 			iterations++;
-			if (array[i] == data) {
+			if (a[i] == x) {
 				index = i;
 				break;
 			}
 		}
 		System.out.println("No of Iterations: " + iterations);
 		if (index != -1) {
-			System.out.println("Found " + data + " at location: " + index);
+			System.out.println("Found " + x + " at location: " + index);
 		} else {
-			System.out.println("Couldn't find " + data);
+			System.out.println("Couldn't find " + x);
 		}
 	}
 

@@ -32,39 +32,39 @@ public class BinarySearch {
 	}
 
 	/**
-	 * @param array
-	 * @param data
+	 * @param a
+	 * @param x
 	 */
-	private static void binarySearch(int[] array, int data) {
-		int lowerBound = 0;
-		int upperBound = array.length - 1;
-		int middle = -1;
+	private static void binarySearch(int[] a, int x) {
+		int low = 0;
+		int high = a.length - 1;
+		int mid = -1;
 		int index = -1;
 		int iterations = 0;
 
-		while (lowerBound <= upperBound) {
+		while (low <= high) {
 			iterations++;
-			middle = ((upperBound + lowerBound) / 2);
+			mid = ((high + low) / 2);
 			// data is greater than value at middle, hence it is more towards
 			// upperBound, so move lowerBound
-			if (array[middle] < data) {
-				lowerBound = middle + 1;
+			if (a[mid] < x) {
+				low = mid + 1;
 				// data is smaller than value at middle, hence it is more
 				// towards lowerBound, so move upperBound
-			} else if (array[middle] > data) {
-				upperBound = middle - 1;
+			} else if (a[mid] > x) {
+				high = mid - 1;
 			} else {
 				// found data at middle
-				index = middle;
+				index = mid;
 				break;
 			}
 		}
 		System.out.println("No of Iterations             : " + iterations);
-		System.out.println("Theoretical Iterations(log n): " + (Math.log(array.length) / Math.log(2)));
+		System.out.println("Theoretical Iterations(log n): " + (Math.log(a.length) / Math.log(2)));
 		if (index != -1) {
-			System.out.println("Found " + data + " at location: " + index);
+			System.out.println("Found " + x + " at location: " + index);
 		} else {
-			System.out.println("Couldn't find " + data);
+			System.out.println("Couldn't find " + x);
 		}
 	}
 

@@ -31,36 +31,6 @@ public class HashTable {
 	private static Data[] hashArray = new Data[SIZE];
 
 	/**
-	 * @param args
-	 */
-	public static void main(String[] args) throws Exception {
-		insert(1, 20);
-		insert(2, 70);
-		insert(42, 80);
-		insert(4, 25);
-		insert(12, 44);
-		insert(14, 32);
-		insert(17, 11);
-		insert(13, 78);
-		insert(37, 97);
-		insert(57, 97);
-		// Checkout the wrapping to start of array
-		insert(77, 97);
-
-		display();
-
-		Data item = search(37);
-
-		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
-
-		delete(item);
-
-		item = search(37);
-
-		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
-	}
-
-	/**
 	 * It may happen that the hashing technique used create already used index
 	 * of the array. In such case, we can search the next empty location in the
 	 * array by looking into the next cell until we found an empty cell. This
@@ -73,7 +43,7 @@ public class HashTable {
 	 * @param key
 	 * @param value
 	 */
-	private static void insert(int key, int value) throws Exception {
+	private static void put(int key, int value) throws Exception {
 		if (count >= SIZE) {
 			throw new Exception("HashTable full");
 		}
@@ -104,7 +74,7 @@ public class HashTable {
 	 * @param key
 	 * @return
 	 */
-	private static Data search(int key) {
+	private static Data get(int key) {
 		// get the hash
 		int hashIndex = hashCode(key);
 
@@ -135,7 +105,7 @@ public class HashTable {
 	 * @param data
 	 * @return
 	 */
-	private static Data delete(Data data) {
+	private static Data remove(Data data) {
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
 
@@ -173,5 +143,60 @@ public class HashTable {
 	 */
 	private static int hashCode(int key) {
 		return key % SIZE;
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws Exception {
+		put(1, 20);
+		put(2, 70);
+		put(42, 80);
+		put(4, 25);
+		put(12, 44);
+		put(14, 32);
+		put(17, 11);
+		put(13, 78);
+		put(37, 97);
+		put(57, 97);
+		// Checkout the wrapping to start of array
+		put(77, 97);
+
+		display();
+
+		Data item = get(37);
+
+		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
+
+		remove(item);
+
+		item = get(37);
+
+		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
+	}
+
+	public static class Data {
+
+		int key;
+
+		int value;
+
+		public Data(int key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+
+		public int getKey() {
+			return key;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		@Override
+		public String toString() {
+			return "Data[key=" + key + ";value=" + value + "]";
+		}
 	}
 }

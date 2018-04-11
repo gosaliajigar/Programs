@@ -8,7 +8,7 @@ import java.util.Random;
  * <br>
  * 
  * This sorting algorithm is non-comparison based algorithm in which numbers are
- * sorted by ordering them depending on number of numbers ahead of the number.<br>
+ * sorted by ordering them depending on number of numbers ahead of that number.<br>
  * <br>
  * 
  * Time Complexity : O(n+k) and if k = O(n) then its O(n).

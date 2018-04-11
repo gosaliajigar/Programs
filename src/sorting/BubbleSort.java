@@ -32,23 +32,23 @@ public class BubbleSort {
 	/**
 	 * Bubble Sort
 	 *
-	 * @param inputArray
+	 * @param input
 	 */
-	public static <T extends Comparable<T>> void bubbleSort(final T[] inputArray) {
+	public static <T extends Comparable<T>> void bubbleSort(T[] input) {
 		int iterations = 0;
-		for (int i = 0; i < inputArray.length; i++) {
-			for (int j = 0; j < inputArray.length - 1; j++) {
+		for (int i = 0; i < input.length; i++) {
+			for (int j = 0; j < input.length - 1; j++) {
 				iterations++;
 				// Swap only if element is greater then next element.
 				// Bubble up higher number to end of array.
-				if (inputArray[j].compareTo(inputArray[j + 1]) > 0) {
-					T temp = inputArray[j + 1];
-					inputArray[j + 1] = inputArray[j];
-					inputArray[j] = temp;
+				if (input[j].compareTo(input[j + 1]) > 0) {
+					T temp = input[j + 1];
+					input[j + 1] = input[j];
+					input[j] = temp;
 				}
 			}
 		}
-		System.out.println("Iterations:<" + iterations + "> Size:<" + inputArray.length + ">");
-		System.out.println("-" + Arrays.toString(inputArray));
+		System.out.println("Iterations:<" + iterations + "> Size:<" + input.length + ">");
+		System.out.println("-" + Arrays.toString(input));
 	}
 }
