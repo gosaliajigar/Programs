@@ -34,7 +34,7 @@ public class MergeSortedArrays {
 	 * @param b
 	 */
 	private static void merge(int[] a, int[] b) {
-		// Iterate over second array from rear
+		// Iterate over second shorter array from rear
 		for (int i = b.length - 1; i >= 0; i--) {
 			// capture last element of first array
 			int j, last = a[a.length - 1];

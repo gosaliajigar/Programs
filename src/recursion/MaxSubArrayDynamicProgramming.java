@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @author "Jigar Gosalia"
  * 
  */
-public class MaximumSubArrayDynamicProgramming {
+public class MaxSubArrayDynamicProgramming {
 
 	public static int maxSubArrayNoSpace(int[] A) {
 		int max = A[0];
@@ -24,7 +24,7 @@ public class MaximumSubArrayDynamicProgramming {
 		int[] sum = new int[A.length];
 		sum[0] = A[0];
 		for (int i = 1; i < A.length; i++) {
-			sum[i] = Math.max(A[i], sum[i - 1] + A[i]);
+			sum[i] = Math.max(sum[i - 1] + A[i], A[i]);
 			max = Math.max(max, sum[i]);
 		}
 		return max;

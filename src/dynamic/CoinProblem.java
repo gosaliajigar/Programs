@@ -15,10 +15,10 @@ public class CoinProblem {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] denominations = { 1, 2, 3 };
+		int[] denominations = { 1, 2, 3, 5 };
 		int sum = 5;
 		System.out.println("Given " + Arrays.toString(denominations) + ", possible combinations for sum<" + sum + ">: "
-				+ totalCombination(sum, denominations, 0));
+				+ coins(sum, denominations, 0));
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class CoinProblem {
 	 * @param option
 	 * @return
 	 */
-	public static int totalCombination(int sum, int[] noOfOptions, int option) {
+	public static int coins(int sum, int[] noOfOptions, int option) {
 		// expected sum is less than ZERO
 		if (sum < 0) {
 			return 0;
@@ -38,12 +38,12 @@ public class CoinProblem {
 			return 1;
 		}
 
-		// means coins over and n>0 so no solution
+		// coins over and sum>0 so no solution
 		if (option == noOfOptions.length && sum > 0) {
 			return 0;
 		}
 
-		return totalCombination(sum - noOfOptions[option], noOfOptions, option)
-				+ totalCombination(sum, noOfOptions, option + 1);
+		return coins(sum - noOfOptions[option], noOfOptions, option)
+				+ coins(sum, noOfOptions, option + 1);
 	}
 }
