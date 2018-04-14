@@ -28,7 +28,6 @@ public class MaxNonAdjacentSum {
 			// current max excluding previous
 			exclude = excludeNew;
 		}
-		
 		return ((include >= exclude) ? include : exclude);
 	}
 

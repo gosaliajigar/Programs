@@ -41,8 +41,8 @@ public class StringPermutationNonRecursive {
 		String reminderString = input.substring(1);
 		Set<String> words = permutationFinder(reminderString);
 		for (String string : words) {
-			for (int i = 0; i <= string.length(); i++) {
-				permutation.add(charInsert(string, firstCharacter, i));
+			for (int index = 0; index <= string.length(); index++) {
+				permutation.add(insertCharacter(string, firstCharacter, index));
 			}
 		}
 		return permutation;
@@ -50,17 +50,17 @@ public class StringPermutationNonRecursive {
 
 	/**
 	 * @param input
-	 * @param c
-	 * @param j
+	 * @param first
+	 * @param index
 	 * @return
 	 */
-	public static String charInsert(String input, char c, int j) {
-		// Extract String till position "j"
-		String begin = input.substring(0, j);
-		// Extract String from position "j"
-		String end = input.substring(j);
+	public static String insertCharacter(String input, char first, int index) {
+		// Extract String till position "index"
+		String begin = input.substring(0, index);
+		// Extract String from position "index"
+		String end = input.substring(index);
 		// Concatenate String (String till position "j" + character + String
 		// from position "j")
-		return begin + c + end;
+		return begin + first + end;
 	}
 }
