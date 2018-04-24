@@ -54,6 +54,8 @@ public class MergeSortedArrays {
 	/**
 	 * merge using an extra array
 	 * 
+	 * Time complexity O(m+n)
+	 * 
 	 * @param a
 	 * @param b
 	 * @return

@@ -30,33 +30,30 @@ public class InsertionSort {
 	/**
 	 * Insertion Sort
 	 *
-	 * @param inputArray
+	 * @param a
 	 */
-	public static void insertionSort(final Integer[] inputArray) {
-		int valueToInsert;
-		int holePosition;
-		int position = 0;
-		int iterations = 0;
+	public static void insertionSort(final Integer[] a) {
+		int valueToInsert, holePosition, position = 0, iterations = 0;
 
 		// loop through all numbers
-		for (position = 1; position < inputArray.length; position++) {
+		for (position = 1; position < a.length; position++) {
 			// select a value to be inserted.
-			valueToInsert = inputArray[position];
+			valueToInsert = a[position];
 
 			// select the hole position where number is to be inserted
 			holePosition = position - 1;
 
 			// check if previous no. is larger than value to be inserted
-			while (holePosition >= 0 && inputArray[holePosition] > valueToInsert) {
+			while (holePosition >= 0 && a[holePosition] > valueToInsert) {
 				iterations++;
-				inputArray[holePosition + 1] = inputArray[holePosition];
+				a[holePosition + 1] = a[holePosition];
 				holePosition--;
 			}
 
 			// insert the number at hole position
-			inputArray[holePosition + 1] = valueToInsert;
+			a[holePosition + 1] = valueToInsert;
 		}
-		System.out.println("Iterations:<" + iterations + "> Size:<" + inputArray.length + ">");
-		System.out.println("-" + Arrays.toString(inputArray));
+		System.out.println("Iterations:<" + iterations + "> Size:<" + a.length + ">");
+		System.out.println("-" + Arrays.toString(a));
 	}
 }
