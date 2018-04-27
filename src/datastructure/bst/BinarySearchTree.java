@@ -31,17 +31,31 @@ public class BinarySearchTree {
 		}
 	}
 
+	public void createBST(int[] array) {
+		root = createBinarySearchTree(array, 0, array.length);
+	}
+
+	private Node createBinarySearchTree(int array[], int low, int high) {
+		if (low < high) {
+			int mid = (low + high) / 2;
+			Node node = new Node(array[mid]);
+			node.setLeft(createBinarySearchTree(array, low, mid));
+			node.setRight(createBinarySearchTree(array, mid+1, high));
+			return node;
+		}
+		return null;
+	}
+	
 	/**
 	 * @param data
 	 */
 	public void insert(int data) {
 		Node node = new Node(data, null, null);
-		Node parent;
 		if (root == null) {
 			root = node;
 		} else {
 			Node current = root;
-			parent = null;
+			Node parent = null;
 			while(true) {
 				// > scenario
 				if (data > current.getData()) {
@@ -82,6 +96,14 @@ public class BinarySearchTree {
 			}
 		}
 		return node;
+	}
+
+	public static Node treeMinimum(Node node) {
+		return (node != null && node.getLeft() != null) ? treeMinimum(node.getLeft()) : node;
+	}
+
+	public static Node treeMaximum(Node node) {
+		return (node != null && node.getRight() != null) ? treeMaximum(node.getRight()) : node;
 	}
 
 	public static class Node {

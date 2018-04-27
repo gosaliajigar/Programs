@@ -21,9 +21,6 @@ public class HashMap<K, V> implements Map<K, V> {
 
 	private static final int TABLE_SIZE = 4;
 
-	/**
-	 * 
-	 */
 	public HashMap() {
 		table = new Entry[TABLE_SIZE];
 	}

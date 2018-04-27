@@ -49,6 +49,19 @@ public class TreeTraversal {
 		System.out.println();
 		System.out.printf("Level Order Traversal : ");
 		levelOrderTraversal(bstTree.getRoot());
+		System.out.println();
+		System.out.println();
+		int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		BinarySearchTree minBST = new BinarySearchTree();
+		minBST.createBST(a);
+		inOrderTraversal(minBST.getRoot());
+		System.out.println();
+		System.out.println();
+		System.out.println(BinarySearchTree.treeMinimum(minBST.getRoot()));
+		System.out.println();
+		System.out.println();
+		System.out.println(BinarySearchTree.treeMaximum(minBST.getRoot()));
+
 	}
 
 	/**
