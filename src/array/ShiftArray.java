@@ -68,10 +68,11 @@ public class ShiftArray {
 	}
 	
 	private static void reverse(int[] array, int start, int end) {
-		for (int i=start; i<(start+end)/2; i++) {
+		int length = start+end;
+		for (int i=start; i<length/2; i++) {
 			int temp = array[i];
-			array[i] = array[start+end-i-1];
-			array[start+end-i-1] = temp;
+			array[i] = array[length-i-1];
+			array[length-i-1] = temp;
 		}
 	}
 }

@@ -32,31 +32,29 @@ public class SelectionSort {
 	}
 
 	/**
-	 * @param input
+	 * @param a
 	 */
-	public static void selectionSort(Integer[] input) {
-
+	public static void selectionSort(Integer[] a) {
 		int iterations = 0;
-
 		// loop through all numbers
-		for (int i = 0; i < input.length - 1; i++) {
+		for (int i = 0; i < a.length-1; i++) {
 			// set current element as minimum
 			int minIndex = i;
 			// check the element to be minimum
-			for (int j = i + 1; j < input.length; j++) {
+			for (int j = i + 1; j < a.length; j++) {
 				iterations++;
-				if (input[j] < input[minIndex]) {
+				if (a[j] < a[minIndex]) {
 					minIndex = j;
 				}
 			}
 			// swap the numbers
 			if (minIndex != i) {
-				int temp = input[minIndex];
-				input[minIndex] = input[i];
-				input[i] = temp;
+				int temp = a[minIndex];
+				a[minIndex] = a[i];
+				a[i] = temp;
 			}
 		}
-		System.out.println("Iterations:<" + iterations + "> Size:<" + input.length + ">");
-		System.out.println("-" + Arrays.toString(input));
+		System.out.println("Iterations:<" + iterations + "> Size:<" + a.length + ">");
+		System.out.println("-" + Arrays.toString(a));
 	}
 }
