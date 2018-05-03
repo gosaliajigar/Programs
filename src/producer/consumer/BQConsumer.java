@@ -35,7 +35,7 @@ class BQConsumer implements Runnable {
 				String item = queue.take();
 				System.out.println(" - Consumer #" + this.id + " got: " + item);
 				System.out.println();
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();

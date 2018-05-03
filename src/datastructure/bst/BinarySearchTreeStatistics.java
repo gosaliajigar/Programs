@@ -8,11 +8,14 @@ import datastructure.bst.BinarySearchTree.Node;
 /**
  * Find statistics of Binary Search Tree.
  * 
- * 					27
- * 			14				35
- * 		10		19		31		42
- * 									57
+ * 					27						h(27)=3;d(27)=0
+ * 			14				35				h(35)=2;d(35)=1
+ * 		10		19		31		42			h(42)=1;d(42)=2
+ * 									57		h(57)=0;d(57)=3
  * 
+ * height = max. edges from node to leaf node	(start from node)
+ * depth  = edges from root to node				(start from root)
+ * level  = depth + 1							(start from root)
  * 
  * @author "Jigar Gosalia"
  *
@@ -44,7 +47,8 @@ public class BinarySearchTreeStatistics {
 		System.out.println();
 		System.out.println("No of edges            : " + noOfEdges(tree.getRoot()));
 		System.out.println();
-		System.out.println("Depth of binary tree   : " + findDepth(tree.getRoot()));
+		findDepth(tree.getRoot(), 0);
+		System.out.println("Depth of node          : " + tree.getRoot().right.right.depth);
 		System.out.println();
 		System.out.println("Max Depth              : " + findMaxDepth(tree.getRoot()));
 		System.out.println();
@@ -121,11 +125,16 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static int findDepth(Node node) {
-		return findMaxDepth(node);
+	public static void findDepth(Node node, int depth) {
+		if (node != null) {
+			node.depth = depth;
+			findDepth(node.left, depth+1);
+			findDepth(node.right, depth+1);
+		}
 	}
 
 	public static int findMaxDepth(Node node) {
+		// max depth = height
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null

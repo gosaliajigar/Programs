@@ -106,13 +106,89 @@ public class BinarySearchTree {
 		return (node != null && node.getRight() != null) ? treeMaximum(node.getRight()) : node;
 	}
 
+	public static void delete(Node node) {
+		// pseudo code as this requires each node 
+		// to store reference to its parent
+		
+		// 4 cases
+			// 1. no children
+			// 2. has just left child
+			// 3. has just right child
+			// 4. has both children
+		
+		// 1. no child
+		// just delete the node
+		
+		// 2. has just left child
+		// return transparent(root, node, node.left);
+		
+		// 3. has just right child
+		// return transparent(root, node, node.right);
+		
+		// 4. has both children
+		// Node y = treeMinimum(node.getRight());
+		// if (y.p != node) {
+		// 		transparent(root, y, y.getRight());
+		//		y.right = node.right;
+		//		y.right.p = y;
+		// }
+		// transparent(root, node, y);
+		// y.left = node.left
+		// y.left.p = y; 
+	}
+
+	private static void transparent(Node root, Node u, Node v) {
+		// replace u by v on its parent node
+		//	if (u.p == null) {
+		//		root = v;
+		//	} else if (u.p.left == u) {
+		//		u.p.left = v;
+		//	} else {
+		//		u.p.right = v;
+		//	}
+		//	if (v != null) {
+		//		v.p = u.p;
+		//	}
+	}
+	
+	public static Node successor(Node node) {
+		if (node != null) {
+			if (node.getRight() != null) {
+				return treeMinimum(node.getRight());
+			} else {
+				// Node y = node.p;
+				// while(y != null && y.right == node) {
+				//		node = y;
+				//		y = y.p;
+				// }
+				// return y;
+			}
+		}
+		return null;
+	}
+
+	public static Node predecessor(Node node) {
+		if (node != null) {
+			if (node.getLeft() != null) {
+				return treeMaximum(node.getLeft());
+			} else {
+				// Node y = node.p;
+				// while(y != null && y.left == node) {
+				// 		node = y;
+				//		y = y.p;
+				// }
+				// return y;
+			}
+		}
+		return null;
+	}
+	
+	
 	public static class Node {
-
 		int data;
-
 		Node left;
-
 		Node right;
+		public int depth;
 
 		/**
 		 * @param data
