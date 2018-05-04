@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
  *
  */
 public class Election {
+
 	public static void main(String[] args) {
 		Map<Integer, Candidate> map = new HashMap<Integer, Candidate>();
 		for (int i=0; i < 5; i++) {
@@ -31,6 +32,7 @@ public class Election {
 				getWinner(map);
 				getWinnerJava8(map);
 			} else {
+				// terminate when vote for unknown candidate received
 				break;
 			}
 		}

@@ -32,6 +32,9 @@ public class ShiftArray {
 	}
 
 	/**
+	 * Time  : O(n)
+	 * Space : O(n)
+	 * 
 	 * @param array
 	 * @param k
 	 */
@@ -47,6 +50,10 @@ public class ShiftArray {
 	}
 
 	/**
+	 * Called bubble rotate
+	 * Time  : O(nk)
+	 * Space : O(1)
+	 * 
 	 * @param array
 	 * @param k
 	 */
@@ -60,6 +67,13 @@ public class ShiftArray {
 		}
 	}
 
+	/**
+	 * Time  : O(n)
+	 * Space : O(1) 
+	 * 
+	 * @param array
+	 * @param k
+	 */
 	private static void shiftReversal(int[] array, int k) {
 		k = k % array.length;
 		reverse(array, 0, k);
@@ -68,11 +82,11 @@ public class ShiftArray {
 	}
 	
 	private static void reverse(int[] array, int start, int end) {
-		int length = start+end;
-		for (int i=start; i<length/2; i++) {
+		int n = start+end;
+		for (int i=start; i<n/2; i++) {
 			int temp = array[i];
-			array[i] = array[length-i-1];
-			array[length-i-1] = temp;
+			array[i] = array[n-1-i];
+			array[n-1-i] = temp;
 		}
 	}
 }
