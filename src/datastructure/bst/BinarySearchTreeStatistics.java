@@ -59,7 +59,8 @@ public class BinarySearchTreeStatistics {
 		System.out.println("Has Path sum           : " + hasPathSum(tree.getRoot(), 60) + "; Path : " + path.toString());
 		System.out.println();
 		System.out.println("All Paths              : ");
-		allPaths(tree.getRoot(), new LinkedList<Integer>(),0);
+		List<Integer> allPathsList = new LinkedList<Integer>();
+		allPaths(tree.getRoot(), allPathsList, 0);
 		System.out.println();
 		Node mirrorRoot = mirror();
 		System.out.println();
@@ -187,7 +188,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static void allPaths(Node node, LinkedList<Integer> path, int length) {
+	public static void allPaths(Node node, List<Integer> path, int length) {
 		if (node == null) {
 			return;
 		} else {
@@ -202,7 +203,7 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	private static void printArray(LinkedList<Integer> path, int length) {
+	private static void printArray(List<Integer> path, int length) {
 		for (int index = 0; index < length; index++) {
 			System.out.print(path.get(index) + " ");
 		}

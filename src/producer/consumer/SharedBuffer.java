@@ -42,8 +42,8 @@ public class SharedBuffer {
 				exception.printStackTrace();
 			}
 		}
-		isReadyForReading = true;
 		contents = value;
+		isReadyForReading = true;
 		notifyAll();
 	}
 }

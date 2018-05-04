@@ -26,7 +26,7 @@ class SBProducer extends Thread {
 	 */
 	@Override
 	public void run() {
-		for (int data = 100; data < 110; data++) {
+		for (int data = 0; data < 10; data++) {
 			sharedBuffer.put(data);
 			System.out.println("Producer #" + this.id + " put: " + data);
 			try {
