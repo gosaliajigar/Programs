@@ -72,7 +72,7 @@ public class BreadthFirstSearch {
 	 */
 	private static int getAdjacentUnvisitedVertex(int vertexIndex) {
 		for (int index = 0; index < count; index++) {
-			if (edges[vertexIndex][index] == 1 && vertices[index].isVisited() == false) {
+			if (edges[vertexIndex][index] == 1 && !vertices[index].isVisited()) {
 				return index;
 			}
 		}

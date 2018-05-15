@@ -20,7 +20,7 @@ public class ExtraElement {
 		if (A.length == B.length) {
 			System.out.println("Same Length so no extra element");
 		} else {
-			int min = ((A.length < B.length) ? A.length : B.length);
+			int min = Math.min(A.length, B.length);
 			System.out.println(indexOfExtraElement(A, B, min-1));
 		}
 	}

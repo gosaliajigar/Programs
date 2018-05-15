@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class RunningMedian {
 
 	// max heap for lower values
-	private	static Queue<Integer> lowerValues = new PriorityQueue<Integer>(16, new Comparator<Integer>() {
+	private	static Queue<Integer> lowerValues = new PriorityQueue<Integer>(new Comparator<Integer>() {
 			@Override
 			public int compare(Integer o1, Integer o2) {
 				return -1 * o1.compareTo(o2);
