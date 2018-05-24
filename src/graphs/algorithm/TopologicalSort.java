@@ -6,7 +6,7 @@ package graphs.algorithm;
  */
 public class TopologicalSort {
 
-	// Topological Sort is implementation fo DFS
+	// Topological Sort is implementation of DFS
 	// 
 	// O(V+E)
 	//

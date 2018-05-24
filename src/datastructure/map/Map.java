@@ -12,10 +12,10 @@ import java.util.Set;
  */
 public interface Map<K, V> {
 
-	static class Entry<K, V> {
-		K key;
-		V value;
-		Entry<K, V> next;
+	public static class Entry<K, V> {
+		public K key;
+		public V value;
+		public Entry<K, V> next;
 
 		public Entry(K key, V value, Entry<K, V> next) {
 			this.key = key;

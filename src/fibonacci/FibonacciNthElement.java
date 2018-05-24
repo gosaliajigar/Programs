@@ -53,25 +53,25 @@ public class FibonacciNthElement {
 	 * Time complexity : O(2^n)
 	 * Tight bound will be golden ratio raised to n : O((1.68)^n)
 	 * 
-	 * @param number
+	 * @param n
 	 * @return
 	 */
-	public static int fibonacciRecursive(final int number) {
-		return ((number == 1 || number == 2) ? 1 : (fibonacciRecursive(number - 1) + fibonacciRecursive(number - 2)));
+	public static int fibonacciRecursive(final int n) {
+		return ((n == 1 || n == 2) ? 1 : (fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2)));
 	}
 
 	/**
 	 * Time complexity : O(n)
 	 * 
-	 * @param number
+	 * @param n
 	 * @return
 	 */
-	public static int fibonacciNonRecursive(final int number) {
-		if (number == 1 || number == 2) {
+	public static int fibonacciNonRecursive(final int n) {
+		if (n == 1 || n == 2) {
 			return 1;
 		}
 		int prev = 1, current = 1, next = 1;
-		for (int i = 3; i <= number; i++) {
+		for (int i = 3; i <= n; i++) {
 			next = prev + current;
 			prev = current;
 			current = next;

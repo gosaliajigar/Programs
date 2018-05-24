@@ -31,8 +31,10 @@ public class TowerOfHanoi {
 		if (numOfDisks == 1) {
 			move(numOfDisks, source, destination);
 		} else {
+			// src=1 dest=2 ext=3
 			moveTower(numOfDisks - 1, source, extra, destination);
 			move(numOfDisks, source, destination);
+			// src=2 dest=3 ext=1
 			moveTower(numOfDisks - 1, extra, destination, source);
 		}
 	}

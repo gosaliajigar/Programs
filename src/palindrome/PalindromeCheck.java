@@ -75,7 +75,7 @@ public class PalindromeCheck {
 	 * @return
 	 */
 	public static boolean isPalindrome(final String inputString) {
-		return isPalindrome(inputString.toCharArray());
+		return (inputString != null) ? isPalindrome(inputString.toCharArray()) : false;
 	}
 
 	/**
@@ -114,6 +114,8 @@ public class PalindromeCheck {
 		if (input != null) {
 			if (input.length() <= 1) {
 				return true;
+			} else if (input.length() == 2 || input.length() == 3) {
+				return (input.charAt(0) == input.charAt(input.length() - 1));
 			}
 			if (input.charAt(0) == input.charAt(input.length() - 1)) {
 				return isPalindromeR(input.substring(1, input.length()-1));

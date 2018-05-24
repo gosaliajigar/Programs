@@ -38,7 +38,7 @@ public class FindPeak {
 				return peak(a, mid + 1, right, n);
 			}
 		}
-		return -1;
+		return Integer.MIN_VALUE;
 	}
 
 	/**

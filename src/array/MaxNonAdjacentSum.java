@@ -20,15 +20,15 @@ public class MaxNonAdjacentSum {
 		int exclude = 0;
 		int excludeNew = 0;
 
-		for (int index = 1; index < a.length; index++) {
+		for (int i = 1; i < a.length; i++) {
 			// current max excluding i
-			excludeNew = ((include >= exclude) ? include : exclude);
+			excludeNew = Math.max(include, exclude);
 			// current max including i
-			include = exclude + a[index];
+			include = exclude + a[i];
 			// current max excluding previous
 			exclude = excludeNew;
 		}
-		return ((include >= exclude) ? include : exclude);
+		return Math.max(include, exclude);
 	}
 
 	/**

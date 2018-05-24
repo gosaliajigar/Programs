@@ -34,6 +34,12 @@ public class HeapOperations {
 		return (int) Math.floor((location - 1) / 2);
 	}
 
+	/**
+	 * bubble down the smaller element.
+	 * 
+	 * @param heap
+	 * @param location
+	 */
 	public static void maxHeapify(Heap heap, int location) {
 		int largest = 0;
 		int left = getLeft(location);
@@ -83,6 +89,14 @@ public class HeapOperations {
 		return max;
 	}
 
+	/**
+	 * Bubble up the increased element.
+	 * 
+	 * @param heap
+	 * @param location
+	 * @param value
+	 * @return
+	 */
 	public static boolean increase(Heap heap, int location, int value) {
 		if (!(heap != null && heap.a != null && heap.heapSize > 0 && heap.a[location] < value)) {
 			return false;

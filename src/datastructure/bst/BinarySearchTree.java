@@ -50,7 +50,7 @@ public class BinarySearchTree {
 	 * @param data
 	 */
 	public void insert(int data) {
-		Node node = new Node(data, null, null);
+		Node node = new Node(data);
 		if (root == null) {
 			root = node;
 		} else {

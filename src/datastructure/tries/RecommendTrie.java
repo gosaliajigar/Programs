@@ -31,10 +31,10 @@ public class RecommendTrie {
 	}
 
 	public boolean addWord(String word) {
-		String wordL = word.toLowerCase();
-		if (wordL != null && wordL.length() > 0) {
+		if (word != null && word.length() > 0) {
+			word = word.toLowerCase();
 			TrieNode current = root;
-			for (char c : wordL.toCharArray()) {
+			for (char c : word.toCharArray()) {
 				if (current.getNextValidCharacters().contains(c)) {
 					current = current.getCharacter(c);
 				} else {
@@ -51,10 +51,10 @@ public class RecommendTrie {
 	}
 
 	public List<String> recommend(String prefix) {
-		String prefixL = prefix.toLowerCase();
+		prefix = prefix.toLowerCase();
 		List<String> recommendations = new LinkedList<String>();
 		TrieNode node = root;
-		for (char c : prefixL.toCharArray()) {
+		for (char c : prefix.toCharArray()) {
 			if (node.getNextValidCharacters().contains(c)) {
 				node = node.getCharacter(c);
 			} else {
@@ -93,6 +93,7 @@ public class RecommendTrie {
 		trie.getRoot().print(trie.getRoot(), all);
 		System.out.println();
 		System.out.println(all);
+		System.out.println();
 
 		System.out.println(trie.recommend("San "));
 		System.out.println(trie.recommend("New "));

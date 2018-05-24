@@ -75,7 +75,6 @@ public class TreeTraversal {
 			preOrderTraversal(node.getLeft());
 			preOrderTraversal(node.getRight());
 		}
-		return;
 	}
 
 	/**
@@ -89,7 +88,6 @@ public class TreeTraversal {
 			System.out.printf(node.getData() + " ");
 			inOrderTraversal(node.getRight());
 		}
-		return;
 	}
 
 	/**
@@ -103,7 +101,6 @@ public class TreeTraversal {
 			postOrderTraversal(node.getRight());
 			System.out.printf(node.getData() + " ");
 		}
-		return;
 	}
 
 	/**

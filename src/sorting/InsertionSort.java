@@ -33,7 +33,7 @@ public class InsertionSort {
 	 * @param a
 	 */
 	public static void insertionSort(final Integer[] a) {
-		int valueToInsert, holePosition, position = 0, iterations = 0;
+		int valueToInsert, holePosition, position, iterations = 0;
 
 		// loop through all numbers
 		for (position = 1; position < a.length; position++) {

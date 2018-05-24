@@ -66,10 +66,10 @@ public class TrieNode {
 		// base condition
 		if (node.isWord()) {
 			all.add(node.getText());
-		} else {
-			for (Character c : node.getNextValidCharacters()) {
-				print(node.getCharacter(c), all);
-			}
+		}
+		// recursive condition
+		for (Character c : node.getNextValidCharacters()) {
+			print(node.getCharacter(c), all);
 		}
 	}
 }

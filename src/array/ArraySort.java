@@ -55,7 +55,9 @@ public class ArraySort {
 		// reverse the order by using collections helper methods
 		Arrays.sort(strArr, Collections.reverseOrder());
 		System.out.println(Arrays.toString(strArr));
-		
+		// if class doesn't implement Comparable then use explicit Comparator
+		// else ClassCastException
+		// Arrays.sort(personArr);
 		Arrays.sort(personArr, new Comparator<Person>() {
 			@Override
 			public int compare(Person o1, Person o2) {
