@@ -26,9 +26,7 @@ import java.util.Set;
  * LinkedHashSet is an extended version of LinkedHashSet. LinkedHashSet doesn’t follow any
  * order where as LinkedHashSet maintains insertion order. LinkedHashSet uses HashMap
  * object internally to store it’s elements where as LinkedHashSet uses
- * LinkedHashMap object internally to store and process it’s elements. In this
- * article, we will see how LinkedHashSet works internally and how it maintains
- * insertion order. <br>
+ * LinkedHashMap object internally to store and process it’s elements. <br>
  * <br>
  * LinkedHashSet uses LinkedHashMap object to store it’s elements. The elements
  * you insert in the LinkedHashSet are stored as keys of this LinkedHashMap
