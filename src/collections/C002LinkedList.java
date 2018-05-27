@@ -56,7 +56,7 @@ import java.util.Queue;
  * @author Jigar Gosalia
  *
  */
-public class Try001LinkedList {
+public class C002LinkedList {
 
 	public static void main(String[] args) {
 		// constructors

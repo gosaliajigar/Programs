@@ -51,7 +51,7 @@ import java.util.Map;
  * @author Jigar Gosalia
  *
  */
-public class Try020HashMap {
+public class C020HashMap {
 
 	public static void main(String[] args) {
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();

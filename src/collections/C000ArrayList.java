@@ -35,7 +35,7 @@ import java.util.ListIterator;
  * @author Jigar Gosalia
  *
  */
-public class Try000ArrayList {
+public class C000ArrayList {
 
 	public static void main(String[] args) {
 		// constructors

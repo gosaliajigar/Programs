@@ -38,7 +38,7 @@ import java.util.TreeMap;
  * @author Jigar Gosalia
  *
  */
-public class Try022TreeMap {
+public class C023TreeMap {
 
 	public static void main(String[] args) {
 		Map<Integer, Integer> m = new TreeMap<Integer, Integer>();

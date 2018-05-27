@@ -36,7 +36,7 @@ import java.util.Map;
  * @author Jigar Gosalia
  *
  */
-public class Try021LinkedHashMap {
+public class C022LinkedHashMap {
 
 	public static void main(String[] args) {
 		Map<Integer, Integer> m = new LinkedHashMap<Integer, Integer>();

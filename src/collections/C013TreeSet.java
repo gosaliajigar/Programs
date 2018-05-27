@@ -53,7 +53,7 @@ import java.util.stream.IntStream;
  * @author Jigar Gosalia
  *
  */
-public class Try012TreeSet {
+public class C013TreeSet {
 
 	public static void main(String[] args) {
 		Set<Integer> t = new TreeSet<Integer>(IntStream.rangeClosed(1, 49).boxed().collect(Collectors.toSet()));
