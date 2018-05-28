@@ -25,7 +25,8 @@ import java.util.Queue;
  * 
  * 
  * Source:
- * https://javarevisited.blogspot.com/2013/10/what-is-priorityqueue-data-structure-java-example-tutorial.html
+ * https://javarevisited.blogspot.com/2013/10/what-is-priorityqueue-data-structure-java-example-tutorial.html <br>
+ * https://www.sanfoundry.com/java-program-priority-queue/ <br>
  * <br>
  * <br>
  * 

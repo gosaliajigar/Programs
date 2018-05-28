@@ -1,6 +1,15 @@
 package collections;
 
+import java.util.Arrays;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.TimeUnit;
+
 /**
+ * Internal data structure: this implementation uses an array representation 
+ * of a binary heap which is a complete binary tree. This data structure allows 
+ * the queue efficiently orders its elements based on their values. It also uses
+ * ReentrantLock to protect public operations in multi-threaded context.<br>
+ * <br>
  * 
  * An unbounded blocking queue that uses the same ordering rules as class 
  * PriorityQueue and supplies blocking retrieval operations. While this queue 
@@ -29,13 +38,36 @@ package collections;
  * <br>
  * <br>
  * 
+ * Sources: http://www.codejava.net/java-core/concurrency/java-priorityblockingqueue-examples <br>
+ * http://www.baeldung.com/java-priority-blocking-queue
+ * 
+ * 
  * @author Jigar Gosalia
  *
  */
 public class C031PriorityBlockingQueue {
 
-	public static void main(String[] args) {
-		// Check @link{BQMainClass.class}
-		// put and take
+	// Check @link{BQMainClass.class}
+	// put and take
+	public static void main(String[] args) throws Exception {
+		PriorityBlockingQueue<Integer> queue = new PriorityBlockingQueue<Integer>();
+		// anonymous Runnable class
+		new Thread(() -> {
+		    System.out.println("Polling...");
+		    while (true) {
+		        try {
+		        	// blocking call
+		            Integer poll = queue.take();
+		            System.out.println("Polled: " + poll);
+		        } 
+		        catch (InterruptedException e) { 
+		            e.printStackTrace();
+		        }
+		    }
+		}).start();
+		System.out.println("Adding to queue");
+		TimeUnit.SECONDS.sleep(5);
+		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));
+		TimeUnit.SECONDS.sleep(1);
 	}
 }
