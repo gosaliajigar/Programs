@@ -28,12 +28,8 @@ public class BucketSort {
 		int min = a[0], max = a[0];
 		
 		for (int index = 0; index < a.length; index++) {
-			if (a[index] < min) {
-				min = a[index];
-			}
-			if (a[index] > max) {
-				max = a[index];
-			}
+			min = Math.min(min, a[index]);
+			max = Math.max(max, a[index]);
 		}
 		
 		int bucketCount = ((max - min) / bucketSize) + 1;

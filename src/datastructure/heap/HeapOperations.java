@@ -111,7 +111,7 @@ public class HeapOperations {
 
 	public static void insert(Heap heap, int key) {
 		heap.heapSize = heap.heapSize + 1;
-		heap.a[heap.heapSize - 1] = -1;
+		heap.a[heap.heapSize - 1] = Integer.MIN_VALUE;
 		increase(heap, heap.heapSize - 1, key);
 	}
 
