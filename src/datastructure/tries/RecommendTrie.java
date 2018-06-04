@@ -18,17 +18,11 @@ public class RecommendTrie {
 
 	private int size;
 
-	public TrieNode getRoot() {
-		return this.root;
-	}
+	public TrieNode getRoot() { return this.root; }
 
-	public int getSize() {
-		return this.size;
-	}
+	public int getSize() { return this.size; }
 
-	public RecommendTrie() {
-		this.root = new TrieNode();
-	}
+	public RecommendTrie() { this.root = new TrieNode(); }
 
 	public boolean addWord(String word) {
 		if (word != null && word.length() > 0) {
@@ -36,7 +30,7 @@ public class RecommendTrie {
 			TrieNode current = root;
 			for (char c : word.toCharArray()) {
 				if (current.getNextValidCharacters().contains(c)) {
-					current = current.getCharacter(c);
+					current = current.getNextCharacter(c);
 				} else {
 					current = current.insert(c);
 				}
@@ -56,7 +50,7 @@ public class RecommendTrie {
 		TrieNode node = root;
 		for (char c : prefix.toCharArray()) {
 			if (node.getNextValidCharacters().contains(c)) {
-				node = node.getCharacter(c);
+				node = node.getNextCharacter(c);
 			} else {
 				return recommendations;
 			}
@@ -68,7 +62,7 @@ public class RecommendTrie {
 		Queue<TrieNode> queue = new LinkedList<TrieNode>();
 
 		for (char c : node.getNextValidCharacters()) {
-			queue.add(node.getCharacter(c));
+			queue.add(node.getNextCharacter(c));
 		}
 
 		while (!queue.isEmpty()) {
@@ -77,7 +71,7 @@ public class RecommendTrie {
 				recommendations.add(fNode.getText());
 			}
 			for (char c : fNode.getNextValidCharacters()) {
-				queue.add(fNode.getCharacter(c));
+				queue.add(fNode.getNextCharacter(c));
 			}
 		}
 		return recommendations;

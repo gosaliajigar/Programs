@@ -45,8 +45,8 @@ public class TrieNode {
 		return this.isWord;
 	}
 
-	public TrieNode getCharacter(Character c) {
-		return this.characters.get(c);
+	public TrieNode getNextCharacter(Character c) {
+		return characters.get(c);
 	}
 
 	public Set<Character> getNextValidCharacters() {
@@ -54,8 +54,8 @@ public class TrieNode {
 	}
 
 	public TrieNode insert(Character c) {
-		TrieNode node = new TrieNode(((this.text != null && this.text.length() > 0) ? this.text : "") + c);
-		this.characters.put(c, node);
+		TrieNode node = new TrieNode(((text != null && text.length() > 0) ? text : "") + c);
+		characters.put(c, node);
 		return node;
 	}
 
@@ -69,7 +69,7 @@ public class TrieNode {
 		}
 		// recursive condition
 		for (Character c : node.getNextValidCharacters()) {
-			print(node.getCharacter(c), all);
+			print(node.getNextCharacter(c), all);
 		}
 	}
 }
