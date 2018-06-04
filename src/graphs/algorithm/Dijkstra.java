@@ -15,13 +15,13 @@ public class Dijkstra {
 	// for each v in V-{s}
 	//  	do d[v] = Integer.MAX_VALUE (infinite)
 	// S = null
-	// Q = V (priority queue)
+	// Q = V (min priority queue)
 	// while !Q.isEmpty()
 	//		do u = EXTRACT_MIN(Q)
 	//			S = S union {u}
 	//			for each v in Adj[u]
 	//				do if d[v] > d[u] + w(u, v)
-	//					then d[v] = d[u] + w(u, v)
+	//					then d[v] = d[u] + w(u, v)	==> RELAX EDGE
 	//
 	//
 	// Array 			: O(V^2)

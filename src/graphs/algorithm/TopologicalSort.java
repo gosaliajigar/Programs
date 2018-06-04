@@ -14,4 +14,6 @@ public class TopologicalSort {
 	// As each vertex is finished, insert it onto front of a linked list
 	// Return the linked list of vertices
 	// 
+	// NOTE : Order the nodes in decreasing time of the finished times
+	// 
 }

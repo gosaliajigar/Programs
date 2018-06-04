@@ -94,6 +94,8 @@ public class C000ArrayList {
 		System.out.println();
 		
 		// retainAll
+		a.add(2);
+		System.out.println(a + " - " + b);
 		a.addAll(b); a.retainAll(b);
 		System.out.println(a);
 		System.out.println();
@@ -118,6 +120,8 @@ public class C000ArrayList {
 		inta = a.toArray(new Integer[] {11, 22, 33, 44, 55});
 		System.out.println(inta.length + " - " + Arrays.toString(inta));
 
+		// if new array size is more than required than null marks end of 
+		// original size array
 		inta = a.toArray(new Integer[] {11, 22, 33, 44, 55, 66, 77, 88});
 		System.out.println(inta.length + " - " + Arrays.toString(inta));
 		System.out.println();
