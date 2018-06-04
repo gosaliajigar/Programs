@@ -16,23 +16,11 @@ package datastructure.heap;
  */
 public class HeapOperations {
 
-	public static void exchange(Heap heap, int src, int dest) {
-		int temp = heap.a[src];
-		heap.a[src] = heap.a[dest];
-		heap.a[dest] = temp;
-	}
+	public static int getLeft(int location) { return ((2 * location) + 1); }
 
-	public static int getLeft(int location) {
-		return ((2 * location) + 1);
-	}
+	public static int getRight(int location) { return (2 * (location + 1));	}
 
-	public static int getRight(int location) {
-		return (2 * (location + 1));
-	}
-
-	public static int getParent(int location) {
-		return (int) Math.floor((location - 1) / 2);
-	}
+	public static int getParent(int location) { return (int) Math.floor((location - 1) / 2); }
 
 	/**
 	 * bubble down the smaller element.
@@ -79,7 +67,7 @@ public class HeapOperations {
 	}
 
 	public static int extractMax(Heap heap) {
-		if (!(heap.heapSize > 0)) {
+		if (heap.heapSize <= 0) {
 			return -1;
 		}
 		int max = heap.a[0];
@@ -98,18 +86,21 @@ public class HeapOperations {
 	 * @return
 	 */
 	public static boolean increase(Heap heap, int location, int value) {
-		if (!(heap != null && heap.a != null && heap.heapSize > 0 && heap.a[location] < value)) {
-			return false;
+		if (heap != null && heap.a != null && heap.heapSize > 0 && heap.a[location] < value) {
+			heap.a[location] = value;
+			while (location > 0 && heap.a[getParent(location)] < heap.a[location]) {
+				exchange(heap, location, getParent(location));
+				location = getParent(location);
+			}
+			return true;
 		}
-		heap.a[location] = value;
-		while (location > 0 && heap.a[getParent(location)] < heap.a[location]) {
-			exchange(heap, location, getParent(location));
-			location = getParent(location);
-		}
-		return true;
+		return false;
 	}
 
 	public static void insert(Heap heap, int key) {
+		if (heap.heapSize >= heap.a.length) {
+			throw new IllegalArgumentException("Heap Full");
+		}
 		heap.heapSize = heap.heapSize + 1;
 		heap.a[heap.heapSize - 1] = Integer.MIN_VALUE;
 		increase(heap, heap.heapSize - 1, key);
@@ -119,6 +110,12 @@ public class HeapOperations {
 		exchange(heap, location, heap.heapSize - 1);
 		heap.heapSize = heap.heapSize - 1;
 		maxHeapify(heap, location);
+	}
+
+	public static void exchange(Heap heap, int src, int dest) {
+		int temp = heap.a[src];
+		heap.a[src] = heap.a[dest];
+		heap.a[dest] = temp;
 	}
 
 	public static Heap copy(Heap heap, int heapSize) {

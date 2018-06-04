@@ -16,6 +16,14 @@ public class LRUCacheLHM<K, V> extends LinkedHashMap<K, V> {
 
 	private int cacheSize;
 
+	
+	/**
+	 * true = access order
+	 * false = insertion order
+	 * 
+	 * 
+	 * @param cacheSize
+	 */
 	public LRUCacheLHM(int cacheSize) {
 		super(cacheSize, 0.75f, true);
 		this.cacheSize = cacheSize;
