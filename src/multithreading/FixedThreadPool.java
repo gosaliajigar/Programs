@@ -61,6 +61,8 @@ public class FixedThreadPool {
 		for (int i = 1; i <= 10; i++) {
 			ft.submit(new TaskRunnable("ct task " + i, 3000, true));
 		}
+		// sleep for 20 seconds as 10 threads (3 seconds worth of work) 
+		// would take at least 15 seconds to be executed by 2 threads
 		TimeUnit.SECONDS.sleep(20);
 		ft.shutdown();
 		if (ft.awaitTermination(21, TimeUnit.SECONDS)) {

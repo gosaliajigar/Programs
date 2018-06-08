@@ -41,8 +41,10 @@ public class SingleThreadScheduledExecutor {
 		// scheduleWithFixedDelay(Runnable, initialDelay, delay, unit)
 		// schedules tasks after a fixed delay of 1 second after completion of last task
 		sst.scheduleWithFixedDelay(new TaskRunnable("sst fixed delay task 5", 3000, true), 0, 1, TimeUnit.SECONDS);
+		// sleep 15 seconds before shutting down
 		TimeUnit.SECONDS.sleep(15);
 		sst.shutdown();
+		// true as sst terminated on time before timeout of 20 seconds
 		if (sst.awaitTermination(20, TimeUnit.SECONDS)) {
 			System.out.println("sst terminated on time i.e. before timeout!");
 		} else {

@@ -14,7 +14,6 @@ public class ThreadNRunnable {
 		new ThreadDemo("Thread-2").start();
 		new Thread(new RunnableDemo("Thread-3")).start();
 		new Thread(new RunnableDemo("Thread-4")).start();
-
 	}
 }
 
@@ -25,7 +24,7 @@ class ThreadDemo extends Thread {
 	/**
 	 * @param name
 	 */
-	ThreadDemo(final String name) {
+	public ThreadDemo(final String name) {
 		threadName = name;
 		System.out.println("Creating " + threadName);
 	}
@@ -47,7 +46,6 @@ class ThreadDemo extends Thread {
 		}
 		System.out.println("Thread " + threadName + " exiting.");
 	}
-
 }
 
 class RunnableDemo implements Runnable {
@@ -57,7 +55,7 @@ class RunnableDemo implements Runnable {
 	/**
 	 * @param name
 	 */
-	RunnableDemo(final String name) {
+	public RunnableDemo(final String name) {
 		threadName = name;
 		System.out.println("Creating " + threadName);
 	}
@@ -79,5 +77,4 @@ class RunnableDemo implements Runnable {
 		}
 		System.out.println("Thread " + threadName + " exiting.");
 	}
-
 }

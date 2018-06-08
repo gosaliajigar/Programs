@@ -47,26 +47,26 @@ public class RecommendTrie {
 	public List<String> recommend(String prefix) {
 		prefix = prefix.toLowerCase();
 		List<String> recommendations = new LinkedList<String>();
-		TrieNode node = root;
+		TrieNode current = root;
 		for (char c : prefix.toCharArray()) {
-			if (node.getNextValidCharacters().contains(c)) {
-				node = node.getNextCharacter(c);
+			if (current.getNextValidCharacters().contains(c)) {
+				current = current.getNextCharacter(c);
 			} else {
 				return recommendations;
 			}
 		}
-		if (node.isWord()) {
-			recommendations.add(node.getText());
+		if (current.isWord()) {
+			recommendations.add(current.getText());
 		}
 
 		Queue<TrieNode> queue = new LinkedList<TrieNode>();
 
-		for (char c : node.getNextValidCharacters()) {
-			queue.add(node.getNextCharacter(c));
+		for (char c : current.getNextValidCharacters()) {
+			queue.add(current.getNextCharacter(c));
 		}
 
 		while (!queue.isEmpty()) {
-			TrieNode fNode = queue.poll();
+			TrieNode fNode = queue.remove();
 			if (fNode.isWord()) {
 				recommendations.add(fNode.getText());
 			}

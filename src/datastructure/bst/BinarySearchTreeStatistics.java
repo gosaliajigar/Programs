@@ -17,6 +17,8 @@ import datastructure.bst.BinarySearchTree.Node;
  * depth  = edges from root to node				(start from root)
  * level  = depth + 1							(start from root)
  * 
+ * https://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height
+ * 
  * @author "Jigar Gosalia"
  *
  */
@@ -135,7 +137,7 @@ public class BinarySearchTreeStatistics {
 	}
 
 	public static int findMaxDepth(Node node) {
-		// max depth = height
+		// max depth of node = height of the node
 		if (node == null) {
 			return 0;
 		} else if (node.getLeft() == null

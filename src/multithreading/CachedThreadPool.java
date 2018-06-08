@@ -63,6 +63,8 @@ public class CachedThreadPool {
 		for (int i = 1; i <= 100; i++) {
 			ct.submit(new TaskRunnable("ct task " + i, 3000, true));
 		}
+		// sleep for 6 seconds as 100 tasks (3 seconds worth each)
+		// would take at least 3 seconds to be executed by 100 threads 
 		TimeUnit.SECONDS.sleep(6);
 		ct.shutdown();
 		if (ct.awaitTermination(8, TimeUnit.SECONDS)) {
