@@ -13,7 +13,7 @@ import java.util.Stack;
  * @author Jigar Gosalia
  *
  */
-public class C040Stack {
+public class C003Stack {
 
 	public static void main(String[] args) {
 		Stack<Integer> s = new Stack<Integer>();

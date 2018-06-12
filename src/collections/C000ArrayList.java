@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
+ * Internally an ArrayList uses an Object[] Array. All the addition, removal and traversal happens on this array.<br>
+ * <br>
+ * 
  * ArrayList(), ArrayList(collection), ArrayList(capacity)<br>
  * <br>
  * add(e), add(i, e), addAll(collection), addAll(i, collection) <br>
@@ -42,6 +45,7 @@ public class C000ArrayList {
 		List<Integer> a = new ArrayList<Integer>(Arrays.asList(9, 8, 3, 2, 6));
 		List<Integer> b = new ArrayList<Integer>(a);
 
+		@SuppressWarnings({"unchecked", "unused"})
 		// clone - shallow copy only and elements are not copied
 		List<Integer> c = (List<Integer>) ((ArrayList<Integer>)b).clone();
 		
@@ -149,5 +153,12 @@ public class C000ArrayList {
 		// for (Integer x : a) {
 		//	a.remove(x);
 		// }
+		
+		// ConcurrentModificationException not when removing element without iterator
+		System.out.println(a);
+		for (int index=0; index<a.size(); index++) {
+			if (index % 2 == 0) a.remove(index);
+		}
+		System.out.println(a);
 	}
 }

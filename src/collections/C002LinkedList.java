@@ -49,7 +49,8 @@ import java.util.Queue;
  * itself for connecting to next and previous nodes.<br>
  * <br>
  * Source :
- * https://netjs.blogspot.com/2015/08/how-linked-list-class-works-internally-java.html
+ * https://netjs.blogspot.com/2015/08/how-linked-list-class-works-internally-java.html<br>
+ * https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
  * <br>
  * <br>
  * 

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class C001CopyOnWriteArrayList {
 
-	private static final Integer NUM_OF_THREADS = 5;
+	private static final Integer NUM_OF_THREADS = 2;
 
 	public static void main(String[] args) {
 
@@ -42,7 +42,7 @@ public class C001CopyOnWriteArrayList {
 
 		// Create an array to store IterateMe objects.
 		Task[] tasks = new Task[NUM_OF_THREADS];
-		for (int i = 0; i < NUM_OF_THREADS; i++) {
+		for (int i = 1; i <= NUM_OF_THREADS; i++) {
 			tasks[i] = new Task("Thread-" + i, false);
 		}
 
@@ -112,6 +112,8 @@ class Task implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		} else {
+			System.out.println(this.tName + " executing...");
 		}
 
 		Iterator<String> it = names.iterator();
