@@ -47,7 +47,6 @@ public class HashMap<K, V> implements Map<K, V> {
 			count++;
 			table[hash] = newEntry;
 		}
-
 	}
 
 	/* (non-Javadoc)
@@ -55,19 +54,8 @@ public class HashMap<K, V> implements Map<K, V> {
 	 */
 	@Override
 	public V get(K key) {
-		int hash = hashcode(key);
-		if (table[hash] != null) {
-			Entry<K, V> entry = table[hash];
-			while (entry != null) {
-				if (entry.key.equals(key)) {
-					// return value corresponding to key.
-					return entry.value;
-				}
-				entry = entry.next;
-			}
-		}
-		// returns null if key is not found.
-		return null;
+		Entry<K, V> entry = find(key);
+		return ((entry != null) ? entry.value : null);
 	}
 
 	/**

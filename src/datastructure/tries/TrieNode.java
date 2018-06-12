@@ -18,7 +18,7 @@ public class TrieNode {
 
 	private String text;
 
-	private boolean isWord;
+	private boolean word;
 
 	public TrieNode() {	this.characters = new HashMap<Character, TrieNode>(); }
 
@@ -28,9 +28,9 @@ public class TrieNode {
 
 	public String getText() { return this.text; }
 
-	public void setIsWord(boolean isWord) { this.isWord = isWord; }
+	public void setWord(boolean word) { this.word = word; }
 
-	public boolean isWord() { return this.isWord; }
+	public boolean isWord() { return this.word; }
 
 	public TrieNode getNextCharacter(Character c) { return characters.get(c); }
 

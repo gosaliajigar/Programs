@@ -6,7 +6,7 @@ package graphs.algorithm;
  */
 public class Dijkstra {
 
-	// Dijkstra is Single Source shortest paths from a give source without negative paths
+	// Dijkstra is Single Source shortest paths from a given source without negative paths
 	// Dijkstra is BFS without weights
 	//
 	// O(V)*EXTRACT-MIN + O(E)*DECREASE-KEY
@@ -25,7 +25,7 @@ public class Dijkstra {
 	//
 	//
 	// Array 			: O(V^2)
-	// Binary Heap		: O(E*logV)
+	// Binary Heap		: O(ElogV)
 	// Fibonacci Heap	: O(E+VlogV)
 
 }

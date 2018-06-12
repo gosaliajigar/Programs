@@ -36,7 +36,7 @@ public class RecommendTrie {
 				}
 			}
 			if (!current.isWord()) {
-				current.setIsWord(true);
+				current.setWord(true);
 				size++;
 			}
 			return true;

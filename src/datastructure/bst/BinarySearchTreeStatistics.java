@@ -81,7 +81,7 @@ public class BinarySearchTreeStatistics {
 	}
 
 	public static int findHeight(Node node) {
-		return ((node == null) ? 0 : (1 + Math.max(findHeight(node.left), findHeight(node.right))));
+		return ((node != null && (node.left != null || node.right != null)) ? (1 + Math.max(findHeight(node.left), findHeight(node.right))) : 0);
 	}
 
 	public static int findTotalNodes(Node node) {
@@ -227,9 +227,7 @@ public class BinarySearchTreeStatistics {
 	}
 
 	private static void mirrorTree(Node node) {
-		if (node == null) {
-			return;
-		} else {
+		if (node != null) {
 			Node temp = node.getLeft();
 			node.setLeft(node.getRight());
 			node.setRight(temp);
