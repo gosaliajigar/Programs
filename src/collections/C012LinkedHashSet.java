@@ -23,21 +23,21 @@ import java.util.Set;
  * 
  * Source : http://javaconceptoftheday.com/how-linkedhashset-works-internally-in-java/
  * <br><br>
- * LinkedHashSet is an extended version of LinkedHashSet. LinkedHashSet doesn’t follow any
- * order where as LinkedHashSet maintains insertion order. LinkedHashSet uses HashMap
- * object internally to store it’s elements where as LinkedHashSet uses
- * LinkedHashMap object internally to store and process it’s elements. <br>
+ * LinkedHashSet is an extended version of HashSet. HashSet doesnâ€™t follow any
+ * order where as LinkedHashSet maintains insertion order. HashSet uses HashMap
+ * object internally to store itâ€™s elements where as LinkedHashSet uses
+ * LinkedHashMap object internally to store and process itâ€™s elements. <br>
  * <br>
- * LinkedHashSet uses LinkedHashMap object to store it’s elements. The elements
+ * LinkedHashSet uses LinkedHashMap object to store itâ€™s elements. The elements
  * you insert in the LinkedHashSet are stored as keys of this LinkedHashMap
- * object. Each key, value pair in the LinkedHashMap are instances of it’s
+ * object. Each key, value pair in the LinkedHashMap are instances of itâ€™s
  * static inner class called Entry<K, V>. This Entry<K, V> class extends
  * HashMap.Entry class. The insertion order of elements into LinkedHashMap are
  * maintained by adding two new fields to this class. They are before and after.
  * These two fields hold the references to previous and next elements. These two
  * fields make LinkedHashMap to function as a doubly linked list. <br>
  * <br>
- * The first two fields of above inner class of LinkedHashMap – before and after
+ * The first two fields of above inner class of LinkedHashMap â€“ before and after
  * are responsible for maintaining the insertion order of the LinkedHashSet..
  * <br>
  * <br>
