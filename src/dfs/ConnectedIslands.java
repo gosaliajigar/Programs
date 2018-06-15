@@ -38,14 +38,14 @@ public class ConnectedIslands {
 	public static void dfs(int a[][], int r, int c, boolean visited[][]) {
 		// These arrays are used to get row and column numbers
 		// of 8 neighbors of a given cell
-		int rowNbr[] = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
-		int colNbr[] = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 };
+		int rowNbr[] = new int[] { 0, 0, 1, 1, 1, -1, -1, -1 };
+		int colNbr[] = new int[] { 1, -1, -1, 0, 1, -1, 0, 1 };
 
 		// Mark this cell as visited
 		visited[r][c] = true;
 
 		// Recur for all connected neighbors
-		for (int k = 0; k < 8; ++k)
+		for (int k = 0; k < rowNbr.length; ++k)
 			if (isSafe(a, r + rowNbr[k], c + colNbr[k], visited))
 				dfs(a, r + rowNbr[k], c + colNbr[k], visited);
 	}

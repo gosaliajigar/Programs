@@ -55,23 +55,13 @@ public class RecommendTrie {
 				return recommendations;
 			}
 		}
-		if (current.isWord()) {
-			recommendations.add(current.getText());
-		}
-
 		Queue<TrieNode> queue = new LinkedList<TrieNode>();
-
-		for (char c : current.getNextValidCharacters()) {
-			queue.add(current.getNextCharacter(c));
-		}
-
+		queue.offer(current);
 		while (!queue.isEmpty()) {
-			TrieNode fNode = queue.remove();
-			if (fNode.isWord()) {
-				recommendations.add(fNode.getText());
-			}
+			TrieNode fNode = queue.poll();
+			if (fNode != null && fNode.isWord()) recommendations.add(fNode.getText());
 			for (char c : fNode.getNextValidCharacters()) {
-				queue.add(fNode.getNextCharacter(c));
+				queue.offer(fNode.getNextCharacter(c));
 			}
 		}
 		return recommendations;
@@ -79,7 +69,7 @@ public class RecommendTrie {
 
 	public static void main(String[] args) {
 		RecommendTrie trie = new RecommendTrie();
-		List<String> cities = Arrays.asList("San Jose", "San Carlos", "New York", "New York City");
+		List<String> cities = Arrays.asList("San Jose", "San Carlos", "New York", "New York City", "New Orleans");
 		for (String city : cities) {
 			System.out.printf("Inserted %-20s : %s\n", city, trie.addWord(city));
 		}
@@ -89,9 +79,9 @@ public class RecommendTrie {
 		System.out.println(all);
 		System.out.println();
 
-		System.out.println(trie.recommend("San "));
-		System.out.println(trie.recommend("New "));
-		System.out.println(trie.recommend("New York"));
-		System.out.println(trie.recommend("New York "));
+		System.out.println("`San `      : " + trie.recommend("San "));
+		System.out.println("`New `      : " + trie.recommend("New "));
+		System.out.println("`New York`  : " + trie.recommend("New York"));
+		System.out.println("`New York ` : " + trie.recommend("New York "));
 	}
 }
