@@ -15,7 +15,9 @@ import java.util.Arrays;
  * sized data sets as its average and worst case complexity are of O(nlogn)
  * where n are no. of items.<br>
  * <br>
- * 
+ * <br>
+ * in place and not stable<br>
+ * <br>
  * Time Complexity : O(nlogn)
  * 
  * @author "Jigar Gosalia"

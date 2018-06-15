@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 
 /**
- * Insertion sort is an in-place sorting algorithm.<br>
+ * Insertion sort is an in-place and stable sorting algorithm.<br>
  * <br>
  * 
  * Here, a sub-list is maintained which is always sorted. For example, the lower

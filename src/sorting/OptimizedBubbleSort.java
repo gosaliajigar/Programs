@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 
 /**
- * Bubble sort is an in-place sorting algorithm.<br>
+ * Bubble sort is an in-place and stable sorting algorithm.<br>
  * <br>
  * 
  * Bubble Sort can be optimized by adding a swapping flag which is set when

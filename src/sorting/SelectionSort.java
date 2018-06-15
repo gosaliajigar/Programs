@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * Selection sort is a in-place comparison based algorithm.<br>
+ * Can be stable or unstable both.
+ * SOurce : https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable
  * <br>
  * 
  * Selection sort is a simple sorting algorithm in which the list is divided

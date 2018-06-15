@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class C001CopyOnWriteArrayList {
 
-	private static final Integer NUM_OF_THREADS = 2;
+	private static final Integer NUM_OF_THREADS = 3;
 
 	public static void main(String[] args) {
 
@@ -41,7 +41,7 @@ public class C001CopyOnWriteArrayList {
 		ExecutorService service = Executors.newFixedThreadPool(NUM_OF_THREADS);
 
 		// Create an array to store IterateMe objects.
-		Task[] tasks = new Task[NUM_OF_THREADS];
+		Task[] tasks = new Task[NUM_OF_THREADS+1];
 		for (int i = 1; i <= NUM_OF_THREADS; i++) {
 			tasks[i] = new Task("Thread-" + i, false);
 		}
@@ -51,20 +51,20 @@ public class C001CopyOnWriteArrayList {
 		System.out.println();
 
 		// Execute Thread
-		service.submit(tasks[0]);
+		service.submit(tasks[1]);
 
 		// Costly operation - A new copy of the collection is created
 		Task.getNames().addIfAbsent("Oliver");
 
 		// Execute Thread
 		tasks[1].setGoToSleep(true);
-		service.submit(tasks[1]);
+		service.submit(tasks[2]);
 
 		// Costly operation - A new copy of the collection is created
 		Task.getNames().remove("Lex");
 
 		// Execute Thread
-		service.submit(tasks[2]);
+		service.submit(tasks[3]);
 
 		// Try to remove an element using Iterator methods
 		Iterator<String> it = Task.getNames().iterator();

@@ -11,7 +11,9 @@ import java.util.Arrays;
  * Merge sort first divides the array into equal halves and then combines them
  * in a sorted manner.<br>
  * <br>
- * 
+ * not in-place but stable<br>
+ * <br>
+ *  
  * Time Complexity : O(nlogn)
  * 
  * @author "Jigar Gosalia"

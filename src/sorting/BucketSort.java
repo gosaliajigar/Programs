@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Bucket sorting O(n+k)
+ * Bucket sorting O(n+k) is stable if underlying sort is stable.<br>
  * 
  * @author Jigar Gosalia
  *

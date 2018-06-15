@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Counting sort is a stable sorting algorithm. <br>
+ * Counting sort is not in-place but a stable sorting algorithm. <br>
  * <br>
  * 
  * This sorting algorithm is non-comparison based algorithm in which numbers are
