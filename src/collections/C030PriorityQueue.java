@@ -2,7 +2,6 @@ package collections;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * PriorityQueue is an unbounded Queue implementation in Java, which is based on
@@ -18,7 +17,7 @@ import java.util.Queue;
  * 
  * 		Summary of Queue methods <br>
  * 			Throws exception 		Returns special value<br> 
- * Insert\t 	add(e)					offer(e)<br> 
+ * Insert	 	add(e)					offer(e)<br> 
  * Remove 		remove() 				poll() <br>
  * Examine 		element() 				peek() <br>
  * <br>
@@ -37,7 +36,7 @@ public class C030PriorityQueue {
 
 	public static void main(String args[]) {
 		// [0-9] [A-Z] [a-z]
-		Queue<Item> items = new PriorityQueue<Item>();
+		PriorityQueue<Item> items = new PriorityQueue<Item>();
 		items.addAll(Arrays.asList(new Item("iPhone", 900), new Item("iPad", 300), new Item("Xbox", 300),
 				new Item("iWatch", 300)));
 		System.out.println(items);
@@ -86,9 +85,10 @@ class Item implements Comparable<Item> {
 
 	@Override
 	public int hashCode() {
+		final int prime = 97;
 		int hash = 5;
-		hash = 97 * hash + (this.name != null ? this.name.hashCode() : 0);
-		hash = 97 * hash + this.price;
+		hash = prime * hash + (this.name != null ? this.name.hashCode() : 0);
+		hash = prime * hash + this.price;
 		return hash;
 	}
 
@@ -104,5 +104,4 @@ class Item implements Comparable<Item> {
 	public String toString() {
 		return String.format("%s: $%d", name, price);
 	}
-
 }

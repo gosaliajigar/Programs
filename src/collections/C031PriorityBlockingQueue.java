@@ -65,9 +65,11 @@ public class C031PriorityBlockingQueue {
 		        }
 		    }
 		}).start();
-		System.out.println("Adding to queue");
+		System.out.println("Adding to queue ... ");
 		TimeUnit.SECONDS.sleep(5);
 		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));
-		TimeUnit.SECONDS.sleep(1);
+		TimeUnit.SECONDS.sleep(2);
+		System.out.println("Processed!!");
+		System.exit(1);
 	}
 }
