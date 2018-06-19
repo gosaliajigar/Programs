@@ -4,27 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * HashMap(), HashMap(capacity), HashMap(capacity, loadFactor), HashMap(map)<br>
- * <br>
- * clear(), clone()<br>
- * containsKey(k), containsValue(v)<br>
- * compute(k, BiFunction) computeIfAbsent(k, Function) computeIfPresent(k,
- * BiFunction)<br>
- * entrySet()<br>
- * forEach(BiConsumer)<br>
- * get(k) getOrDefault(k, dv)<br>
- * isEmpty(), size()<br>
- * keySet()<br>
- * put(k,v) putAll(map) putIfAbsent(k,v)<br>
- * remove(k), remove(k, v) <br>
- * replace(k,nv) replace(k,ov,nv) <br>
- * values() <br>
- * <br>
  * 
  * HashMap stores the data in the form of key-value pairs. Each key-value pair
  * is stored in an object of Entry<K, V> class. Entry<K, V> class is the static
  * inner class of HashMap which is defined like below. <br>
- * 
+ * <br>
  * Array of Entry<K,V> to store data.<br>
  * <br>
  * To summarize the whole HashMap structure, each key-value pair is stored in an
@@ -40,6 +24,22 @@ import java.util.Map;
  * Additional hash function ensures that hashCodes that differ only by constant
  * multiples at each bit position have a bounded number of collisions
  * (approximately 8 at default load factor)<br>
+ * <br>
+ * 
+ * HashMap(), HashMap(capacity), HashMap(capacity, loadFactor), HashMap(map)<br>
+ * <br>
+ * clear(), clone()<br>
+ * containsKey(k), containsValue(v)<br>
+ * compute(k, BiFunction) computeIfAbsent(k, Function) computeIfPresent(k, BiFunction)<br>
+ * entrySet()<br>
+ * forEach(BiConsumer)<br>
+ * get(k) getOrDefault(k, dv)<br>
+ * isEmpty(), size()<br>
+ * keySet()<br>
+ * put(k,v) putAll(map) putIfAbsent(k,v)<br>
+ * remove(k), remove(k, v) <br>
+ * replace(k,nv) replace(k,ov,nv) <br>
+ * values() <br>
  * <br>
  * 
  * Source : http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/

@@ -6,6 +6,23 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
+ * HashSet uses HashMap internally to store it’s objects. Whenever you create a
+ * HashSet object, one HashMap object associated with it is also created. This
+ * HashMap object is used to store the elements you enter in the HashSet. The
+ * elements you add into HashSet are stored as keys of this HashMap object. The
+ * value associated with those keys will be a constant.
+ * <br><br>
+ * 
+ * Whenever you insert an element into HashSet using add() method, it actually
+ * creates an entry in the internally backing HashMap object with element you
+ * have specified as it’s key and constant called “PRESENT” as it’s value.
+ * <br><br>
+ * 
+ * You can notice that, add() method of HashSet class internally calls put()
+ * method of backing HashMap object by passing the element you have specified as
+ * a key and constant “PRESENT” as it’s value.
+ * <br><br>
+ * 
  * HashSet(), HashSet(collection), HashSet(capacity)<br>
  * <br>
  * add(e), addAll(collection), addAll(i, collection) <br>
@@ -20,21 +37,6 @@ import java.util.Set;
  * <br>
  * <br>
  * 
- * HashSet uses HashMap internally to store it’s objects. Whenever you create a
- * HashSet object, one HashMap object associated with it is also created. This
- * HashMap object is used to store the elements you enter in the HashSet. The
- * elements you add into HashSet are stored as keys of this HashMap object. The
- * value associated with those keys will be a constant.
- * <br><br>
- * Whenever you insert an element into HashSet using add() method, it actually
- * creates an entry in the internally backing HashMap object with element you
- * have specified as it’s key and constant called “PRESENT” as it’s value.
- * <br><br>
- * You can notice that, add() method of HashSet class internally calls put()
- * method of backing HashMap object by passing the element you have specified as
- * a key and constant “PRESENT” as it’s value.
- * <br><br>
- * 
  * @author Jigar Gosalia
  *
  */
@@ -45,6 +47,7 @@ public class C010HashSet {
 		Set<Integer> a = new HashSet<Integer>(Arrays.asList(9, 8, 3, 2, 6));
 		Set<Integer> b = new HashSet<Integer>(a);
 
+		@SuppressWarnings({"unused", "unchecked"})
 		// clone - shallow copy only and elements are not copied
 		Set<Integer> c = (Set<Integer>) ((HashSet<Integer>) b).clone();
 

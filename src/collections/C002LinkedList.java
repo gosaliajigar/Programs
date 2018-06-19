@@ -10,6 +10,14 @@ import java.util.ListIterator;
 import java.util.Queue;
 
 /**
+ * LinkedList class in Java implements List and Deque interfaces and LinkedList
+ * implements it using doubly linkedlist.<br>
+ * <br>
+ * In the implementation of the LinkedList class in Java there is a private
+ * class Node which provides the structure for a node in a doubly linked list.
+ * It has item variable for holding the value and two reference to Node class
+ * itself for connecting to next and previous nodes.<br>
+ * <br>
  * LinkedList(), LinkedList(collection)<br>
  * <br>
  * add(e), add(i, e), addFirst(e), addLast(e), addAll(collection), addAll(i,
@@ -40,14 +48,6 @@ import java.util.Queue;
  * subList(start, end) <br>
  * toArray() toArray(T[]) <br>
  * <br>
- * LinkedList class in Java implements List and Deque interfaces and LinkedList
- * implements it using doubly linkedlist.<br>
- * <br>
- * In the implementation of the LinkedList class in Java there is a private
- * class Node which provides the structure for a node in a doubly linked list.
- * It has item variable for holding the value and two reference to Node class
- * itself for connecting to next and previous nodes.<br>
- * <br>
  * Source :
  * https://netjs.blogspot.com/2015/08/how-linked-list-class-works-internally-java.html<br>
  * https://docs.oracle.com/javase/8/docs/api/java/util/Deque.html
@@ -57,6 +57,7 @@ import java.util.Queue;
  * @author Jigar Gosalia
  *
  */
+@SuppressWarnings({"unused", "unchecked"})
 public class C002LinkedList {
 
 	public static void main(String[] args) {
@@ -94,7 +95,7 @@ public class C002LinkedList {
 
 		// element
 		System.out.println();
-		System.out.println(((Queue) a).element());
+		System.out.println(((Queue<Integer>) a).element());
 		System.out.println();
 
 		// forEach
@@ -104,7 +105,7 @@ public class C002LinkedList {
 		System.out.println();
 
 		// get, getFirst, getLast
-		System.out.println(a.get(0) + " - " + ((Deque) a).getFirst() + " - " + ((Deque) a).getLast());
+		System.out.println(a.get(0) + " - " + ((Deque<Integer>) a).getFirst() + " - " + ((Deque<Integer>) a).getLast());
 		System.out.println();
 
 		// indexOf, lastIndexOf
@@ -117,14 +118,14 @@ public class C002LinkedList {
 
 		// push pop peekFirst peekLast
 		System.out.println(a);
-		((Deque) a).push(333);
+		((Deque<Integer>) a).push(333);
 		System.out.println(((Deque<Integer>) a).peek() + " - " + ((Deque<Integer>) a).pop());
 		System.out.println(a);
 		System.out.println();
 
 		// offer offerFirst offerLast poll pollFirst pollLast
 		System.out.println(a);
-		((Deque) a).offer(333);
+		((Deque<Integer>) a).offer(333);
 		System.out.println(((Deque<Integer>) a).peek() + " - " + ((Deque<Integer>) a).poll());
 		System.out.println(a);
 		System.out.println();
@@ -198,14 +199,10 @@ public class C002LinkedList {
 
 		// listIterator(), listIterator(i)
 		ListIterator<Integer> litr = a.listIterator();
-		while (litr.hasNext()) {
-			System.out.print(litr.next() + " ");
-		}
+		while (litr.hasNext()) System.out.print(litr.next() + " ");
 		System.out.println();
 		litr = a.listIterator(a.size());
-		while (litr.hasPrevious()) {
-			System.out.print(litr.previous() + " ");
-		}
+		while (litr.hasPrevious()) System.out.print(litr.previous() + " ");
 		System.out.println();
 		System.out.println();
 

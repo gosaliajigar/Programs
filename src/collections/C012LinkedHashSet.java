@@ -7,6 +7,30 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
+ * LinkedHashSet is an extended version of HashSet. HashSet doesn't follow any
+ * order where as LinkedHashSet maintains insertion order. HashSet uses HashMap
+ * object internally to store its elements where as LinkedHashSet uses
+ * LinkedHashMap object internally to store and process its elements. <br>
+ * <br>
+ * LinkedHashSet uses LinkedHashMap object to store its elements. The elements
+ * you insert in the LinkedHashSet are stored as keys of this LinkedHashMap
+ * object. Each key, value pair in the LinkedHashMap are instances of its
+ * static inner class called Entry<K, V>. This Entry<K, V> class extends
+ * HashMap.Entry class. The insertion order of elements into LinkedHashMap are
+ * maintained by adding two new fields to this class. They are before and after.
+ * These two fields hold the references to previous and next elements. These two
+ * fields make LinkedHashMap to function as a doubly linked list. <br>
+ * <br>
+ * The first two fields of above inner class of LinkedHashMap (before and after)
+ * are responsible for maintaining the insertion order of the LinkedHashSet..
+ * <br>
+ * <br>
+ * In LinkedHashMap, the same set of Entry objects (rather references to Entry
+ * objects) are arranged in two different manner. One is the HashMap and another
+ * one is Doubly linked list. Entry objects just sit on heap memory, unaware
+ * of that they are part of two different data structures. <br>
+ * <br>
+ * 
  * LinkedHashSet(), LinkedHashSet(collection), LinkedHashSet(capacity)<br>
  * <br>
  * add(e), addAll(collection), addAll(i, collection) <br>
@@ -23,29 +47,6 @@ import java.util.Set;
  * 
  * Source : http://javaconceptoftheday.com/how-linkedhashset-works-internally-in-java/
  * <br><br>
- * LinkedHashSet is an extended version of HashSet. HashSet doesn’t follow any
- * order where as LinkedHashSet maintains insertion order. HashSet uses HashMap
- * object internally to store it’s elements where as LinkedHashSet uses
- * LinkedHashMap object internally to store and process it’s elements. <br>
- * <br>
- * LinkedHashSet uses LinkedHashMap object to store it’s elements. The elements
- * you insert in the LinkedHashSet are stored as keys of this LinkedHashMap
- * object. Each key, value pair in the LinkedHashMap are instances of it’s
- * static inner class called Entry<K, V>. This Entry<K, V> class extends
- * HashMap.Entry class. The insertion order of elements into LinkedHashMap are
- * maintained by adding two new fields to this class. They are before and after.
- * These two fields hold the references to previous and next elements. These two
- * fields make LinkedHashMap to function as a doubly linked list. <br>
- * <br>
- * The first two fields of above inner class of LinkedHashMap – before and after
- * are responsible for maintaining the insertion order of the LinkedHashSet..
- * <br>
- * <br>
- * In LinkedHashMap, the same set of Entry objects (rather references to Entry
- * objects) are arranged in two different manner. One is the HashMap and another
- * one is Doubly linked list. The Entry objects just sit on heap memory, unaware
- * of that they are part of two different data structures. <br>
- * <br>
  * 
  * @author Jigar Gosalia
  *
@@ -57,6 +58,7 @@ public class C012LinkedHashSet {
 		Set<Integer> a = new LinkedHashSet<Integer>(Arrays.asList(9, 8, 3, 2, 6));
 		Set<Integer> b = new LinkedHashSet<Integer>(a);
 
+		@SuppressWarnings({"unused", "unchecked"})
 		// clone - shallow copy only and elements are not copied
 		Set<Integer> c = (Set<Integer>) ((HashSet<Integer>) b).clone();
 

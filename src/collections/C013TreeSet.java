@@ -6,6 +6,26 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
+ * TreeSet is like HashSet which contains the unique elements only but in a
+ * sorted manner. The major difference is that TreeSet provides a total ordering
+ * of the elements. The elements are ordered using their natural ordering, or by
+ * a Comparator typically provided at sorted set creation time. The set's
+ * iterator will traverse the set in ascending element order. <br>
+ * <br>
+ * 
+ * whenever you are adding element to the TreeSet object , it works just like
+ * HashSet , The only difference is that instead of HashMap here we have TreeMap
+ * object in the constructor. <br>
+ * <br>
+ * 
+ * add(Element E) adds element E as a key in the TreeSet with value as constant
+ * Object() PRESENT. <br>
+ * <br>
+ * 
+ * There are many ways to find out the index of element in the TreeSet. one
+ * liner : set.headSet(element).size() <br>
+ * <br>
+ * 
  * TreeSet(), TreeSet(collection), TreeSet(comparator), TreeSet(SortedSet)<br>
  * <br>
  * add(e), addAll(collection) <br>
@@ -30,25 +50,6 @@ import java.util.stream.IntStream;
  * http://javahungry.blogspot.com/2015/10/how-treeset-works-internally-in-java-interview-questions.html
  * <br>
  * <br>
- * TreeSet is like HashSet which contains the unique elements only but in a
- * sorted manner. The major difference is that TreeSet provides a total ordering
- * of the elements. The elements are ordered using their natural ordering, or by
- * a Comparator typically provided at sorted set creation time. The set's
- * iterator will traverse the set in ascending element order. <br>
- * <br>
- * 
- * whenever you are adding element to the TreeSet object , it works just like
- * HashSet , The only difference is that instead of HashMap here we have TreeMap
- * object in the constructor. <br>
- * <br>
- * 
- * add(Element E) adds element E as a key in the TreeSet with value as constant
- * Object() PRESENT. <br>
- * <br>
- * 
- * There are many ways to find out the index of element in the TreeSet. one
- * liner : set.headSet(element).size() <br>
- * <br>
  * 
  * @author Jigar Gosalia
  *
@@ -61,6 +62,7 @@ public class C013TreeSet {
 
 		// floor ceiling lower higher
 		System.out.println(((TreeSet<Integer>) t).floor(41) + " - " + ((TreeSet<Integer>) t).ceiling(41));
+		System.out.println(((TreeSet<Integer>) t).floor(40) + " - " + ((TreeSet<Integer>) t).ceiling(42));
 		System.out.println(((TreeSet<Integer>) t).lower(41) + " - " + ((TreeSet<Integer>) t).higher(41));
 		System.out.println();
 

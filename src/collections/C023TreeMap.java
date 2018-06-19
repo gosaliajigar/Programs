@@ -4,12 +4,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
+ * 
+ * A Red-Black tree based NavigableMap implementation. The map is sorted
+ * according to the natural ordering of its keys, or by a Comparator provided at
+ * map creation time, depending on which constructor is used.<br>
+ * <br>
+ * 
  * TreeMap(), TreeMap(comparator), TreeMap(map), TreeMap(sortedmap)<br>
  * <br>
  * clear(), clone()<br>
  * containsKey(k), containsValue(v)<br>
- * ceilingEntry ceilingKey floorEntry floorKey lowerEntry lowerKey higherEntry
- * higherKey <br>
+ * ceilingEntry ceilingKey floorEntry floorKey lowerEntry lowerKey higherEntry higherKey <br>
  * comparator <br>
  * descendingKeySet<br>
  * descendingMap<br>
@@ -27,10 +32,6 @@ import java.util.TreeMap;
  * values() <br>
  * <br>
  * 
- * A Red-Black tree based NavigableMap implementation. The map is sorted
- * according to the natural ordering of its keys, or by a Comparator provided at
- * map creation time, depending on which constructor is used.<br>
- * <br>
  * Source :
  * http://javahungry.blogspot.com/2014/06/how-treemap-works-ten-treemap-java-interview-questions.html
  * <br>
@@ -47,6 +48,8 @@ public class C023TreeMap {
 		map.put(7, 700);
 		map.put(5, 500);
 		map.put(3, 300);
+		System.out.println(map);
+		System.out.println();
 
 		// descendingKeySet
 		System.out.println(map.descendingKeySet());

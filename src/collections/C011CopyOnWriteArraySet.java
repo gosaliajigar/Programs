@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * Thus, it shares the same basic properties: <br>
  * <br>
  * 1. It is best suited for applications in which set sizes generally stay
- * small, read-only operations vastly outnumber mutative operations, and you
+ * small, read-only operations vastly out number mutative operations, and you
  * need to prevent interference among threads during traversal.<br>
  * 2. It is thread-safe.<br>
  * 3. Mutative operations (add, set, remove, etc.) are expensive since they
@@ -42,9 +42,7 @@ public class C011CopyOnWriteArraySet {
 		timeline[3] = new ForumTopics(new Topic("Topic4", "Description4"), ForumTopics.Operation.ADD);
 		timeline[4] = new ForumTopics(new Topic("Topic5", "Description5"), ForumTopics.Operation.ADD);
 
-		for (int i = 0; i < 5; i++) {
-			executorService.submit(timeline[i]);
-		}
+		for (int i = 0; i < 5; i++)	executorService.submit(timeline[i]);
 
 		// Print Topics
 		ForumTopics.printTopics();

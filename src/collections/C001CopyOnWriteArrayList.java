@@ -42,9 +42,8 @@ public class C001CopyOnWriteArrayList {
 
 		// Create an array to store IterateMe objects.
 		Task[] tasks = new Task[NUM_OF_THREADS+1];
-		for (int i = 1; i <= NUM_OF_THREADS; i++) {
+		for (int i = 1; i <= NUM_OF_THREADS; i++)
 			tasks[i] = new Task("Thread-" + i, false);
-		}
 
 		// Print original context "for" internally uses an iterator
 		Task.getNames().forEach(x -> System.out.printf("%s ", x));
@@ -118,9 +117,8 @@ class Task implements Runnable {
 
 		Iterator<String> it = names.iterator();
 
-		while (it.hasNext()) {
-			System.out.printf(it.next() + " ");
-		}
+		while (it.hasNext()) System.out.printf(it.next() + " ");
+
 		System.out.println();
 	}
 }

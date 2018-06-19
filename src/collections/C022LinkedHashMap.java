@@ -4,6 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * LinkedHashMap is the Hashtable (synchronized HashMap) and linkedlist
+ * implementation of the Map interface, with predictable iteration order.<br>
+ * <br>
+ * 
  * LinkedHashMap(), LinkedHashMap(capacity), LinkedHashMap(capacity,
  * loadFactor), LinkedHashMap(capacity, loadFactor, accessOrder),
  * LinkedHashMap(map)<br>
@@ -23,11 +27,6 @@ import java.util.Map;
  * values() <br>
  * <br>
  * 
- * LinkedHashMap is the Hashtable (synchronized HashMap) and linkedlist
- * implementation of the Map interface, with predictable iteration order.<br>
- * <br>
- * 
- * 
  * Sources :
  * http://www.devinline.com/2015/03/how-linkedhashmap-works-internally.html
  * http://javahungry.blogspot.com/2015/08/how-linkedhashmap-works-internally-in-java.html
@@ -39,9 +38,12 @@ import java.util.Map;
 public class C022LinkedHashMap {
 
 	public static void main(String[] args) {
+		@SuppressWarnings({"unused"})
 		Map<Integer, Integer> m = new LinkedHashMap<Integer, Integer>();
 		// same as HashMap
 		// accessOrder = false == insertion order (by default)
 		// accessOrder = true  == access order (for LRU Cache)
+		// for LRU override below method too
+		// public boolean removeEldestEntry(Map.Entry<K, V> entries) { return size() > capacity; }
 	}
 }

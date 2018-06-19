@@ -107,7 +107,7 @@ public class C000ArrayList {
 		// set
 		a.set(0, 100);
 
-		// subList
+		// subList by location index
 		System.out.println(a.subList(2, 4));
 		System.out.println();
 
@@ -158,6 +158,7 @@ public class C000ArrayList {
 		System.out.println(a);
 		for (int index=0; index<a.size(); index++) {
 			if (index % 2 == 0) a.remove(index);
+			System.out.println(a);
 		}
 		System.out.println(a);
 	}
