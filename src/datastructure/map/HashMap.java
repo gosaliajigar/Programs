@@ -106,9 +106,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	 * @see datastructure.map.Map#containsKey(java.lang.Object)
 	 */
 	@Override
-	public boolean containsKey(K key) {
-		return (find(key) != null);
-	}
+	public boolean containsKey(K key) {	return (find(key) != null);	}
 
 	/* (non-Javadoc)
 	 * @see datastructure.map.Map#containsValue(java.lang.Object)
@@ -131,9 +129,7 @@ public class HashMap<K, V> implements Map<K, V> {
 	 * @see datastructure.map.Map#isEmpty()
 	 */
 	@Override
-	public boolean isEmpty() {
-		return (count == 0);
-	}
+	public boolean isEmpty() { return (count == 0);	}
 
 	/* (non-Javadoc)
 	 * @see datastructure.map.Map#keySet()
@@ -155,14 +151,10 @@ public class HashMap<K, V> implements Map<K, V> {
 	 * @see datastructure.map.Map#size()
 	 */
 	@Override
-	public int size() {
-		return count;
-	}
+	public int size() { return count; }
 
 	public void display() {
-		for (Entry<K, V> entry: entrySet()) {
-			System.out.print("{key=" + entry.key + ";value=" + entry.value + "}");
-		}
+		entrySet().forEach((e) -> System.out.print("{key=" + e.key + ";value=" + e.value + "}"));
 		System.out.println();
 	}
 

@@ -11,13 +11,11 @@ package algorithms;
  */
 public class RabinKarpSearch {
 
-	private static int prime = 101;
+	private static int prime = 31;
 
 	public static int patternSearch(char[] text, char[] pattern) {
-		int n = text.length;
-		int m = pattern.length;
-		double textHash = calculateHash(text, m-1);
-		double patternHash = calculateHash(pattern, m-1);
+		int n = text.length, m = pattern.length;
+		double textHash = calculateHash(text, m-1), patternHash = calculateHash(pattern, m-1);
 		for (int i = 0; i < n-(m-1); i++) {
 			// check if text(i, i+m-1) equal to pattern(0, m-1)
 			if (patternHash == textHash && isEqual(text, i, i+m-1, pattern, 0, m-1)) return i;
@@ -26,10 +24,10 @@ public class RabinKarpSearch {
 		return -1;
 	}
 
-	private static double reCalculateHash(char[] str, int oldIndex, int newIndex, double oldHash, int patternLen) {
-		double newHash = oldHash - str[oldIndex];
+	private static double reCalculateHash(char[] s, int oldIndex, int newIndex, double oldHash, int patternLen) {
+		double newHash = oldHash - s[oldIndex];
 		newHash = newHash / prime;
-		newHash += str[newIndex] * Math.pow(prime, patternLen - 1);
+		newHash += s[newIndex] * Math.pow(prime, patternLen - 1);
 		return newHash;
 	}
 
