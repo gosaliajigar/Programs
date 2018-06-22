@@ -1,41 +1,14 @@
 package algorithms;
 
 /**
- * 
- * Do pattern matching using KMP algorithm
- * 
- * Runtime complexity - O(m + n) where m is length of text and n is length of
- * pattern
- * 
+ * Do pattern matching using KMP algorithm (Knuth–Morris–Pratt)
+ * Runtime complexity - O(m + n); m=len(text) & n=len(pattern)
  * Space complexity - O(n)
  * 
  * @author Jigar Gosalia
  *
  */
 public class KMPSubstringSearch {
-
-	/**
-	 * Slow method of pattern matching
-	 */
-	public static boolean hasSubstring(char[] text, char[] pattern) {
-		int i = 0;
-		int j = 0;
-		int k = 0;
-		while (i < text.length && j < pattern.length) {
-			if (text[i] == pattern[j]) {
-				i++;
-				j++;
-			} else {
-				j = 0;
-				k++;
-				i = k;
-			}
-		}
-		if (j == pattern.length) {
-			return true;
-		}
-		return false;
-	}
 
 	/**
 	 * Compute temporary array to maintain size of suffix which is same as prefix
@@ -46,15 +19,12 @@ public class KMPSubstringSearch {
 		int index = 0;
 		for (int i = 1; i < pattern.length;) {
 			if (pattern[i] == pattern[index]) {
-				lps[i] = index + 1;
-				index++;
-				i++;
+				lps[i] = index + 1; index++; i++;
 			} else {
 				if (index != 0) {
 					index = lps[index - 1];
 				} else {
-					lps[i] = 0;
-					i++;
+					lps[i] = 0; i++;
 				}
 			}
 		}
@@ -65,32 +35,22 @@ public class KMPSubstringSearch {
 	 * KMP algorithm of pattern matching.
 	 */
 	public static boolean KMP(char[] text, char[] pattern) {
-
 		int lps[] = computeTemporaryArray(pattern);
-		int i = 0;
-		int j = 0;
+		int i = 0, j = 0;
 		while (i < text.length && j < pattern.length) {
 			if (text[i] == pattern[j]) {
-				i++;
-				j++;
+				i++; j++;
 			} else {
-				if (j != 0) {
-					j = lps[j - 1];
-				} else {
-					i++;
-				}
+				if (j != 0) j = lps[j - 1];
+				else i++;
 			}
 		}
-		if (j == pattern.length) {
-			return true;
-		}
+		if (j == pattern.length) return true;
 		return false;
 	}
 
 	public static void main(String args[]) {
-		String str = "abcxabcdabcdabcy";
-		String subString = "abcdabcy";
-		boolean result = KMP(str.toCharArray(), subString.toCharArray());
+		boolean result = KMP("abcxabcdabcdabcy".toCharArray(), "abcdabcy".toCharArray());
 		System.out.print(result);
 	}
 }
