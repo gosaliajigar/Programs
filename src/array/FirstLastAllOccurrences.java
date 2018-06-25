@@ -20,15 +20,15 @@ public class FirstLastAllOccurrences {
 	 * @param x
 	 * @return
 	 */
-	private static int firstOccurrence(int[] a, int left, int right, int x, int n) {
+	private static int firstOccurrence(int[] a, int left, int right, int x) {
 		if (left <= right) {
 			int mid = ((left + right) / 2);
-			if (a[mid] == x && (mid == 0 || a[mid - 1] < x)) {
+			if (a[mid] == x && (mid == 0 || a[mid - 1] < a[mid])) {
 				return mid;
 			} else if (a[mid] < x) {
-				return firstOccurrence(a, (mid + 1), right, x, n);
+				return firstOccurrence(a, (mid + 1), right, x);
 			} else {
-				return firstOccurrence(a, left, (mid - 1), x, n);
+				return firstOccurrence(a, left, (mid - 1), x);
 			}
 		}
 		return -1;
@@ -44,15 +44,15 @@ public class FirstLastAllOccurrences {
 	 * @param x
 	 * @return
 	 */
-	private static int lastOccurrence(int[] a, int left, int right, int x, int n) {
+	private static int lastOccurrence(int[] a, int left, int right, int x) {
 		if (left <= right) {
 			int mid = ((left + right) / 2);
-			if (a[mid] == x && (mid == n - 1 || a[mid + 1] > x)) {
+			if (a[mid] == x && (mid == a.length - 1 || a[mid + 1] > a[mid])) {
 				return mid;
 			} else if (a[mid] > x) {
-				return lastOccurrence(a, left, mid - 1, x, n);
+				return lastOccurrence(a, left, mid - 1, x);
 			} else {
-				return lastOccurrence(a, mid + 1, right, x, n);
+				return lastOccurrence(a, mid + 1, right, x);
 			}
 		}
 		return -1;
@@ -64,8 +64,8 @@ public class FirstLastAllOccurrences {
 	public static void main(String[] args) {
 		int[] input = { 1, 2, 2, 2, 2, 3, 4, 7, 8, 8 };
 		int find = 7;
-		int first = firstOccurrence(input, 0, input.length - 1, find, input.length);
-		int last = lastOccurrence(input, 0, input.length - 1, find, input.length);
+		int first = firstOccurrence(input, 0, input.length - 1, find);
+		int last = lastOccurrence(input, 0, input.length - 1, find);
 		int all = ((last - first + 1) == 1) ? 0 : (last - first + 1);
 		System.out.printf("First Occurrence(%d) : %d\n", find, first);
 		System.out.printf("Last Occurrence(%d)  : %d\n", find, last);

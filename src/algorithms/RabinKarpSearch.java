@@ -38,7 +38,7 @@ public class RabinKarpSearch {
 	}
 
 	private static boolean isEqual(char s1[], int start1, int end1, char s2[], int start2, int end2) {
-		if (end1 - start1 != end2 - start2) return false;
+		if ((end1 - start1) != (end2 - start2)) return false;
 		while (start1 <= end1 && start2 <= end2) {
 			if (s1[start1] != s2[start2]) return false;
 			start1++; start2++;

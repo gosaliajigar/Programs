@@ -1,10 +1,14 @@
-package dfs;
+package connected;
 
 /**
  * @author Jigar Gosalia
  *
  */
-public class ConnectedIslands {
+public class ConnectedIslandsDFS {
+
+	// Arrays to get row and column numbers of 8 neighbors of a given cell
+	private static int rowNbr[] = new int[] { 0,  0,  1, 1, 1, -1, -1, -1 };
+	private static int colNbr[] = new int[] { 1, -1, -1, 0, 1, -1,  0,  1 };
 
 	public static void main(String[] args) {
 		int[][] a = new int[][] {
@@ -19,12 +23,10 @@ public class ConnectedIslands {
 
 	public static int connected(int[][] a) {
 		boolean visited[][] = new boolean[a.length][a[0].length];
-
 		int count = 0;
 		for (int i = 0; i < a.length; ++i) {
 			for (int j = 0; j < a[0].length; ++j) {
-				// If a cell with value 1 is not
-				// visited yet, then new island found, Visit all
+				// cell with value 1 is not visited yet, then new island found, Visit all
 				// cells in this island and increment island count
 				if (a[i][j] == 1 && !visited[i][j]) {
 					dfs(a, i, j, visited);
@@ -36,11 +38,6 @@ public class ConnectedIslands {
 	}
 
 	public static void dfs(int a[][], int r, int c, boolean visited[][]) {
-		// These arrays are used to get row and column numbers
-		// of 8 neighbors of a given cell
-		int rowNbr[] = new int[] { 0, 0, 1, 1, 1, -1, -1, -1 };
-		int colNbr[] = new int[] { 1, -1, -1, 0, 1, -1, 0, 1 };
-
 		// Mark this cell as visited
 		visited[r][c] = true;
 
