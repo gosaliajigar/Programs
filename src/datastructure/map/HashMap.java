@@ -21,9 +21,7 @@ public class HashMap<K, V> implements Map<K, V> {
 
 	private static final int TABLE_SIZE = 4;
 
-	public HashMap() {
-		table = new Entry[TABLE_SIZE];
-	}
+	public HashMap() { table = new Entry[TABLE_SIZE]; }
 
 	/* (non-Javadoc)
 	 * @see datastructure.map.Map#put(java.lang.Object, java.lang.Object)
@@ -36,14 +34,10 @@ public class HashMap<K, V> implements Map<K, V> {
 				entry.value = value;
 				return;
 			}
-			if (count >= (table.length * loadFactor)) {
-				rehash();
-			}
+			if (count >= (table.length * loadFactor)) rehash();
 			int hash = hashcode(key);
 			Entry<K, V> newEntry = new Entry<K, V>(key, value, null);
-			if (table[hash] != null) {
-				newEntry.next = table[hash];
-			}
+			if (table[hash] != null) newEntry.next = table[hash];
 			count++;
 			table[hash] = newEntry;
 		}
@@ -180,18 +174,14 @@ public class HashMap<K, V> implements Map<K, V> {
 	 * @param key
 	 * @return
 	 */
-	private int hashcode(K key) {
-		return (Math.abs(key.hashCode()) % table.length);
-	}
+	private int hashcode(K key) { return (Math.abs(key.hashCode()) % table.length); }
 
 	private Entry<K, V> find(K key) {
 		int hash = hashcode(key);
 		if (table[hash] != null) {
 			Entry<K, V> entry = table[hash];
 			while (entry != null) {
-				if (entry.key.equals(key)) {
-					return entry;
-				}
+				if (entry.key.equals(key)) return entry;
 				entry = entry.next;
 			}
 		}

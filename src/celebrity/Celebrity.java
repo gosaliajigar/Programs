@@ -22,7 +22,7 @@ public class Celebrity {
 	// Returns -1 if celebrity is not present. If present,
 	// returns id (value from 0 to n-1).
 	public static int findCelebrity(int n) {
-		int a = 0, b = n - 1;
+		int a = 0, b = n-1;
 
 		// find a that doesn't know b
 		while (a < b) {
@@ -32,8 +32,7 @@ public class Celebrity {
 
 		// Check if a is actually a celebrity or not
 		for (int i = 0; i < n; i++) {
-			// If any person doesn't know 'a' or 'a' knows any person,
-			// return -1
+			// If any person doesn't know 'a' or 'a' knows any person, return -1
 			if (i != a && (knows(a, i) || !knows(i, a))) return -1;
 		}
 		return a;

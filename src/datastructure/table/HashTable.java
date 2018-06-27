@@ -30,8 +30,7 @@ public class HashTable<K, V> {
 		int search = 0;
 		int hash = hashCode(key);
 		while (table[hash] != null && search <= TABLE_SIZE) {
-			if (table[hash].getKey().equals(key))
-				return table[hash].getValue();
+			if (table[hash].getKey().equals(key)) return table[hash].getValue();
 			hash = (hash + 1) % TABLE_SIZE;
 			search++;
 		}
@@ -46,11 +45,8 @@ public class HashTable<K, V> {
 		if (count < TABLE_SIZE) {
 			int hash = hashCode(key);
 			while (table[hash] != null) {
-				if (table[hash].getKey().equals(key)) {
-					break;
-				} else {
-					hash = (hash + 1) % TABLE_SIZE;	
-				}
+				if (table[hash].getKey().equals(key)) break;
+				else hash = (hash + 1) % TABLE_SIZE;
 			}
 			table[hash] = new HashEntry(key, value);
 			count++;
@@ -63,9 +59,7 @@ public class HashTable<K, V> {
 	 * @param key
 	 * @return
 	 */
-	private int hashCode(K key) {
-		return (key.hashCode() % TABLE_SIZE);
-	}
+	private int hashCode(K key) { return (key.hashCode() % TABLE_SIZE); }
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -103,22 +97,13 @@ public class HashTable<K, V> {
 	}
 
 	public static class HashEntry<K, V> {
-
 		private K key;
-
 		private V value;
-
 		public HashEntry(K key, V value) {
 			this.key = key;
 			this.value = value;
 		}
-
-		public K getKey() {
-			return key;
-		}
-
-		public V getValue() {
-			return value;
-		}
+		public K getKey() { return key; }
+		public V getValue() { return value; }
 	}
 }

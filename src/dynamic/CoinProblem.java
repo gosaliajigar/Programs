@@ -3,8 +3,7 @@ package dynamic;
 import java.util.Arrays;
 
 /**
- * Given no. of coins, find total number of combinations possible to reach the
- * total sum.
+ * Given coins, find total number of combinations possible to reach total sum.
  * 
  * @author "Jigar Gosalia"
  *
@@ -37,6 +36,7 @@ public class CoinProblem {
 		// coins over and sum>0 so no solution
 		if (option == options.length && sum > 0) return 0;
 
+		// with option + without option
 		return coins(sum - options[option], options, option)
 				+ coins(sum, options, option + 1);
 	}

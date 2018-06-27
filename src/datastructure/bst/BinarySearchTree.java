@@ -15,16 +15,8 @@ public class BinarySearchTree {
 		this.root = null;
 	}
 
-	/**
-	 * @return
-	 */
-	public Node getRoot() {
-		return root;
-	}
+	public Node getRoot() { return root; }
 
-	/**
-	 * @param array
-	 */
 	public void create(int array[]) {
 		for (int index = 0; index < array.length; index++) {
 			insert(array[index]);
@@ -45,10 +37,7 @@ public class BinarySearchTree {
 		}
 		return null;
 	}
-	
-	/**
-	 * @param data
-	 */
+
 	public void insert(int data) {
 		Node node = new Node(data);
 		if (root == null) {
@@ -78,10 +67,6 @@ public class BinarySearchTree {
 		}
 	}
 
-	/**
-	 * @param data
-	 * @return
-	 */
 	public Node search(int data) {
 		Node node = null;
 		Node current = root;
@@ -137,6 +122,7 @@ public class BinarySearchTree {
 		// y.left.p = y; 
 	}
 
+	@SuppressWarnings("unused")
 	private static void transparent(Node root, Node u, Node v) {
 		// replace u by v on its parent node
 		//	if (u.p == null) {
@@ -156,6 +142,12 @@ public class BinarySearchTree {
 			if (node.getRight() != null) {
 				return treeMinimum(node.getRight());
 			} else {
+				// If the right subtree of node x is nonempty, then the successor of x is
+				// just the leftmost node in x’s right subtree
+				//
+				// If the right subtree of node x is empty and x has a successor y, then y 
+				// is the lowest ancestor of x whose left child is also an ancestor of x.
+				//
 				// Node y = node.p;
 				// while(y != null && y.right == node) {
 				//		node = y;
@@ -183,28 +175,12 @@ public class BinarySearchTree {
 		return null;
 	}
 	
-	
 	public static class Node {
 		int data;
 		Node left;
 		Node right;
 		public int depth;
 
-		/**
-		 * @param data
-		 */
-		public Node(int data) {
-			super();
-			this.data = data;
-			this.left = null;
-			this.right = null;
-		}
-
-		/**
-		 * @param data
-		 * @param left
-		 * @param right
-		 */
 		public Node(int data, Node left, Node right) {
 			super();
 			this.data = data;
@@ -212,55 +188,22 @@ public class BinarySearchTree {
 			this.right = right;
 		}
 
-		/**
-		 * @return
-		 */
-		public int getData() {
-			return data;
-		}
+		public Node(int data) { this(data, null, null); }
 
-		/**
-		 * @param data
-		 */
-		public void setData(int data) {
-			this.data = data;
-		}
+		public int getData() { return data; }
 
-		/**
-		 * @return
-		 */
-		public Node getLeft() {
-			return left;
-		}
+		public void setData(int data) { this.data = data; }
 
-		/**
-		 * @param left
-		 */
-		public void setLeft(Node left) {
-			this.left = left;
-		}
+		public Node getLeft() { return left; }
 
-		/**
-		 * @return
-		 */
-		public Node getRight() {
-			return right;
-		}
+		public void setLeft(Node left) { this.left = left; }
 
-		/**
-		 * @param right
-		 */
-		public void setRight(Node right) {
-			this.right = right;
-		}
+		public Node getRight() { return right; }
 
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
-		 */
+		public void setRight(Node right) { this.right = right; }
+
 		@Override
-		public String toString() {
-			return "Node [data=" + data + ", left=" + left + ", right=" + right + "]";
-		}
+		public String toString() { return "Node [data=" + data + ", left=" + left + ", right=" + right + "]"; }
 	}
 
 }
