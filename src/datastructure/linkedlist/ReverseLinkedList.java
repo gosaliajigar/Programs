@@ -13,6 +13,7 @@ public class ReverseLinkedList {
 			curr = next;
 			prev = curr;
 		}
+		head.setNext(null);
 		return prev;
 	}
 

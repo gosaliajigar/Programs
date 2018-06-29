@@ -34,7 +34,7 @@ public class StringCombinationRecursive {
 		for (int i = index; i < input.length(); i++) {
 			output.append(input.charAt(i));
 			System.out.println(output);
-			combinationsR(input, output, i + 1);
+			combinationsR(input, output, i+1);
 			output.deleteCharAt(output.length() - 1);
 		}
 	}
