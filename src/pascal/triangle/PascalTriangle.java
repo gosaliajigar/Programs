@@ -20,23 +20,12 @@ public class PascalTriangle {
 		}
 	}
 
-	/**
-	 * @param numRows
-	 * @return
-	 */
 	public static List<List<Integer>> generate(int numRows) {
-
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
-
-		if (numRows <= 0)
-			return result;
-
+		if (numRows <= 0) return result;
 		List<Integer> previousRow = new ArrayList<Integer>();
-
 		previousRow.add(1);
-
 		result.add(previousRow);
-
 		for (int i = 2; i <= numRows; i++) {
 			List<Integer> currentRow = new ArrayList<Integer>();
 			// first

@@ -1,6 +1,8 @@
 package connected;
 
 /**
+ * Use Union-Find of disjointed sets.
+ * 
  * @author Jigar Gosalia
  *
  */

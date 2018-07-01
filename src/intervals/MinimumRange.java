@@ -1,5 +1,11 @@
 package intervals;
 
+/**
+ * Minimum range of all sorted arrays
+ * 
+ * @author Jigar Gosalia
+ *
+ */
 public class MinimumRange {
 
 	public static void main(String[] args) {
@@ -16,5 +22,4 @@ public class MinimumRange {
 	private static int getMin(int i, int j, int k, int l) {
 		return (Math.min(Math.min(i, j), Math.min(k, l)));
 	}
-
 }

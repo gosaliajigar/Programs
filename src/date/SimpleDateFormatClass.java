@@ -21,8 +21,7 @@ public class SimpleDateFormatClass {
 		Scanner scanner = new Scanner(System.in);
 		String stringDate = "";
 		while (stringDate.length() != 8) {
-			System.out
-					.println("Input date should be atleast 8 characters (yyyyMMdd) ... ");
+			System.out.println("Input date should be atleast 8 characters (yyyyMMdd) ... ");
 			stringDate = scanner.nextLine();
 		}
 		scanner.close();

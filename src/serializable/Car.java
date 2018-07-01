@@ -65,7 +65,7 @@ class Car implements Serializable {
 		System.out.println("SerialVersionUID (final static field) : " + serialVersionUID);
 		System.out.println("logger      (final static field)      : " + logger);
 		System.out.println("make        (static field)            : " + make);
-		System.out.println("isCouple    (field)                   : " + isCoupe);
+		System.out.println("isCouple    (final field)             : " + isCoupe);
 		System.out.println("id          (instance variable)       : " + id);
 		System.out.println("price       (instance variable)       : " + price);
 		System.out.println("color       (instance variable)       : " + color);

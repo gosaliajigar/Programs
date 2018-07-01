@@ -89,9 +89,7 @@ public class ConversionLibrary {
 	 * @return
 	 */
 	public static String dec2hex(int decimal) {
-		if (decimal <= 0) {
-			return "0";
-		}
+		if (decimal <= 0) return "0";
 		String hex = new String();
 		while (decimal != 0) {
 			hex = getHexValue(decimal % 16) + hex;
@@ -221,7 +219,8 @@ public class ConversionLibrary {
 		int integer = 0;
 		for (int index = 0; index < ascii.length(); index++) {
 			if (ascii.charAt(index) >= '0' && ascii.charAt(index) <= '9') {
-				integer = (integer * 10) + getDecValue(ascii.charAt(index));
+				integer = (integer * 10) + (ascii.charAt(index) - '0');
+				// integer = (integer * 10) + getDecValue(ascii.charAt(index));
 			} else {
 				throw new Exception("Is not an Integer : " + ascii.charAt(index));
 			}
@@ -237,9 +236,7 @@ public class ConversionLibrary {
 	 */
 	public static String itoa(int integer) {
 		String ascii = "";
-		if (integer == 0) {
-			return "0";
-		}
+		if (integer == 0) return "0";
 		while (integer != 0) {
 			ascii = (integer % 10) + ascii;
 			integer = integer / 10;

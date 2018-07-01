@@ -17,9 +17,9 @@ public class Numberof1s {
 	}
 
 	public static int get1s(int n) {
-		int count = ((n%2 == 0) ? 0 : 1);
+		int count = n%2;
 		while ((n = n >> 1) > 0) {
-			count += ((n%2 == 0) ? 0 : 1);
+			count += n%2;
 		}
 		return count;
 	}

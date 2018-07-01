@@ -40,6 +40,7 @@ public class FibonacciNthElement {
 		System.out.println();
 
 		int[] d = new int[number + 1];
+		d[1] = 1; d[2] = 1; 
 		start = System.currentTimeMillis();
 		System.out.println("Recursively Fibonacci series " + number
 				+ "th element with memoization: " + fibMemoization(d, number));
@@ -87,15 +88,11 @@ public class FibonacciNthElement {
 	 * @return
 	 */
 	public static int fibMemoization(int[] d, int n) {
-		if (n == 0 || n == 1) {
-			return n;
-		} else {
-			// check if its already calculated or not
-			if (d[n] == 0) {
-				// calculate it and save it for future reference
-				d[n] = fibMemoization(d, n-1) + fibMemoization(d, n-2);
-			}
-			return d[n];
+		// check if its already calculated or not
+		if (n != 0 && d[n] == 0) {
+			// calculate it and save it for future reference
+			d[n] = fibMemoization(d, n-1) + fibMemoization(d, n-2);
 		}
+		return d[n];
 	}
 }

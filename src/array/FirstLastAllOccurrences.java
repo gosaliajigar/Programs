@@ -66,7 +66,7 @@ public class FirstLastAllOccurrences {
 		int find = 7;
 		int first = firstOccurrence(input, 0, input.length - 1, find);
 		int last = lastOccurrence(input, 0, input.length - 1, find);
-		int all = ((last - first + 1) == 1) ? 0 : (last - first + 1);
+		int all = ((last == first) ? ((first == -1) ? 0 : 1) : (last - first + 1));
 		System.out.printf("First Occurrence(%d) : %d\n", find, first);
 		System.out.printf("Last Occurrence(%d)  : %d\n", find, last);
 		System.out.printf("All Occurrences(%d)  : %d\n", find, all);

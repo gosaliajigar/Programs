@@ -1,7 +1,7 @@
 package inverse;
 
 /**
- * Binary inverse of a number.
+ * Binary inverse of a number. (flip 1<->0; try ^ with 1)
  * 
  * @author "Jigar Gosalia"
  *

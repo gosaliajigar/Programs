@@ -40,17 +40,17 @@ public class Election {
 	}
 
 	private static void getWinner(Map<Integer, Candidate> map) {
-		Queue<Candidate> election = new PriorityQueue<Candidate>(new Comparator<Candidate>() {
+		Queue<Candidate> electionQueue = new PriorityQueue<Candidate>(new Comparator<Candidate>() {
 			@Override
 			public int compare(Candidate o1, Candidate o2) {
 				return o2.getCount() - o1.getCount();
 			}
 		});
 		for (Integer key : map.keySet()) {
-			election.add(map.get(key));	
+			electionQueue.offer(map.get(key));	
 		}
-		while (!election.isEmpty()) {
-			System.out.print(election.remove() + " ");
+		while (!electionQueue.isEmpty()) {
+			System.out.print(electionQueue.poll() + " ");
 		}
 		System.out.println();
 	}

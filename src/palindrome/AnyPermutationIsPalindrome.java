@@ -21,10 +21,9 @@ public class AnyPermutationIsPalindrome {
 			charSet[index] = charSet[index] + 1;
 		}
 		for (int i : charSet) {
-			if (i % 2 != 0)
-				oddCount++;
+			if (i % 2 != 0) oddCount++;
 		}
-		return (oddCount == 0 || oddCount == 1) ? true : false;
+		return (oddCount == 0 || oddCount == 1);
 	}
 
 }

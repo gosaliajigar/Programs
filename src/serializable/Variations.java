@@ -62,15 +62,15 @@ public class Variations {
 
 	private static void write(Serializable object) throws IOException {
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-		oos.writeObject(object);
 		System.out.println("Writing : " + file.getAbsolutePath());
+		oos.writeObject(object);
 		oos.close();
 	}
 
 	private static Object read() throws IOException, ClassNotFoundException {
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
-		Object obj = ois.readObject();
 		System.out.println("Reading : " + file.getAbsolutePath());
+		Object obj = ois.readObject();
 		ois.close();
 		return obj;
 	}

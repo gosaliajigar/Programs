@@ -29,10 +29,10 @@ public class SquareRoot {
 	}
 
 	private static double sqrtRecursive(int n, double low, double high) {
-		double sqrt = low + ((high-low) / 2);
-		double diff = sqrt * sqrt - n;
-		if (diff > DELTA) return sqrtRecursive(n, low, sqrt);
-		if (-diff > DELTA) return sqrtRecursive(n, sqrt, high);
-		return sqrt;
+		double mid = low + ((high-low) / 2);
+		double diff = mid * mid - n;
+		if (diff > DELTA) return sqrtRecursive(n, low, mid);
+		if (-diff > DELTA) return sqrtRecursive(n, mid, high);
+		return mid;
 	}
 }

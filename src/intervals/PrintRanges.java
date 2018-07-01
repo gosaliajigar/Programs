@@ -23,30 +23,29 @@ public class PrintRanges {
 		printRanges(new int[] { 1, 2, 3, 4, 5, 9, 10, 11 });
 
 	}
-
 	public static void printRanges(int[] a) {
-		List<String> ranges = new ArrayList<String>();
-		int s = 0, i;
-		for (i = 1; i < a.length; i++) {
-			if (a[i] - a[i - 1] != 1) {
-				// handle first single character
-				if (i - s == 1) {
-					ranges.add(a[s] + "");
-				} else {
-					// handle all use cases
-					ranges.add(a[s] + "-" + a[i - 1]);
+		List<String> result = new ArrayList<String>();
+		int prev = a[0], first = prev;
+		for (int i=1; i<a.length; i++) {
+			if (a[i]==prev+1) {
+				// check if last element
+				if (i==a.length-1) {
+					result.add(first + "-" + a[i]);
 				}
-				s = i;
+			} else {
+				if (first == prev) {
+					result.add(first + "");
+				} else {
+					result.add(first + "-" + prev);
+				}
+				// check if last element
+				if (i==a.length-1) {
+					result.add("" + a[i]);
+				}
+				first = a[i];
 			}
+			prev = a[i];
 		}
-		// handle last single character
-		if (s == a.length - 1) {
-			ranges.add(a[s] + "");
-		}
-		// handle range at end
-		if (s >= 0 && i == a.length) {
-			ranges.add(a[s] + "-" + a[a.length - 1]);
-		}
-		System.out.println(ranges);
+		System.out.println(result);
 	}
 }

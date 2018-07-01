@@ -12,41 +12,18 @@ public class Dog {
 
 	private int type;
 
-	/**
-	 * @param color
-	 */
 	public Dog(final String color, final int type) {
 		this.setColor(color);
 		this.setType(type);
 	}
 
-	/**
-	 * @return
-	 */
-	public String getColor() {
-		return color;
-	}
+	public String getColor() { return color; }
 
-	/**
-	 * @param color
-	 */
-	public void setColor(final String color) {
-		this.color = color;
-	}
+	public void setColor(final String color) { this.color = color; }
 
-	/**
-	 * @return
-	 */
-	public int getType() {
-		return type;
-	}
+	public int getType() { return type; }
 
-	/**
-	 * @param type
-	 */
-	public void setType(int type) {
-		this.type = type;
-	}
+	public void setType(int type) { this.type = type; }
 
 	/*
 	 * (non-Javadoc)
@@ -80,12 +57,9 @@ public class Dog {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (this == obj)
-			return true;
-		if (this.getClass() != obj.getClass())
-			return false;
+		if (obj == null) return false;
+		if (this == obj) return true;
+		if (this.getClass() != obj.getClass()) return false;
 		Dog other = (Dog) obj;
 		if (this.color == null) {
 			if (other.color != null)
@@ -98,7 +72,5 @@ public class Dog {
 	}
 	
 	@Override
-	public String toString() {
-		return "Dog [color=" + color + ", type=" + type + "]";
-	}
+	public String toString() { return "Dog [color=" + color + ", type=" + type + "]"; }
 }

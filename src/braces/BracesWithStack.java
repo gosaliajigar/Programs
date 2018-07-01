@@ -39,7 +39,6 @@ public class BracesWithStack {
 	 * @return
 	 */
 	public static boolean validateBraces(String braces) {
-		boolean valid = true;
 		Stack<String> stack = new Stack<String>();
 		for (int i = 0; i < braces.length(); i++) {
 			if (braces.charAt(i) == '(') {
@@ -50,14 +49,10 @@ public class BracesWithStack {
 				if (!stack.isEmpty()) {
 					stack.pop();
 				} else {
-					valid = false;
-					break;
+					return false;
 				}
 			}
 		}
-		if (!stack.isEmpty()) {
-			valid = false;
-		}
-		return valid;
+		return stack.isEmpty();
 	}
 }

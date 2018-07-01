@@ -1,6 +1,7 @@
 package intervals;
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * Given arrival and departure times of all trains that reach a railway station,
@@ -16,9 +17,12 @@ public class MinimumPlatforms {
 		int arrivals[] = { 900, 940, 950, 1100, 1500, 1800 };
 		int departures[] = { 910, 1200, 1120, 1130, 1900, 2000 };
 		System.out.println(minPlatforms(arrivals, departures));
+		System.out.println(minPlatformsQueue(arrivals, departures));
+		System.out.println();
 		arrivals = new int[] { 200, 210, 300, 320, 350, 500 };
 		departures = new int[] { 230, 340, 320, 430, 400, 520 };
 		System.out.println(minPlatforms(arrivals, departures));
+		System.out.println(minPlatformsQueue(arrivals, departures));
 	}
 
 	public static int minPlatforms(int[] arrivals, int[] departures) {
@@ -45,5 +49,33 @@ public class MinimumPlatforms {
 			}
 		}
 		return result;
+	}
+
+	private static int minPlatformsQueue(int[] arrivals, int[] departures) {
+		// Sort arrival and departure arrays
+		Arrays.sort(arrivals);
+		Arrays.sort(departures);
+
+		int count = 1;
+		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
+		queue.offer(departures[0]);
+		for (int i=1; i<arrivals.length; i++) {
+			if (queue.peek()>arrivals[i]) {
+				count++;
+			} else {
+				queue.poll();
+			}
+			queue.offer(departures[i]);
+		}
+		return count;
+	}
+}
+
+class Train {
+	public int arrival;
+	public int departure;
+	public Train(int arrival, int departure) {
+		this.arrival = arrival;
+		this.departure = departure;
 	}
 }

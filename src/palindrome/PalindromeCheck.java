@@ -52,14 +52,8 @@ public class PalindromeCheck {
 	 * @return
 	 */
 	public static boolean isPalindrome(final char[] inputArray) {
-		if (inputArray == null) {
-			return false;
-		}
-
-		if (inputArray.length <= 1) {
-			return true;
-		}
-
+		if (inputArray == null) return false;
+		if (inputArray.length <= 1) return true;
 		for (int i = 0; i <= inputArray.length/2; i++) {
 			if (String.valueOf(inputArray[i]).equalsIgnoreCase(String.valueOf(inputArray[inputArray.length - i - 1]))) {
 				continue;
@@ -91,14 +85,8 @@ public class PalindromeCheck {
 	 * @return
 	 */
 	public static boolean isPalindromeSB(final String inputString) {
-		if (inputString == null) {
-			return false;
-		}
-
-		if (inputString.length() <= 1) {
-			return true;
-		}
-
+		if (inputString == null) return false;
+		if (inputString.length() <= 1) return true;
 		StringBuilder stringBuilder = new StringBuilder(inputString);
 		stringBuilder.reverse();
 		return stringBuilder.toString().equalsIgnoreCase(inputString);

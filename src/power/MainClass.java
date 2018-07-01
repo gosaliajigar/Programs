@@ -40,12 +40,8 @@ public class MainClass {
 	 * @return
 	 */
 	private static boolean usingMinus(final int number) {
-		if (number <= 0) {
-			throw new IllegalArgumentException("number: " + number);
-		}
-		if ((number & -number) == number) {
-			return true;
-		}
+		if (number <= 0) throw new IllegalArgumentException("number: " + number);
+		if ((number & -number) == number) return true;
 		return false;
 	}
 
@@ -59,9 +55,7 @@ public class MainClass {
 	private static boolean usingBruteForce(final int number) {
 		int square = 1;
 		while (number >= square) {
-			if (number == square) {
-				return true;
-			}
+			if (number == square) return true;
 			square = square * 2;
 		}
 		return false;
@@ -74,9 +68,7 @@ public class MainClass {
 	 * @return
 	 */
 	private static boolean usingConsecutiveNumberCheck(final int number) {
-		if (number <= 0) {
-			throw new IllegalArgumentException("number: " + number);
-		}
+		if (number <= 0) throw new IllegalArgumentException("number: " + number);
 		return ((number & (number - 1)) == 0);
 	}
 }
