@@ -115,12 +115,8 @@ public class TreeTraversal {
 			while (!queue.isEmpty()) {
 				Node node = queue.remove();
 				System.out.printf(node.getData() + " ");
-				if (node.getLeft() != null) {
-					queue.add(node.getLeft());
-				}
-				if (node.getRight() != null) {
-					queue.add(node.getRight());
-				}
+				if (node.getLeft() != null) queue.add(node.getLeft());
+				if (node.getRight() != null) queue.add(node.getRight());
 			}
 		}
 	}

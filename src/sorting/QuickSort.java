@@ -83,7 +83,3 @@ public class QuickSort {
 		System.out.printf("Output Array : " + Arrays.toString(array));
 	}
 }
-
-
-
-

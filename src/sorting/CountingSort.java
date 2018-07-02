@@ -28,35 +28,32 @@ public class CountingSort {
 		int[] B = new int[A.length];
 
 		// reset counting array
-		for (int index = 0; index < C.length; index++) {
-			C[index] = 0;
-		}
+		for (int index = 0; index < C.length; index++) C[index] = 0;
+
 		System.out.println("STEP1 C: " + Arrays.toString(C));
 		System.out.println();
 
 		// count occurrences
-		for (int index = 0; index < A.length; index++) {
-			C[A[index]] = C[A[index]] + 1;
-		}
+		for (int index = 0; index < A.length; index++) C[A[index]] = C[A[index]] + 1;
+
 		System.out.println("STEP2 C: " + Arrays.toString(C));
 		System.out.println();
 
 		// get count of number itself and numbers less than itself
-		for (int index = 1; index < C.length; index++) {
-			C[index] = C[index] + C[index - 1];
-		}
+		for (int index = 1; index < C.length; index++) C[index] = C[index] + C[index - 1];
+
 		System.out.println("STEP3 C: " + Arrays.toString(C));
 		System.out.println();
 
 		// start from rear end of array for stable sort
 		for (int index = B.length - 1; index >=0; index--) {
-			// NOTE: C would have count starting from 1 so subtracting 1 is must
+			// NOTE: C would have count starting from 1 
+			// so subtracting 1 is must
 			B[C[A[index]] - 1] = A[index];
 			C[A[index]] = C[A[index]] - 1;
 		}
 		System.out.println("STEP4 C: " + Arrays.toString(C));
 		System.out.println();
-
 		return B;
 	}
 
@@ -69,9 +66,6 @@ public class CountingSort {
 		return A;
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		int[] A = populate(SIZE, RANGE);
 		System.out.println("INPUT  : " + Arrays.toString(A));

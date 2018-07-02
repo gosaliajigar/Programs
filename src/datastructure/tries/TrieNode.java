@@ -43,16 +43,10 @@ public class TrieNode {
 	}
 
 	public void print(TrieNode node, List<String> all) {
-		if (node == null || all == null) {
-			return;
-		}
+		if (node == null || all == null) return;
 		// base condition
-		if (node.isWord()) {
-			all.add(node.getText());
-		}
+		if (node.isWord()) all.add(node.getText());
 		// recursive condition
-		for (Character c : node.getNextValidCharacters()) {
-			print(node.getNextCharacter(c), all);
-		}
+		for (Character c : node.getNextValidCharacters()) print(node.getNextCharacter(c), all);
 	}
 }

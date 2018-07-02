@@ -46,7 +46,6 @@ public class MergeSort {
 			sort(a, mid + 1, high);
 			merge(a, low, mid, high);
 		}
-		return;
 	}
 
 	/**
@@ -56,27 +55,22 @@ public class MergeSort {
 	 * @param high
 	 */
 	private static void merge(int[] a, int low, int mid, int high) {
-		int left=low, right=mid+1, i=low;
+		int i=low, j=mid+1, k=low;
 
 		// Compare numbers from both the halves and copy them sorted in temp
-		while (left<= mid && right <= high) {
-	        if (a[left] <= a[right])
-	        	temp[i++] = a[left++];
-	        else
-	        	temp[i++] = a[right++];
+		while (i<= mid && j <= high) {
+	        if (a[i] <= a[j]) temp[k++] = a[i++];
+	        else temp[k++] = a[j++];
 		}
 
 		// if right half is completed
-		while (left <= mid)
-			temp[i++] = a[left++];
+		while (i <= mid) temp[k++] = a[i++];
 
 		// if left half is completed
-		while (right <= high)
-		    temp[i++] = a[right++];
+		while (j <= high) temp[k++] = a[j++];
 
 		// copy sorted array back to original array
-		for (i = low; i <= high; i++)
-		        a[i] = temp[i];
+		for (k = low; k <= high; k++) a[k] = temp[k];
 	}
 
 	/**
