@@ -42,8 +42,8 @@ public class C022LinkedHashMap {
 		Map<Integer, Integer> m = new LinkedHashMap<Integer, Integer>();
 		// same as HashMap
 		// accessOrder = false == insertion order (by default)
-		// accessOrder = true  == access order (for LRU Cache)
+		// accessOrder = true  == access    order (for LRU Cache)
 		// for LRU override below method too
-		// public boolean removeEldestEntry(Map.Entry<K, V> entries) { return size() > capacity; }
+		// public boolean removeEldestEntry(Map.Entry<K, V> entry) { return size() > capacity; }
 	}
 }

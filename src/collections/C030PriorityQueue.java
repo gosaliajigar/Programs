@@ -52,6 +52,18 @@ public class C030PriorityQueue {
 		// items.add(null);
 
 		items.offer(new Item("Pixel", 300));
+
+		System.out.println(items.poll() + " : " + items);
+		System.out.println();
+
+		System.out.println(items.poll() + " : " + items);
+		System.out.println();
+
+		System.out.println(items.poll() + " : " + items);
+		System.out.println();
+
+		System.out.println(items.poll() + " : " + items);
+		System.out.println();
 	}
 }
 
@@ -67,19 +79,11 @@ class Item implements Comparable<Item> {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		final Item other = (Item) obj;
-		if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
-			return false;
-		}
-		if (this.price != other.price) {
-			return false;
-		}
+		if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) return false;
+		if (this.price != other.price) return false;
 		return true;
 	}
 
@@ -94,9 +98,7 @@ class Item implements Comparable<Item> {
 
 	@Override
 	public int compareTo(Item i) {
-		if (this.name == i.name) {
-			return this.price - i.price;
-		}
+		if (this.name.equals(i.name)) return this.price - i.price;
 		return this.name.compareTo(i.name);
 	}
 

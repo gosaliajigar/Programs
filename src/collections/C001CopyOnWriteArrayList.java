@@ -40,23 +40,24 @@ public class C001CopyOnWriteArrayList {
 		// of the Executors class.
 		ExecutorService service = Executors.newFixedThreadPool(NUM_OF_THREADS);
 
-		// Create an array to store IterateMe objects.
+		// Create an array to store Task objects.
 		Task[] tasks = new Task[NUM_OF_THREADS+1];
 		for (int i = 1; i <= NUM_OF_THREADS; i++)
 			tasks[i] = new Task("Thread-" + i, false);
 
 		// Print original context "for" internally uses an iterator
 		Task.getNames().forEach(x -> System.out.printf("%s ", x));
-		System.out.println();
+		System.out.println(); System.out.println();
 
 		// Execute Thread
+		tasks[1].setGoToSleep(true);
 		service.submit(tasks[1]);
 
 		// Costly operation - A new copy of the collection is created
 		Task.getNames().addIfAbsent("Oliver");
 
 		// Execute Thread
-		tasks[1].setGoToSleep(true);
+		tasks[2].setGoToSleep(true);
 		service.submit(tasks[2]);
 
 		// Costly operation - A new copy of the collection is created
@@ -104,6 +105,7 @@ class Task implements Runnable {
 
 	@Override
 	public void run() {
+		Iterator<String> it = names.iterator();
 		if (this.goToSleep) {
 			try {
 				System.out.println(this.tName + " sleeping...");
@@ -115,9 +117,7 @@ class Task implements Runnable {
 			System.out.println(this.tName + " executing...");
 		}
 
-		Iterator<String> it = names.iterator();
-
-		while (it.hasNext()) System.out.printf(it.next() + " ");
+		while (it.hasNext()) System.out.printf(this.tName + "-" + it.next() + " ");
 
 		System.out.println();
 	}

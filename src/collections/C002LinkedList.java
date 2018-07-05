@@ -11,7 +11,7 @@ import java.util.Queue;
 
 /**
  * LinkedList class in Java implements List and Deque interfaces and LinkedList
- * implements it using doubly linkedlist.<br>
+ * implements it using doubly linked list.<br>
  * <br>
  * In the implementation of the LinkedList class in Java there is a private
  * class Node which provides the structure for a node in a doubly linked list.
@@ -211,7 +211,7 @@ public class C002LinkedList {
 		System.out.println(a);
 		System.out.println();
 
-		// ConcurrentModificationException when removing element
+		// ConcurrentModificationException when removing element with iterator
 		// for (Integer x : a) {
 		// a.remove(x);
 		// }

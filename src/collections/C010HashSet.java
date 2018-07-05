@@ -118,7 +118,7 @@ public class C010HashSet {
 		}
 		System.out.println();
 
-		// ConcurrentModificationException when removing element
+		// ConcurrentModificationException when removing element with iterator
 		// for (Integer x : a) {
 		// a.remove(x);
 		// }

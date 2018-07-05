@@ -3,12 +3,24 @@ package collections;
 import java.util.Stack;
 
 /**
+ * 
+ * Java Stack is LIFO object. It extends Vector class, but supports only five
+ * operations. Java Stack class has only one constructor which is empty or
+ * default constructor. So, when we create a Stack, initially it contains no
+ * items that means Stack is empty.
+ * 
+ * Stack internally has a pointer: TOP, which refers to the top of the Stack
+ * element. If Stack is empty, TOP refers to the before first element location.
+ * If Stack is not empty, TOP refers to the top element.
+ * 
  * push(i)<br>
  * pop()<br>
  * peek()<br>
  * search(i)<br>
  * empty()<br>
  * size()<br>
+ * 
+ * Source : https://www.journaldev.com/13401/java-stack
  * 
  * @author Jigar Gosalia
  *

@@ -61,12 +61,15 @@ public class C013TreeSet {
 		t.removeIf(x -> x % 2 == 0);
 
 		// floor ceiling lower higher
+		// 41 - 41
 		System.out.println(((TreeSet<Integer>) t).floor(41) + " - " + ((TreeSet<Integer>) t).ceiling(41));
+		// 39 - 43
 		System.out.println(((TreeSet<Integer>) t).floor(40) + " - " + ((TreeSet<Integer>) t).ceiling(42));
+		// 39 - 43
 		System.out.println(((TreeSet<Integer>) t).lower(41) + " - " + ((TreeSet<Integer>) t).higher(41));
 		System.out.println();
 
-		// first last
+		// first-last 1-49
 		System.out.println(((TreeSet<Integer>) t).first() + " - " + ((TreeSet<Integer>) t).last());
 		System.out.println(t);
 		System.out.println();
@@ -77,17 +80,23 @@ public class C013TreeSet {
 		System.out.println();
 
 		/// subSet
+		// [9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
 		System.out.println(((TreeSet<Integer>) t).subSet(9, 31));
+		// [11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
 		System.out.println(((TreeSet<Integer>) t).subSet(9, false, 31, true));
 		System.out.println();
 
 		// headSet
+		// [3, 5, 7, 9]
 		System.out.println(((TreeSet<Integer>) t).headSet(11));
+		// [3, 5, 7, 9, 11]
 		System.out.println(((TreeSet<Integer>) t).headSet(11, true));
 		System.out.println();
 
 		// tailSet
+		// [41, 43, 45, 47]
 		System.out.println(((TreeSet<Integer>) t).tailSet(41));
+		// [43, 45, 47]
 		System.out.println(((TreeSet<Integer>) t).tailSet(41, false));
 		System.out.println();
 	}

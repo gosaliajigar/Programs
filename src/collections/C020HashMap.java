@@ -21,7 +21,7 @@ import java.util.Map;
  * table[0] is always reserved for null key as hash code of null is 0.<br>
  * <br>
  * 
- * Additional hash function ensures that hashCodes that differ only by constant
+ * Additionally hash function ensures that hashCodes that differ only by constant
  * multiples at each bit position have a bounded number of collisions
  * (approximately 8 at default load factor)<br>
  * <br>
