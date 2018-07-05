@@ -1,5 +1,6 @@
 package datastructure.bst;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -61,8 +62,11 @@ public class BinarySearchTreeStatistics {
 		System.out.println("Has Path sum           : " + hasPathSum(tree.getRoot(), 60) + "; Path : " + path.toString());
 		System.out.println();
 		System.out.println("All Paths              : ");
-		List<Integer> allPathsList = new LinkedList<Integer>();
-		allPathsByLength(tree.getRoot(), allPathsList, 0);
+		List<Integer> curr = new LinkedList<Integer>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		allPathsByLength(tree.getRoot(), 0, curr, result);
+		System.out.println("final list: " + curr);
+		System.out.println("all paths: " + result);
 		System.out.println();
 		Node mirrorRoot = mirror();
 		System.out.println();
@@ -182,23 +186,23 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
-	public static void allPathsByLength(Node node, List<Integer> path, int length) {
-		if (node == null) {
-			return;
-		} else {
-			path.add(length, node.getData());
-			length++;
+	public static void allPathsByLength(Node node, int index, List<Integer> curr,  List<List<Integer>> allpaths) {
+		if (node != null) {
+			curr.add(index, node.getData());
 			if (node.getLeft() == null && node.getRight() == null) {
-				printArray(path, length);
+				// 0 to index (both inclusive)
+				List<Integer> spath = new ArrayList<Integer>(curr.subList(0, index+1));
+				printArray(curr, index);
+				allpaths.add(spath);
 			} else {
-				allPathsByLength(node.getLeft(), path, length);
-				allPathsByLength(node.getRight(), path, length);
+				allPathsByLength(node.getLeft(), index+1, curr, allpaths);
+				allPathsByLength(node.getRight(), index+1, curr, allpaths);
 			}
 		}
 	}
 
 	private static void printArray(List<Integer> path, int length) {
-		for (int index = 0; index < length; index++) System.out.print(path.get(index) + " ");
+		for (int index = 0; index <= length; index++) System.out.print(path.get(index) + " ");
 		System.out.println();
 	}
 
@@ -242,6 +246,6 @@ public class BinarySearchTreeStatistics {
 		if (node == null) return true;
 		if (node.getData() < min || node.getData() > max) return false;
 		return (isBST(node.getLeft(), min, node.getData()-1) 
-				|| isBST(node.getRight(), node.getData()+1, max));
+				&& isBST(node.getRight(), node.getData()+1, max));
 	}
 }

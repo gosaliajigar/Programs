@@ -3,8 +3,8 @@ package algorithms;
 /**
  * Rabin-Karp algorithm for substring matching.
  *
- * Time complexity in worst case O(n^2)(depends on hash function)
- * Space complexity O(1) 
+ * Time complexity  - O(n^2) worst case (depends on hash function)
+ * Space complexity - O(1) 
  * 
  * @author Jigar Gosalia
  *

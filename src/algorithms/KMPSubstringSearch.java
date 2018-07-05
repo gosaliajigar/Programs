@@ -2,7 +2,8 @@ package algorithms;
 
 /**
  * Do pattern matching using KMP algorithm (Knuth–Morris–Pratt)
- * Runtime complexity - O(m + n); m=len(text) & n=len(pattern)
+ * 
+ * Time complexity  - O(m + n); m=len(text) & n=len(pattern)
  * Space complexity - O(n)
  * 
  * @author Jigar Gosalia

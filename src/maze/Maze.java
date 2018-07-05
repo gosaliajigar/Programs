@@ -26,8 +26,7 @@ public class Maze {
 		boolean done = false;
 		if (isValid(a, r, c)) {
 			a[r][c] = 3;
-			if (isEnd(a, r, c)) {
-				done = true;
+			if (isEnd(a, r, c)) { done = true;
 			} else {
 				done = traverse(a, r+1, c);
 				if (!done) done = traverse(a, r-1, c);

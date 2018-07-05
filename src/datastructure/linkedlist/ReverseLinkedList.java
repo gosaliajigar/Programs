@@ -2,6 +2,10 @@ package datastructure.linkedlist;
 
 import datastructure.linkedlist.SinglyLinkedList.Node;
 
+/**
+ * @author Jigar Gosalia
+ *
+ */
 public class ReverseLinkedList {
 
 	public static <T> Node<T> reverseIterative(Node<T> head) {
