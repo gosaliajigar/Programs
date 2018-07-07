@@ -10,3 +10,5 @@ Heap			nlogn			nlogn		NO			YES			1
 
 Counting		n+k				n+k			YES			NO			k
 Bucket			n+k				n2			YES			NO			n
+										(underlying
+											sort)
