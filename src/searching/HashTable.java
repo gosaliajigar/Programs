@@ -25,10 +25,8 @@ package searching;
 public class HashTable {
 
 	private static final int SIZE = 20;
-
 	private static int count = 0;
-
-	private static Data[] hashArray = new Data[SIZE];
+	private static Data[] table = new Data[SIZE];
 
 	/**
 	 * It may happen that the hashing technique used create already used index
@@ -44,20 +42,16 @@ public class HashTable {
 	 * @param value
 	 */
 	private static void put(int key, int value) throws Exception {
-		if (count >= SIZE) {
-			throw new Exception("HashTable full");
-		}
+		if (count >= SIZE) throw new Exception("HashTable full");
 		Data data = new Data(key, value);
-
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
-
 		// move in array until an empty or deleted cell
-		while (hashArray[hashIndex] != null && hashArray[hashIndex].getKey() != -1) {
+		while (table[hashIndex] != null && table[hashIndex].getKey() != -1) {
 			// go to next cell and wrap around the table
 			hashIndex = (hashIndex + 1) % SIZE;
 		}
-		hashArray[hashIndex] = data;
+		table[hashIndex] = data;
 		count++;
 	}
 
@@ -77,14 +71,10 @@ public class HashTable {
 	private static Data get(int key) {
 		// get the hash
 		int hashIndex = hashCode(key);
-
 		int iterations = 0;
 		// move in array until an empty
-		while (hashArray[hashIndex] != null && iterations <= SIZE) {
-
-			if (hashArray[hashIndex].getKey() == key)
-				return hashArray[hashIndex];
-
+		while (table[hashIndex] != null && iterations <= SIZE) {
+			if (table[hashIndex].getKey() == key) return table[hashIndex];
 			// go to next cell and wrap around the table
 			hashIndex = (hashIndex + 1) % SIZE;
 			iterations++;
@@ -108,21 +98,16 @@ public class HashTable {
 	private static Data remove(Data data) {
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
-
 		int iterations = 0;
-
 		// move in array until an empty
-		while (hashArray[hashIndex] != null && iterations <= SIZE) {
-
-			if (hashArray[hashIndex].getKey() == data.getKey()) {
-				Data temp = hashArray[hashIndex];
-
+		while (table[hashIndex] != null && iterations <= SIZE) {
+			if (table[hashIndex].getKey() == data.getKey()) {
+				Data temp = table[hashIndex];
 				// assign a dummy item at deleted position
-				hashArray[hashIndex] = new Data(-1, -1);
+				table[hashIndex] = new Data(-1, -1);
 				count--;
 				return temp;
 			}
-
 			// go to next cell and wrap around the table
 			hashIndex = (hashIndex + 1) % SIZE;
 			iterations++;
@@ -131,72 +116,38 @@ public class HashTable {
 	}
 
 	private static void display() {
-		for (int index = 0; index < hashArray.length; index++) {
-			System.out.println("Location(" + index + "):" + hashArray[index]);
+		for (int index = 0; index < table.length; index++) {
+			System.out.println("Location(" + index + "):" + table[index]);
 		}
 		System.out.println();
 	}
 
-	/**
-	 * @param key
-	 * @return
-	 */
-	private static int hashCode(int key) {
-		return key % SIZE;
-	}
+	private static int hashCode(int key) { return key % SIZE; }
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		put(1, 20);
-		put(2, 70);
-		put(42, 80);
-		put(4, 25);
-		put(12, 44);
-		put(14, 32);
-		put(17, 11);
-		put(13, 78);
-		put(37, 97);
-		put(57, 97);
+		put(1, 20);  put(2, 70);  put(42, 80); put(4, 25);
+		put(12, 44); put(14, 32); put(17, 11); put(13, 78);
+		put(37, 97); put(57, 97);
 		// Checkout the wrapping to start of array
 		put(77, 97);
-
 		display();
-
 		Data item = get(37);
-
 		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
-
 		remove(item);
-
 		item = get(37);
-
 		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
 	}
 
 	public static class Data {
-
 		int key;
-
 		int value;
-
-		public Data(int key, int value) {
-			this.key = key;
-			this.value = value;
-		}
-
-		public int getKey() {
-			return key;
-		}
-
-		public int getValue() {
-			return value;
-		}
-
+		public Data(int key, int value) { this.key = key; this.value = value; }
+		public int getKey() { return key; }
+		public int getValue() { return value; }
 		@Override
-		public String toString() {
-			return "Data[key=" + key + ";value=" + value + "]";
-		}
+		public String toString() { return "Data[key=" + key + ";value=" + value + "]"; }
 	}
 }

@@ -5,19 +5,10 @@ package datastructure.linkedlist;
  *
  */
 public class DoublyLinkedList<T> {
-
 	int count;
-
 	DoubleNode<T> head;
-
 	DoubleNode<T> tail;
-
-	public DoublyLinkedList() {
-		super();
-		this.count = 0;
-		this.head = null;
-		this.tail = null;
-	}
+	public DoublyLinkedList() {}
 
 	/**
 	 * Time Complexity : O(1)<br><br>
@@ -25,9 +16,7 @@ public class DoublyLinkedList<T> {
 	 * @return
 	 */
 	public T getFront() throws Exception {
-		if (isEmpty()) {
-			throw new Exception("Empty Doubly Linked List!");
-		}
+		if (isEmpty()) throw new Exception("Empty Doubly Linked List!");
 		return head.getData();
 	}
 
@@ -37,9 +26,7 @@ public class DoublyLinkedList<T> {
 	 * @return
 	 */
 	public T getRear() throws Exception {
-		if (isEmpty()) {
-			throw new Exception("Empty Doubly Linked List!");
-		}
+		if (isEmpty()) throw new Exception("Empty Doubly Linked List!");
 		return tail.getData();
 	}
 
@@ -112,9 +99,7 @@ public class DoublyLinkedList<T> {
 	 * @throws Exception
 	 */
 	public void deleteFront() throws Exception {
-		if (isEmpty()) {
-			throw new Exception("Empty Doubly Linked List!");
-		}
+		if (isEmpty()) throw new Exception("Empty Doubly Linked List!");
 		if (count == 1) {
 			head = tail = null;
 		} else {
@@ -130,9 +115,7 @@ public class DoublyLinkedList<T> {
 	 * @throws Exception
 	 */
 	public void deleteRear()  throws Exception {
-		if (isEmpty()) {
-			throw new Exception("Empty Doubly Linked List!");
-		}
+		if (isEmpty()) throw new Exception("Empty Doubly Linked List!");
 		if (count == 1) {
 			head = tail = null;
 		} else {
@@ -173,27 +156,21 @@ public class DoublyLinkedList<T> {
 	 * 
 	 * @return
 	 */
-	public int size() {
-		return count;
-	}
+	public int size() { return count; }
 
 	/**
 	 * Time Complexity : O(1)<br><br>
 	 * 
 	 * @return
 	 */
-	public boolean isEmpty() {
-		return (count == 0);
-	}
+	public boolean isEmpty() { return (count == 0); }
 
 	/**
 	 * Time Complexity : O(n)<br><br>
 	 * 
 	 * @return
 	 */
-	public String printForward() {
-		return this.toString();
-	}
+	public String printForward() { return this.toString(); }
 
 	/**
 	 * Time Complexity : O(n)<br><br>
@@ -242,19 +219,13 @@ public class DoublyLinkedList<T> {
 	private DoubleNode<T> find(T data) {
 		DoubleNode<T> current = head;
 		while (current != null) {
-			if (current.getData().equals(data)) {
-				return current;
-			}
+			if (current.getData().equals(data)) return current;
 			current = current.getNext();
 		}
 		return null;
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
-
 		try {
 			DoublyLinkedList<String> doublyLinkedList = new DoublyLinkedList<String>();
 
@@ -322,89 +293,26 @@ public class DoublyLinkedList<T> {
 	}
 
 	public static class DoubleNode<T> {
-
-		/**
-		 * Data stored in this node
-		 */
 		private T data;
-
-		/**
-		 * Store a reference to the next node in this
-		 */
 		private DoubleNode<T> next;
-
-		/**
-		 * Store a reference to the previous node in this
-		 */
 		private DoubleNode<T> previous;
-
-		/**
-		 * @return
-		 */
-		public T getData() {
-			return data;
-		}
-
-		/**
-		 * @param data
-		 */
-		public void setData(T data) {
-			this.data = data;
-		}
-
-		/**
-		 * @return
-		 */
-		public DoubleNode<T> getNext() {
-			return next;
-		}
-
-		/**
-		 * @param next
-		 */
-		public void setNext(DoubleNode<T> next) {
-			this.next = next;
-		}
-
-		/**
-		 * @return
-		 */
-		public DoubleNode<T> getPrevious() {
-			return previous;
-		}
-
-		/**
-		 * @param previous
-		 */
-		public void setPrevious(DoubleNode<T> previous) {
-			this.previous = previous;
-		}
-
-		/**
-		 * @param data
-		 * @param next
-		 */
+		public T getData() { return data; }
+		public void setData(T data) { this.data = data; }
+		public DoubleNode<T> getNext() { return next; }
+		public void setNext(DoubleNode<T> next) { this.next = next; }
+		public DoubleNode<T> getPrevious() { return previous; }
+		public void setPrevious(DoubleNode<T> previous) { this.previous = previous; }
 		public DoubleNode(T data, DoubleNode<T> next, DoubleNode<T> previous) {
 			this.data = data;
 			this.next = next;
 			this.previous = previous;
 		}
-
-		/**
-		 * @param data
-		 */
 		public DoubleNode(final T data) {
 			this.data = data;
 			this.next = null;
 			this.previous = null;
 		}
-
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
-		 */
 		@Override
-		public String toString() {
-			return "DoubleNode:[Data=" + data + "]";
-		}
+		public String toString() { return "DoubleNode:[Data=" + data + "]"; }
 	}
 }

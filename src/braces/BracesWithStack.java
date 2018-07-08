@@ -41,9 +41,7 @@ public class BracesWithStack {
 	public static boolean validateBraces(String braces) {
 		Stack<String> stack = new Stack<String>();
 		for (int i = 0; i < braces.length(); i++) {
-			if (braces.charAt(i) == '(') {
-				stack.push("(");
-			}
+			if (braces.charAt(i) == '(') stack.push("(");
 			if (braces.charAt(i) == ')') {
 				// Check stack before popping to avoid Exception
 				if (!stack.isEmpty()) {

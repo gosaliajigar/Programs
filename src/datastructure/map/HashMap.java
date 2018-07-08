@@ -12,15 +12,10 @@ import java.util.Set;
  * @param <V>
  */
 public class HashMap<K, V> implements Map<K, V> {
-
 	private int count;
-
 	private Entry<K, V>[] table;
-
 	private final double loadFactor = 0.75;
-
 	private static final int TABLE_SIZE = 4;
-
 	public HashMap() { table = new Entry[TABLE_SIZE]; }
 
 	/* (non-Javadoc)
@@ -38,8 +33,8 @@ public class HashMap<K, V> implements Map<K, V> {
 			int hash = hashcode(key);
 			Entry<K, V> newEntry = new Entry<K, V>(key, value, null);
 			if (table[hash] != null) newEntry.next = table[hash];
-			count++;
 			table[hash] = newEntry;
+			count++;
 		}
 	}
 
@@ -64,6 +59,7 @@ public class HashMap<K, V> implements Map<K, V> {
 			Entry<K, V> current = table[hash];
 			while (current != null) {
 				if (current.key.equals(key)) {
+					// if first entry matches
 					if (previous == null) {
 						current = current.next;
 						table[hash] = current;
@@ -160,11 +156,9 @@ public class HashMap<K, V> implements Map<K, V> {
 		for (Entry<K, V> entry : entrySet()) {
 			int hash = (Math.abs(entry.key.hashCode()) % size);
 			Entry<K, V> newEntry = new Entry<K, V>(entry.key, entry.value, null);
-			if (newTable[hash] != null) {
-				newEntry.next = newTable[hash];
-			}
-			newCount++;
+			if (newTable[hash] != null) newEntry.next = newTable[hash];
 			newTable[hash] = newEntry;
+			newCount++;
 		}
 		table = newTable;
 		count = newCount;

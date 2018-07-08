@@ -76,17 +76,17 @@ public class ShiftArray {
 	 */
 	private static void shiftReversal(int[] array, int k) {
 		k = k % array.length;
-		reverse(array, 0, k);
-		reverse(array, k, array.length);
-		reverse(array, 0, array.length);
+		reverse(array, 0, k-1);
+		reverse(array, k, array.length-1);
+		reverse(array, 0, array.length-1);
 	}
 	
 	private static void reverse(int[] array, int start, int end) {
-		int n = start+end;
-		for (int i=start; i<n/2; i++) {
-			int temp = array[i];
-			array[i] = array[n-1-i];
-			array[n-1-i] = temp;
+		while (start < end) {
+			int temp = array[start];
+			array[start] = array[end];
+			array[end] = temp;
+			start++; end--;
 		}
 	}
 }

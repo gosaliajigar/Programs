@@ -21,9 +21,7 @@ public final class LRUCache<K, V> {
 
 	private Node<K, V> tail;
 
-	public LRUCache(int capacity) {
-		this.capacity = capacity;
-	}
+	public LRUCache(int capacity) { this.capacity = capacity; }
 
 	public V get(K key) {
 		if (map.containsKey(key)) {
@@ -74,13 +72,11 @@ public final class LRUCache<K, V> {
 		node.setNext(head);
 		node.setPrevious(null);
 
-		if (head != null)
-			head.setPrevious(node);
+		if (head != null) head.setPrevious(node);
 
 		head = node;
 
-		if (tail == null)
-			tail = head;
+		if (tail == null) tail = head;
 	}
 }
 
@@ -102,40 +98,23 @@ class Node<K, V> {
 		this.value = value;
 	}
 
-	public K getKey() {
-		return key;
-	}
+	public K getKey() { return key; }
 
-	public V getValue() {
-		return value;
-	}
+	public V getValue() { return value; }
 
-	public void setValue(V value) {
-		this.value = value;
-	}
+	public void setValue(V value) { this.value = value; }
 
-	public Node<K, V> getPrevious() {
-		return previous;
-	}
+	public Node<K, V> getPrevious() { return previous; }
 
-	public void setPrevious(Node<K, V> previous) {
-		this.previous = previous;
-	}
+	public void setPrevious(Node<K, V> previous) { this.previous = previous; }
 
-	public Node<K, V> getNext() {
-		return next;
-	}
+	public Node<K, V> getNext() { return next; }
 
-	public void setNext(Node<K, V> next) {
-		this.next = next;
-	}
+	public void setNext(Node<K, V> next) { this.next = next; }
 
 	public static void main(String[] args) {
 		LRUCache<String, Integer> cache = new LRUCache<String, Integer>(5);
-		cache.put("1", 1);
-		cache.put("2", 2);
-		cache.put("3", 3);
-		cache.put("4", 4);
+		cache.put("1", 1); cache.put("2", 2); cache.put("3", 3); cache.put("4", 4);
 		System.out.println(cache);
 		cache.put("5", 5);
 		System.out.println(cache);

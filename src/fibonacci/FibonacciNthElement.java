@@ -18,8 +18,7 @@ public class FibonacciNthElement {
 		int number = -1;
 		Scanner scanner = new Scanner(System.in);
 		while (number <= 0) {
-			System.out
-					.print("Enter Valid value for retrieving nth element in fibonacci series : ");
+			System.out.print("Enter Valid value for retrieving nth element in fibonacci series : ");
 			number = scanner.nextInt();
 		}
 		scanner.close();
@@ -40,7 +39,7 @@ public class FibonacciNthElement {
 		System.out.println();
 
 		int[] d = new int[number + 1];
-		d[1] = 1; d[2] = 1; 
+		d[0] = -1; d[1] = 1; d[2] = 1;
 		start = System.currentTimeMillis();
 		System.out.println("Recursively Fibonacci series " + number
 				+ "th element with memoization: " + fibMemoization(d, number));
@@ -68,9 +67,7 @@ public class FibonacciNthElement {
 	 * @return
 	 */
 	public static int fibonacciNonRecursive(final int n) {
-		if (n == 1 || n == 2) {
-			return 1;
-		}
+		if (n == 1 || n == 2) { return 1; }
 		int prev = 1, current = 1, next = 1;
 		for (int i = 3; i <= n; i++) {
 			next = prev + current;
@@ -89,7 +86,7 @@ public class FibonacciNthElement {
 	 */
 	public static int fibMemoization(int[] d, int n) {
 		// check if its already calculated or not
-		if (n != 0 && d[n] == 0) {
+		if (n > 0 && d[n] == 0) {
 			// calculate it and save it for future reference
 			d[n] = fibMemoization(d, n-1) + fibMemoization(d, n-2);
 		}

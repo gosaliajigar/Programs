@@ -2,7 +2,7 @@ package array;
 
 /**
  * Find the index of extra element from two sorted arrays.<br>
- * 1. Brute Force is O(m+n)<br>
+ * 1. Brute Force (using 2 pointers) is O(m+n)<br>
  * 2. Binary Search O(logn)<br>
  * <br>
  * @author "Jigar Gosalia"

@@ -12,10 +12,6 @@ import java.util.Scanner;
  *
  */
 public class UsingBitwiseAnd {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		System.out.print("Enter the number to check if its odd or even : ");
 		Scanner scanner = new Scanner(System.in);

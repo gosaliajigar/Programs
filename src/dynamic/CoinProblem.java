@@ -10,9 +10,6 @@ import java.util.Arrays;
  */
 public class CoinProblem {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		int[] coins = { 1, 2, 3, 5 };
 		int sum = 5;
@@ -20,12 +17,6 @@ public class CoinProblem {
 				+ coins(sum, coins, 0));
 	}
 
-	/**
-	 * @param sum
-	 * @param options
-	 * @param option
-	 * @return
-	 */
 	public static int coins(int sum, int[] options, int option) {
 		// expected sum is less than ZERO
 		if (sum < 0) return 0;
@@ -38,6 +29,6 @@ public class CoinProblem {
 
 		// with option + without option
 		return coins(sum - options[option], options, option)
-				+ coins(sum, options, option + 1);
+			 + coins(sum, options, option + 1);
 	}
 }

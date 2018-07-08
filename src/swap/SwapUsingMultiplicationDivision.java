@@ -7,12 +7,7 @@ package swap;
  *
  */
 public class SwapUsingMultiplicationDivision {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
-
 		int a = 2, b = 3;
 		System.out.println("Swapping using Multiplication-Division Operator ...");
 		System.out.println("Before - a:" + a + " " + "b:" + b);

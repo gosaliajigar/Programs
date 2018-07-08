@@ -10,9 +10,6 @@ import java.util.Scanner;
  */
 public class Factorial {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		int number = -1;
 		Scanner scanner = new Scanner(System.in);
@@ -37,7 +34,6 @@ public class Factorial {
 	 */
 	public static int factorialNonRecursive(int n) {
 		int factorial = 1;
-
 		while (n > 1) {
 			factorial = n * factorial;
 			n--;

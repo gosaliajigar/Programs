@@ -10,21 +10,13 @@ import java.util.Scanner;
  */
 public class MainClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-
 		System.out.print("Enter number to check if its power of 2 or not : ");
-
 		int number = scanner.nextInt();
-
 		scanner.close();
-
 		System.out.println();
-
 		System.out.println("usingMinusPowerOfTwo()         -- is " + number + " power of two :" + usingMinus(Math.abs(number)));
 		System.out.println("usingBruteForcePowerOfTwo()    -- is " + number  + " power of two :" + usingBruteForce(Math.abs(number)));
 		System.out.println("usingShiftOperatorPowerOfTwo() -- is " + number + " power of two :" + usingConsecutiveNumberCheck(Math.abs(number)));

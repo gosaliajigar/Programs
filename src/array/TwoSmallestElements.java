@@ -14,8 +14,7 @@ public class TwoSmallestElements {
 	
 	public static void lastTwoSmallestElements(int[] a) {
 		if (a != null) {
-			if (a.length <= 1) {
-				return;
+			if (a.length <= 1) { return;
 			} else if (a.length == 2) {
 				System.out.println(a[0] < a[1] ? (a[0] + " " + a[1]) : (a[1] + " " + a[0]));
 			} else {

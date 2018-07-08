@@ -7,70 +7,22 @@ package marker.interfaces;
  *
  */
 public class CloneableClass implements Cloneable {
-
 	private int i;
-
 	private int j;
-
 	private int k;
-
 	private CompositeClass compositeClass;
 
-	/**
-	 * @return
-	 */
-	public int getI() {
-		return i;
-	}
+	public int getI() { return i; }
+	public void setI(final int i) { this.i = i; }
 
-	/**
-	 * @param i
-	 */
-	public void setI(final int i) {
-		this.i = i;
-	}
+	public int getJ() { return j; }
+	public void setJ(final int j) { this.j = j; }
 
-	/**
-	 * @return
-	 */
-	public int getJ() {
-		return j;
-	}
+	public int getK() { return k; }
+	public void setK(final int k) { this.k = k; }
 
-	/**
-	 * @param j
-	 */
-	public void setJ(final int j) {
-		this.j = j;
-	}
-
-	/**
-	 * @return
-	 */
-	public int getK() {
-		return k;
-	}
-
-	/**
-	 * @param k
-	 */
-	public void setK(final int k) {
-		this.k = k;
-	}
-
-	/**
-	 * @return
-	 */
-	public CompositeClass getCompositeClass() {
-		return compositeClass;
-	}
-
-	/**
-	 * @param compositeClass
-	 */
-	public void setCompositeClass(final CompositeClass compositeClass) {
-		this.compositeClass = compositeClass;
-	}
+	public CompositeClass getCompositeClass() { return compositeClass; }
+	public void setCompositeClass(final CompositeClass compositeClass) { this.compositeClass = compositeClass; }
 
 	/*
 	 * (non-Javadoc)
@@ -78,11 +30,6 @@ public class CloneableClass implements Cloneable {
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
-	public CloneableClass clone() throws CloneNotSupportedException {
-		return new CloneableClass();
-	}
-
-	public CloneableClass() {
-		this.compositeClass = new CompositeClass();
-	}
+	public CloneableClass clone() throws CloneNotSupportedException { return new CloneableClass(); }
+	public CloneableClass() { this.compositeClass = new CompositeClass(); }
 }

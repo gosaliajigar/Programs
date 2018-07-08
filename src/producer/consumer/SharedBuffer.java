@@ -9,12 +9,8 @@ package producer.consumer;
 public class SharedBuffer {
 
 	private int contents;
-
 	private boolean isReadyForReading = false;
 
-	/**
-	 * @return
-	 */
 	public synchronized int get() {
 		// while not ready for reading WAIT
 		while (!isReadyForReading) {
@@ -30,9 +26,6 @@ public class SharedBuffer {
 		return data;
 	}
 
-	/**
-	 * @param value
-	 */
 	public synchronized void put(int value) {
 		// while ready for reading WAIT to write
 		while (isReadyForReading) {

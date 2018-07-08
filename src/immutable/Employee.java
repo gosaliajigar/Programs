@@ -20,19 +20,9 @@ public final class Employee {
 
 	private final Map<String, String> departmentsMap;
 
-	/**
-	 * @return
-	 */
-	public int getId() {
-		return id;
-	}
+	public int getId() { return id; }
 
-	/**
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
+	public String getName() { return name; }
 
 	/**
 	 * Access function for mutable objects
@@ -75,7 +65,5 @@ public final class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee : id[" + id + "], name[" + name + "], departmentsMap["
-				+ departmentsMap + "]";
-	}
+		return "Employee : id[" + id + "], name[" + name + "], departmentsMap["	+ departmentsMap + "]";	}
 }

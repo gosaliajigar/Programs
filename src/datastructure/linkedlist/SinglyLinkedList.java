@@ -5,16 +5,9 @@ package datastructure.linkedlist;
  *
  */
 public class SinglyLinkedList<T> {
-
 	private Node<T> root;
-
-	public SinglyLinkedList() {
-		root = null;
-	}
-
-	public Node<T> getRoot() {
-		return this.root;
-	}
+	public SinglyLinkedList() {}
+	public Node<T> getRoot() { return this.root; }
 
 	/**
 	 * Time Complexity : O(1)<br><br>
@@ -92,11 +85,7 @@ public class SinglyLinkedList<T> {
 	 * @return
 	 */
 	public T getFront() {
-		if (root != null) {
-			return root.getData();
-		} else {
-			return null;
-		}
+		return ((root != null) ? root.getData() : null);
 	}
 
 	/**
@@ -106,17 +95,11 @@ public class SinglyLinkedList<T> {
 	 */
 	public void print() {
 		Node<T> current = root;
-
-		if (current == null) {
-			System.out.println("SingleLinkedList is Empty");
-		}
-
+		if (current == null) System.out.println("SingleLinkedList is Empty");
 		while (current != null) {
 			System.out.print(current);
 			current = current.getNext();
-			if (current != null) {
-				System.out.print(", ");
-			}
+			if (current != null) System.out.print(", ");
 		}
 	}
 
@@ -129,9 +112,7 @@ public class SinglyLinkedList<T> {
 	 */
 	public int size() {
 		int size = 0;
-
 		Node<T> current = root;
-
 		while (current != null) {
 			current = current.getNext();
 			size++;
@@ -144,9 +125,7 @@ public class SinglyLinkedList<T> {
 	 * 
 	 * @return
 	 */
-	public Node<T> getStart() {
-		return this.root;
-	}
+	public Node<T> getStart() { return this.root; }
 
 	/**
 	 * Time Complexity : O(n)<br><br>
@@ -237,57 +216,16 @@ public class SinglyLinkedList<T> {
 	}
 
 	public static class Node<T> {
-
-		/**
-		 * Data stored in this node
-		 */
 		private T data;
-
-		/**
-		 * Store a reference to the next node in this
-		 */
 		private Node<T> next;
-
-		/**
-		 * @return
-		 */
-		public T getData() {
-			return data;
-		}
-
-		/**
-		 * @param data
-		 */
-		public void setData(T data) {
-			this.data = data;
-		}
-
-		/**
-		 * @return
-		 */
-		public Node<T> getNext() {
-			return next;
-		}
-
-		/**
-		 * @param next
-		 */
-		public void setNext(Node<T> next) {
-			this.next = next;
-		}
-
-		/**
-		 * @param data
-		 * @param next
-		 */
+		public T getData() { return data; }
+		public void setData(T data) { this.data = data; }
+		public Node<T> getNext() { return next; }
+		public void setNext(Node<T> next) { this.next = next; }
 		public Node(final T data, final Node<T> next) {
 			this.data = data;
 			this.next = next;
 		}
-
-		/* (non-Javadoc)
-		 * @see java.lang.Object#toString()
-		 */
 		@Override
 		public String toString() {
 			return "Node:[Data=" + data + "]";

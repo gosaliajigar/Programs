@@ -15,13 +15,9 @@ import java.util.Queue;
 public class RecommendTrie {
 
 	private TrieNode root;
-
 	private int size;
-
 	public TrieNode getRoot() { return this.root; }
-
 	public int getSize() { return this.size; }
-
 	public RecommendTrie() { this.root = new TrieNode(); }
 
 	public boolean addWord(String word) {
@@ -58,10 +54,10 @@ public class RecommendTrie {
 		Queue<TrieNode> queue = new LinkedList<TrieNode>();
 		queue.offer(current);
 		while (!queue.isEmpty()) {
-			TrieNode fNode = queue.poll();
-			if (fNode != null && fNode.isWord()) recommendations.add(fNode.getText());
-			for (char c : fNode.getNextValidCharacters()) {
-				queue.offer(fNode.getNextCharacter(c));
+			TrieNode node = queue.poll();
+			if (node != null && node.isWord()) recommendations.add(node.getText());
+			for (char c : node.getNextValidCharacters()) {
+				queue.offer(node.getNextCharacter(c));
 			}
 		}
 		return recommendations;

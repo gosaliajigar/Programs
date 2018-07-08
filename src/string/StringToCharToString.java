@@ -2,13 +2,13 @@ package string;
 
 import java.util.Arrays;
 
+/**
+ * This class show how to convert String to char to String in java
+ * 
+ * @author Jigar Gosalia
+ *
+ */
 public class StringToCharToString {
-
-	/**
-	 * This class show how to convert String to char to String in java
-	 *
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		// String to char array
 		String string = "123";

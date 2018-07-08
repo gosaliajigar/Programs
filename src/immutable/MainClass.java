@@ -17,8 +17,7 @@ public class MainClass {
 	 */
 	public static void main(final String[] args) {
 		Map<String, String> departmentsMap = new HashMap<String, String>();
-		departmentsMap.put("1", "first");
-		departmentsMap.put("2", "second");
+		departmentsMap.put("1", "first"); departmentsMap.put("2", "second");
 		String name = "original";
 		int id = 10;
 		Employee employee = new Employee(id, name, departmentsMap);
@@ -37,16 +36,14 @@ public class MainClass {
 		id = 20;
 		name = "modified";
 		departmentsMap.put("3", "third");
-		System.out
-				.println("Printing Employee after local variable change ... ");
+		System.out.println("Printing Employee after local variable change ... ");
 		System.out.println(employee.toString());
 		System.out.println();
 
 		Map<String, String> departmentsMapTest = employee.getDepartmentsMap();
 		departmentsMapTest.put("4", "fourth");
 		employee.getDepartmentsMap().put("5", "fifth");
-		System.out
-				.println("Printing Employee after changing variable from accessor methods ... ");
+		System.out.println("Printing Employee after changing variable from accessor methods ... ");
 		System.out.println(employee.toString());
 	}
 }

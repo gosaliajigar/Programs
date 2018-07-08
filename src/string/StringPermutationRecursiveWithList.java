@@ -11,9 +11,6 @@ import java.util.List;
  */
 public class StringPermutationRecursiveWithList {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String sample1 = "ABC";
 		List<String> list = permutation("", sample1, new LinkedList<String>());

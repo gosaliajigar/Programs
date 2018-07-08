@@ -7,15 +7,8 @@ package swap;
 public class SwappingObjects {
 
 	class Point {
-
 		private int x;
-
 		private int y;
-
-		/**
-		 * @param x
-		 * @param y
-		 */
 		public Point(final int x, final int y) {
 			this.x = x;
 			this.y = y;
@@ -27,13 +20,9 @@ public class SwappingObjects {
 		}
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		SwappingObjects s = new SwappingObjects();
-		Point A = s.new Point(0, 0);
-		Point B = s.new Point(10, 10);
+		Point A = s.new Point(0, 0), B = s.new Point(10, 10);
 		System.out.println("Before Copy ...");
 		System.out.println(A);
 		System.out.println(B);
@@ -47,10 +36,6 @@ public class SwappingObjects {
 		System.out.println(B);
 	}
 
-	/**
-	 * @param a
-	 * @param b
-	 */
 	private static void swapShallowCopy(Point a, Point b) {
 		System.out.println("Shallow Copy ...");
 		Point temp = a;
@@ -58,10 +43,6 @@ public class SwappingObjects {
 		b = temp;
 	}
 
-	/**
-	 * @param a
-	 * @param b
-	 */
 	private static void swapDeepCopy(final Point a, final Point b) {
 		System.out.println("Deep Copy ...");
 		int temp = a.x;

@@ -9,10 +9,6 @@ import java.util.Scanner;
  *
  */
 public class GetInputFromUser {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String args[]) {
 		Scanner scanner = new Scanner(System.in);
 

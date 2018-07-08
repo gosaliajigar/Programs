@@ -8,20 +8,16 @@ package string;
  *
  */
 public class CompareStrings {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String lowerCase = "abcd";
 		String upperCase = "ABCD";
 
-		// A(65) precedes a(97); hence output is -ve
+		// A(65) is smaller a(97); hence output is -ve
 		System.out.println("Comparing " + upperCase + " with " + lowerCase
 				+ " (case-sensitive)   : " + upperCase.compareTo(lowerCase));
 		System.out.println();
 
-		// a(97) follows A(65); hence output is +ve
+		// a(97) is bigger A(65); hence output is +ve
 		System.out.println("Comparing " + lowerCase + " with " + upperCase
 				+ " (case-sensitive)   : " + lowerCase.compareTo(upperCase));
 		System.out.println();

@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 import org.apache.commons.io.FileUtils;
 
 /**
- *
  * This class shows different ways to read complete file contents to String
  *
  * @author "Jigar Gosalia"
@@ -19,10 +18,6 @@ public class ReadFileToString {
 
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
 	public static void main(final String[] args) throws IOException {
 		String fileName = "C:/Windows/System32/drivers/etc/hosts";
 		String contents = readUsingApacheCommonsIO(fileName);
@@ -41,7 +36,7 @@ public class ReadFileToString {
 	 */
 	private static String readUsingBufferedReader(final String fileName) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-		String line = null;
+		String line;
 		StringBuilder lines = new StringBuilder();
 		while ((line = reader.readLine()) != null) {
 			lines.append(line).append(LINE_SEPARATOR);

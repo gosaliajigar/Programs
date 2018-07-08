@@ -87,9 +87,7 @@ public class PalindromeCheck {
 	public static boolean isPalindromeSB(final String inputString) {
 		if (inputString == null) return false;
 		if (inputString.length() <= 1) return true;
-		StringBuilder stringBuilder = new StringBuilder(inputString);
-		stringBuilder.reverse();
-		return stringBuilder.toString().equalsIgnoreCase(inputString);
+		return new StringBuilder(inputString).reverse().toString().equalsIgnoreCase(inputString);
 	}
 
 	/**

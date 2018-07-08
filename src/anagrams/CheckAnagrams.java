@@ -17,33 +17,24 @@ public class CheckAnagrams {
 	}
 	
 	public static boolean isAnagrams(String s1, String s2) {
-		if (s1 == null && s2 == null) {
-			return true;
-		}
+		if (s1 == null && s2 == null) return true;
 
-		if (s1 == null || s2 == null) {
-			return false;
-		}
+		if (s1 == null || s2 == null) return false;
 
-		if (s1 != null && s2 != null && s1.length() != s2.length()) {
-			return false;
-		}
+		if (s1 != null && s2 != null && s1.length() != s2.length()) return false;
 
 		s1 = s1.toLowerCase();
 		s2 = s2.toLowerCase();
 
 		int[] letters = new int[1<<8];
 
-		for (char c : s1.toCharArray()) {
-			letters[c]++;
+		for (int i=0; i<s1.length(); i++) { 
+			letters[s1.charAt(i)]++;
+			letters[s2.charAt(i)]--;
 		}
 
-		for (char c : s2.toCharArray()) {
-			letters[c]--;
-		}
-
-		for (int i = 0; i < letters.length; i++) {
-			if (letters[i] != 0) return false;
+		for (int i : letters) {
+			if (i != 0) return false;
 		}
 		return true;
 	}

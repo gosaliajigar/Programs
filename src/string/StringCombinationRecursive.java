@@ -17,24 +17,16 @@ package string;
  */
 public class StringCombinationRecursive {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String input = "ABC";
 		combinationsR(input, new StringBuilder(), 0);
 	}
 
-	/**
-	 * @param input
-	 * @param output
-	 * @param index
-	 */
-	public static void combinationsR(String input, StringBuilder output, int index) {
-		for (int i = index; i < input.length(); i++) {
-			output.append(input.charAt(i));
+	public static void combinationsR(String s, StringBuilder output, int index) {
+		for (int i = index; i < s.length(); i++) {
+			output.append(s.charAt(i));
 			System.out.println(output);
-			combinationsR(input, output, i+1);
+			combinationsR(s, output, i+1);
 			output.deleteCharAt(output.length() - 1);
 		}
 	}

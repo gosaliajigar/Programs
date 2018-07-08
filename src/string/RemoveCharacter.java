@@ -7,10 +7,6 @@ package string;
  *
  */
 public class RemoveCharacter {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String input = "Hello";
 		System.out.println("input : " + input);

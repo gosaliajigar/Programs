@@ -9,7 +9,6 @@ package datastructure.bst;
 public class BinarySearchTree {
 
 	private Node root;
-
 	public BinarySearchTree () {
 		super();
 		this.root = null;
@@ -24,14 +23,14 @@ public class BinarySearchTree {
 	}
 
 	public void createBST(int[] array) {
-		root = createBinarySearchTree(array, 0, array.length);
+		root = createBinarySearchTree(array, 0, array.length-1);
 	}
 
 	private Node createBinarySearchTree(int array[], int low, int high) {
-		if (low < high) {
+		if (low <= high) {
 			int mid = (low + high) / 2;
 			Node node = new Node(array[mid]);
-			node.setLeft(createBinarySearchTree(array, low, mid));
+			node.setLeft(createBinarySearchTree(array, low, mid-1));
 			node.setRight(createBinarySearchTree(array, mid+1, high));
 			return node;
 		}
@@ -44,31 +43,27 @@ public class BinarySearchTree {
 			root = node;
 		} else {
 			Node current = root;
-			Node parent = null;
 			while(true) {
 				// > scenario
 				if (data > current.getData()) {
-					parent = current;
-					current = current.getRight();
-					if (current == null) {
-						parent.setRight(node);
+					if (current.getRight() == null) {
+						current.setRight(node);
 						break;
 					}
+					current = current.getRight();
 					// <= scenario
 				} else {
-					parent = current;
-					current = current.getLeft();
-					if (current == null) {
-						parent.setLeft(node);;
+					if (current.getLeft() == null) {
+						current.setLeft(node);;
 						break;
 					}
+					current = current.getLeft();
 				}
 			}
 		}
 	}
 
 	public Node search(int data) {
-		Node node = null;
 		Node current = root;
 		while(current != null) {
 			if (data > current.getData()) {
@@ -76,11 +71,10 @@ public class BinarySearchTree {
 			} else if (data < current.getData()) {
 				current = current.getLeft();
 			} else {
-				node = current;
-				break;
+				return current;
 			}
 		}
-		return node;
+		return null;
 	}
 
 	public static Node treeMinimum(Node node) {

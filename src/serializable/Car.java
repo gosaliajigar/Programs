@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 /**
- * Serialized POJO.
+ * Serialized POJO (Only non-static and non-transient fields are serialized)
  * 
  * @author "Jigar Gosalia"
  *
@@ -41,25 +41,11 @@ class Car implements Serializable {
 		System.out.println("Calling Constructor:" + this);
 	}
 
-	public String getMake() {
-		return make;
-	}
-
-	public boolean isCoupe() {
-		return isCoupe;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public String getColor() {
-		return color;
-	}
+	public String getMake() { return make; }
+	public boolean isCoupe() { return isCoupe; }
+	public int getId() { return id; }
+	public int getPrice() { return price; }
+	public String getColor() { return color; }
 
 	public void print() {
 		System.out.println("SerialVersionUID (final static field) : " + serialVersionUID);

@@ -70,12 +70,3 @@ public class MinimumPlatforms {
 		return count;
 	}
 }
-
-class Train {
-	public int arrival;
-	public int departure;
-	public Train(int arrival, int departure) {
-		this.arrival = arrival;
-		this.departure = departure;
-	}
-}

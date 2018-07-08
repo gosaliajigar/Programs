@@ -8,10 +8,12 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
+ * Only non-static and non-transient data are serialized. <br>
+ * <br>
  * Serialization of different types of fields.<br>
  * 	1. static final variable <br>
- * 	2. static variable but not final <br>
- * 	3. final variable but not static <br>
+ * 	2. static non-final variable <br>
+ * 	3. final non-static variable <br>
  * 	4. instance variable <br>
  * 	5. transient variable <br>
  * 	6. non-serializable field <br>

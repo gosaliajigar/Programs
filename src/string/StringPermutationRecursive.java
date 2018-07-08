@@ -8,9 +8,6 @@ package string;
  */
 public class StringPermutationRecursive {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String sample1 = "ABC";
 		String sample2 = "123";

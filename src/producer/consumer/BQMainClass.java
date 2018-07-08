@@ -10,10 +10,6 @@ import java.util.concurrent.PriorityBlockingQueue;
  *
  */
 public class BQMainClass {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) throws InterruptedException {
 		BlockingQueue<String> queue = new PriorityBlockingQueue<String>();
 		BQProducer producer = new BQProducer(queue, 1);

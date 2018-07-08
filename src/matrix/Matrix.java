@@ -9,10 +9,6 @@ import java.util.Scanner;
  *
  */
 public class Matrix {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 
 		int row = -1, column = -1;
@@ -44,9 +40,6 @@ public class Matrix {
 		displayMatrix(multi);
 	}
 
-	/**
-	 * @param array
-	 */
 	public static void displayMatrix(final int[][] array) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
@@ -56,9 +49,6 @@ public class Matrix {
 		}
 	}
 
-	/**
-	 * @param array
-	 */
 	public static void substituteMatrix(final int[][] array, final int row, final int column) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {

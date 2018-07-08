@@ -47,9 +47,7 @@ public class Braces {
 			// This condition is ONLY on assumption that input string has only
 			// braces. If input string has characters other than braces then,
 			// delete below condition.
-			if (braces.length() % 2 != 0) {
-				return false;
-			}
+			if (braces.length() % 2 != 0) return false;
 
 			for (int i = 0; i < braces.length(); i++) {
 				if (braces.charAt(i) == '(') {
@@ -58,15 +56,11 @@ public class Braces {
 					count--;
 				}
 				// count < 0 means the braces are not in right order
-				if (count < 0) {
-					return false;
-				}
+				if (count < 0) return false;
 			}
 
 			// count != 0 means the braces are not even
-			if (count != 0) {
-				return false;
-			}
+			if (count != 0) return false;
 		}
 		return true;
 	}

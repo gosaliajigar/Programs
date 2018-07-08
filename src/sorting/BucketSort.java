@@ -21,9 +21,7 @@ public class BucketSort {
 	}
 
 	public static void bucket(int[] a, int bucketSize) {
-		if (a == null || a.length == 0 || a.length == 1 || bucketSize == 0) {
-			return;
-		}
+		if (a == null || a.length == 0 || a.length == 1 || bucketSize == 0) { return; }
 
 		int min = a[0], max = a[0];
 		

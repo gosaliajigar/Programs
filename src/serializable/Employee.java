@@ -11,21 +11,11 @@ import java.io.Serializable;
 public class Employee implements Serializable {
 
 	private static final long serialVersionUID = -8215836970789336272L;
-
 	private int number;
-
 	private String name;
-
 	private String address;
-
 	private transient String SSN;
 
-	/**
-	 * @param number
-	 * @param name
-	 * @param address
-	 * @param SSN
-	 */
 	public Employee(int number, String name, String address, String SSN) {
 		this.number = number;
 		this.name = name;
@@ -33,33 +23,10 @@ public class Employee implements Serializable {
 		this.SSN = SSN;
 	}
 
-	/**
-	 * @return
-	 */
-	public int getNumber() {
-		return number;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getSSN() {
-		return SSN;
-	}
+	public int getNumber() { return number; }
+	public String getName() { return name; }
+	public String getAddress() { return address; }
+	public String getSSN() { return SSN; }
 
 	@Override
 	public String toString() {

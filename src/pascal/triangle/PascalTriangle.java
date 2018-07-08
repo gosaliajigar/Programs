@@ -11,9 +11,6 @@ import java.util.List;
  */
 public class PascalTriangle {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		for (List<Integer> row : generate(10)) {
 			System.out.println(row);

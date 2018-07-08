@@ -14,9 +14,6 @@ public class CircularLinkedList {
 
 	private static SinglyLinkedList<Integer> head = new SinglyLinkedList<Integer>();
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		create(head);
 		System.out.println("is Cyclic: " + hasCycle(head.getRoot()));
@@ -26,29 +23,19 @@ public class CircularLinkedList {
 		System.out.println("is Cyclic: " + hasCycle(head.getRoot()));
 	}
 
-	/**
-	 * @param start
-	 */
 	private static void create(SinglyLinkedList<Integer> start) {
 		for (int index = 0; index < 10; index++) {
 			start.addFront(index);
 		}
 	}
 
-	/**
-	 * @param head
-	 * @return
-	 */
 	public static boolean hasCycle(Node<Integer> head) {
 		Node<Integer> fast = head;
 		Node<Integer> slow = head;
-
 		while (fast != null && fast.getNext() != null) {
 			slow = slow.getNext();
 			fast = fast.getNext().getNext();
-
-			if (slow == fast)
-				return true;
+			if (slow == fast) return true;
 		}
 		return false;
 	}

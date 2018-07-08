@@ -11,25 +11,15 @@ import datastructure.linkedlist.SinglyLinkedList.Node;
 public class MergeSortedList {
 
 	private static SinglyLinkedList<Integer> even = new SinglyLinkedList<Integer>();
-
 	private static SinglyLinkedList<Integer> odd = new SinglyLinkedList<Integer>();
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		populateEven(even);
-
 		populateOdd(odd);
-
 		Node<Integer> list = merge(odd.getRoot(), even.getRoot());
-
 		print(list);
 	}
 
-	/**
-	 * @param odd
-	 */
 	private static void populateOdd(SinglyLinkedList<Integer> odd) {
 		for (int index = 0; index < 20; index++) {
 			if (index % 2 != 0) {
@@ -40,9 +30,6 @@ public class MergeSortedList {
 		System.out.println();
 	}
 
-	/**
-	 * @param even
-	 */
 	private static void populateEven(SinglyLinkedList<Integer> even) {
 		for (int index = 1; index < 10; index++) {
 			if (index % 2 == 0) {
@@ -53,9 +40,6 @@ public class MergeSortedList {
 		System.out.println();
 	}
 
-	/**
-	 * @param list
-	 */
 	private static void print(Node<Integer> list) {
 		System.out.println();
 		Node<Integer> current = list;
@@ -69,11 +53,6 @@ public class MergeSortedList {
 		System.out.println();
 	}
 
-	/**
-	 * @param one
-	 * @param two
-	 * @return
-	 */
 	private static Node<Integer> merge(Node<Integer> one, Node<Integer> two) {
 		// Sentinel Node
 		Node<Integer> head = new Node<Integer>(0, null);
@@ -106,6 +85,6 @@ public class MergeSortedList {
 				current = current.getNext();
 			}
 		}
-		return head;
+		return head.getNext();
 	}
 }

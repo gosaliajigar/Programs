@@ -8,9 +8,6 @@ package generics;
  */
 public class GenericMethod {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		Integer[] integerArray = { 1, 2, 3 };
 		printArray(integerArray);

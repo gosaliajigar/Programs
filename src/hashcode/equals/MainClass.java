@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * Understanding importance of hashcode() and equals() method.<br>
+ * Understanding importance of hashCode() and equals() method.<br>
  * <br>
  * <b>Override only hashCode</b><br>
  * <br>
@@ -40,12 +40,12 @@ import java.util.Map.Entry;
  * <b>Override neither hashCode nor equals</b><br>
  * <br>
  * map.put(first,someValue) and map.put(second,someOtherValue) both will be
- * inserted into map in absence of hashcode and equals method. Also when you do
+ * inserted into map in absence of hashCode and equals method. Also when you do
  * map.get(new Dog("white", 1)), it wouldn't return any value back as it wouldn't
  * be able to find that object in absence of equals method.<br>
  * <br>
  * <br>
- * hashcode and equals contract: <br>
+ * hashCode and equals contract: <br>
  * 1. Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method 
  * 		must consistently return the same integer, provided no information used in equals comparisons on the object is modified.
  * 		This integer need not remain consistent from one execution of an application to another execution of the same application.<br>
@@ -53,7 +53,7 @@ import java.util.Map.Entry;
  * 		must produce the same integer result.<br>
  * 3. It is not required that if two objects are unequal according to the equals(java.lang.Object) method, then calling the hashCode
  * 		method on each of the two objects must produce distinct integer results. However, the programmer should be aware that
- * 		producing distinct integer results for unequal objects may improve the performance of hashtables.<br>
+ * 		producing distinct integer results for unequal objects may improve the performance of hash tables.<br>
  * <br>
  * 
  * @author "Jigar Gosalia"

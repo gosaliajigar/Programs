@@ -9,13 +9,8 @@ package producer.consumer;
 class SBConsumer extends Thread {
 
 	private SharedBuffer sharedBuffer;
-
 	private int id;
 
-	/**
-	 * @param sharedBuffer
-	 * @param id
-	 */
 	public SBConsumer(SharedBuffer sharedBuffer, int id) {
 		this.sharedBuffer = sharedBuffer;
 		this.id = id;

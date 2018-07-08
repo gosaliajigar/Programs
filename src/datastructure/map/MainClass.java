@@ -7,15 +7,10 @@ package datastructure.map;
  *
  */
 public class MainClass {
-
 	public static void main(String[] args) {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		map.put(21, 12);
-		map.put(29, 100);
-		map.put(83, 100);
-		map.put(30, 151);
-		map.put(33, 15);
-		map.put(35, 89);
+		map.put(21, 12);  map.put(29, 100); map.put(83, 100);
+		map.put(30, 151); map.put(33, 15);	map.put(35, 89);
 		map.put(28, 28);
 		System.out.println("HashMap size: " + map.size());
 

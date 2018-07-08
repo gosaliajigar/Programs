@@ -17,7 +17,9 @@ public class SimpleDateFormatClass {
 	 * @param args
 	 */
 	public static void main(final String[] args) throws Exception {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+		// formatter parse  string to date
+		// formatter format date   to string
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
 		Scanner scanner = new Scanner(System.in);
 		String stringDate = "";
 		while (stringDate.length() != 8) {
@@ -28,8 +30,8 @@ public class SimpleDateFormatClass {
 
 		Date parsedDate;
 		try {
-			parsedDate = simpleDateFormat.parse(stringDate);
-			if (!simpleDateFormat.format(parsedDate).equals(stringDate)) {
+			parsedDate = formatter.parse(stringDate);
+			if (!formatter.format(parsedDate).equals(stringDate)) {
 				System.out.printf("Input date %s is not in format yyyyMMdd\n", stringDate);
 			} else {
 				System.out.println("Parsed Date : " + parsedDate);

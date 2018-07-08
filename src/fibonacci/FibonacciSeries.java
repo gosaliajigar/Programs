@@ -17,8 +17,7 @@ public class FibonacciSeries {
 		int number = -1;
 		Scanner scanner = new Scanner(System.in);
 		while (number <= 0) {
-			System.out
-					.print("Enter Valid value for retrieving n elements of fibonacci series : ");
+			System.out.print("Enter Valid value for retrieving n elements of fibonacci series : ");
 			number = scanner.nextInt();
 		}
 		scanner.close();
@@ -36,8 +35,7 @@ public class FibonacciSeries {
 		System.out.println();
 
 		start = System.currentTimeMillis();
-		System.out.println("Non-Recursively Fibonacci series " + number
-				+ "th element : ");
+		System.out.println("Non-Recursively Fibonacci series " + number	+ "th element : ");
 		for (int i = 1; i <= number; i++) {
 			System.out.print(FibonacciNthElement.fibonacciNonRecursive(i) + " ");
 		}

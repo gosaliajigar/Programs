@@ -11,9 +11,6 @@ import java.util.Set;
  */
 public class StringPermutationNonRecursive {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String sample1 = "ABC";
 		String sample2 = "123";
@@ -22,10 +19,6 @@ public class StringPermutationNonRecursive {
 		System.out.println();
 	}
 
-	/**
-	 * @param input
-	 * @return
-	 */
 	public static Set<String> permutationFinder(final String input) {
 		Set<String> permutation = new HashSet<String>();
 		// Handling error scenarios
@@ -46,12 +39,6 @@ public class StringPermutationNonRecursive {
 		return permutation;
 	}
 
-	/**
-	 * @param input
-	 * @param first
-	 * @param index
-	 * @return
-	 */
 	public static String insertCharacter(String input, char first, int index) {
 		// Extract string till position "index", string from position "index"
 		// and concatenate string (String till position "j" + character + String

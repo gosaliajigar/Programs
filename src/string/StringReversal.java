@@ -2,6 +2,10 @@ package string;
 
 import java.util.Arrays;
 
+/**
+ * @author Jigar Gosalia
+ *
+ */
 public class StringReversal {
 
 	public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class StringReversal {
 	}
 
 	private static String reverseRecursive(String input) {
-		return ((input != null && input.length() > 0) ? reverse(input.substring(1)) + input.charAt(0) : input);
+		return ((input != null && input.length() > 0) ? reverseRecursive(input.substring(1)) + input.charAt(0) : input);
 	}
 
 	private static String reverse(String input) {

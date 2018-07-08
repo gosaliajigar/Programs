@@ -9,10 +9,6 @@ import java.io.ObjectInputStream;
  *
  */
 public class Deserialize {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		Employee employee = null;
 		String fileName = null;
@@ -25,12 +21,10 @@ public class Deserialize {
 			oInputStream = new ObjectInputStream(fInputStream);
 			employee = (Employee) oInputStream.readObject();
 			if (file != null && file.delete()) {
-				System.out.println("Data read " + file.getAbsolutePath()
-						+ " and file is deleted successfully!");
+				System.out.println("Data read " + file.getAbsolutePath() + " and file is deleted successfully!");
 			}
 		} catch (Exception exception) {
 			exception.printStackTrace();
-			return;
 		} finally {
 			try {
 				fInputStream.close();	

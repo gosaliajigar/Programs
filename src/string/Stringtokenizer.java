@@ -5,16 +5,12 @@ import java.util.StringTokenizer;
 /**
  * StringTokenizer for splitting String, it is legacy class and faster than split.<br>
  * <br>
- * Doesn't allow regex but allows single delim.
+ * Doesn't allow regex but allows single delimiter.
  *
  * @author "Jigar Gosalia"
  *
  */
 public class Stringtokenizer {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 
 		String line = "I am a java developer";

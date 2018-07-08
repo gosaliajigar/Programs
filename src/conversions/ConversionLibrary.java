@@ -17,9 +17,7 @@ public class ConversionLibrary {
 	 * @return
 	 */
 	public static String dec2bin(int decimal) {
-		if (decimal <= 0) {
-			return "0";
-		}
+		if (decimal <= 0) return "0";
 		String binary = new String();
 		while (decimal != 0) {
 			binary = (decimal % 2) + binary;
@@ -55,15 +53,9 @@ public class ConversionLibrary {
 			octal = (decimal % 8) + octal;
 			decimal /= 8;
 		}
-		if (octal.length() == 0) {
-			octal = "000";
-		}
-		if (octal.length() == 1) {
-			octal = "00" + octal;
-		}
-		if (octal.length() == 2) {
-			octal = "0" + octal;
-		}
+		if (octal.length() == 0) octal = "000";
+		if (octal.length() == 1) octal = "00" + octal;
+		if (octal.length() == 2) octal = "0" + octal;
 		return octal;
 	}
 

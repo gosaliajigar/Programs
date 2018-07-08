@@ -5,10 +5,6 @@ package swap;
  *
  */
 public class SwapUsingAdditionSubtraction {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		int a = 2, b = 3;
 		System.out.println("Swapping using Addition-Subtraction Operator ...");

@@ -17,8 +17,7 @@ public class AnyPermutationIsPalindrome {
 		int oddCount = 0;
 		int[] charSet = new int[26];
 		for (char c : s.toCharArray()) {
-			int index = c - 'a';
-			charSet[index] = charSet[index] + 1;
+			charSet[c - 'a']++;
 		}
 		for (int i : charSet) {
 			if (i % 2 != 0) oddCount++;

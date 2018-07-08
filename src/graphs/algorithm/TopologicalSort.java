@@ -2,11 +2,9 @@ package graphs.algorithm;
 
 /**
  * @author Jigar Gosalia
- *
  */
 public class TopologicalSort {
-
-	// Topological Sort is implementation of DFS
+	// Topological Sort is implementation of DFS ((u,v) means u must be done before v)
 	// 
 	// O(V+E)
 	//
@@ -15,5 +13,6 @@ public class TopologicalSort {
 	// Return the linked list of vertices
 	// 
 	// NOTE : Order the nodes in decreasing time of the finished times
+	// 
 	// 
 }

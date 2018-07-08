@@ -9,16 +9,11 @@ import java.io.ObjectOutputStream;
  *
  */
 public class Serialize {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		File file = null;;
 		FileOutputStream fOutputStream = null;
 		ObjectOutputStream oOutputStream = null;
-		Employee employee = new Employee(100, "Jigar Gosalia",
-				"1234 Main Street, San Jose, CA - 95131", "111-22-3333");
+		Employee employee = new Employee(100, "Jigar Gosalia", "1234 Main Street, San Jose, CA - 95131", "111-22-3333");
 		try {
 			file = new File("C:/employee.ser");
 			fOutputStream = new FileOutputStream(file);

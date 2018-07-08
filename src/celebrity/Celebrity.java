@@ -15,9 +15,7 @@ public class Celebrity {
 									  { 0, 0, 1, 0 } };
 
 	// Returns true if a knows b, false otherwise
-	private static boolean knows(int a, int b) {
-		return (MATRIX[a][b] == 1);
-	}
+	private static boolean knows(int a, int b) { return (MATRIX[a][b] == 1); }
 
 	// Returns -1 if celebrity is not present. If present,
 	// returns id (value from 0 to n-1).

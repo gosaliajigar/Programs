@@ -11,7 +11,9 @@ import java.util.Set;
 
 /* 
 
-Suppose we have some input data describing a graph of relationships between parents and children over multiple generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a unique integer identifier.
+Suppose we have some input data describing a graph of relationships between parents and children over multiple 
+generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a 
+unique integer identifier.
 
 For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:
             
@@ -21,7 +23,8 @@ For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:
    \ / \   \
     6   7   9
 
-Write a function that takes this data as input and returns two collections: one containing all individuals with zero known parents, and one containing all individuals with exactly one known parent.
+Write a function that takes this data as input and returns two collections: one containing all individuals 
+with zero known parents, and one containing all individuals with exactly one known parent.
 
 Sample output (pseudocode):
 [
@@ -31,7 +34,9 @@ Sample output (pseudocode):
 
 Below is some sample data in JavaScript and Java. Feel free to solve this problem in any language of your choice.
 
-Suppose we have some input data describing a graph of relationships between parents and children over multiple generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a unique integer identifier.
+Suppose we have some input data describing a graph of relationships between parents and children over multiple 
+generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a 
+unique integer identifier.
 
 For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:
             
@@ -41,14 +46,18 @@ For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:
    \ / \   \
     6   7   9
 
-Write a function that, for two given individuals in our dataset, returns true if and only if they share at least one ancestor.
+Write a function that, for two given individuals in our dataset, returns true if and only if they share at 
+least one ancestor.
 
 Sample input and output:
 parentChildPairs, 3, 8 => false
 parentChildPairs, 5, 8 => true
 parentChildPairs, 6, 8 => true
 
-Write a function that, for a given individual in our dataset, returns their earliest known ancestor -- the one at the farthest distance from the input individual. If there is more than one ancestor tied for “earliest”, return any one of them. If the input individual has no parents, the function should return null (or -1).
+Write a function that, for a given individual in our dataset, returns their earliest known ancestor -- 
+the one at the farthest distance from the input individual. If there is more than one ancestor tied 
+for “earliest”, return any one of them. If the input individual has no parents, the function should 
+return null (or -1).
 
 Sample input and output:
 
@@ -64,35 +73,39 @@ Sample input and output:
  */
 public class Relationships {
 	public static void main(String[] args) {
-		int[][] parentChildPairs = new int[][] { { 1, 3 }, { 2, 3 }, { 3, 6 }, { 5, 6 }, { 5, 7 }, { 4, 5 }, { 4, 8 },
-				{ 8, 9 } };
+		int[][] parentChildPairs = new int[][] { { 1, 3 }, { 2, 3 }, { 3, 6 }, 
+												 { 5, 6 }, { 5, 7 }, { 4, 5 }, 
+												 { 4, 8 }, { 8, 9 } };
 
-		Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+		Map<Integer, List<Integer>> childToParentsMap = prepareChildToParent(parentChildPairs);
 
-		// O(n)
-		for (int[] relationship : parentChildPairs) {
-			if (map.containsKey(relationship[1])) {
-				map.get(relationship[1]).add(relationship[0]);
-			} else {
-				List<Integer> parents = new ArrayList<Integer>();
-				parents.add(relationship[0]);
-				map.put(relationship[1], parents);
-			}
-		}
-
-		Set<Integer> noParent = getNoParents(map);
-		Set<Integer> oneParent = getOneParent(map);
+		Set<Integer> noParent = getNoParents(childToParentsMap);
+		Set<Integer> oneParent = getOneParent(childToParentsMap);
 
 		System.out.println(noParent);
 		System.out.println(oneParent);
 
-		System.out.println(parentChildPairs(3, 8, map));
-		System.out.println(parentChildPairs(5, 8, map));
-		System.out.println(parentChildPairs(6, 8, map));
+		System.out.println(parentChildPairs(3, 8, childToParentsMap));
+		System.out.println(parentChildPairs(5, 8, childToParentsMap));
+		System.out.println(parentChildPairs(6, 8, childToParentsMap));
 
-		System.out.println(getFarthestParent(8, map));
-		System.out.println(getFarthestParent(7, map));
-		System.out.println(getFarthestParent(6, map));
+		System.out.println(getFarthestParent(8, childToParentsMap));
+		System.out.println(getFarthestParent(7, childToParentsMap));
+		System.out.println(getFarthestParent(6, childToParentsMap));
+	}
+
+	private static Map<Integer, List<Integer>> prepareChildToParent(int[][] parentChildPairs) {
+		Map<Integer, List<Integer>> childToParentsMap = new HashMap<Integer, List<Integer>>();
+		for (int[] relationship : parentChildPairs) {
+			if (childToParentsMap.containsKey(relationship[1])) {
+				childToParentsMap.get(relationship[1]).add(relationship[0]);
+			} else {
+				List<Integer> parents = new ArrayList<Integer>();
+				parents.add(relationship[0]);
+				childToParentsMap.put(relationship[1], parents);
+			}
+		}
+		return childToParentsMap;
 	}
 
 	private static Set<Integer> getNoParents(Map<Integer, List<Integer>> map) {
@@ -125,12 +138,14 @@ public class Relationships {
 	}
 
 	private static boolean parentChildPairs(int c1, int c2, Map<Integer, List<Integer>> map) {
+		// check each of the chain if there is any common
+		// Set<Integer> p11 = getParentChain(c1, map);
+		// Set<Integer> p12 = getParentChain(c2, map);
 		List<Integer> p1 = map.get(c1);
 		List<Integer> p2 = map.get(c2);
-		if (p1 == null || p1.size() == 0 || p2 == null || p2.size() == 0)
-			return false;
+		if (p1 == null || p1.size() == 0 || p2 == null || p2.size() == 0) return false;
 		for (Integer parent : p1) {
-			// looking recursivley parent
+			// looking recursively parent
 			if (p2.contains(parent) || (map.get(parent) != null && map.get(parent).retainAll(p2))) {
 				return true;
 			}
@@ -149,4 +164,19 @@ public class Relationships {
 		}
 		return -1;
 	}
+
+	private static Set<Integer> getParentChain(int c, Map<Integer, List<Integer>> map) {
+		Set<Integer> chain = new HashSet<Integer>();
+		Queue<Integer> queue = new LinkedList<Integer>();
+		queue.add(c);
+		while (!queue.isEmpty()) {
+			Integer child = queue.poll();
+			if (map.get(child) != null) {
+				chain.addAll(map.get(child));
+				queue.addAll(map.get(child));
+			}
+		}
+		return chain;
+	}
+
 }

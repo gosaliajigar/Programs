@@ -23,13 +23,9 @@ import java.util.Queue;
 public class BreadthFirstSearch {
 
 	private static int SIZE = 8;
-
 	private static Vertex[] vertices = new Vertex[SIZE];
-
 	private static int[][] edges = new int[SIZE][SIZE];
-
 	private static int count = 0;
-
 	private static Queue<Integer> queue = new LinkedList<Integer>();
 
 	// graph functions

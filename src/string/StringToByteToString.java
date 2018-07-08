@@ -10,10 +10,6 @@ import java.util.Arrays;
  *
  */
 public class StringToByteToString {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String string = "Hello World";
 		// String to byte array

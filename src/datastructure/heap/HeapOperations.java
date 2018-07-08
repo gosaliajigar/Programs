@@ -17,9 +17,7 @@ package datastructure.heap;
 public class HeapOperations {
 
 	public static int getLeft(int location) { return ((2 * location) + 1); }
-
 	public static int getRight(int location) { return (2 * (location + 1));	}
-
 	public static int getParent(int location) { return (int) Math.floor((location - 1) / 2); }
 
 	/**
@@ -62,14 +60,10 @@ public class HeapOperations {
 		}
 	}
 
-	public static int max(Heap heap) {
-		return heap.a[0];
-	}
+	public static int max(Heap heap) { return heap.a[0]; }
 
 	public static int extractMax(Heap heap) {
-		if (heap.heapSize <= 0) {
-			return -1;
-		}
+		if (heap.heapSize <= 0) return -1;
 		int max = heap.a[0];
 		heap.a[0] = heap.a[heap.heapSize - 1];
 		heap.heapSize = heap.heapSize - 1;
@@ -98,9 +92,7 @@ public class HeapOperations {
 	}
 
 	public static void insert(Heap heap, int key) {
-		if (heap.heapSize >= heap.a.length) {
-			throw new IllegalArgumentException("Heap Full");
-		}
+		if (heap.heapSize >= heap.a.length) throw new IllegalArgumentException("Heap Full");
 		heap.heapSize = heap.heapSize + 1;
 		heap.a[heap.heapSize - 1] = Integer.MIN_VALUE;
 		increase(heap, heap.heapSize - 1, key);

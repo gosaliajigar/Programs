@@ -78,10 +78,8 @@ public class Anagram {
 	 * @param character
 	 */
 	public static void insert(Map<Character, Integer> map, Character character) {
-		if (!map.containsKey(character)) {
-			map.put(character, 1);
-		} else {
-			map.put(character, map.get(character) + 1);
+		if (!map.containsKey(character)) { map.put(character, 1);
+		} else { map.put(character, map.get(character) + 1);
 		}
 	}
 
@@ -94,9 +92,7 @@ public class Anagram {
 	 */
 	public static int count(Map<Character, Integer> map) {
 		int sum = 0;
-		for (Character character : map.keySet()) {
-			sum += map.get(character);
-		}
+		for (Character character : map.keySet()) sum += map.get(character);
 		return sum;
 	}
 }

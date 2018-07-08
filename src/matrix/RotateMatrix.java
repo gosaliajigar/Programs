@@ -3,8 +3,8 @@ package matrix;
 /**
  * Rotate Matrix by 90 degrees.
  * 
- * row 0-n/2
- * column 0-ceil(n/2)
+ * row    0-n/2
+ * column 0-ceil(n/2.0)
  * 
  * relationship a[i][j] = a[n-1-j][i]
  * 

@@ -18,11 +18,9 @@ public class EmployeeComparatorByIdAndName implements
 	 */
 	@Override
 	public int compare(final EmployeeWithComparable employee1, final EmployeeWithComparable employee2) {
-		int flag = employee1.getId() - employee2.getId();
-		if (flag == 0) {
-			flag = employee1.getName().compareTo(employee2.getName());
-		}
-		return flag;
+		int result = employee1.getId() - employee2.getId();
+		if (result == 0) result = employee1.getName().compareTo(employee2.getName());
+		return result;
 	}
 
 }

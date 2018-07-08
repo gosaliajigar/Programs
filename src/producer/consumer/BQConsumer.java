@@ -11,13 +11,8 @@ import java.util.concurrent.BlockingQueue;
 class BQConsumer implements Runnable {
 
 	private BlockingQueue<String> queue;
-
 	private int id;
 
-	/**
-	 * @param sharedBuffer
-	 * @param id
-	 */
 	public BQConsumer(BlockingQueue<String> queue, int id) {
 		this.queue = queue;
 		this.id = id;
@@ -41,5 +36,4 @@ class BQConsumer implements Runnable {
 			e.printStackTrace();
 		}
 	}
-
 }

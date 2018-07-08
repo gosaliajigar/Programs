@@ -12,13 +12,8 @@ import java.util.concurrent.BlockingQueue;
 class BQProducer implements Runnable {
 
 	private BlockingQueue<String> queue;
-
 	private int id;
 
-	/**
-	 * @param queue
-	 * @param id
-	 */
 	public BQProducer(BlockingQueue<String> queue, int id) {
 		this.queue = queue;
 		this.id = id;

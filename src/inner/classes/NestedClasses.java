@@ -4,12 +4,14 @@ package inner.classes;
 // import inner.classes.OuterClass.NonStaticInnerClass;
 // import inner.classes.OuterClass.StaticNestedClass;
 
+import inner.classes.OuterClass.NonStaticInnerClass;
+import inner.classes.OuterClass.StaticNestedClass;
+
 /**
  * @author "Jigar Gosalia"
  *
  */
 public class NestedClasses {
-
 	public static void main(final String[] args) {
 		OuterClass outer = new OuterClass(1, 2, 3, 4);
 
@@ -21,7 +23,11 @@ public class NestedClasses {
 		System.out.println("StaticInnerClass: " + staticNestedClass);
 		System.out.println();
 
+		// can instantiate static class without outer class
+		StaticNestedClass anotherstaticNestedClass = new StaticNestedClass();
+		
 		// Non Static Inner class
+		// can't instantiate without OuterClass mention 
 		OuterClass.NonStaticInnerClass nonStaticInnerClass = outer.new NonStaticInnerClass();
 		System.out.println("NonStaticInnerClass: " + nonStaticInnerClass);
 		nonStaticInnerClass.setValues();
@@ -31,6 +37,7 @@ public class NestedClasses {
 		// Calling method having local inner class
 		outer.print("Outer");
 
+		System.out.println();
 		// Calling method having anonymous inner class
 		outer.getHello("Hellow");
 	}

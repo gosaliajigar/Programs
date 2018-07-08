@@ -8,8 +8,7 @@ import java.util.Comparator;
  * @author "Jigar Gosalia"
  *
  */
-public class EmployeeWithComparable implements
-		Comparable<EmployeeWithComparable> {
+public class EmployeeWithComparable implements Comparable<EmployeeWithComparable> {
 
 	private int id;
 
@@ -19,42 +18,15 @@ public class EmployeeWithComparable implements
 
 	private long salary;
 
-	/**
-	 * @return
-	 */
-	public int getId() {
-		return id;
-	}
+	public int getId() { return id; }
 
-	/**
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
+	public String getName() { return name; }
 
-	/**
-	 * @return
-	 */
-	public int getAge() {
-		return age;
-	}
+	public int getAge() { return age; }
 
-	/**
-	 * @return
-	 */
-	public long getSalary() {
-		return salary;
-	}
+	public long getSalary() { return salary; }
 
-	/**
-	 * @param id
-	 * @param name
-	 * @param age
-	 * @param salary
-	 */
-	public EmployeeWithComparable(final int id, final String name,
-			final int age, final int salary) {
+	public EmployeeWithComparable(final int id, final String name, final int age, final int salary) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -71,9 +43,7 @@ public class EmployeeWithComparable implements
 	 * equal to, or greater than the specified object.
 	 */
 	@Override
-	public int compareTo(final EmployeeWithComparable employee) {
-		return (id - employee.id);
-	}
+	public int compareTo(final EmployeeWithComparable employee) { return (id - employee.id); }
 
 	/*
 	 * (non-Javadoc)
@@ -84,10 +54,7 @@ public class EmployeeWithComparable implements
 	 * Employee
 	 */
 	@Override
-	public String toString() {
-		return "[id=" + id + ", name=" + name + ", age=" + age + ", salary="
-				+ salary + "]";
-	}
+	public String toString() { return "[id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]"; }
 
 	/**
 	 * Comparator to sort employees list or array in order of Salary
@@ -95,8 +62,7 @@ public class EmployeeWithComparable implements
 	public static Comparator<EmployeeWithComparable> SalaryComparator = new Comparator<EmployeeWithComparable>() {
 
 		@Override
-		public int compare(final EmployeeWithComparable employee1,
-				final EmployeeWithComparable employee2) {
+		public int compare(final EmployeeWithComparable employee1, final EmployeeWithComparable employee2) {
 			return (int) (employee1.getSalary() - employee2.getSalary());
 		}
 	};
@@ -107,8 +73,7 @@ public class EmployeeWithComparable implements
 	public static Comparator<EmployeeWithComparable> AgeComparator = new Comparator<EmployeeWithComparable>() {
 
 		@Override
-		public int compare(final EmployeeWithComparable employee1,
-				final EmployeeWithComparable employee2) {
+		public int compare(final EmployeeWithComparable employee1, final EmployeeWithComparable employee2) {
 			return employee1.getAge() - employee2.getAge();
 		}
 	};
@@ -119,8 +84,7 @@ public class EmployeeWithComparable implements
 	public static Comparator<EmployeeWithComparable> NameComparator = new Comparator<EmployeeWithComparable>() {
 
 		@Override
-		public int compare(final EmployeeWithComparable employee1,
-				final EmployeeWithComparable employee2) {
+		public int compare(final EmployeeWithComparable employee1, final EmployeeWithComparable employee2) {
 			return employee1.getName().compareTo(employee2.getName());
 		}
 	};

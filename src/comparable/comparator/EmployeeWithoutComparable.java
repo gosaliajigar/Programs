@@ -1,6 +1,5 @@
 package comparable.comparator;
 
-
 /**
  * Employee class without Comparable and Comparator
  *
@@ -17,42 +16,15 @@ public class EmployeeWithoutComparable {
 
 	private long salary;
 
-	/**
-	 * @return
-	 */
-	public int getId() {
-		return id;
-	}
+	public int getId() { return id; }
 
-	/**
-	 * @return
-	 */
-	public String getName() {
-		return name;
-	}
+	public String getName() { return name; }
 
-	/**
-	 * @return
-	 */
-	public int getAge() {
-		return age;
-	}
+	public int getAge() { return age; }
 
-	/**
-	 * @return
-	 */
-	public long getSalary() {
-		return salary;
-	}
+	public long getSalary() { return salary; }
 
-	/**
-	 * @param id
-	 * @param name
-	 * @param age
-	 * @param salary
-	 */
-	public EmployeeWithoutComparable(final int id, final String name, final int age,
-			final int salary) {
+	public EmployeeWithoutComparable(final int id, final String name, final int age, final int salary) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -67,8 +39,5 @@ public class EmployeeWithoutComparable {
 	 * Employee
 	 */
 	@Override
-	public String toString() {
-		return "[id=" + id + ", name=" + name + ", age=" + age + ", salary="
-				+ salary + "]";
-	}
+	public String toString() { return "[id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]"; }
 }

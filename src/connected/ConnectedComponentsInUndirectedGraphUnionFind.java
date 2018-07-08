@@ -30,7 +30,9 @@ public class ConnectedComponentsInUndirectedGraphUnionFind {
 	private static int getRoot(int i, int[] root) {
 		// if not self root
 		while(root[i] != i) {
-			root[i] = root[root[i]]; 
+			// if not self root then root of i is root of i's parent
+			root[i] = root[root[i]];
+			// i is i's parent
 			i = root[i];
 		}
 		return i;

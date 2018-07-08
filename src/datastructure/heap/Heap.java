@@ -9,9 +9,7 @@ public class Heap {
 	int heapSize;
 
 	public Heap(int[] a, int size) {
-		if (size > a.length) {
-			throw new IllegalArgumentException("Invalid Size");
-		}
+		if (size > a.length) throw new IllegalArgumentException("Invalid Size");
 		this.a = a;
 		this.heapSize = size;
 	}

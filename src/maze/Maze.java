@@ -25,16 +25,16 @@ public class Maze {
 	public static boolean traverse(int[][] a, int r, int c) {
 		boolean done = false;
 		if (isValid(a, r, c)) {
-			a[r][c] = 3;
+			a[r][c] = 3;									// visited
 			if (isEnd(a, r, c)) { done = true;
 			} else {
-				done = traverse(a, r+1, c);
-				if (!done) done = traverse(a, r-1, c);
-				if (!done) done = traverse(a, r, c+1);
-				if (!done) done = traverse(a, r, c-1);
+				done = traverse(a, r+1, c);					// right
+				if (!done) done = traverse(a, r-1, c);		// left
+				if (!done) done = traverse(a, r, c+1);		// down
+				if (!done) done = traverse(a, r, c-1);		// up
 			}
 		}
-		if (done) a[r][c] = 7;
+		if (done) a[r][c] = 7;								// chosen
 		return done;
 	}
 
@@ -46,9 +46,7 @@ public class Maze {
 	
 	public static void display(int[][] a) {
 		for (int[] row : a) {
-			for (int i : row) {
-				System.out.print(i + " ");
-			}
+			for (int i : row) System.out.print(i + " ");
 			System.out.println();
 		}
 	}
