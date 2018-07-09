@@ -22,8 +22,10 @@ public class ReverseQueue {
 
 	public static Queue<Integer> reverseQueue(Queue<Integer> queue) {
 		if (queue == null ||  queue.isEmpty()) return queue;
+		// data stays in stack so keep calling queue with next element
 		int data = queue.remove();
 		queue = reverseQueue(queue);
+		// now unwind stack and add elements which were in stack
 		queue.add(data);
 		return queue;
 	}

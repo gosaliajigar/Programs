@@ -1,5 +1,7 @@
 package datastructure.bst;
 
+import pojos.BinaryNode;
+
 /**
  * Binary Search Tree BST and its operations.
  * 
@@ -7,14 +9,9 @@ package datastructure.bst;
  *
  */
 public class BinarySearchTree {
-
-	private Node root;
-	public BinarySearchTree () {
-		super();
-		this.root = null;
-	}
-
-	public Node getRoot() { return root; }
+	private BinaryNode root;
+	public BinarySearchTree () {}
+	public BinaryNode getRoot() { return root; }
 
 	public void create(int array[]) {
 		for (int index = 0; index < array.length; index++) {
@@ -26,10 +23,10 @@ public class BinarySearchTree {
 		root = createBinarySearchTree(array, 0, array.length-1);
 	}
 
-	private Node createBinarySearchTree(int array[], int low, int high) {
+	private BinaryNode createBinarySearchTree(int array[], int low, int high) {
 		if (low <= high) {
 			int mid = (low + high) / 2;
-			Node node = new Node(array[mid]);
+			BinaryNode node = new BinaryNode(array[mid]);
 			node.setLeft(createBinarySearchTree(array, low, mid-1));
 			node.setRight(createBinarySearchTree(array, mid+1, high));
 			return node;
@@ -38,11 +35,10 @@ public class BinarySearchTree {
 	}
 
 	public void insert(int data) {
-		Node node = new Node(data);
-		if (root == null) {
-			root = node;
+		BinaryNode node = new BinaryNode(data);
+		BinaryNode current = root;
+		if (root == null) {	root = node;
 		} else {
-			Node current = root;
 			while(true) {
 				// > scenario
 				if (data > current.getData()) {
@@ -63,8 +59,8 @@ public class BinarySearchTree {
 		}
 	}
 
-	public Node search(int data) {
-		Node current = root;
+	public BinaryNode search(int data) {
+		BinaryNode current = root;
 		while(current != null) {
 			if (data > current.getData()) {
 				current = current.getRight();
@@ -77,15 +73,15 @@ public class BinarySearchTree {
 		return null;
 	}
 
-	public static Node treeMinimum(Node node) {
+	public static BinaryNode treeMinimum(BinaryNode node) {
 		return (node != null && node.getLeft() != null) ? treeMinimum(node.getLeft()) : node;
 	}
 
-	public static Node treeMaximum(Node node) {
+	public static BinaryNode treeMaximum(BinaryNode node) {
 		return (node != null && node.getRight() != null) ? treeMaximum(node.getRight()) : node;
 	}
 
-	public static void delete(Node node) {
+	public static void delete(BinaryNode node) {
 		// pseudo code as this requires each node 
 		// to store reference to its parent
 		
@@ -117,7 +113,7 @@ public class BinarySearchTree {
 	}
 
 	@SuppressWarnings("unused")
-	private static void transparent(Node root, Node u, Node v) {
+	private static void transparent(BinaryNode root, BinaryNode u, BinaryNode v) {
 		// replace u by v on its parent node
 		//	if (u.p == null) {
 		//		root = v;
@@ -127,11 +123,11 @@ public class BinarySearchTree {
 		//		u.p.right = v;
 		//	}
 		//	if (v != null) {
-		//		v.p = u.p;
+		//		v.p = u.p; u.p = null;
 		//	}
 	}
 	
-	public static Node successor(Node node) {
+	public static BinaryNode successor(BinaryNode node) {
 		if (node != null) {
 			if (node.getRight() != null) {
 				return treeMinimum(node.getRight());
@@ -153,7 +149,7 @@ public class BinarySearchTree {
 		return null;
 	}
 
-	public static Node predecessor(Node node) {
+	public static BinaryNode predecessor(BinaryNode node) {
 		if (node != null) {
 			if (node.getLeft() != null) {
 				return treeMaximum(node.getLeft());
@@ -168,36 +164,4 @@ public class BinarySearchTree {
 		}
 		return null;
 	}
-	
-	public static class Node {
-		int data;
-		Node left;
-		Node right;
-		public int depth;
-
-		public Node(int data, Node left, Node right) {
-			super();
-			this.data = data;
-			this.left = left;
-			this.right = right;
-		}
-
-		public Node(int data) { this(data, null, null); }
-
-		public int getData() { return data; }
-
-		public void setData(int data) { this.data = data; }
-
-		public Node getLeft() { return left; }
-
-		public void setLeft(Node left) { this.left = left; }
-
-		public Node getRight() { return right; }
-
-		public void setRight(Node right) { this.right = right; }
-
-		@Override
-		public String toString() { return "Node [data=" + data + ", left=" + left + ", right=" + right + "]"; }
-	}
-
 }
