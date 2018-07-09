@@ -1,7 +1,6 @@
 package intervals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -9,6 +8,10 @@ import java.util.PriorityQueue;
 import pojos.Interval;
 
 /**
+ * 
+ * A: [1,5], [10,14], [16,18]
+ * B: [2,6], [8,10], [11,20]
+ * output [1,6], [8,20]
  * 
  * Source :
  * https://leetcode.com/discuss/interview-question/124616/Merge-two-interval-lists/
@@ -25,45 +28,31 @@ public class MergeIntervalLists {
 		}
 	};
 
+	public static void main(String[] args) {
+		System.out.println(merge(new Interval[] {new Interval(1, 5), new Interval(10, 14), new Interval(16, 18)}, 
+								new Interval[] {new Interval(2, 6), new Interval(8, 10), new Interval(11, 20)}));
+	}
 	public static List<Interval> merge(Interval[] a, Interval[] b) {
 		List<Interval> results = new ArrayList<Interval>();
-		Arrays.sort(a, sortByStartTimes);
-		Arrays.sort(b, sortByStartTimes);
-		Interval merged = null;
+		PriorityQueue<Interval> queue = new PriorityQueue<Interval>(sortByStartTimes);
 		int i=0, j=0;
-		if (a[0].start < b[0].start) {
-			merged = a[0]; i++;
-		} else {
-			merged = b[0]; j++;
+		while (i<a.length||j<b.length) {
+			if (i<a.length) queue.offer(a[i++]);
+			if (j<b.length) queue.offer(b[j++]);
 		}
-		while (i<a.length&&j<b.length) {
-			if (merged.start < a[i].start && merged.end < a[i].end) {
-				// merge wins
-			} else if (merged.start > a[i].start && merged.end > a[i].end) {
-				// a[i] wins
-				
+		Interval interval = queue.poll();
+		while (!queue.isEmpty()) {
+			Interval newInterval = queue.poll();
+			if (interval.end < newInterval.start) {
+				results.add(interval);
+				interval = newInterval;
+			} else if (interval.start > newInterval.end) {
+				results.add(newInterval);
 			} else {
-				// merge both
-				merged = new Interval(merged.start, Math.max(merged.end, a[i].end));
-				i++;
+				interval = new Interval(interval.start, Math.max(interval.end, newInterval.end));
 			}
-			if (merged.start < b[j].start && merged.end < b[j].end) {
-				// merge wins
-			} else if (merged.start > b[j].start && merged.end > b[j].end) {
-				// b[j] wins
-			} else {
-				// merge both
-				merged = new Interval(merged.start, Math.max(merged.end, b[j].end));
-				j++;
-			}
-			
 		}
+		results.add(interval);
 		return results;
 	}
-}
-
-class IntervalContainer {
-	public Interval[] ic;
-	public int index;
-	public IntervalContainer(Interval[] ic, int index) { this.ic = ic; this.index = index; }
 }

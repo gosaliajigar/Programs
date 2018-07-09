@@ -248,13 +248,12 @@ public class BinarySearchTreeStatistics {
 
 	public static BinaryNode findLeastCommonAncestor(BinaryNode root, BinaryNode a, BinaryNode b) {
 		if (root == null || a == null || b == null) return null;
-		BinaryNode m = root;
 		if (root.data < a.data && root.data < b.data) {
 			return findLeastCommonAncestor(root.right, a, b);
 		} else if (root.data > a.data && root.data > b.data) {
 			return findLeastCommonAncestor(root.left, a, b);
 		} else {
-			return m;
+			return root;
 		}
 	}
 

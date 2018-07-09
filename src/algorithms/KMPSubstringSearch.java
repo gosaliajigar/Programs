@@ -17,15 +17,15 @@ public class KMPSubstringSearch {
 	 */
 	private static int[] computeTemporaryArray(char pattern[]) {
 		int[] lps = new int[pattern.length];
-		int index = 0;
-		for (int i = 1; i < pattern.length;) {
-			if (pattern[i] == pattern[index]) {
-				lps[i] = index + 1; index++; i++;
+		int i = 0, j = 1; 
+		while (j < pattern.length) {
+			if (pattern[j] == pattern[i]) {
+				lps[j] = i+1; i++; j++;
 			} else {
-				if (index != 0) {
-					index = lps[index - 1];
+				if (i != 0) {
+					i = lps[i - 1];
 				} else {
-					lps[i] = 0; i++;
+					lps[j] = 0; j++;
 				}
 			}
 		}
@@ -46,12 +46,17 @@ public class KMPSubstringSearch {
 				else i++;
 			}
 		}
-		if (j == pattern.length) return true;
+		
+		if (j == pattern.length) {
+			System.out.println(i-j);
+			return true;
+		}
 		return false;
 	}
 
 	public static void main(String args[]) {
-		boolean result = KMP("abcxabcdabcdabcy".toCharArray(), "abcdabcy".toCharArray());
-		System.out.print(result);
+		System.out.print(KMP("abcxabcdabcdabcy".toCharArray(), "abcdabcy".toCharArray()));
+		System.out.println();
+		System.out.print(KMP("abcdabcyabcxabcd".toCharArray(), "abcdabcy".toCharArray()));
 	}
 }
