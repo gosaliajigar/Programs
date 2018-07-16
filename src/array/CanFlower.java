@@ -30,9 +30,9 @@ public class CanFlower {
 						&& (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
 					flowerbed[i] = 1;
 					count++;
+					if (count >= n) return true;
 				}
 			}
-			if (count >= n) return true;
 		}
 		return count >= n;
 	}

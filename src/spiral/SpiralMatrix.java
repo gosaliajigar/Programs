@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Print matrix in spiral format.
+ * 
  * @author Jigar Gosalia
  *
  */

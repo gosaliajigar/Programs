@@ -13,35 +13,22 @@ import java.util.Set;
  */
 public class Duplicates {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		String[] withDuplicates = new String[] { "one", "two", "three", "one", "two" };
 		String[] withoutDuplicates = new String[] { "one", "two", "three" };
 
-		System.out
-				.println("W duplicates using brute force        : "	+ bruteforce(withDuplicates));
-		System.out
-				.println("W/O duplicates using brute force      : " + bruteforce(withoutDuplicates));
+		System.out.println("W duplicates using brute force        : "	+ bruteforce(withDuplicates));
+		System.out.println("W/O duplicates using brute force      : " + bruteforce(withoutDuplicates));
 
-		System.out
-				.println("W duplicates using Set and List       : " + usingSet(withDuplicates));
-		System.out
-				.println("W/O duplicates using Set and List     : " + usingSet(withoutDuplicates));
+		System.out.println("W duplicates using Set and List       : " + usingSet(withDuplicates));
+		System.out.println("W/O duplicates using Set and List     : " + usingSet(withoutDuplicates));
 
-		System.out
-				.println("W duplicates using Set and List       : " + usingSetNList(withDuplicates));
-		System.out
-				.println("W/O duplicates using Set and List     : " + usingSetNList(withoutDuplicates));
+		System.out.println("W duplicates using Set and List       : " + usingSetNList(withDuplicates));
+		System.out.println("W/O duplicates using Set and List     : " + usingSetNList(withoutDuplicates));
 
-		System.out
-				.println("Find duplicate value W duplicate      : " + findDuplicate(withDuplicates));
-		System.out
-				.println("Find duplicate value W/O duplicate    : " + findDuplicate(withoutDuplicates));
-		System.out
-				.println("Find All duplicate values W duplicate : " + findAllDuplicate(withDuplicates));
-
+		System.out.println("Find duplicate value W duplicate      : " + findDuplicate(withDuplicates));
+		System.out.println("Find duplicate value W/O duplicate    : " + findDuplicate(withoutDuplicates));
+		System.out.println("Find All duplicate values W duplicate : " + findAllDuplicate(withDuplicates));
 	}
 
 	/**

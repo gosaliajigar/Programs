@@ -11,9 +11,6 @@ import java.util.Scanner;
  */
 public class FibonacciNthElement {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		int number = -1;
 		Scanner scanner = new Scanner(System.in);

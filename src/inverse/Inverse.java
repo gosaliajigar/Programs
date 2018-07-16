@@ -21,8 +21,7 @@ public class Inverse {
 
 	private static int bin2dec(String binary) {
 		int decimal = 0;
-		if (binary != null
-				&& binary.length() > 0) {
+		if (binary != null && binary.length() > 0) {
 			StringBuilder value = new StringBuilder(binary);
 			String reverse = value.reverse().toString();
 			for (int index = 0; index < reverse.length(); index++) {

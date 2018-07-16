@@ -23,7 +23,7 @@ public class OuterClass {
 	public int getPrivateField() { return oprivate; }
 
 	/**
-	 * static nested class can access OuterClass static variables/methods
+	 * static nested class can access OuterClass static variables/methods ONLY
 	 */
 	static class StaticNestedClass {
 		private int staticNestedClassPrivateField;
@@ -43,7 +43,7 @@ public class OuterClass {
 	}
 
 	/**
-	 * Non-static Inner class can access all the variables/methods of outer class
+	 * Non-static Inner class can access all static and instance variables/methods of outer class
 	 */
 	class NonStaticInnerClass {
 		private int w;
@@ -76,7 +76,7 @@ public class OuterClass {
 	public void print(final String initial) {
 		/**
 		 * local inner class inside the method
-		 * local Inner class has access to OuterClass fields
+		 * local Inner class has access to OuterClass static and instance fields
 		 */
 		class Logger {
 			String name;
@@ -104,7 +104,7 @@ public class OuterClass {
 	 */
 	public void getHello(final String string) {
 		// anonymous inner class implementing AnonymousInterface
-		// Anonymous class accessing OuterClass fields
+		// Anonymous class accessing OuterClass static and instance fields
 		(new AnonymousInterface() {
 			@Override
 			public String print(final String string) {

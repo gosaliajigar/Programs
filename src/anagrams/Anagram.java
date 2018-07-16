@@ -47,40 +47,27 @@ public class Anagram {
 		int max = ((one.length() >= two.length()) ? one.length() : two.length());
 		for (int index = 0; index < max; index++) {
 			if (index < one.length()) {
-				insert(oneMap, one.charAt(index));
-				finalMap.put(one.charAt(index), 0);
+				char c = one.charAt(index);
+				if (!oneMap.containsKey(c)) oneMap.put(c, 1);
+				oneMap.put(c, oneMap.get(c) + 1);				
+				finalMap.put(c, 0);
 			}
 			if (index < two.length()) {
-				insert(twoMap, two.charAt(index));
-				finalMap.put(two.charAt(index), 0);
+				char c = two.charAt(index);
+				if (!twoMap.containsKey(c)) twoMap.put(c, 1);
+				twoMap.put(c, twoMap.get(c) + 1);				
+				finalMap.put(c, 0);
 			}
 		}
-
 		System.out.println("Character Count : " + oneMap);
 		System.out.println("Character Count : " + twoMap);
 		System.out.println("All characters  : " + finalMap);
 		for (Character character : finalMap.keySet()) {
-			int delta = 0;
-			int oneCount = ((oneMap.get(character) != null) ? oneMap
-					.get(character) : 0); 
-			int twoCount = ((twoMap.get(character) != null) ? twoMap.get(character)
-					: 0); 
-			delta = oneCount - twoCount;
-			finalMap.put(character, Math.abs(delta));
+			int oneCount = ((oneMap.get(character) != null) ? oneMap.get(character) : 0); 
+			int twoCount = ((twoMap.get(character) != null) ? twoMap.get(character) : 0); 
+			finalMap.put(character, Math.abs(oneCount - twoCount));
 		}
 		return finalMap;
-	}
-
-	/**
-	 * Prepare map with no of counts for each character in string
-	 * 
-	 * @param map
-	 * @param character
-	 */
-	public static void insert(Map<Character, Integer> map, Character character) {
-		if (!map.containsKey(character)) { map.put(character, 1);
-		} else { map.put(character, map.get(character) + 1);
-		}
 	}
 
 	/**

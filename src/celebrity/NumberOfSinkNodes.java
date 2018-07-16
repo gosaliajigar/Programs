@@ -10,11 +10,6 @@ package celebrity;
  *
  */
 public class NumberOfSinkNodes {
-
-	public static void main(String[] args) {
-		
-	}
-
 	public static int sinkNodes(int nodesCount, int[][] edges) {
 		int[] nodes = new int[nodesCount];
 		int count = 0;

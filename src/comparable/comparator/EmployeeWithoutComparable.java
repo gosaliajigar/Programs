@@ -30,14 +30,7 @@ public class EmployeeWithoutComparable {
 		this.age = age;
 		this.salary = salary;
 	}
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#toString()
-	 *
-	 * This is required to print the user friendly information about the
-	 * Employee
-	 */
+
 	@Override
 	public String toString() { return "[id=" + id + ", name=" + name + ", age=" + age + ", salary=" + salary + "]"; }
 }

@@ -29,6 +29,7 @@ class Car implements Serializable {
 	private transient boolean isAutomatic;
 
 	// non-serializable field
+	// if instantiated then throws java.io.NotSerializableException
 	Thread thread;
 
 	public Car(String make, boolean isCoupe, int id, int price, String color, boolean isAutomatic) {

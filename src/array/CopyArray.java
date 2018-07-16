@@ -12,10 +12,6 @@ import java.util.Arrays;
  *
  */
 public class CopyArray {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		char[] charArray = { 'a', 'b', 'c', 'd' };
 		char[] systemArrayCopy = { 'e', 'f', 'g', 'h' };
@@ -47,7 +43,7 @@ public class CopyArray {
 		System.out.println("arraysCopyOf Address    : " + arraysCopyOf);
 
 		System.out.println();
-		// Object.clone creates copy of source array
+		// Object.clone creates shallow copy of source array
 		System.out.println("Using Object.clone");
 		System.out.println("-------------------");
 		cloneCharArray = charArray.clone();

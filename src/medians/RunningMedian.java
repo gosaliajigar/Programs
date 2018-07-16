@@ -35,6 +35,6 @@ public class RunningMedian {
 		if (maxHeap.size() < minHeap.size()) maxHeap.offer(minHeap.poll());
 		return (maxHeap.size() == minHeap.size()) 
 				? (maxHeap.peek()+minHeap.peek())/2.0 
-						: maxHeap.peek();
+				: maxHeap.peek();
 	}
 }

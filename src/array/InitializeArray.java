@@ -9,10 +9,6 @@ import java.util.Arrays;
  *
  */
 public class InitializeArray {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		// Initialize with values
 		char[] charArray = { 'a', 'b', 'c', 'd' };

@@ -24,11 +24,6 @@ public class CloneableClass implements Cloneable {
 	public CompositeClass getCompositeClass() { return compositeClass; }
 	public void setCompositeClass(final CompositeClass compositeClass) { this.compositeClass = compositeClass; }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
 	public CloneableClass clone() throws CloneNotSupportedException { return new CloneableClass(); }
 	public CloneableClass() { this.compositeClass = new CompositeClass(); }

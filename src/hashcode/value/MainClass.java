@@ -8,9 +8,6 @@ package hashcode.value;
  */
 public class MainClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		MainClass mainClass = new MainClass();
 		// Prints hashcode.value.MainClass + @ +

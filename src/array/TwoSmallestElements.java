@@ -18,17 +18,16 @@ public class TwoSmallestElements {
 			} else if (a.length == 2) {
 				System.out.println(a[0] < a[1] ? (a[0] + " " + a[1]) : (a[1] + " " + a[0]));
 			} else {
-				int min = Math.min(a[0], a[1]);
-				int secondLastMin = Math.max(a[0], a[1]);
+				int min = Math.min(a[0], a[1]), smin = Math.max(a[0], a[1]);
 				for (int i = 2; i < a.length; i++) {
 					if (a[i] < min) {
-						secondLastMin = min;
+						smin = min;
 						min = a[i];
-					} else if (a[i] < secondLastMin && min != a[i]){
-						secondLastMin = a[i];
+					} else if (a[i] < smin && min != a[i]){
+						smin = a[i];
 					}
 				}
-				System.out.println(min + " " + secondLastMin);
+				System.out.println(min + " " + smin);
 			}
 		}
 	}

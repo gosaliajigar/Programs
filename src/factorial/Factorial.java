@@ -28,10 +28,7 @@ public class Factorial {
 		System.out.println("Time Taken by non-recursion      : " + (end - start));
 	}
 
-	/**
-	 * @param n
-	 * @return
-	 */
+	// O(n)
 	public static int factorialNonRecursive(int n) {
 		int factorial = 1;
 		while (n > 1) {
@@ -41,10 +38,7 @@ public class Factorial {
 		return factorial;
 	}
 
-	/**
-	 * @param n
-	 * @return
-	 */
+	// O(n)
 	public static int factorialRecursive(final int n) {
 		return ((n == 0) ? 1 : (n * factorialRecursive(n - 1)));
 	}
