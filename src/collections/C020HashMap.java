@@ -52,7 +52,6 @@ import java.util.Map;
  *
  */
 public class C020HashMap {
-
 	public static void main(String[] args) {
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 		m.put(2, 200); m.put(3, 300); m.put(4, 400);

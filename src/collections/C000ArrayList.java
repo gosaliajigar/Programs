@@ -14,19 +14,16 @@ import java.util.ListIterator;
  * ArrayList(), ArrayList(collection), ArrayList(capacity)<br>
  * <br>
  * add(e), add(i, e), addAll(collection), addAll(i, collection) <br>
- * clear(), clone()<br> 
+ * get(i) set(i, e) <br>
  * contains(o), containsAll(collection)<br>
- * forEach(Consumer)<br>
- * get(i)<br>
- * indexOf(o)<br>
- * isEmpty(), size()<br>
- * iterator() <br>
- * lastIndexOf(o)<br>
- * listIterator(), listIterator(i)<br>
  * remove(i), remove(o), removeAll(collection), removeIf(Predicate) <br>
  * replaceAll(UnaryOperator) <br>
  * retainAll(collection)<br>
- * set(i, e) <br>
+ * forEach(Consumer)<br>
+ * indexOf(o) lastIndexOf(o)<br>
+ * isEmpty(), size()<br>
+ * clear(), clone()<br> 
+ * iterator() listIterator(), listIterator(i)<br>
  * sort(comparator) <br>
  * subList(start, end) <br>
  * toArray() toArray(T[]) <br>

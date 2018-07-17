@@ -59,6 +59,7 @@ public class C031PriorityBlockingQueue {
 		        	// blocking call
 		            Integer poll = queue.take();
 		            System.out.println("Polled: " + poll);
+		            TimeUnit.SECONDS.sleep(2);
 		        } 
 		        catch (InterruptedException e) { 
 		            e.printStackTrace();
@@ -68,8 +69,13 @@ public class C031PriorityBlockingQueue {
 		System.out.println("Adding to queue ... ");
 		TimeUnit.SECONDS.sleep(5);
 		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));
-		TimeUnit.SECONDS.sleep(2);
+		TimeUnit.SECONDS.sleep(20);
 		System.out.println("Processed!!");
+		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));
+		// have to add exit else blocking call take() will
+		// wait for ever for data from queue.
+		// below statement will make program to exit even before 
+		// queue is able to read the whole queue.
 		System.exit(1);
 	}
 }

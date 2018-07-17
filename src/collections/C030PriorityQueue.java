@@ -10,8 +10,7 @@ import java.util.PriorityQueue;
  * interface in Java.<br>
  * <br>
  * 
- * Iterator returned by PriorityQueue doesn't offer any ordering traversal
- * guarantee.<br>
+ * Iterator returned by PriorityQueue doesn't offer any ordering traversal guarantee.<br>
  * <br>
  * <br>
  * 
@@ -21,7 +20,6 @@ import java.util.PriorityQueue;
  * Remove 		remove() 				poll() <br>
  * Examine 		element() 				peek() <br>
  * <br>
- * 
  * 
  * Source:
  * https://javarevisited.blogspot.com/2013/10/what-is-priorityqueue-data-structure-java-example-tutorial.html <br>
@@ -33,7 +31,6 @@ import java.util.PriorityQueue;
  *
  */
 public class C030PriorityQueue {
-
 	public static void main(String args[]) {
 		// [0-9] [A-Z] [a-z]
 		PriorityQueue<Item> items = new PriorityQueue<Item>();
@@ -53,25 +50,16 @@ public class C030PriorityQueue {
 
 		items.offer(new Item("Pixel", 300));
 
-		System.out.println(items.poll() + " : " + items);
-		System.out.println();
-
-		System.out.println(items.poll() + " : " + items);
-		System.out.println();
-
-		System.out.println(items.poll() + " : " + items);
-		System.out.println();
-
-		System.out.println(items.poll() + " : " + items);
-		System.out.println();
+		while (!items.isEmpty()) {
+			System.out.println(items.poll() + " : " + items);
+			System.out.println();
+		}
 	}
 }
 
 class Item implements Comparable<Item> {
-
 	private String name;
 	private int price;
-
 	public Item(String name, int price) {
 		this.name = name;
 		this.price = price;

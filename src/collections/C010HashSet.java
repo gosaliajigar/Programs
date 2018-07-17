@@ -15,9 +15,10 @@ import java.util.Set;
  * 
  * Whenever you insert an element into HashSet using add() method, it actually
  * creates an entry in the internally backing HashMap object with element you
- * have specified as it’s key and constant called “PRESENT” as it’s value.
+ * have specified as it’s key and constant Object called “PRESENT” as it’s value.
  * <br><br>
- * 
+ * private static final Object PRESENT = new Object(); <br>
+ * <br>
  * You can notice that, add() method of HashSet class internally calls put()
  * method of backing HashMap object by passing the element you have specified as
  * a key and constant “PRESENT” as it’s value.
@@ -25,13 +26,13 @@ import java.util.Set;
  * 
  * HashSet(), HashSet(collection), HashSet(capacity)<br>
  * <br>
- * add(e), addAll(collection), addAll(i, collection) <br>
+ * add(e), addAll(collection) <br>
  * clear(), clone()<br>
  * contains(o), containsAll(collection)<br>
  * forEach(Consumer)<br>
  * isEmpty(), size()<br>
  * iterator() <br>
- * remove(i), remove(o), removeAll(collection), removeIf(Predicate) <br>
+ * remove(o), removeAll(collection), removeIf(Predicate) <br>
  * retainAll(collection)<br>
  * toArray() toArray(T[]) <br>
  * <br>
@@ -70,7 +71,7 @@ public class C010HashSet {
 		System.out.println();
 
 		// remove, removeAll
-		a.remove(5); // index 5
+		a.remove(5); // object and not index
 		System.out.println(a + " - " + b);
 		a.removeAll(b); // remove all elements that match with b
 		System.out.println(a);

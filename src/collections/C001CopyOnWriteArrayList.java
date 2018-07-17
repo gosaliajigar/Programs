@@ -43,21 +43,19 @@ public class C001CopyOnWriteArrayList {
 		// Create an array to store Task objects.
 		Task[] tasks = new Task[NUM_OF_THREADS+1];
 		for (int i = 1; i <= NUM_OF_THREADS; i++)
-			tasks[i] = new Task("Thread-" + i, false);
+			tasks[i] = new Task("Thread-" + i);
 
 		// Print original context "for" internally uses an iterator
 		Task.getNames().forEach(x -> System.out.printf("%s ", x));
 		System.out.println(); System.out.println();
 
 		// Execute Thread
-		tasks[1].setGoToSleep(true);
 		service.submit(tasks[1]);
 
 		// Costly operation - A new copy of the collection is created
 		Task.getNames().addIfAbsent("Oliver");
 
 		// Execute Thread
-		tasks[2].setGoToSleep(true);
 		service.submit(tasks[2]);
 
 		// Costly operation - A new copy of the collection is created
@@ -78,47 +76,32 @@ public class C001CopyOnWriteArrayList {
 				break;
 			}
 		}
-
 		// Shutdown ExecutionService
 		service.shutdown();
 	}
 }
 
 class Task implements Runnable {
-	private static final CopyOnWriteArrayList<String> names = new CopyOnWriteArrayList<>(
+	private static final CopyOnWriteArrayList<String> names = new CopyOnWriteArrayList<String>(
 			new String[] { "Peter", "Bruce", "Clark", "Barry", "Lex" });
 	private String tName;
-	private boolean goToSleep;
 
-	public Task(String name, boolean goToSleep) {
-		this.tName = name;
-		this.goToSleep = goToSleep;
-	}
+	public Task(String name) { this.tName = name; }
 
-	public static CopyOnWriteArrayList<String> getNames() {
-		return names;
-	}
-
-	public void setGoToSleep(boolean goToSleep) {
-		this.goToSleep = goToSleep;
-	}
+	public static CopyOnWriteArrayList<String> getNames() { return names; }
 
 	@Override
 	public void run() {
 		Iterator<String> it = names.iterator();
-		if (this.goToSleep) {
-			try {
-				System.out.println(this.tName + " sleeping...");
-				TimeUnit.SECONDS.sleep(3);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println(this.tName + " executing...");
+		try {
+			System.out.println(this.tName + " sleeping...");
+			names.add("NEW" + this.tName.charAt(this.tName.length()-1));
+			TimeUnit.SECONDS.sleep(3);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-
+		System.out.println(this.tName + " executing...");
 		while (it.hasNext()) System.out.printf(this.tName + "-" + it.next() + " ");
-
-		System.out.println();
+		System.out.println("\n");
 	}
 }

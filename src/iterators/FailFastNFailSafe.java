@@ -9,18 +9,17 @@ package iterators;
  * <br>
  * Difference between Fail Fast iterator and Fail Safe iterator? Fail fast
  * iterator while iterating through the collection , instantly throws Concurrent
- * Modification Exception if there is structural modification of the collection
- * . Thus, in the face of concurrent modification, the iterator fails quickly
+ * Modification Exception if there is structural modification of the collection.
+ * Thus, in the face of concurrent modification, the iterator fails quickly
  * and cleanly, rather than risking arbitrary, non-deterministic behavior at an
  * undetermined time in the future.<br>
  * <br>
- * Fail-fast iterator can throw ConcurrentModificationException in two
- * scenarios:<br>
+ * Fail-fast iterator can throw ConcurrentModificationException in two scenarios:<br>
  * <br>
- * Single Threaded Environment After the creation of the iterator , structure is
+ * Single Threaded Environment   : After the creation of the iterator, structure is
  * modified at any time by any method other than iterator's own remove method.
  * <br>
- * Multiple Threaded Environment If one thread is modifying the structure of the
+ * Multiple Threaded Environment : If one thread is modifying the structure of the
  * collection while other thread is iterating over it.<br>
  * <br>
  * 
@@ -44,10 +43,10 @@ package iterators;
  * <br>
  * 
  * Fail Safe Iterator : Fail Safe Iterator makes copy of the internal data
- * structure (object array) and iterates over the copied data structure.Any
+ * structure (object array) and iterates over the copied data structure. Any
  * structural modification done to the iterator affects the copied data
- * structure. So , original data structure remains structurally unchanged .Hence
- * , no ConcurrentModificationException throws by the fail safe iterator. <br>
+ * structure. So, original data structure remains structurally unchanged. Hence
+ * , no ConcurrentModificationException thrown by the fail safe iterator. <br>
  * Two issues associated with Fail Safe Iterator are :<br>
  * <br>
  * 1. Overhead of maintaining the copied data structure i.e memory.<br>
@@ -74,6 +73,4 @@ package iterators;
  * @author Jigar Gosalia
  *
  */
-public class FailFastNFailSafe {
-
-}
+public class FailFastNFailSafe {}

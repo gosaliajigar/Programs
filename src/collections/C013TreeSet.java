@@ -55,10 +55,11 @@ import java.util.stream.IntStream;
  *
  */
 public class C013TreeSet {
-
 	public static void main(String[] args) {
 		Set<Integer> t = new TreeSet<Integer>(IntStream.rangeClosed(1, 49).boxed().collect(Collectors.toSet()));
 		t.removeIf(x -> x % 2 == 0);
+
+		// 41 is present in TreeSet
 
 		// floor ceiling lower higher
 		// 41 - 41
@@ -69,33 +70,32 @@ public class C013TreeSet {
 		System.out.println(((TreeSet<Integer>) t).lower(41) + " - " + ((TreeSet<Integer>) t).higher(41));
 		System.out.println();
 
-		// first-last 1-49
+		// first-last 1-49 (read-only)
 		System.out.println(((TreeSet<Integer>) t).first() + " - " + ((TreeSet<Integer>) t).last());
 		System.out.println(t);
 		System.out.println();
 
-		// pollFirst pollLast
+		// pollFirst pollLast 1-49 (removes elements)
 		System.out.println(((TreeSet<Integer>) t).pollFirst() + " - " + ((TreeSet<Integer>) t).pollLast());
 		System.out.println(t);
 		System.out.println();
 
-		/// subSet
-		// [9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
+		/// subSet [9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]
 		System.out.println(((TreeSet<Integer>) t).subSet(9, 31));
 		// [11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
 		System.out.println(((TreeSet<Integer>) t).subSet(9, false, 31, true));
 		System.out.println();
 
-		// headSet
-		// [3, 5, 7, 9]
+		// headSet [3, 5, 7, 9]
 		System.out.println(((TreeSet<Integer>) t).headSet(11));
 		// [3, 5, 7, 9, 11]
 		System.out.println(((TreeSet<Integer>) t).headSet(11, true));
 		System.out.println();
 
-		// tailSet
-		// [41, 43, 45, 47]
+		// tailSet [41, 43, 45, 47]
 		System.out.println(((TreeSet<Integer>) t).tailSet(41));
+		System.out.println();
+		
 		// [43, 45, 47]
 		System.out.println(((TreeSet<Integer>) t).tailSet(41, false));
 		System.out.println();

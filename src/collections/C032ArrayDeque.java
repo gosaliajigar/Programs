@@ -10,7 +10,6 @@ import java.util.Deque;
  * This class is likely to be faster than Stack when used as a stack, and faster
  * than LinkedList when used as a queue.
  * 
- * 
  * Resizable-array implementation of the Deque interface. Array deques have no
  * capacity restrictions; they grow as necessary to support usage. They are not
  * thread-safe; in the absence of external synchronization, they do not support

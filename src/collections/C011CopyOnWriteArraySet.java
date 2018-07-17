@@ -48,14 +48,14 @@ public class C011CopyOnWriteArraySet {
 		ForumTopics.printTopics();
 
 		// Costly operation - A new copy of the collection is created each time
-		timeline[0].setOperation(ForumTopics.Operation.REMOVE);
+		timeline[0].operation = ForumTopics.Operation.REMOVE;
 		executorService.submit(timeline[0]);
 
 		// Print Topics
 		ForumTopics.printTopics();
 
 		// Try to remove an Topic using the iterator
-		Iterator<Topic> it = ForumTopics.getTopics().iterator();
+		Iterator<Topic> it = ForumTopics.topics.iterator();
 		try {
 			it.remove();
 		} catch (UnsupportedOperationException uoe) {
@@ -67,27 +67,11 @@ public class C011CopyOnWriteArraySet {
 }
 
 class Topic {
-	private String title;
-	private String description;
+	public String title;
+	public String description;
 
 	public Topic(String title, String description) {
 		this.title = title;
-		this.description = description;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -102,23 +86,16 @@ class Topic {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
 		Topic other = (Topic) obj;
 		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
+			if (other.description != null) return false;
+		} else if (!description.equals(other.description)) return false;
 		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
+			if (other.title != null) return false;
+		} else if (!title.equals(other.title)) return false;
 		return true;
 	}
 
@@ -129,22 +106,15 @@ class Topic {
 }
 
 class ForumTopics implements Runnable {
-	public static enum Operation {
-		ADD, REMOVE
-	}
-
-	private Topic topic;
-	private Operation operation;
-	private static final CopyOnWriteArraySet<Topic> topics = new CopyOnWriteArraySet<Topic>();
+	public static enum Operation { ADD, REMOVE }
+	public Topic topic;
+	public Operation operation;
+	public static final CopyOnWriteArraySet<Topic> topics = new CopyOnWriteArraySet<Topic>();
 
 	public ForumTopics(Topic topic, Operation operation) {
 		this.topic = topic;
 		this.operation = operation;
 	}
-
-	public void addTopic(Topic topic) { topics.add(topic); }
-
-	public void removeTopic(Topic topic) { topics.remove(topic); }
 
 	public static void printTopics() {
 		try {
@@ -159,34 +129,14 @@ class ForumTopics implements Runnable {
 		}
 	}
 
-	public Topic getTopic() {
-		return topic;
-	}
-
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
-
-	public Operation getOperation() {
-		return operation;
-	}
-
-	public void setOperation(Operation operation) {
-		this.operation = operation;
-	}
-
-	public static CopyOnWriteArraySet<Topic> getTopics() {
-		return topics;
-	}
-
 	@Override
 	public void run() {
 		switch (this.operation) {
 		case ADD:
-			this.addTopic(this.topic);
+			ForumTopics.topics.add(this.topic);
 			break;
 		case REMOVE:
-			this.removeTopic(this.topic);
+			ForumTopics.topics.remove(this.topic);
 			break;
 		}
 	}

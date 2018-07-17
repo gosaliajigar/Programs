@@ -48,55 +48,59 @@ public class C023TreeMap {
 		map.put(7, 700);
 		map.put(5, 500);
 		map.put(3, 300);
+		// {3=300, 5=500, 7=700, 9=900}
 		System.out.println(map);
 		System.out.println();
 
-		// descendingKeySet
+		// descendingKeySet [9, 7, 5, 3]
 		System.out.println(map.descendingKeySet());
 		System.out.println();
 
-		// descendingMap
+		// descendingMap {9=900, 7=700, 5=500, 3=300}
 		System.out.println(map.descendingMap());
 		System.out.println();
 
-		// ceilingEntry ceilingKey
+		// ceilingEntry ceilingKey 5=500 : 5
 		System.out.println(map + " : " + map.ceilingEntry(5) + " : " + map.ceilingKey(5));
 		System.out.println();
 		
-		// floorEntry floorKey
+		// floorEntry floorKey 5=500 : 5
 		System.out.println(map + " : " + map.floorEntry(5) + " : " + map.floorKey(5));
 		System.out.println();
 		
-		// lowerEntry lowerKey
+		// lowerEntry lowerKey 3=300 : 3
 		System.out.println(map + " : " + map.lowerEntry(5) + " : " + map.lowerKey(5));
 		System.out.println();
 
-		// higherEntry higherKey
+		// higherEntry higherKey 7=700 : 7
 		System.out.println(map + " : " + map.higherEntry(5) + " : " + map.higherKey(5));
 		System.out.println();
 
-		// firstEntry firstKey
+		// firstEntry firstKey 3=300 : 3
 		System.out.println(map + " : " + map.firstEntry() + " : " + map.firstKey());
 		System.out.println();
 
-		// lastEntry lastKey
+		// lastEntry lastKey 9=900 : 9
 		System.out.println(map + " : " + map.lastEntry() + " : " + map.lastKey());
 		System.out.println();
 		
-		// subMap
+		// subMap {3=300, 5=500} - {5=500, 7=700}
 		System.out.println(map + " - " + map.subMap(3, 6) + " - " + map.subMap(3, false, 9, false));
 		System.out.println();
 
-		// headMap
+		// headMap {3=300, 5=500} - {3=300, 5=500, 7=700}
 		System.out.println(map + " - " + map.headMap(7) + " - " + map.headMap(7, true));
 		System.out.println();
 		
-		// tailMap
+		// tailMap {7=700, 9=900} - {9=900}
 		System.out.println(map + " - " + map.tailMap(7) + " - " + map.tailMap(7, false));
 		System.out.println();
 
-		// pollFirstEntry pollLastEntry
+		// pollFirstEntry pollLastEntry 3=300 : 9=900
 		System.out.println(map + " : " + map.pollFirstEntry() + " : " + map.pollLastEntry());
+		System.out.println();
+		
+		// {5=500, 7=700}
 		System.out.println(map);
 		System.out.println();
 	}

@@ -8,8 +8,9 @@ import java.util.Set;
 
 /**
  * LinkedHashSet is an extended version of HashSet. HashSet doesn't follow any
- * order where as LinkedHashSet maintains insertion order. HashSet uses HashMap
- * object internally to store its elements where as LinkedHashSet uses
+ * order where as LinkedHashSet maintains insertion order.<br> 
+ * <br>
+ * HashSet uses HashMap object internally to store its elements where as LinkedHashSet uses
  * LinkedHashMap object internally to store and process its elements. <br>
  * <br>
  * LinkedHashSet uses LinkedHashMap object to store its elements. The elements
@@ -22,8 +23,7 @@ import java.util.Set;
  * fields make LinkedHashMap to function as a doubly linked list. <br>
  * <br>
  * The first two fields of above inner class of LinkedHashMap (before and after)
- * are responsible for maintaining the insertion order of the LinkedHashSet..
- * <br>
+ * are responsible for maintaining the insertion order of the LinkedHashSet.<br>
  * <br>
  * In LinkedHashMap, the same set of Entry objects (rather references to Entry
  * objects) are arranged in two different manner. One is the HashMap and another
@@ -33,13 +33,13 @@ import java.util.Set;
  * 
  * LinkedHashSet(), LinkedHashSet(collection), LinkedHashSet(capacity)<br>
  * <br>
- * add(e), addAll(collection), addAll(i, collection) <br>
+ * add(e), addAll(collection) <br>
  * clear(), clone()<br>
  * contains(o), containsAll(collection)<br>
  * forEach(Consumer)<br>
  * isEmpty(), size()<br>
  * iterator() <br>
- * remove(i), remove(o), removeAll(collection), removeIf(Predicate) <br>
+ * remove(o), removeAll(collection), removeIf(Predicate) <br>
  * retainAll(collection)<br>
  * toArray() toArray(T[]) <br>
  * <br>
@@ -81,7 +81,7 @@ public class C012LinkedHashSet {
 		System.out.println();
 
 		// remove, removeAll
-		a.remove(5); // index 5
+		a.remove(5); // object and not index
 		System.out.println(a + " - " + b);
 		a.removeAll(b); // remove all elements that match with b
 		System.out.println(a);

@@ -10,8 +10,9 @@ import java.util.ListIterator;
 import java.util.Queue;
 
 /**
- * LinkedList class in Java implements List and Deque interfaces and LinkedList
- * implements it using doubly linked list.<br>
+ * LinkedList class in Java implements List and Deque interfaces.<br>
+ * <br>
+ * LinkedList implements it using doubly linked list.<br>
  * <br>
  * In the implementation of the LinkedList class in Java there is a private
  * class Node which provides the structure for a node in a doubly linked list.
@@ -20,8 +21,7 @@ import java.util.Queue;
  * <br>
  * LinkedList(), LinkedList(collection)<br>
  * <br>
- * add(e), add(i, e), addFirst(e), addLast(e), addAll(collection), addAll(i,
- * collection) <br>
+ * add(e), add(i, e), addFirst(e), addLast(e), addAll(collection), addAll(i,collection) <br>
  * clear(), clone()<br>
  * contains(o), containsAll(collection)<br>
  * descendingIterator()<br>

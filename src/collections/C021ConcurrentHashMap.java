@@ -27,6 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class C021ConcurrentHashMap {
 
 	public static void main(String[] args) throws Exception {
+		// itr has no elements when it was initialized
 		Iterator<Map.Entry<Integer, String>> itr = HashMapThread.map.entrySet().iterator();
 
 		new Thread(new HashMapThread(100, "A")).start();
@@ -44,7 +45,9 @@ public class C021ConcurrentHashMap {
 		// hence itr has no next elements even though map has elements.
 		System.out.println(itr.hasNext() + " : " + HashMapThread.map.size());
 		while (itr.hasNext()) {
-			itr.next();
+			// below is never executed
+			Map.Entry<Integer, String> entry = itr.next();
+			System.out.println("Removing " + entry.getKey() + "-" + entry.getValue());
 			itr.remove();
 		}
 		System.out.println(HashMapThread.map);
