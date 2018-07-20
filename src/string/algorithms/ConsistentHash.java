@@ -1,4 +1,4 @@
-package algorithms;
+package string.algorithms;
 
 import java.util.Collection;
 import java.util.SortedMap;

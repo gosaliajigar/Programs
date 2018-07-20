@@ -1,4 +1,4 @@
-package algorithms;
+package string.algorithms;
 
 /**
  * Do pattern matching using KMP algorithm (Knuth–Morris–Pratt)
@@ -17,7 +17,7 @@ public class KMPSubstringSearch {
 	 */
 	private static int[] computeTemporaryArray(char pattern[]) {
 		int[] lps = new int[pattern.length];
-		int i = 0, j = 1; 
+		int i = 0, j = 1;
 		while (j < pattern.length) {
 			if (pattern[j] == pattern[i]) {
 				lps[j] = i+1; i++; j++;

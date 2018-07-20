@@ -3,6 +3,7 @@ package datastructure.bst;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 import pojos.BinaryNode;
 
@@ -83,6 +84,14 @@ public class BinarySearchTreeStatistics {
 		System.out.println("Is BST                 : " + isBST(mirrorRoot, Integer.MIN_VALUE, Integer.MAX_VALUE));
 		System.out.println();
 		System.out.println(distanceBetween(tree.getRoot(), tree.getRoot().right.left, tree.getRoot().right.right.right));
+		System.out.println();
+		System.out.println(noOfSibilings(tree.getRoot(), 27));
+		System.out.println(noOfSibilings(tree.getRoot(), 14));
+		System.out.println(noOfSibilings(tree.getRoot(), 10));
+		System.out.println(noOfSibilings(tree.getRoot(), 57));
+		System.out.println();
+		System.out.println(diameter(tree.getRoot()));
+		System.out.println();
 	}
 
 	public static int findHeight(BinaryNode node) {
@@ -266,5 +275,37 @@ public class BinarySearchTreeStatistics {
 		if (left == -1)
 			return findDistance(root.right, a, level + 1);
 		return left;
+	}
+
+	// Source : https://www.geeksforgeeks.org/number-siblings-given-node-n-ary-tree/
+	public static int noOfSibilings(BinaryNode root, int value) {
+		if (root == null || value < 0) return 0;
+		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+		queue.add(root);
+		while (!queue.isEmpty()) {
+			int n = queue.size();
+			for (int i=0; i<n; i++) {
+				BinaryNode curr = queue.poll();
+				if (curr.data == value) return (n-1);
+				if (curr.left != null) queue.offer(curr.left);
+				if (curr.right != null) queue.offer(curr.right);
+			}
+		}
+		return -1;
+	}
+
+	public static int diameter(BinaryNode root) {
+		if (root == null) return 0;
+		int[] max = new int[] {0};
+		int height = height(root, max);
+		return max[0];
+	}
+
+	public static int height(BinaryNode node, int[] max) {
+		if (node == null) return 0;
+		int leftHeight = height(node.left, max);
+		int rightHeight = height(node.right, max);
+		max[0] = Math.max(max[0], 1 + leftHeight + rightHeight);
+		return 1 + Math.max(leftHeight, rightHeight);
 	}
 }

@@ -1,4 +1,4 @@
-package graphs.algorithm;
+package graph.algorithms;
 
 /**
  * Vertex for Graph Traversal Algorithms
@@ -10,7 +10,6 @@ public class Vertex {
 	char label;
 	boolean visited;
 	public Vertex(char label, boolean visited) {
-		super();
 		this.label = label;
 		this.visited = visited;
 	}

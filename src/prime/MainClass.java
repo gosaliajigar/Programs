@@ -9,10 +9,6 @@ import java.util.Scanner;
  *
  */
 public class MainClass {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		System.out.print("Enter number to check if its a PRIME number: ");
 		Scanner scanner = new Scanner(System.in);
@@ -28,10 +24,6 @@ public class MainClass {
 		}
 	}
 
-	/**
-	 * @param number
-	 * @return
-	 */
 	private static boolean isPrimeHalf(int number) {
 		if (number == 0 || number == 1) return false;
 		for (int i = 2; i <= number/2; i++) {

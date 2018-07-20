@@ -6,16 +6,16 @@ package datastructure.stack;
  */
 public class MainClass {
 	public static void main(final String[] args) {
-		Stack integerStack = new Stack(10);
-		System.out.println(integerStack.toString());
-		for (int i = 0; i < integerStack.getCapacity() + 1; i++) {
+		Stack s = new Stack(10);
+		int i = 0;
+		while (!s.isFull()) {
 			System.out.println("Pushing      -> " + i + " at location (" + i + ")");
-			integerStack.push(i);
+			s.push(i++);
 		}
-		System.out.println(integerStack.toString());
-		for (int i = integerStack.getSize() - 1; i >= 0; i--) {
-			System.out.println("Popping      <- " + integerStack.pop() + " from location (" + i + ")");
+		System.out.println(s.toString());
+		i = s.getSize() - 1;
+		while (!s.isEmpty()) {
+			System.out.println("Popping      <- " + s.pop() + " from location (" + i-- + ")");
 		}
-		System.out.println(integerStack.toString());
 	}
 }

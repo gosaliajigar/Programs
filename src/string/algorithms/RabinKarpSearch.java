@@ -1,4 +1,4 @@
-package algorithms;
+package string.algorithms;
 
 /**
  * Rabin-Karp algorithm for substring matching.

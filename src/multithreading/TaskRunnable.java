@@ -8,7 +8,6 @@ public class TaskRunnable implements Runnable {
 	int sleep;
 	String name;
 	boolean goToSleep;
-
 	public TaskRunnable(String name, int sleep, boolean goToSleep) {
 		this.name = name;
 		this.sleep = sleep;

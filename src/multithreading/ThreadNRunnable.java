@@ -5,10 +5,6 @@ package multithreading;
  *
  */
 public class ThreadNRunnable {
-
-	/**
-	 * @param args
-	 */
 	public static void main(final String args[]) {
 		new ThreadDemo("Thread-1").start();
 		new ThreadDemo("Thread-2").start();
@@ -18,22 +14,12 @@ public class ThreadNRunnable {
 }
 
 class ThreadDemo extends Thread {
-
 	private String threadName;
-
-	/**
-	 * @param name
-	 */
 	public ThreadDemo(final String name) {
 		threadName = name;
 		System.out.println("Creating " + threadName);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Thread#run()
-	 */
 	@Override
 	public void run() {
 		System.out.println("  Running " + threadName);
@@ -49,22 +35,12 @@ class ThreadDemo extends Thread {
 }
 
 class RunnableDemo implements Runnable {
-
 	private String threadName;
-
-	/**
-	 * @param name
-	 */
 	public RunnableDemo(final String name) {
 		threadName = name;
 		System.out.println("Creating " + threadName);
 	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
+	
 	@Override
 	public void run() {
 		System.out.println("  Running " + threadName);

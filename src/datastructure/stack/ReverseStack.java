@@ -37,5 +37,4 @@ public class ReverseStack {
 		// stack unwinds
 		stack.push(top);
 	}
-
 }

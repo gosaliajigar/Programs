@@ -1,4 +1,4 @@
-package graphs.algorithm;
+package graph.algorithms;
 
 /**
  * @author Jigar Gosalia
@@ -23,7 +23,7 @@ public class Dijkstra {
 	//					then d[v] = d[u] + w(u, v)				==> RELAX EDGE
 	//
 	//
-	// Array 			: O(V^2)
-	// Binary Heap		: O(ElogV)
-	// Fibonacci Heap	: O(E+VlogV)
+	// Array 			: O(V^2)					: EXTRACT-MIN = V		& DECREASE-KEY = 1
+	// Binary Heap		: O(ElogV)					: EXTRACT-MIN = logV 	& DECREASE-KEY = logV
+	// Fibonacci Heap	: O(E+VlogV)				: EXTRACT-MIN = logV	& DECREASE-KEY = 1
 }

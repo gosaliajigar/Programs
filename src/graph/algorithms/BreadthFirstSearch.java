@@ -1,4 +1,4 @@
-package graphs.algorithm;
+package graph.algorithms;
 
 import java.util.LinkedList;
 import java.util.Queue;

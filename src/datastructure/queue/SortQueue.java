@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Sort Queue witout extra space O(n^2)
+ * Sort Queue without extra space O(n^2)
  *
  * Source : https://www.geeksforgeeks.org/sorting-queue-without-extra-space/
  * 

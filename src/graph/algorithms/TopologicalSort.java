@@ -1,4 +1,4 @@
-package graphs.algorithm;
+package graph.algorithms;
 
 /**
  * @author Jigar Gosalia
