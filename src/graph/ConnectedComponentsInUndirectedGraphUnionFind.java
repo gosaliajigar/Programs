@@ -1,4 +1,4 @@
-package connected;
+package graph;
 
 /**
  * Use Union-Find of disjointed sets to find connected components in an undirected graph.

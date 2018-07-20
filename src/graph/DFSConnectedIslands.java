@@ -1,10 +1,10 @@
-package connected;
+package graph;
 
 /**
  * @author Jigar Gosalia
  *
  */
-public class ConnectedIslandsDFS {
+public class DFSConnectedIslands {
 
 	// Arrays to get row and column numbers of 8 neighbors of a given cell
 	private static int rowNbr[] = new int[] { 0,  0,  1, 1, 1, -1, -1, -1 };
