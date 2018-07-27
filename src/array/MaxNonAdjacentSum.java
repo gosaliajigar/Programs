@@ -1,7 +1,5 @@
 package array;
 
-import java.util.Arrays;
-
 /**
  * Maximum sum of elements which are not adjacent.
  * 
@@ -13,8 +11,7 @@ public class MaxNonAdjacentSum {
 	private static int maxNonAdjacentSum(int[] a) {
 		// current max including previous
 		int include = a[0];
-		int exclude = 0;
-		int excludeNew = 0;
+		int exclude = 0, excludeNew = 0;
 
 		for (int i = 1; i < a.length; i++) {
 			// current max excluding i
@@ -28,9 +25,7 @@ public class MaxNonAdjacentSum {
 	}
 
 	public static void main(String[] args) {
-		int[] A = {5,  5, 10, 40, 50, 35};
-		System.out.println(Arrays.toString(A));
-		System.out.println(maxNonAdjacentSum(A));
+		System.out.println(maxNonAdjacentSum(new int[] {5, 5, 10, 40, 50, 35}));
+		System.out.println(maxNonAdjacentSum(new int[] {-5, -5, -10, -40, -50, -35}));
 	}
-
 }

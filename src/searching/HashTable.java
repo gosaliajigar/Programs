@@ -124,9 +124,6 @@ public class HashTable {
 
 	private static int hashCode(int key) { return key % SIZE; }
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) throws Exception {
 		put(1, 20);  put(2, 70);  put(42, 80); put(4, 25);
 		put(12, 44); put(14, 32); put(17, 11); put(13, 78);

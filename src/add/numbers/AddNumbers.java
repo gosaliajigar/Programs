@@ -9,7 +9,7 @@ import datastructure.linkedlist.SinglyLinkedList.Node;
  * @author "Jigar Gosalia"
  *
  */
-public class AddNumbersInSinglyLinkedList {
+public class AddNumbers {
 
 	/**
 	 * @param args

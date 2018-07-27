@@ -13,9 +13,6 @@ import java.util.Scanner;
  */
 public class SimpleDateFormatClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) throws Exception {
 		// formatter parse  string to date
 		// formatter format date   to string

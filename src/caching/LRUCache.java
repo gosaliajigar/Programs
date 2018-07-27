@@ -14,11 +14,8 @@ import java.util.Map;
 public final class LRUCache<K, V> {
 
 	private int capacity;
-
 	private Map<K, Node<K, V>> map = new HashMap<K, Node<K, V>>();
-
 	private Node<K, V> head;
-
 	private Node<K, V> tail;
 
 	public LRUCache(int capacity) { this.capacity = capacity; }
@@ -57,7 +54,6 @@ public final class LRUCache<K, V> {
 		} else {
 			head = node.getNext();
 		}
-
 		// node can be tail
 		if (node.getNext() != null) {
 			node.getNext().setPrevious(node.getPrevious());
@@ -71,11 +67,8 @@ public final class LRUCache<K, V> {
 	private void setHead(Node<K, V> node) {
 		node.setNext(head);
 		node.setPrevious(null);
-
 		if (head != null) head.setPrevious(node);
-
 		head = node;
-
 		if (tail == null) tail = head;
 	}
 }

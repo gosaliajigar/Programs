@@ -19,9 +19,6 @@ import java.util.Arrays;
  */
 public class InsertionSort {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		Integer[] intArr = { 9, 8, 7, 6, 3, 1, 2, 4, 5 };
 		insertionSort(intArr);

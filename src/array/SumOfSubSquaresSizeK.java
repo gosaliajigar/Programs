@@ -17,10 +17,8 @@ public class SumOfSubSquaresSizeK {
 	                   {2, 2, 2, 2, 2},
 	                   {3, 3, 3, 3, 3},
 	                   {4, 4, 4, 4, 4}, 
-	                   {5, 5, 5, 5, 5},
-	                  };
-	    int k = 3;
-	    printSumTricky(mat, k);
+	                   {5, 5, 5, 5, 5}};
+	    printSumTricky(mat, 3);
 	}
 	
 	// A O(n^2) function to find sum of all

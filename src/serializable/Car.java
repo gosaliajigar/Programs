@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 /**
  * Serialized POJO (Only non-static and non-transient fields are serialized)
  * 
+ * Non-Serializable Objects like thread wouldn't be serialized and would throw exception if has value (non-null).
+ * 
  * @author "Jigar Gosalia"
  *
  */

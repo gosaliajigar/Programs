@@ -28,46 +28,46 @@ public class SpiralMatrix {
 		List<Integer> spiral = new ArrayList<Integer>();
 		if (a != null && a.length > 0 && a[0].length > 0) {
 			// rows and columns
-			int rows = a.length;
-			int columns = a[0].length;
+			int m = a.length;
+			int n = a[0].length;
 
 			// row and column pointers / sliders
 			int x = 0, y = 0;
 
-			while (rows > 0 && columns > 0) {
-				if (rows == 1) {
-					for (int i = 0; i < columns; i++) {
+			while (m > 0 && n > 0) {
+				if (m == 1) {
+					for (int i = 0; i < n; i++) {
 						spiral.add(a[x][y++]);
 					}
 					break;
-				} else if (columns == 1) {
-					for (int i = 0; i < rows; i++) {
+				} else if (n == 1) {
+					for (int i = 0; i < m; i++) {
 						spiral.add(a[x++][y]);
 					}
 					break;
 				}
 				// top -> right
-				for (int i = 0; i < columns - 1; i++) {
+				for (int i = 0; i < n - 1; i++) {
 					spiral.add(a[x][y++]);
 				}
 
 				// right -> bottom
-				for (int i = 0; i < rows - 1; i++) {
+				for (int i = 0; i < m - 1; i++) {
 					spiral.add(a[x++][y]);
 				}
 
 				// bottom -> left
-				for (int i = 0; i < columns - 1; i++) {
+				for (int i = 0; i < n - 1; i++) {
 					spiral.add(a[x][y--]);
 				}
 
 				// left -> top
-				for (int i = 0; i < rows - 1; i++) {
+				for (int i = 0; i < m - 1; i++) {
 					spiral.add(a[x--][y]);
 				}
 				x++; y++;
-				rows = rows - 2;
-				columns = columns - 2;
+				m = m - 2;
+				n = n - 2;
 			}
 		}
 		return spiral;

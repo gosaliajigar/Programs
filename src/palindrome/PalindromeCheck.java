@@ -8,9 +8,6 @@ import java.util.Arrays;
  */
 public class PalindromeCheck {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		System.out.println("Checking whether the following strings are Palindrome or not ... ");
 

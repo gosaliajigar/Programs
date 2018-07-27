@@ -61,9 +61,6 @@ import java.util.Map.Entry;
  */
 public class MainClass {
 
-	/**
-	 * @param arg
-	 */
 	public static void main(final String[] arg) {
 
 		Dog d1 = new Dog("red", 1);
@@ -97,10 +94,6 @@ public class MainClass {
 		System.out.println("Size of Map     : " + map.size());
 	}
 
-	/**
-	 * @param map
-	 * @return
-	 */
 	public static String printMapUsingIterator(final Map<Dog, Integer> map) {
 		Iterator<Entry<Dog, Integer>> iterator = map.entrySet().iterator();
 
@@ -119,10 +112,6 @@ public class MainClass {
 		return prettyMapFormat.toString();
 	}
 
-	/**
-	 * @param map
-	 * @return
-	 */
 	public static String printMapUsingEntrySet(final Map<Dog, Integer> map) {
 		StringBuilder prettyMapFormat = new StringBuilder();
 		prettyMapFormat.append("Printing Map    : ");

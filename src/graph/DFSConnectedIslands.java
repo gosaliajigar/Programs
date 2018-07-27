@@ -7,8 +7,8 @@ package graph;
 public class DFSConnectedIslands {
 
 	// Arrays to get row and column numbers of 8 neighbors of a given cell
-	private static int rowNbr[] = new int[] { 0,  0,  1, 1, 1, -1, -1, -1 };
-	private static int colNbr[] = new int[] { 1, -1, -1, 0, 1, -1,  0,  1 };
+	private static int rowNbr[] = new int[] { -1, -1, -1,  0, 0,  1, 1, 1 };
+	private static int colNbr[] = new int[] { -1,  0,  1, -1, 1, -1, 0, 1 };
 
 	public static void main(String[] args) {
 		int[][] a = new int[][] {

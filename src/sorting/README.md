@@ -23,7 +23,7 @@ Q: Sorting 24,000,000 evenly distributed real numbers between 1 and 6,006?
 A: Bucket sort, the input is uniformly distributed, so Bucket sort runs in linear time.
 
 Q: Sorting an array of 32,000,000 integers between 0 and 32,000,000.
-A: Counting sort or Radix sort, both run in linear time on the bounded input
+A: Counting sort or Radix sort, both run in linear time on the bounded input.
 
 Q: Independently sorting each of 1,000,000 arrays, each with 5 elements.
 A: Insertion sort, due to the very low constant factors involved in running it on small inputs. 

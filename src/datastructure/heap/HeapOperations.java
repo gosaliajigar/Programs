@@ -27,13 +27,11 @@ public class HeapOperations {
 	 * @param location
 	 */
 	public static void maxHeapify(Heap heap, int location) {
-		int largest = 0;
+		int largest = location;
 		int left = getLeft(location);
 		int right = getRight(location);
 		if (left < heap.heapSize && heap.a[left] > heap.a[location]) {
 			largest = left;
-		} else {
-			largest = location;
 		}
 		if (right < heap.heapSize && heap.a[right] > heap.a[largest]) {
 			largest = right;

@@ -15,7 +15,7 @@ package square;
  */
 public class SquareRoot {
 
-	private static final double DELTA = 0.00001;
+	private static final double TOLERANCE = 0.00001;
 
 	public static void main(String[] args) {
 		System.out.println(squareRoot(4));
@@ -31,8 +31,8 @@ public class SquareRoot {
 	private static double sqrtRecursive(int n, double low, double high) {
 		double mid = low + ((high-low) / 2);
 		double diff = mid * mid - n;
-		if (diff > DELTA) return sqrtRecursive(n, low, mid);
-		if (-diff > DELTA) return sqrtRecursive(n, mid, high);
+		if (diff > TOLERANCE) return sqrtRecursive(n, low, mid);
+		if (-diff > TOLERANCE) return sqrtRecursive(n, mid, high);
 		return mid;
 	}
 }

@@ -9,7 +9,6 @@ package hashcode.equals;
 public class Dog {
 
 	private String color;
-
 	private int type;
 
 	public Dog(final String color, final int type) {

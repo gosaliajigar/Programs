@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Selection sort is a in-place comparison based algorithm.<br>
  * Can be stable or unstable both.
- * SOurce : https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable
+ * Source : https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable
  * <br>
  * 
  * Selection sort is a simple sorting algorithm in which the list is divided
@@ -25,17 +25,11 @@ import java.util.Arrays;
  */
 public class SelectionSort {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		Integer[] intArr = { 9, 8, 7, 6, 3, 1, 2, 4, 5, 2, 1, 2, 2, 2 };
 		selectionSort(intArr);
 	}
 
-	/**
-	 * @param a
-	 */
 	public static void selectionSort(Integer[] a) {
 		int iterations = 0;
 		// loop through all numbers

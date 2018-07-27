@@ -25,9 +25,6 @@ public class MergeSort {
 
 	private static int[] temp = new int[array.length];
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		System.out.println(Arrays.toString(array));
 		mergeSort(array);
@@ -73,9 +70,6 @@ public class MergeSort {
 		for (k = low; k <= high; k++) a[k] = temp[k];
 	}
 
-	/**
-	 * @param array
-	 */
 	private static void mergeSort(int[] array) {
 		sort(array, 0, array.length - 1);
 	}

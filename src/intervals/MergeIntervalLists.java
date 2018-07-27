@@ -40,19 +40,19 @@ public class MergeIntervalLists {
 			if (i<a.length) queue.offer(a[i++]);
 			if (j<b.length) queue.offer(b[j++]);
 		}
-		Interval interval = queue.poll();
+		Interval prev = queue.poll();
 		while (!queue.isEmpty()) {
-			Interval newInterval = queue.poll();
-			if (interval.end < newInterval.start) {
-				results.add(interval);
-				interval = newInterval;
-			} else if (interval.start > newInterval.end) {
-				results.add(newInterval);
+			Interval curr = queue.poll();
+			if (prev.end < curr.start) {
+				results.add(prev);
+				prev = curr;
+			} else if (prev.start > curr.end) {
+				results.add(curr);
 			} else {
-				interval = new Interval(interval.start, Math.max(interval.end, newInterval.end));
+				prev = new Interval(prev.start, Math.max(prev.end, curr.end));
 			}
 		}
-		results.add(interval);
+		results.add(prev);
 		return results;
 	}
 }

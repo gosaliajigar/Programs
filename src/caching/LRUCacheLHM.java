@@ -15,12 +15,10 @@ public class LRUCacheLHM<K, V> extends LinkedHashMap<K, V> {
 	private static final long serialVersionUID = 1L;
 
 	private int cacheSize;
-
 	
 	/**
 	 * true = access order
 	 * false = insertion order
-	 * 
 	 * 
 	 * @param cacheSize
 	 */

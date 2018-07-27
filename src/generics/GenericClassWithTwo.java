@@ -12,7 +12,6 @@ package generics;
 public class GenericClassWithTwo<T, E> {
 
 	private T name;
-
 	private E value;
 
 	public T getName() { return name; }
@@ -28,9 +27,6 @@ public class GenericClassWithTwo<T, E> {
 		this.setValue(value);
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		GenericClassWithTwo<String, Integer> integerClass = new GenericClassWithTwo<String, Integer>("Integer", 1);
 		System.out.println("Name-Value : " + integerClass.getName() + "-" + integerClass.getValue());

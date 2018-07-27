@@ -71,9 +71,6 @@ public class QuickSort {
 		}
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		System.out.println("Input Array  : " + Arrays.toString(array));
 		System.out.println();

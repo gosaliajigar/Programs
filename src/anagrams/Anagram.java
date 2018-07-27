@@ -18,9 +18,6 @@ import java.util.Map;
  */
 public class Anagram {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		String one = "hello";
 		String two = "billion";
@@ -63,8 +60,8 @@ public class Anagram {
 		System.out.println("Character Count : " + twoMap);
 		System.out.println("All characters  : " + finalMap);
 		for (Character character : finalMap.keySet()) {
-			int oneCount = ((oneMap.get(character) != null) ? oneMap.get(character) : 0); 
-			int twoCount = ((twoMap.get(character) != null) ? twoMap.get(character) : 0); 
+			int oneCount = oneMap.getOrDefault(character, 0); 
+			int twoCount = twoMap.getOrDefault(character, 0); 
 			finalMap.put(character, Math.abs(oneCount - twoCount));
 		}
 		return finalMap;

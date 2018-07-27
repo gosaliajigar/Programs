@@ -40,6 +40,8 @@ public class Inversions {
 			if (a[i] < a[j]) {
 				temp[k++] = a[i++];
 			} else if (a[i] > a[j]) {
+				// all remaining elements in left-sub array (a[i+1], a[i+2] … a[mid])
+				// will be greater than a[j]
 				inversions = inversions + (mid - i + 1);
 				temp[k++] = a[j++];
 			} else {

@@ -15,9 +15,6 @@ public class RotateMatrix {
 
 	private static final int SIZE = 4;
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		int[][] matrix = new int[SIZE][SIZE];
 		populate(matrix);

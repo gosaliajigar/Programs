@@ -36,7 +36,7 @@ public class MainClass {
 	private static boolean isArmstrongNumber(final int original) {
 		int number = original;
 		int result = 0;
-		while (number != 0) {
+		while (number > 0) {
 			int reminder = number % 10;
 			result = result + (reminder * reminder * reminder);
 			number = number / 10;

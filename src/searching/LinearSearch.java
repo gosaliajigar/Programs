@@ -14,12 +14,8 @@ package searching;
 public class LinearSearch {
 
 	public static int MAX_SIZE = 400;
-
 	public static int[] array = new int[MAX_SIZE];
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		populateData(array);
 		linearSearch(array, 322);
@@ -48,9 +44,6 @@ public class LinearSearch {
 		}
 	}
 
-	/**
-	 * @param array
-	 */
 	private static void populateData(int[] array) {
 		for (int index = 0; index < array.length; index++) {
 			array[index] = 2 * index;

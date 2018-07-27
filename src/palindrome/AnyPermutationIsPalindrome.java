@@ -15,11 +15,11 @@ public class AnyPermutationIsPalindrome {
 
 	public static boolean isAnyPermutationPalindrome(String s) {
 		int oddCount = 0;
-		int[] charSet = new int[26];
+		int[] a = new int[26];
 		for (char c : s.toCharArray()) {
-			charSet[c - 'a']++;
+			a[c - 'a']++;
 		}
-		for (int i : charSet) {
+		for (int i : a) {
 			if (i % 2 != 0) oddCount++;
 		}
 		return (oddCount == 0 || oddCount == 1);

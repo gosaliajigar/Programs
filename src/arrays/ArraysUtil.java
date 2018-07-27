@@ -18,7 +18,7 @@ public class ArraysUtil {
 		System.out.println(Arrays.toString(a));
 		System.out.println();
 		
-		// sort range
+		// sort range (toIndex exclusive)
 		Arrays.sort(a, 2, 7);
 		System.out.println(Arrays.toString(a));
 		System.out.println();
