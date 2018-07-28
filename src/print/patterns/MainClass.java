@@ -16,9 +16,6 @@ import java.util.Scanner;
  */
 public class MainClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter the maximum length of the pattern : ");

@@ -11,13 +11,11 @@ public class DFSConnectedIslands {
 	private static int colNbr[] = new int[] { -1,  0,  1, -1, 1, -1, 0, 1 };
 
 	public static void main(String[] args) {
-		int[][] a = new int[][] {
-									{1, 1, 0, 0, 0},
+		int[][] a = new int[][] {	{1, 1, 0, 0, 0},
 						            {0, 1, 0, 0, 1},
 						            {1, 0, 0, 1, 1},
 						            {0, 0, 0, 0, 0},
-						            {1, 0, 1, 0, 1}
-					            };
+						            {1, 0, 1, 0, 1}};
 		System.out.println(connected(a));
 	}
 
@@ -40,7 +38,6 @@ public class DFSConnectedIslands {
 	public static void dfs(int a[][], int r, int c, boolean visited[][]) {
 		// Mark this cell as visited
 		visited[r][c] = true;
-
 		// Recur for all connected neighbors
 		for (int k = 0; k < rowNbr.length; ++k)
 			if (isSafe(a, r + rowNbr[k], c + colNbr[k], visited))

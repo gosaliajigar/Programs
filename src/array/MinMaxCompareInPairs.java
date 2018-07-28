@@ -9,16 +9,16 @@ package array;
  */
 public class MinMaxCompareInPairs {
 
-	public static int min = Integer.MIN_VALUE;
+	public static int min = Integer.MAX_VALUE;
 	public static int max = Integer.MIN_VALUE;
 	public static int comparisons = 0;
 
 	public static void main(String[] args) {
 		compareInPairs(new int[] {1,2,3,4,5,1,2,3,2,3,2});
-		min = max = Integer.MIN_VALUE;
-		comparisons = 0;
+		min = Integer.MAX_VALUE; max = Integer.MIN_VALUE; comparisons = 0;
 		compareInPairs(new int[] {1,2,3,4,5,1,2,3,2,3});
 	}
+
 	public static void compareInPairs(int[] a) {
 		if (a == null || a.length == 0 || a.length == 1) return;
 		if (a.length%2 == 1) { 

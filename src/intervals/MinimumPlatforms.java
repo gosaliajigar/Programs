@@ -60,6 +60,7 @@ public class MinimumPlatforms {
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		queue.offer(departures[0]);
 		for (int i=1; i<arrivals.length; i++) {
+			// arrival time is less means it needs a new platform
 			if (queue.peek()>arrivals[i]) {
 				count++;
 			} else {
