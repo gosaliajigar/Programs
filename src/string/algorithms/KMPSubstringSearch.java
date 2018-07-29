@@ -37,18 +37,18 @@ public class KMPSubstringSearch {
 	 */
 	public static boolean KMP(char[] text, char[] pattern) {
 		int lps[] = computeTemporaryArray(pattern);
-		int i = 0, j = 0;
-		while (i < text.length && j < pattern.length) {
-			if (text[i] == pattern[j]) {
+		int j = 0, i = 0;
+		while (j < text.length && i < pattern.length) {
+			if (text[j] == pattern[i]) {
 				i++; j++;
 			} else {
-				if (j != 0) j = lps[j - 1];
-				else i++;
+				if (i != 0) i = lps[i - 1];
+				else j++;
 			}
 		}
 		
-		if (j == pattern.length) {
-			System.out.println(i-j);
+		if (i == pattern.length) {
+			System.out.println(j-i);
 			return true;
 		}
 		return false;
