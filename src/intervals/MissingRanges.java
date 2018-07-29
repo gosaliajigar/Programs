@@ -15,6 +15,7 @@ import java.util.List;
 public class MissingRanges {
 	public static void main(String[] args) {
 		System.out.println(missingRanges(new int[] {0, 1, 3, 50, 75}, 0, 99));
+		System.out.println(missingRanges(new int[] {10, 30, 50, 75}, 0, 99));
 	}
 
 	public static List<String> missingRanges(int[] a, int start, int end) {
