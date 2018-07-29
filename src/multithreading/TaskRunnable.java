@@ -1,5 +1,7 @@
 package multithreading;
 
+import java.time.LocalTime;
+
 /**
  * @author Jigar Gosalia
  *
@@ -16,7 +18,7 @@ public class TaskRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("executing " + name + " ... ");
+		System.out.println(LocalTime.now() + ": executing " + name + " ... ");
 		if (goToSleep) {
 			try {
 				Thread.sleep(sleep);

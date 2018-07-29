@@ -1,16 +1,19 @@
 package iterators;
 
 import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * FailSafe Iterators.
+ * 
  * @author Jigar Gosalia
  *
  */
 public class FailSafeIterators {
 
 	public static void main(String[] args) {
-		ConcurrentHashMap<String, String> premiumPhone = new ConcurrentHashMap<String, String>();
+		Map<String, String> premiumPhone = new ConcurrentHashMap<String, String>();
 		premiumPhone.put("Apple", "iPhone");
 		premiumPhone.put("HTC", "HTC one");
 		premiumPhone.put("Samsung", "S5");
@@ -24,7 +27,7 @@ public class FailSafeIterators {
 			premiumPhone.put("Sony", "Xperia Z");
 			// size changes but iterator can't see the new changes
 			// as it has a copy of map
-			System.out.println(premiumPhone.size());
+			System.out.println("size: " + premiumPhone.size());
 		}
 	}
 }

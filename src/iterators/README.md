@@ -1,5 +1,3 @@
-package iterators;
-
 /**
  * What is Concurrent Modification ? When one or more thread is iterating over
  * the collection, in between, one thread changes the structure of the
@@ -8,7 +6,7 @@ package iterators;
  * the collection) is known as Concurrent Modification<br>
  * <br>
  * Difference between Fail Fast iterator and Fail Safe iterator? Fail fast
- * iterator while iterating through the collection , instantly throws Concurrent
+ * iterator while iterating through the collection, instantly throws Concurrent
  * Modification Exception if there is structural modification of the collection.
  * Thus, in the face of concurrent modification, the iterator fails quickly
  * and cleanly, rather than risking arbitrary, non-deterministic behavior at an
@@ -23,7 +21,7 @@ package iterators;
  * collection while other thread is iterating over it.<br>
  * <br>
  * 
- * According to Oracle docs , the fail-fast behavior of an iterator cannot be
+ * According to Oracle docs, the fail-fast behavior of an iterator cannot be
  * guaranteed as it is, generally speaking, impossible to make any hard
  * guarantees in the presence of unsynchronized concurrent modification.
  * Fail-fast iterators throw ConcurrentModificationException on a best-effort
@@ -33,7 +31,7 @@ package iterators;
  * <br>
  * 
  * How Fail Fast Iterator come to know that the internal structure is modified?
- * Iterator read internal data structure (object array) directly . The internal
+ * Iterator read internal data structure (object array) directly. The internal
  * data structure(i.e object array) should not be modified while iterating
  * through the collection. To ensure this it maintains an internal flag "mods".
  * Iterator checks the "mods" flag whenever it gets the next value (using
@@ -54,7 +52,7 @@ package iterators;
  * currently in the original data structure.<br>
  * <br>
  * 
- * According to Oracle docs , fail safe iterator is ordinarily too costly, but
+ * According to Oracle docs, fail safe iterator is ordinarily too costly, but
  * may be more efficient than alternatives when traversal operations vastly
  * out number mutations, and is useful when you cannot or don’t want to
  * synchronize traversals, yet need to preclude interference among concurrent
@@ -69,8 +67,5 @@ package iterators;
  * <br>
  * 
  * Source: http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html <br>
- * <br>
- * @author Jigar Gosalia
  *
  */
-public class FailFastNFailSafe {}

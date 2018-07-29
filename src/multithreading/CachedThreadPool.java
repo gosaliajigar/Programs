@@ -58,21 +58,21 @@ public class CachedThreadPool {
 
 	public static void main(final String args[]) throws Exception {
 		// cached thread pool
-		ExecutorService ct = Executors.newCachedThreadPool();
+		ExecutorService service = Executors.newCachedThreadPool();
 		// creates 100 threads that take 3 seconds each to process
 		for (int i = 1; i <= 100; i++) {
-			ct.submit(new TaskRunnable("ct task " + i, 3000, true));
+			service.submit(new TaskRunnable("service task " + i, 3000, true));
 		}
 		// sleep for 6 seconds as 100 tasks (3 seconds worth each)
 		// would take at least 3 seconds to be executed by 100 threads 
 		TimeUnit.SECONDS.sleep(6);
-		ct.shutdown();
-		if (ct.awaitTermination(8, TimeUnit.SECONDS)) {
-			System.out.println("ct terminated on time i.e. before timeout!");
+		service.shutdown();
+		if (service.awaitTermination(8, TimeUnit.SECONDS)) {
+			System.out.println("service terminated on time i.e. before timeout!");
 		} else {
-			System.out.println("ct timeout before tasks completed");
+			System.out.println("service timeout before tasks completed");
 		}
-		System.out.println("ct terminated? : " + ct.isTerminated());
+		System.out.println("service terminated? : " + service.isTerminated());
 		System.out.println();
 	}
 }

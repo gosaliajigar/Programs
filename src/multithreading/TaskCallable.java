@@ -1,5 +1,6 @@
 package multithreading;
 
+import java.time.LocalTime;
 import java.util.concurrent.Callable;
 
 /**
@@ -26,7 +27,7 @@ public class TaskCallable implements Callable<String> {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("executing " + name + " ... ");
+		System.out.println(LocalTime.now() + ": executing " + name + " ... ");
 		return " - " + name + " completed";
 	}
 }

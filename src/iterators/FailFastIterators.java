@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * FailFast Iterators.
+ * 
  * @author Jigar Gosalia
  *
  */

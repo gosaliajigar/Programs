@@ -1,6 +1,11 @@
 package graph;
 
 /**
+ * Count connected cells in a matrix
+ * 
+ * Source : https://www.youtube.com/watch?v=R4Nh-EgWjyQ
+ * https://www.geeksforgeeks.org/find-length-largest-region-boolean-matrix/
+ * 
  * @author Jigar Gosalia
  *
  */
@@ -19,6 +24,7 @@ public class DFSConnectedCells {
 								};
 		System.out.println(getBiggestRegion(a));
 	}
+	
 	public static int getBiggestRegion(int[][] a) {
 		int max = Integer.MIN_VALUE;
 		boolean[][] visited = new boolean[a.length][a[0].length];
