@@ -1,31 +1,33 @@
 package datastructure.stack;
 
 /**
+ * Implement Stack using array and Generics.
+ * 
  * @author "Jigar Gosalia"
  *
  */
-public class Stack {
+public class Stack<T> {
 	private int maxSize;
-	private int[] a;
+	private T[] a;
 	private int top;
 
 	public Stack(final int capacity) {
 		maxSize = capacity;
-		a = new int[maxSize];
+		a = (T[]) new Object[maxSize];
 		top = -1;
 	}
 
-	public void push(final int element) {
+	public void push(final T element) {
 		if (isFull()) throw new RuntimeException("Stack is Full");
 		a[++top] = element;
 	}
 
-	public int pop() {
+	public T pop() {
 		if (isEmpty()) throw new RuntimeException("Stack is Empty");
 		return a[top--];
 	}
 
-	public int peek() {
+	public T peek() {
 		if (isEmpty()) throw new RuntimeException("Stack is Empty");
 		return a[top];
 	}
