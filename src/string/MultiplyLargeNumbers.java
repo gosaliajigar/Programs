@@ -1,5 +1,7 @@
 package string;
 
+import java.util.Arrays;
+
 /**
  * 
  * Source : https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
@@ -12,7 +14,9 @@ public class MultiplyLargeNumbers {
 
 	public static void main(String[] args) {
 		System.out.println(multiply("654154154151454545415415454", "63516561563156316545145146514654"));
+		System.out.println();
 		System.out.println(multiply("16", "16"));
+		System.out.println();
 		System.out.println(multiply("0", "0"));
 	}
 
@@ -44,6 +48,7 @@ public class MultiplyLargeNumbers {
 			sb.deleteCharAt(sb.length()-1);
 		}
 
+		System.out.println(Arrays.toString(d));
 		return sb.reverse().toString();
 	}
 }

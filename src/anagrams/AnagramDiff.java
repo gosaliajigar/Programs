@@ -16,7 +16,7 @@ import java.util.Map;
  * @author "Jigar Gosalia"
  * 
  */
-public class Anagram {
+public class AnagramDiff {
 
 	public static void main(String[] args) {
 		String one = "hello";

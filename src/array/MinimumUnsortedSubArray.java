@@ -12,7 +12,10 @@ import java.util.Arrays;
 public class MinimumUnsortedSubArray {
 
 	public static void main(String[] args) {
+		System.out.println(Arrays.toString(new int[] {10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60}));
 		System.out.println(Arrays.toString(minUnsortedSubarray(new int[] {10, 12, 20, 30, 25, 40, 32, 31, 35, 50, 60})));
+		System.out.println();
+		System.out.println(Arrays.toString(new int[] {0, 1, 15, 25, 6, 7, 30, 40, 50}));
 		System.out.println(Arrays.toString(minUnsortedSubarray(new int[] {0, 1, 15, 25, 6, 7, 30, 40, 50})));
 	}
 	
@@ -53,6 +56,6 @@ public class MinimumUnsortedSubArray {
 			}
 		}
 
-		return new int[] {s, e};
+		return Arrays.copyOfRange(a, s, e+1);
 	}
 }

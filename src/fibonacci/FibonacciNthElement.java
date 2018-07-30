@@ -64,7 +64,7 @@ public class FibonacciNthElement {
 	 * @return
 	 */
 	public static int fibonacciNonRecursive(final int n) {
-		if (n == 1 || n == 2) { return 1; }
+		if (n == 1 || n == 2) return 1;
 		int prev = 1, current = 1, next = 1;
 		for (int i = 3; i <= n; i++) {
 			next = prev + current;

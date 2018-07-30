@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * Least Frequently Used Cache <br>
- * - raw heap for O(log n) addition/deletion<br>
+ * - raw heap for O(log n) addition/deletion (increase-key and decrease-key operations)<br>
  * - map for O(1) retrieval<br>
  * <br>
  * Alternative approach using 2 HashMap and 1 LinkedHashSet<br>
@@ -23,9 +23,11 @@ public class LFUCache {
 		int frequency;
 	}
 
+	// value->Data
 	Map<Integer, Data> valueMap;
+	// frequency-><value, value, value>
 	Map<Integer, Set<Integer>> frequencyMap;
-	int min = -1;
+	int minFrequency = -1;
 	int capacity;
 
 	public LFUCache(int capacity) {
@@ -38,8 +40,8 @@ public class LFUCache {
 		if (valueMap.containsKey(key)) {
 			updateFrequency(key);
 			return valueMap.get(key).value;
-		} else
-			return -1;
+		}
+		return Integer.MIN_VALUE;
 	}
 
 	public void put(int key, int value) {
@@ -50,7 +52,7 @@ public class LFUCache {
 			node = new Data();
 			if (valueMap.size() >= capacity)
 				deleteLeastFrequent();
-			min = 1;
+			minFrequency = 1;
 		}
 		node.value = value;
 		valueMap.put(key, node);
@@ -69,13 +71,13 @@ public class LFUCache {
 			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
 		}
 		frequencyMap.get(frequency+1).add(key);
-		if (min == frequency && frequencyMap.get(frequency).size() == 0)
-			min = frequency + 1;
+		if (minFrequency == frequency && frequencyMap.get(frequency).size() == 0)
+			minFrequency = frequency + 1;
 	}
 
 	private void deleteLeastFrequent() {
-		int key = frequencyMap.get(min).iterator().next();
-		frequencyMap.get(min).remove(key);
+		int key = frequencyMap.get(minFrequency).iterator().next();
+		frequencyMap.get(minFrequency).remove(key);
 		valueMap.remove(key);
 	}
 }

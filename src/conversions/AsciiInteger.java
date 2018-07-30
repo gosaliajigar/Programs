@@ -8,18 +8,12 @@ package conversions;
  */
 public class AsciiInteger {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-
 		System.out.printf("%3s %5s", "INT", "ASCII");
 		System.out.println();
 		for (int index = 0; index < 256; index++) {
 			System.out.printf("%3d %5s", index, ConversionLibrary.itoa(index));
-			if (!verify(index)) {
-				break;
-			}
+			if (!verify(index)) break;
 			System.out.println();
 		}
 	}

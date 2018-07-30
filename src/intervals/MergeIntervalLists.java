@@ -9,6 +9,8 @@ import pojos.Interval;
 
 /**
  * 
+ * Merge two interval lists into single list.
+ * 
  * A: [1,5], [10,14], [16,18]
  * B: [2,6], [8,10], [11,20]
  * output [1,6], [8,20]

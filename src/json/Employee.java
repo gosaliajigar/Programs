@@ -11,11 +11,8 @@ import java.util.Arrays;
 public class Employee {
 
 	private long id;
-
 	private String name;
-
 	private int[] tasks;
-
 	private Department department;
 
 	public Employee() {}
@@ -36,21 +33,13 @@ public class Employee {
 		this.department = department;
 	}
 
-	public long getId() {
-		return id;
-	}
+	public long getId() { return id; }
 
-	public String getName() {
-		return name;
-	}
+	public String getName() { return name; }
 
-	public int[] getTasks() {
-		return tasks;
-	}
+	public int[] getTasks() { return tasks; }
 
-	public Department getDepartment() {
-		return department;
-	}
+	public Department getDepartment() { return department; }
 
 	@Override
 	public String toString() {

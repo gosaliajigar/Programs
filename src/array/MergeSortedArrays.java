@@ -10,9 +10,6 @@ import java.util.Arrays;
  */
 public class MergeSortedArrays {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		int[] A = {1, 5, 9, 10, 15, 20};
 		int[] B = {2, 3, 8, 13};

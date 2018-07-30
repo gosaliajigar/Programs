@@ -80,7 +80,5 @@ class Candidate implements Comparable<Candidate> {
 	@Override
 	public int hashCode() { return this.id;	}
 	@Override
-	public int compareTo(Candidate c) {
-		return c.getCount() - this.getCount();
-	}
+	public int compareTo(Candidate c) { return c.getCount() - this.getCount(); }
 }

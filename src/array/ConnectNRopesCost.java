@@ -23,7 +23,7 @@ public class ConnectNRopesCost {
 		// Create a priority queue
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		// Adding items to the queue
-		for (int i : a) { queue.add(i); }
+		for (int i : a) { queue.offer(i); }
 		int sum = 0;
 		// While size of priority queue is more than 1
 		while (queue.size() > 1) {
@@ -32,7 +32,7 @@ public class ConnectNRopesCost {
 			// Connect the ropes: update result
 			// and insert the new rope to queue
 			sum += first + second;
-			queue.add(first + second);
+			queue.offer(first + second);
 		}
 		return sum;
 	}

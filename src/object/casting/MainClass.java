@@ -6,11 +6,7 @@ package object.casting;
  */
 public class MainClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
-
 		// Implicit Upcasting : Legal in Java
 		SuperClass subClass = new SubClass();
 		subClass.print();

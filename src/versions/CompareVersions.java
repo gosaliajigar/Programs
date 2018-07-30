@@ -55,7 +55,6 @@ public class CompareVersions {
 			while (index < oneSplit.length) {
 				if (Integer.valueOf(oneSplit[index++]) > 0) return 1;
 			}
-		
 			while (index < twoSplit.length) {
 				if (Integer.valueOf(twoSplit[index++]) > 0) return -1;
 			}

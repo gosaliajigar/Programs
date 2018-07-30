@@ -15,9 +15,7 @@ import java.util.Map;
 public final class Employee {
 
 	private final int id;
-
 	private final String name;
-
 	private final Map<String, String> departmentsMap;
 
 	public int getId() { return id; }

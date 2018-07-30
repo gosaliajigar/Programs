@@ -18,12 +18,12 @@ public class CombinationArray {
 		results.forEach(System.out::println);
 	}
 
-	public static void combinations(int[] a, int index, List<Integer> current, Set<Set<Integer>> results) {
-		if (current.size() >= a.length) {
+	public static void combinations(int[] a, int start, List<Integer> current, Set<Set<Integer>> results) {
+		if (current.size() == a.length) {
 			results.add(new HashSet<Integer>(current));
 			return;
 		}
-		for (int i = index; i < a.length; i++) {
+		for (int i = start; i < a.length; i++) {
 			current.add(a[i]);
 			combinations(a, i, current, results);
 			current.remove(current.size() - 1);
