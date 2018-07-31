@@ -22,8 +22,7 @@ public class KMPSubstringSearch {
 			if (pattern[j] == pattern[i]) {
 				lps[j] = i+1; i++; j++;
 			} else {
-				if (i != 0) {
-					i = lps[i - 1];
+				if (i != 0) { i = lps[i - 1];
 				} else {
 					lps[j] = 0; j++;
 				}

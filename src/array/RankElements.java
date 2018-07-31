@@ -5,6 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
+ * 
+ * Given an array of N integers with duplicates allowed. All elements are ranked
+ * from 1 to N if they are distinct. If there are say x repeated elements of a
+ * particular value then each element should be assigned a rank equal to the
+ * arithmetic mean of x consecutive ranks.
+ * 
+ * 
+ * Source : https://www.geeksforgeeks.org/rank-elements-array/
+ * 
  * @author Jigar Gosalia
  *
  */
@@ -26,12 +35,10 @@ public class RankElements {
 		double[] b = new double[a.length];
 		Map<Integer, Double> ranks = new LinkedHashMap<Integer, Double>();
 		Arrays.sort(a);
-		int prev = Integer.MIN_VALUE;
 		for (int i = 0; i < a.length; i++) {
-			if (a[i] != prev) {
-				ranks.put(a[i], getRank(a, a[i]));
-			}
-			prev = a[i];
+			// do not use this if intention is to override 
+			// values as putIfAbsent only works if key not present
+			ranks.putIfAbsent(a[i], getRank(a, a[i]));
 		}
 		for (int i=0; i<arr.length; i++) {
 			b[i] = ranks.get(arr[i]);
@@ -43,7 +50,9 @@ public class RankElements {
 		int first = firstOccurrence(a, 0, a.length - 1, element) + 1;
 		int last = lastOccurrence(a, 0, a.length - 1, element) + 1;
 		int count = last - first + 1;
-		double sum = (last * (last + 1) / 2.0) - ((first - 1) / 2.0 * first);
+		// sum of positions of a number i.e. 3+4+5 for an element at location 3,4,5
+		// while (first <= last) { sum += first; first++; } 
+		double sum = ((last * (last + 1)) / 2.0) - (((first - 1) * first) / 2.0);
 		return sum / count;
 	}
 
