@@ -16,17 +16,16 @@ public class ReverseQueue {
 		queue.add(5); queue.add(6); queue.add(7); queue.add(8);
 		queue.add(9);
 		System.out.println(queue);
-		queue = reverseQueue(queue);
+		reverseQueue(queue);
 		System.out.println(queue);
 	}
 
-	public static Queue<Integer> reverseQueue(Queue<Integer> queue) {
-		if (queue == null ||  queue.isEmpty()) return queue;
+	public static void reverseQueue(Queue<Integer> queue) {
+		if (queue == null ||  queue.isEmpty()) return;
 		// data stays in stack so keep calling queue with next element
 		int data = queue.remove();
-		queue = reverseQueue(queue);
+		reverseQueue(queue);
 		// now unwind stack and add elements which were in stack
 		queue.add(data);
-		return queue;
 	}
 }

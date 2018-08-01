@@ -106,9 +106,7 @@ public class HashMap<K, V> implements Map<K, V> {
 		for (int index = 0; index < table.length; index++) {
 			Entry<K, V> entry = table[index];
 			while (entry != null) {
-				if (value.equals(entry.value)) {
-					return true;
-				}
+				if (value.equals(entry.value)) return true;
 				entry = entry.next;
 			}
 		}

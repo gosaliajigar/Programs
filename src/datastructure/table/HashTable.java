@@ -13,7 +13,7 @@ package datastructure.table;
 public class HashTable<K, V> {
 
 	private final static int TABLE_SIZE = 128;
-	private static int count = 0;
+	private int count = 0;
 	private HashEntry<K, V>[] table;
 	public HashTable() { table = new HashEntry[TABLE_SIZE]; }
 
@@ -33,7 +33,7 @@ public class HashTable<K, V> {
 			int hash = hashCode(key);
 			while (table[hash] != null) {
 				if (table[hash].getKey().equals(key)) break;
-				else hash = (hash + 1) % TABLE_SIZE;
+				hash = (hash + 1) % TABLE_SIZE;
 			}
 			table[hash] = new HashEntry(key, value);
 			count++;
@@ -72,16 +72,5 @@ public class HashTable<K, V> {
 		System.out.println(hashTable.get("1"));
 		System.out.println(hashTable);
 		System.out.println(hashTable.get("3"));
-	}
-
-	public static class HashEntry<K, V> {
-		private K key;
-		private V value;
-		public HashEntry(K key, V value) {
-			this.key = key;
-			this.value = value;
-		}
-		public K getKey() { return key; }
-		public V getValue() { return value; }
 	}
 }

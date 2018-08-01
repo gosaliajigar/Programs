@@ -23,6 +23,8 @@ public class HeapOperations {
 	/**
 	 * bubble down the smaller element.
 	 * 
+	 * (log n)
+	 * 
 	 * @param heap
 	 * @param location
 	 */
@@ -42,6 +44,7 @@ public class HeapOperations {
 		}
 	}
 
+	// (n)
 	public static void buildMaxHeap(Heap heap) {
 		heap.heapSize = heap.a.length;
 		for (int i = heap.a.length / 2; i >= 0; i--) {
@@ -49,6 +52,7 @@ public class HeapOperations {
 		}
 	}
 
+	// (n logn)
 	public static void heapSort(Heap heap) {
 		buildMaxHeap(heap);
 		for (int i = heap.a.length - 1; i > 0; i--) {
@@ -58,8 +62,10 @@ public class HeapOperations {
 		}
 	}
 
+	// (1)
 	public static int max(Heap heap) { return heap.a[0]; }
 
+	// (logn)
 	public static int extractMax(Heap heap) {
 		if (heap.heapSize <= 0) return -1;
 		int max = heap.a[0];
@@ -71,6 +77,8 @@ public class HeapOperations {
 
 	/**
 	 * Bubble up the increased element.
+	 * 
+	 * 	(logn)
 	 * 
 	 * @param heap
 	 * @param location
@@ -89,6 +97,7 @@ public class HeapOperations {
 		return false;
 	}
 
+	// (logn)
 	public static void insert(Heap heap, int key) {
 		if (heap.heapSize >= heap.a.length) throw new IllegalArgumentException("Heap Full");
 		heap.heapSize = heap.heapSize + 1;
@@ -96,6 +105,7 @@ public class HeapOperations {
 		increase(heap, heap.heapSize - 1, key);
 	}
 
+	// (logn)
 	public static void delete(Heap heap, int location) {
 		exchange(heap, location, heap.heapSize - 1);
 		heap.heapSize = heap.heapSize - 1;

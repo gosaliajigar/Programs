@@ -126,18 +126,17 @@ public class BinarySearchTree {
 		//		v.p = u.p; u.p = null;
 		//	}
 	}
-	
+
+	// If the right subtree of node x is nonempty, then the successor of x is
+	// just the leftmost node in x’s right subtree
+	//
+	// If the right subtree of node x is empty and x has a successor y, then y 
+	// is the lowest ancestor of x whose left child is also an ancestor of x.
 	public static BinaryNode successor(BinaryNode node) {
 		if (node != null) {
 			if (node.getRight() != null) {
 				return treeMinimum(node.getRight());
 			} else {
-				// If the right subtree of node x is nonempty, then the successor of x is
-				// just the leftmost node in x’s right subtree
-				//
-				// If the right subtree of node x is empty and x has a successor y, then y 
-				// is the lowest ancestor of x whose left child is also an ancestor of x.
-				//
 				// Node y = node.p;
 				// while(y != null && y.right == node) {
 				//		node = y;

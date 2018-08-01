@@ -10,10 +10,11 @@ public class StaircaseProblem {
 
 	public static void main(String[] args) {
 		System.out.println(stairsRecursive(10));
-		System.out.println(stairsMemoization(100));
-		System.out.println(stairsDP(100));
-		System.out.println(stairs(100));
+		System.out.println(stairsMemoization(10));
+		System.out.println(stairsDP(10));
+		System.out.println(stairs(10));
 	}
+	
 	// 3^n	n
 	public static int stairsRecursive(int steps) {
 		if (steps < 0) return 0;
@@ -37,7 +38,7 @@ public class StaircaseProblem {
 	// n 	n
 	public static int stairsDP(int steps) {
 		if (steps < 0) return 0;
-		if (steps <= 1) return 1;
+		if (steps == 0) return 1;
 		int[] dp = new int[steps+1];
 		dp[0] = 1; dp[1] = 1; dp[2] = 2;
 		for (int i=3; i<dp.length; i++) {
@@ -49,9 +50,9 @@ public class StaircaseProblem {
 	// n 	1
 	public static int stairs(int steps) {
 		if (steps < 0) return 0;
-		if (steps <= 1) return 1;
+		if (steps == 0) return 1;
 		int[] dp = new int[] {1, 1, 2};
-		for (int i=3; i<dp.length; i++) {
+		for (int i=3; i<=steps; i++) {
 			int count = dp[2] + dp[1] + dp[0];
 			dp[0] = dp[1];
 			dp[1] = dp[2];

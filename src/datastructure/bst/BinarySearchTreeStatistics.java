@@ -152,7 +152,9 @@ public class BinarySearchTreeStatistics {
 
 	public static int findMaxDepth(BinaryNode node) {
 		// max depth of node = height of the node
-		return ((node != null && (node.getLeft() != null || node.getRight() == null)) ? (1 + Math.max(findMaxDepth(node.getLeft()), findMaxDepth(node.getRight()))) : 0);
+		return ((node != null && (node.getLeft() != null || node.getRight() == null)) 
+				? (1 + Math.max(findMaxDepth(node.getLeft()), findMaxDepth(node.getRight()))) 
+						: 0);
 	}
 
 	public static int noOfLeftNodes(BinaryNode node) {
@@ -173,12 +175,13 @@ public class BinarySearchTreeStatistics {
 
 	public static boolean hasPathSum(BinaryNode node, int sum) {
 		if (node == null) return false;
+		if (sum == node.data && node.left == null && node.right == null) {
+			path.add(0, node.getData());
+			return true; 
+		}
 		boolean result = false;
-		int subSum = sum - node.getData();
-		if (subSum == 0 && node.getLeft() == null && node.getRight() == null) result = true;
-		if (node.getLeft() != null) result = result || hasPathSum(node.getLeft(), subSum); 
-		if (node.getRight() != null) result = result || hasPathSum(node.getRight(), subSum);
-		if (result) path.add(node.getData());
+		result = hasPathSum(node.left, sum - node.data) || hasPathSum(node.right, sum - node.data);
+		if (result) path.add(0, node.getData());
 		return result;
 	}
 
@@ -190,13 +193,14 @@ public class BinarySearchTreeStatistics {
 				List<Integer> spath = new ArrayList<Integer>(curr.subList(0, index+1));
 				// printArray(curr, index);
 				allpaths.add(spath);
-			} else {
-				allPathsByLength(node.getLeft(), index+1, curr, allpaths);
-				allPathsByLength(node.getRight(), index+1, curr, allpaths);
+				return;
 			}
+			allPathsByLength(node.getLeft(), index+1, curr, allpaths);
+			allPathsByLength(node.getRight(), index+1, curr, allpaths);
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static void printArray(List<Integer> path, int length) {
 		for (int index = 0; index <= length; index++) System.out.print(path.get(index) + " ");
 		System.out.println();
@@ -266,17 +270,16 @@ public class BinarySearchTreeStatistics {
 		}
 	}
 
+	// DFS but you can use BFS with a Queue
 	public static int findDistance(BinaryNode root, BinaryNode a, int level) {
-		if (root == null)
-			return -1;
-		if (root == a)
-			return level;
+		if (root == null) return -1;
+		if (root == a) return level;
 		int left = findDistance(root.left, a, level + 1);
-		if (left == -1)
-			return findDistance(root.right, a, level + 1);
+		if (left == -1) return findDistance(root.right, a, level + 1);
 		return left;
 	}
 
+	// process level wise and return size of level list
 	// Source : https://www.geeksforgeeks.org/number-siblings-given-node-n-ary-tree/
 	public static int noOfSibilings(BinaryNode root, int value) {
 		if (root == null || value < 0) return 0;
@@ -294,10 +297,13 @@ public class BinarySearchTreeStatistics {
 		return -1;
 	}
 
+	// The diameter of a tree (sometimes called the width) is the number of nodes on
+	// the longest path between two end nodes.
 	public static int diameter(BinaryNode root) {
 		if (root == null) return 0;
 		int[] max = new int[] {0};
-		int height = height(root, max);
+		// height is max height of node
+		height(root, max);
 		return max[0];
 	}
 
