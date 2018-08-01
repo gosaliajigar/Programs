@@ -33,9 +33,9 @@ import java.util.stream.IntStream;
  * contains(o), containsAll(collection)<br>
  * ceiling floor lower higher <br>
  * comparator <br>
- * descendingIterator<br>
- * descendingSet<br>
- * first last<br>
+ * descendingIterator()<br>
+ * descendingSet()<br>
+ * first() last()<br>
  * forEach(Consumer)<br>
  * isEmpty(), size()<br>
  * iterator() <br>
@@ -59,6 +59,7 @@ public class C013TreeSet {
 		Set<Integer> t = new TreeSet<Integer>(IntStream.rangeClosed(1, 49).boxed().collect(Collectors.toSet()));
 		t.removeIf(x -> x % 2 == 0);
 
+		// [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49]
 		// 41 is present in TreeSet
 
 		// floor ceiling lower higher

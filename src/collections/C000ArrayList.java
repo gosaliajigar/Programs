@@ -48,9 +48,9 @@ public class C000ArrayList {
 		
 		// add, addAll
 		a.add(0, 0);
-		System.out.println(a.add(10) + " - " + a.addAll(b) + " - " + a.addAll(Arrays.asList(0, 1, 2, 2)));
+		System.out.println(a.add(10) + " - " + a.addAll(b) + " - " + a.addAll(1, Arrays.asList(3, 1, 2, 2)));
 		System.out.println();
-				
+		
 		// contains, containsAll
 		System.out.println(a.contains(2) + " - " + a.containsAll(b) + " - " + a.containsAll(Arrays.asList(0, 1)));
 		System.out.println();

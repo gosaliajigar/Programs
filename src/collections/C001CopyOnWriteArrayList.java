@@ -35,7 +35,6 @@ public class C001CopyOnWriteArrayList {
 	private static final Integer NUM_OF_THREADS = 3;
 
 	public static void main(String[] args) {
-
 		// Create ExecutorService using the newFixedThreadPool() method
 		// of the Executors class.
 		ExecutorService service = Executors.newFixedThreadPool(NUM_OF_THREADS);
@@ -46,27 +45,27 @@ public class C001CopyOnWriteArrayList {
 			tasks[i] = new Task("Thread-" + i);
 
 		// Print original context "for" internally uses an iterator
-		Task.getNames().forEach(x -> System.out.printf("%s ", x));
+		Task.getData().forEach(x -> System.out.printf("%s ", x));
 		System.out.println(); System.out.println();
 
 		// Execute Thread
 		service.submit(tasks[1]);
 
 		// Costly operation - A new copy of the collection is created
-		Task.getNames().addIfAbsent("Oliver");
+		Task.getData().addIfAbsent("Oliver");
 
 		// Execute Thread
 		service.submit(tasks[2]);
 
 		// Costly operation - A new copy of the collection is created
-		Task.getNames().remove("Lex");
+		Task.getData().remove("Lex");
 
 		// Execute Thread
 		service.submit(tasks[3]);
 
 		// Try to remove an element using Iterator methods
-		Iterator<String> it = Task.getNames().iterator();
-		Task.getNames().remove(1);
+		Iterator<String> it = Task.getData().iterator();
+		Task.getData().remove(1);
 		while (it.hasNext()) {
 			try {
 				// This is NOT supported by CopyOnWriteArrayList's Iterator
@@ -82,26 +81,28 @@ public class C001CopyOnWriteArrayList {
 }
 
 class Task implements Runnable {
-	private static final CopyOnWriteArrayList<String> names = new CopyOnWriteArrayList<String>(
+	private static final CopyOnWriteArrayList<String> data = new CopyOnWriteArrayList<String>(
 			new String[] { "Peter", "Bruce", "Clark", "Barry", "Lex" });
-	private String tName;
+	private String name;
 
-	public Task(String name) { this.tName = name; }
+	public Task(String name) { this.name = name; }
 
-	public static CopyOnWriteArrayList<String> getNames() { return names; }
+	public static CopyOnWriteArrayList<String> getData() { return data; }
 
 	@Override
 	public void run() {
-		Iterator<String> it = names.iterator();
+		Iterator<String> it = data.iterator();
 		try {
-			System.out.println(this.tName + " sleeping...");
-			names.add("NEW" + this.tName.charAt(this.tName.length()-1));
+			System.out.println(this.name + " sleeping...");
 			TimeUnit.SECONDS.sleep(3);
+			// will never see NEW elements in console as 
+			// they are added after iterator has copy of list
+			data.add("NEW" + this.name.charAt(this.name.length()-1));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println(this.tName + " executing...");
-		while (it.hasNext()) System.out.printf(this.tName + "-" + it.next() + " ");
+		System.out.println(this.name + " executing...");
+		while (it.hasNext()) System.out.printf("\t" + this.name + "-" + it.next() + "\n");
 		System.out.println("\n");
 	}
 }

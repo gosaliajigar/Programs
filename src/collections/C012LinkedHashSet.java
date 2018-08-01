@@ -124,8 +124,7 @@ public class C012LinkedHashSet {
 		while (itr.hasNext()) {
 			int value = itr.next();
 			System.out.print(value + " ");
-			if (value % 2 != 0)
-				itr.remove();
+			if (value % 2 != 0) itr.remove();
 		}
 		System.out.println();
 

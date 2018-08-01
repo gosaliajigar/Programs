@@ -31,15 +31,13 @@ import java.util.Map;
  * clear(), clone()<br>
  * containsKey(k), containsValue(v)<br>
  * compute(k, BiFunction) computeIfAbsent(k, Function) computeIfPresent(k, BiFunction)<br>
- * entrySet()<br>
+ * keySet() entrySet() values() <br>
  * forEach(BiConsumer)<br>
  * get(k) getOrDefault(k, dv)<br>
  * isEmpty(), size()<br>
- * keySet()<br>
  * put(k,v) putAll(map) putIfAbsent(k,v)<br>
  * remove(k), remove(k, v) <br>
  * replace(k,nv) replace(k,ov,nv) <br>
- * values() <br>
  * <br>
  * 
  * Source : http://javaconceptoftheday.com/how-hashmap-works-internally-in-java/

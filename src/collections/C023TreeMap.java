@@ -14,22 +14,20 @@ import java.util.TreeMap;
  * <br>
  * clear(), clone()<br>
  * containsKey(k), containsValue(v)<br>
- * ceilingEntry ceilingKey floorEntry floorKey lowerEntry lowerKey higherEntry higherKey <br>
+ * ceilingEntry(k) ceilingKey(k) floorEntry(k) floorKey(k) lowerEntry(k) lowerKey(k) higherEntry(k) higherKey(k) <br>
  * comparator <br>
  * descendingKeySet<br>
  * descendingMap<br>
- * entrySet()<br>
- * firstEntry firstKey lastEntry lasyKey<br>
+ * keySet() entrySet() values() <br>
+ * firstEntry firstKey lastEntry lastKey<br>
  * forEach(BiConsumer)<br>
  * get(k)<br>
  * isEmpty(), size()<br>
- * keySet()<br>
  * put(k,v) putAll(map)<br>
  * pollFirstEntry pollLastEntry<br>
  * remove(k), remove(k, v) <br>
  * replace(k,nv) replace(k,ov,nv) <br>
  * subMap tailMap headMap <br>
- * values() <br>
  * <br>
  * 
  * Source :

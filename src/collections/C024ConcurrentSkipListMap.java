@@ -13,23 +13,20 @@ package collections;
  * 
  * clear(), clone()<br>
  * containsKey(k), containsValue(v)<br>
- * ceilingEntry ceilingKey floorEntry floorKey lowerEntry lowerKey higherEntry
- * higherKey <br>
+ * ceilingEntry ceilingKey floorEntry floorKey lowerEntry lowerKey higherEntry higherKey <br>
  * comparator <br>
  * descendingKeySet<br>
  * descendingMap<br>
- * entrySet()<br>
+ * keySet() entrySet() values() <br>
  * firstEntry firstKey lastEntry lasyKey<br>
  * forEach(BiConsumer)<br>
  * get(k)<br>
  * isEmpty(), size()<br>
- * keySet()<br>
  * put(k,v) putAll(map)<br>
  * pollFirstEntry pollLastEntry<br>
  * remove(k), remove(k, v) <br>
  * replace(k,nv) replace(k,ov,nv) <br>
  * subMap tailMap headMap <br>
- * values() <br>
  * <br>
  *  
  * Source :https://www.concretepage.com/java/example_concurrentskiplistmap_java

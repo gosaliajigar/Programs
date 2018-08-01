@@ -27,23 +27,19 @@ import java.util.Queue;
  * descendingIterator()<br>
  * element()<br>
  * forEach(Consumer)<br>
- * get(i) getFirst() getLast()<br>
- * indexOf(o)<br>
+ * get(i) getFirst() getLast() set(i, e)<br>
+ * indexOf(o) lastIndexOf(o)<br>
  * isEmpty(), size()<br>
- * iterator() <br>
- * lastIndexOf(o)<br>
- * listIterator(), listIterator(i)<br>
+ * iterator() listIterator(), listIterator(i)<br>
  * offer(e) offerFirst(e) offerLast(e)<br>
  * peek() peekFirst() peekLast()<br>
- * poll() pollFirst() pollLast() <br>
- * pop() <br>
- * push(e) <br>
- * remove() remove(i), remove(o), removeFirst() removeFirstOccurrence(o)
- * removeLast() removeLastOccurrence() removeAll(collection),
+ * poll() pollFirst() pollLast()<br>
+ * pop() push(e) <br>
+ * remove() remove(i), remove(o), removeFirst() removeLast()
+ * removeFirstOccurrence(o) removeLastOccurrence(o) removeAll(collection),
  * removeIf(Predicate) <br>
  * replaceAll(UnaryOperator) <br>
  * retainAll(collection)<br>
- * set(i, e) <br>
  * sort(comparator) <br>
  * subList(start, end) <br>
  * toArray() toArray(T[]) <br>
