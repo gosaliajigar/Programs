@@ -57,18 +57,23 @@ public class C031PriorityBlockingQueue {
 		    while (true) {
 		        try {
 		        	// blocking call
-		            Integer poll = queue.take();
+		        	Integer poll = queue.take();
+		        	// Integer poll = queue.poll(1, TimeUnit.SECONDS);
+		        	// above will poll only for 1 seconds and move to continue with loop
 		            System.out.println("Polled: " + poll);
-		            TimeUnit.SECONDS.sleep(2);
+		            TimeUnit.SECONDS.sleep(1);
+		            
 		        } 
 		        catch (InterruptedException e) { 
 		            e.printStackTrace();
 		        }
 		    }
 		}).start();
-		System.out.println("Adding to queue ... ");
+		System.out.println("Sleeping for 5 seconds ... ");
 		TimeUnit.SECONDS.sleep(5);
+		System.out.println("Adding to queue ... ");
 		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));
+		System.out.println("Queue size ... " + queue.size() + " and sleep for 20 seconds");
 		TimeUnit.SECONDS.sleep(20);
 		System.out.println("Processed!!");
 		queue.addAll(Arrays.asList(1, 5, 6, 1, 2, 6, 7));

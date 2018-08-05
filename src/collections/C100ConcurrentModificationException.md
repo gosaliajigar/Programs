@@ -31,18 +31,20 @@ Use the iterator remove() function to remove the object from underlying collecti
 
 But in this case you can remove the same object and not any other object from the list.
 
+
 Use for loop to avoid java.util.ConcurrentModificationException
 ---------------------------------------------------------------
-If working on single-threaded environment and want your code to take care of the extra added objects in the list then you can do so using for loop rather than iterator.
+If working on single-threaded environment and want your code to take care of the extra added objects in the list then you can do so using for-loop rather than iterator.
 
-for(int i = 0; i<myList.size(); i++){
-	System.out.println(myList.get(i));
-	if(myList.get(i).equals("3")){
-		myList.remove(i);
+for(int i = 0; i<list.size(); i++){
+	System.out.println(list.get(i));
+	if(list.get(i).equals("3")){
+		list.remove(i);
 		i--;
-		myList.add("6");
+		list.add("6");
 	}
 }
 
-Note here the counter is decreased because the same object i removed, if you have to remove the next or further far object then you don’t need to decrease the counter.
+NOTE: here the counter is decreased because the same object i removed, if you have to remove the next or further
+far object then you don’t need to decrease the counter.
 

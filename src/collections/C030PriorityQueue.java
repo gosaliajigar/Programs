@@ -21,6 +21,8 @@ import java.util.PriorityQueue;
  * Examine 		element() 				peek() <br>
  * <br>
  * 
+ * throws NoSuchElementException on remove() and element() if queue is empty.
+ * 
  * Source:
  * https://javarevisited.blogspot.com/2013/10/what-is-priorityqueue-data-structure-java-example-tutorial.html <br>
  * https://www.sanfoundry.com/java-program-priority-queue/ <br>
@@ -34,8 +36,10 @@ public class C030PriorityQueue {
 	public static void main(String args[]) {
 		// [0-9] [A-Z] [a-z]
 		PriorityQueue<Item> items = new PriorityQueue<Item>();
-		items.addAll(Arrays.asList(new Item("iPhone", 900), new Item("iPad", 300), new Item("Xbox", 300),
-				new Item("iWatch", 300)));
+		items.addAll(Arrays.asList( new Item("iPhone", 900), 
+									new Item("iPad", 300), 
+									new Item("Xbox", 300),
+									new Item("iWatch", 300)));
 		System.out.println(items);
 		System.out.println();
 
@@ -54,6 +58,12 @@ public class C030PriorityQueue {
 			System.out.println(items.poll() + " : " + items);
 			System.out.println();
 		}
+
+		PriorityQueue<Person> persons = new PriorityQueue<Person>();
+		persons.add(new Person("John"));
+		// throws collections.Person cannot be cast to java.lang.Comparable
+		// as it would compare its elements and they are not comparable.
+		// persons.add(new Person("Johnny"));
 	}
 }
 
@@ -94,4 +104,11 @@ class Item implements Comparable<Item> {
 	public String toString() {
 		return String.format("%s: $%d", name, price);
 	}
+}
+
+class Person {
+	private String name;
+	public Person(String name) { this.name = name; }
+	@Override
+	public String toString() { return name; }
 }
