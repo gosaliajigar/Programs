@@ -1,6 +1,5 @@
 package intervals;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
@@ -26,10 +25,6 @@ public class MinimumPlatforms {
 	}
 
 	public static int minPlatforms(int[] arrivals, int[] departures) {
-		// Sort arrival and departure arrays
-		Arrays.sort(arrivals);
-		Arrays.sort(departures);
-
 		// platforms indicates platforms # needed at a time
 		int i = 1, j = 0, result = 1, platforms = 1;
 
@@ -52,10 +47,6 @@ public class MinimumPlatforms {
 	}
 
 	private static int minPlatformsQueue(int[] arrivals, int[] departures) {
-		// Sort arrival and departure arrays
-		Arrays.sort(arrivals);
-		Arrays.sort(departures);
-
 		int count = 1;
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		queue.offer(departures[0]);

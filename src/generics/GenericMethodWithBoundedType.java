@@ -8,9 +8,6 @@ package generics;
  */
 public class GenericMethodWithBoundedType {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String args[]) {
 		System.out.printf("Max of %d, %d and %d is %d\n\n", 3, 4, 5, maximum(3, 4, 5));
 

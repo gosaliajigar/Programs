@@ -8,9 +8,6 @@ package arrays;
  */
 public class MainClass {
 
-	/**
-	 * @param args
-	 */
 	public static void main(final String[] args) {
 
 		String[][] arrayOfArrays;

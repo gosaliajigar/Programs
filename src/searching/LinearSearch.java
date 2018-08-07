@@ -21,10 +21,6 @@ public class LinearSearch {
 		linearSearch(array, 322);
 	}
 
-	/**
-	 * @param a
-	 * @param x
-	 */
 	private static void linearSearch(int[] a, int x) {
 		int index = -1;
 		int iterations = 0;

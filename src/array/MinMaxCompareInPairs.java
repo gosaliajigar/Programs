@@ -32,7 +32,7 @@ public class MinMaxCompareInPairs {
 			}
 			comparisons += 1;
 		}
-		for (int i=((a.length%2==0) ? 2 : 1); i<a.length; i+=2) {
+		for (int i=((a.length%2==0) ? 2 : 1); i<a.length-1; i+=2) {
 			if (a[i] < a[i+1]) {
 				min = Math.min(a[i], min);
 				max = Math.max(a[i+1], max);

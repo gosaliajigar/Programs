@@ -7,7 +7,6 @@ package producer.consumer;
  *
  */
 public class SharedBuffer {
-
 	private int contents;
 	private boolean isReadyForReading = false;
 

@@ -41,9 +41,6 @@ public class FindPeak {
 		return Integer.MIN_VALUE;
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		int[] A = { 1, 3, 20, 4, 1, 0 };
 		System.out.println("Peak Index" 

@@ -8,9 +8,6 @@ package versions;
  */
 public class CompareVersions {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) throws Exception {
 		System.out.println("0.0 ? 0.1     : " + compareVersions("0.0", "0.1"));
 		System.out.println("0.1 ? 1.0     : " + compareVersions("0.1", "1.0"));

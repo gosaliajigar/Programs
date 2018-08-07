@@ -47,6 +47,7 @@ public class RankElements {
 	}
 
 	public static double getRank(int[] a, int element) {
+		// +1 as ranks start from 1 and array location starts from 0
 		int first = firstOccurrence(a, 0, a.length - 1, element) + 1;
 		int last = lastOccurrence(a, 0, a.length - 1, element) + 1;
 		int count = last - first + 1;
@@ -83,5 +84,4 @@ public class RankElements {
 		}
 		return -1;
 	}
-
 }

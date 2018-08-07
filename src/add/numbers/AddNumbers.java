@@ -11,9 +11,6 @@ import datastructure.linkedlist.SinglyLinkedList.Node;
  */
 public class AddNumbers {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		SinglyLinkedList<Integer> listOne = new SinglyLinkedList<Integer>();
 		SinglyLinkedList<Integer> listTwo = new SinglyLinkedList<Integer>();

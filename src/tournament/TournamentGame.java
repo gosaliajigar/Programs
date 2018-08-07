@@ -39,7 +39,6 @@ public class TournamentGame {
 }
 
 class Team implements Comparable<Team> {
-
 	public String name;
 	public int wins;
 	

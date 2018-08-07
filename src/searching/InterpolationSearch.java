@@ -31,10 +31,6 @@ public class InterpolationSearch {
 		interpolationSearch(array, 232);
 	}
 
-	/**
-	 * @param a
-	 * @param x
-	 */
 	private static void interpolationSearch(int[] a, int x) {
 		int index = -1;
 		int low = 0;

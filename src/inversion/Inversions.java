@@ -26,7 +26,7 @@ public class Inversions {
 		int inversions = 0;
 		if (low < high) {
 			int mid = low + (high - low) / 2;
-			inversions = mergeSort(a, low, mid);
+			inversions += mergeSort(a, low, mid);
 			inversions += mergeSort(a, mid + 1, high);
 			inversions += merge(a, low, mid, high);
 		}

@@ -27,10 +27,6 @@ public class BinarySearch {
 		binarySearch(array, 322);
 	}
 
-	/**
-	 * @param a
-	 * @param x
-	 */
 	private static void binarySearch(int[] a, int x) {
 		int low = 0;
 		int high = a.length - 1;

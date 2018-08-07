@@ -22,7 +22,6 @@ import java.util.Arrays;
 public class MergeSort {
 
 	private static int[] array = { 9, 8, 7, 6, 3, 1, 2, 4, 5, 2, 2, 1, 1 };
-
 	private static int[] temp = new int[array.length];
 
 	public static void main(final String[] args) {

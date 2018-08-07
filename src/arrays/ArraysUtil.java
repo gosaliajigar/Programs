@@ -44,8 +44,9 @@ public class ArraysUtil {
 		System.out.println(Arrays.toString(Arrays.copyOfRange(a, 3, 9)));
 		System.out.println();
 		
-		// equals compares value and order both
+		// allows usage of Comparator when array is an array of Objects (not primitive)
 		Arrays.sort(b);
+		// equals compares value and order both
 		System.out.println(Arrays.equals(a, b));
 		System.out.println();
 

@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class MainClass {
 
 	public static void main(final String[] args) {
-
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter number to check if its power of 2 or not : ");
 		int number = scanner.nextInt();

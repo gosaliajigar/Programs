@@ -26,13 +26,15 @@ public class Maze {
 		boolean done = false;
 		if (isValid(a, r, c)) {
 			a[r][c] = 3;									// visited
-			if (isEnd(a, r, c)) { done = true;
+			if (isEnd(a, r, c)) {
+				done = true;
 			} else {
 				done = traverse(a, r+1, c);					// right
 				if (!done) done = traverse(a, r-1, c);		// left
 				if (!done) done = traverse(a, r, c+1);		// down
 				if (!done) done = traverse(a, r, c-1);		// up
 			}
+			a[r][c] = 1;									// reset visited bit
 		}
 		if (done) a[r][c] = 7;								// chosen
 		return done;

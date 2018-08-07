@@ -34,6 +34,7 @@ public class MergeIntervalLists {
 		System.out.println(merge(new Interval[] {new Interval(1, 5), new Interval(10, 14), new Interval(16, 18)}, 
 								new Interval[] {new Interval(2, 6), new Interval(8, 10), new Interval(11, 20)}));
 	}
+
 	public static List<Interval> merge(Interval[] a, Interval[] b) {
 		List<Interval> results = new ArrayList<Interval>();
 		PriorityQueue<Interval> queue = new PriorityQueue<Interval>(sortByStartTimes);

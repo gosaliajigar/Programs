@@ -9,7 +9,6 @@ import java.util.Arrays;
  *
  */
 public class Employee {
-
 	private long id;
 	private String name;
 	private int[] tasks;
@@ -46,5 +45,4 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", tasks="
 				+ Arrays.toString(tasks) + ", department=" + department + "]";
 	}
-
 }

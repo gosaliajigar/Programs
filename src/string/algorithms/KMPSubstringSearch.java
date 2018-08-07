@@ -1,5 +1,7 @@
 package string.algorithms;
 
+import java.util.Arrays;
+
 /**
  * Do pattern matching using KMP algorithm (Knuth–Morris–Pratt)
  * 
@@ -36,6 +38,7 @@ public class KMPSubstringSearch {
 	 */
 	public static boolean KMP(char[] text, char[] pattern) {
 		int lps[] = computeTemporaryArray(pattern);
+		System.out.println(Arrays.toString(pattern) + " - " + Arrays.toString(lps));
 		int j = 0, i = 0;
 		while (j < text.length && i < pattern.length) {
 			if (text[j] == pattern[i]) {
