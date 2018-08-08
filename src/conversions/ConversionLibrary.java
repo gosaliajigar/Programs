@@ -36,7 +36,7 @@ public class ConversionLibrary {
 		int decimal = 0;
 		for (int index = 0; index < binary.length(); index++) {
 			int multiplier = ((binary.charAt(index) == '1') ? 1 : 0);
-			decimal = (multiplier * (int) Math.pow(2, binary.length() - 1 - index)) + decimal;
+			decimal += (multiplier * (int) Math.pow(2, binary.length() - 1 - index));
 		}
 		return decimal;
 	}
@@ -69,7 +69,7 @@ public class ConversionLibrary {
 		int decimal = 0;
 		for (int index = 0; index < octal.length(); index++) {
 			int multiplier = Integer.parseInt(String.valueOf(octal.charAt(index)));
-			decimal = (multiplier * (int) Math.pow(8, octal.length() - 1 - index)) + decimal;
+			decimal += (multiplier * (int) Math.pow(8, octal.length() - 1 - index));
 		}
 		return decimal;
 	}
@@ -100,7 +100,7 @@ public class ConversionLibrary {
 		int decimal = 0;
 		for (int index = 0; index < hex.length(); index++) {
 			int multiplier = getDecValue(hex.charAt(index));
-			decimal = (multiplier * (int) Math.pow(16, hex.length() - 1 - index)) + decimal;
+			decimal += (multiplier * (int) Math.pow(16, hex.length() - 1 - index));
 		}
 		return decimal;
 	}

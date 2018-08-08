@@ -6,7 +6,7 @@ package graph;
  * @author Jigar Gosalia
  *
  */
-public class ConnectedComponentsInUndirectedGraphUnionFind {
+public class UnionFindConnectedComponentsInUndirectedGraph {
 
 	public static int countConnectedComponents(int nodes, int[][] edges) {
 		int count = nodes;

@@ -20,5 +20,4 @@ package graph;
  * @author Jigar Gosalia
  *
  */
-public class LongestPathInUndirectedGraph {
-}
+public class BFSLongestPathInUndirectedGraph {}

@@ -21,6 +21,7 @@ public class SortQueue {
 	}
 
 	public static void sort(Queue<Integer> queue) {
+		// 1 to queue.size() ==> n iterations
 		for (int i=1; i<=queue.size(); i++) {
 			int minIndex = findMinIndex(queue, queue.size() - i);
 			insertMinToRear(queue, minIndex);
@@ -28,7 +29,7 @@ public class SortQueue {
 	}
 
 	// we add the condition i <= index because we don't want to traverse
-	// on the sorted part of the queue, which is the right part.
+	// on the sorted part of the queue, which is the right most part.
 	public static int findMinIndex(Queue<Integer> queue, int index) {
 		int minIndex = -1, minValue = Integer.MAX_VALUE, size = queue.size();
 		for (int i = 0; i < size; i++) {
@@ -42,7 +43,7 @@ public class SortQueue {
 		return minIndex;
 	}
 
-	// find minIndex and push it to rear
+	// find minIndex, skip pushing it in sequence and instead push it to rear
 	public static void insertMinToRear(Queue<Integer> queue, int minIndex) {
 		int minValue = 0, size = queue.size();
 		for (int i = 0; i < size; i++) {
