@@ -16,6 +16,10 @@ public class CombinationArray {
 		List<Integer> current = new ArrayList<Integer>();
 		combinations(new int[] { 1, 2, 3 }, 0, current, results);
 		results.forEach(System.out::println);
+		results.clear();
+		System.out.println();
+		combinations(new int[] { 1, 2, 1 }, 0, current, results);
+		results.forEach(System.out::println);
 	}
 
 	public static void combinations(int[] a, int start, List<Integer> current, Set<Set<Integer>> results) {

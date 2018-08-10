@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * - shutdown()<br>
  * - isShutdown()<br>
  * - isTerminated()<br>
- * - awaitTermination(long timeout, TmeUnit unit)<br>
+ * - awaitTermination(long timeout, TimeUnit unit)<br>
  * <br>
  * 
  * Source : https://examples.javacodegeeks.com/core-java/util/concurrent/executorservice/java-executorservice-example-tutorial/ <br>

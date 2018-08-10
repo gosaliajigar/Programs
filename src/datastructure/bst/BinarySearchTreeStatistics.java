@@ -231,15 +231,11 @@ public class BinarySearchTreeStatistics {
 	}
 
 	public static boolean compare2Trees(BinaryNode nodeA, BinaryNode nodeB) {
-		if (nodeA == null && nodeB == null) {
-			return true;
-		} else if (nodeA.getData() == nodeB.getData()
+		if (nodeA == null && nodeB == null) return true;
+		if (nodeA == null || nodeB == null) return false; 
+		return (nodeA.getData() == nodeB.getData()
 				&& compare2Trees(nodeA.getLeft(), nodeB.getLeft())
-				&& compare2Trees(nodeA.getRight(), nodeB.getRight())) {
-			return true;
-		} else {
-			return false;
-		}
+				&& compare2Trees(nodeA.getRight(), nodeB.getRight()));
 	}
 
 	public static boolean isBST(BinaryNode node, int min, int max) {
