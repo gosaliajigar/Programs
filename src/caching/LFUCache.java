@@ -67,9 +67,8 @@ public class LFUCache {
 		// this can get linear if there are lot of collisions
 		if (frequencyMap.containsKey(frequency) && frequencyMap.get(frequency).contains(key))
 			frequencyMap.get(frequency).remove(key);
-		if (!frequencyMap.containsKey(frequency + 1)) {
+		if (!frequencyMap.containsKey(frequency + 1))
 			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
-		}
 		frequencyMap.get(frequency+1).add(key);
 		if (minFrequency == frequency && frequencyMap.get(frequency).size() == 0)
 			minFrequency = frequency + 1;

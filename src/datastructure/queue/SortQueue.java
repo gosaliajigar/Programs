@@ -30,11 +30,11 @@ public class SortQueue {
 
 	// we add the condition i <= index because we don't want to traverse
 	// on the sorted part of the queue, which is the right most part.
-	public static int findMinIndex(Queue<Integer> queue, int index) {
+	public static int findMinIndex(Queue<Integer> queue, int end) {
 		int minIndex = -1, minValue = Integer.MAX_VALUE, size = queue.size();
 		for (int i = 0; i < size; i++) {
 			int current = queue.poll();
-			if (current <= minValue && i <= index) {
+			if (current <= minValue && i <= end) {
 				minIndex = i;
 				minValue = current;
 			}

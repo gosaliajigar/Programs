@@ -31,7 +31,8 @@ public class StaircaseProblem {
 	public static int stairsMemoization(int steps, int[] memo) {
 		if (steps < 0) return 0;
 		if (steps == 0) return 1; 
-		if (memo[steps] == 0) memo[steps] = stairsMemoization(steps - 1, memo) + stairsMemoization(steps - 2, memo) + stairsMemoization(steps - 3, memo);
+		if (memo[steps] == 0) 
+			memo[steps] = stairsMemoization(steps - 1, memo) + stairsMemoization(steps - 2, memo) + stairsMemoization(steps - 3, memo);
 		return memo[steps];
 	}
 

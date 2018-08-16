@@ -38,7 +38,7 @@ public class DFSAirport {
 			{ "Thailand", "China", "200" }, { "Japan", "Indonesia", "50" }, { "Indonesia", "Japan", "55" },
 			{ "Swiss", "Japan", "300" }, { "Japan", "China", "120" }, { "Indonesia", "China", "65" }, };
 
-	static Comparator<Trip> sortByPrices = new Comparator<Trip>() {
+	public static Comparator<Trip> sortByPrices = new Comparator<Trip>() {
 		@Override
 		public int compare(Trip o1, Trip o2) {
 			return o1.cost - o2.cost;
@@ -53,10 +53,11 @@ public class DFSAirport {
 	}
 
 	public static List<List<Trip>> cheapDFS(String[][] flights, int maxConnections, String source, String destination) {
-		List<List<Trip>> results = new ArrayList<List<Trip>>();
-		List<Trip> curr = new ArrayList<Trip>();
 		Map<String, PriorityQueue<Trip>> map = getMap(flights);
 		Trip t = map.get(source).poll();
+
+		List<List<Trip>> results = new ArrayList<List<Trip>>();
+		List<Trip> curr = new ArrayList<Trip>();
 		curr.add(t);
 		dfs(destination, maxConnections, t, curr, results, map);
 		return results;
@@ -85,8 +86,6 @@ public class DFSAirport {
 			}
 			map.get(flight[0]).add(new Trip(flight[0], flight[1], Integer.valueOf(flight[2])));
 		}
-		map.forEach((k, v) -> System.out.println(k + "-" + v));
-		System.out.println();
 		return map;
 	}
 

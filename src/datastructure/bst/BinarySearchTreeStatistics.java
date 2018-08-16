@@ -206,6 +206,7 @@ public class BinarySearchTreeStatistics {
 		System.out.println();
 	}
 
+	// invert binary tree
 	public static BinaryNode mirror() {
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.create(array);
@@ -293,7 +294,7 @@ public class BinarySearchTreeStatistics {
 		return -1;
 	}
 
-	// The diameter of a tree (sometimes called the width) is the number of nodes on
+	// The diameter of a tree (sometimes called width) is the number of nodes on
 	// the longest path between two end nodes.
 	public static int diameter(BinaryNode root) {
 		if (root == null) return 0;
@@ -305,9 +306,12 @@ public class BinarySearchTreeStatistics {
 
 	public static int height(BinaryNode node, int[] max) {
 		if (node == null) return 0;
+		// max height of left sub-tree
 		int leftHeight = height(node.left, max);
+		// max height of right sub-tree
 		int rightHeight = height(node.right, max);
 		max[0] = Math.max(max[0], 1 + leftHeight + rightHeight);
+		// 1 + max height of sub-trees is height of tree
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
 }
