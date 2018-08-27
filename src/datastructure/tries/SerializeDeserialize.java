@@ -53,17 +53,13 @@ public class SerializeDeserialize {
 	}
 
 	private static TrieNodeSD deserialize(String[] data, int[] t) {
-		if (t[0] >= (data.length - 1) || data[t[0]].equals("#"))
-			return null;
+		if (t[0] >= (data.length - 1) || data[t[0]].equals("#")) return null;
 		TrieNodeSD node = new TrieNodeSD(data[t[0]].charAt(0));
 		while (true) {
 			t[0] = t[0] + 1;
 			TrieNodeSD child = deserialize(data, t);
-			if (child != null) {
-				node.characters.put(child.character, child);
-			} else {
-				break;
-			}
+			if (child != null) node.characters.put(child.character, child);
+			else break;
 		}
 		return node;
 	}
