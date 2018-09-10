@@ -19,13 +19,19 @@ import java.util.Set;
 public class LFUCache {
 
 	class Data {
+		int key;
 		int value;
 		int frequency;
+	
+		public Data(int key, int value) {
+			this.key = key;
+			this.value = value;
+		}
 	}
 
-	// value->Data
+	// key->Data
 	Map<Integer, Data> valueMap;
-	// frequency-><value, value, value>
+	// frequency-><key, key, key>
 	Map<Integer, Set<Integer>> frequencyMap;
 	int minFrequency = -1;
 	int capacity;
@@ -49,7 +55,7 @@ public class LFUCache {
 		if (valueMap.containsKey(key)) {
 			node = valueMap.get(key);
 		} else {
-			node = new Data();
+			node = new Data(key, value);
 			if (valueMap.size() >= capacity)
 				deleteLeastFrequent();
 			minFrequency = 1;
@@ -70,7 +76,8 @@ public class LFUCache {
 		if (!frequencyMap.containsKey(frequency + 1))
 			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
 		frequencyMap.get(frequency+1).add(key);
-		if (minFrequency == frequency && frequencyMap.get(frequency).size() == 0)
+		if (minFrequency == frequency && frequencyMap.get(frequency) != null
+				&& frequencyMap.get(frequency).size() == 0)
 			minFrequency = frequency + 1;
 	}
 

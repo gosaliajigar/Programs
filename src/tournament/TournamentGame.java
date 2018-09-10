@@ -24,6 +24,8 @@ public class TournamentGame {
 		teams.addLast(new Team("Splits", 4));
 		teams.addLast(new Team("Tenpins", 3));
 		teams.addLast(new Team("Woodsplitters", 2));
+		System.out.println(teams);
+		System.out.println();
 		game(teams);
 	}
 

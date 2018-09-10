@@ -9,12 +9,10 @@ package bits;
 public class MaxZeroProblem {
 
 	public static void main(String[] args) {
-		System.out.println(maxGap(2));
-		System.out.println(maxGap(5));
-		System.out.println(maxGap(9));
-		System.out.println(maxGap(17));
-		System.out.println(maxGap(273));
-		System.out.println(maxGap(265));
+		int[] a = {2,5,9,17,273,265};
+		for (int i : a) {
+			System.out.printf("%-20s - %d\n", toBinary(i), maxGap(i));
+		}
 	}
 
 	public static int maxGap(int n) {
@@ -32,5 +30,14 @@ public class MaxZeroProblem {
 			n = n >> 1;
 		}
 		return max;
+	}
+
+	public static String toBinary(int i) {
+		StringBuilder binary = new StringBuilder();
+		while (i > 0) {
+			binary.append(i%2);
+			i /= 2;
+		}
+		return binary.reverse().toString();
 	}
 }

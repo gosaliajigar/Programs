@@ -36,7 +36,7 @@ public class BinarySearch {
 
 		while (low <= high) {
 			iterations++;
-			mid = ((high + low) / 2);
+			mid = low + ((high - low) / 2);
 			// data is greater than value at middle, hence it is more towards
 			// upperBound, so move lowerBound
 			if (a[mid] < x) {

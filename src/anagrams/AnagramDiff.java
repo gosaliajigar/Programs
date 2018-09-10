@@ -41,18 +41,15 @@ public class AnagramDiff {
 		Map<Character, Integer> finalMap = new HashMap<Character, Integer>();
 
 		// get max size of both the strings and populate 3 maps
-		int max = ((one.length() >= two.length()) ? one.length() : two.length());
-		for (int index = 0; index < max; index++) {
+		for (int index = 0; index < Math.max(one.length(),  two.length()); index++) {
 			if (index < one.length()) {
 				char c = one.charAt(index);
-				if (!oneMap.containsKey(c)) oneMap.put(c, 1);
-				oneMap.put(c, oneMap.get(c) + 1);				
+				oneMap.put(c, oneMap.getOrDefault(c, 0) + 1);				
 				finalMap.put(c, 0);
 			}
 			if (index < two.length()) {
 				char c = two.charAt(index);
-				if (!twoMap.containsKey(c)) twoMap.put(c, 1);
-				twoMap.put(c, twoMap.get(c) + 1);				
+				twoMap.put(c, twoMap.getOrDefault(c, 0) + 1);				
 				finalMap.put(c, 0);
 			}
 		}
@@ -75,8 +72,6 @@ public class AnagramDiff {
 	 * @return
 	 */
 	public static int count(Map<Character, Integer> map) {
-		int sum = 0;
-		for (Character character : map.keySet()) sum += map.get(character);
-		return sum;
+		return map.values().stream().mapToInt(u -> u).sum();
 	}
 }

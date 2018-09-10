@@ -12,12 +12,14 @@ import java.util.Set;
 public class CombinationArray {
 
 	public static void main(String[] args) {
+		// we need set as internal structure to make sure we do not get repetitive numbers
 		Set<Set<Integer>> results = new HashSet<Set<Integer>>();
 		List<Integer> current = new ArrayList<Integer>();
 		combinations(new int[] { 1, 2, 3 }, 0, current, results);
 		results.forEach(System.out::println);
 		results.clear();
 		System.out.println();
+		// if repetitive elements then use List<Set<Integer>>
 		combinations(new int[] { 1, 2, 1 }, 0, current, results);
 		results.forEach(System.out::println);
 	}

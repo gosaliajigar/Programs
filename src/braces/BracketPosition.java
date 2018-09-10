@@ -10,6 +10,14 @@ import java.util.Map;
  */
 public class BracketPosition {
 
+	private static Map<Character, Character> brackets = new HashMap<Character, Character>();
+
+	static {
+		brackets.put('(', ')');
+		brackets.put('{', '}');
+		brackets.put('[', ']');
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(findPosition("cld{sd{dssd}ds}sdsd", 3));
 		System.out.println(findPosition("cld{sd{dssdds}sdsd", 3));
@@ -19,10 +27,6 @@ public class BracketPosition {
 	}
 
 	public static int findPosition(String s, int position) {
-		Map<Character, Character> brackets = new HashMap<Character, Character>();
-		brackets.put('(', ')');
-		brackets.put('{', '}');
-		brackets.put('[', ']');
 		if (s != null && s.length() > 0 && position >= 0) {
 			int count = 0;
 			char bracket = s.charAt(position);

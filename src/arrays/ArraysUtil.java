@@ -5,6 +5,14 @@ import java.util.stream.Collectors;
 
 /**
  * useful methods of Arrays
+ * - Arrays.toString(a)
+ * - Arrays.toList(1,2,3,4)
+ * - Arrays.sort(a); Arrays.sort(a, new Comparator<P>() { @override public int compare(P o1, P o2) {...}}
+ * - Arrays.binarySearch(a, 4); Arrays.binarySearch(a, 2, 10, 4); else -(insertion_point)-1
+ * - Arrays.copyOf(a); Arrays.copyOfRange(a, 3, 9)
+ * - Arrays.fill(a, -1)
+ * - Arrays.equals(a, b)
+ * - Arrays.stream(a).boxed().collect(Collectors.toList())
  * 
  * @author Jigar Gosalia
  *

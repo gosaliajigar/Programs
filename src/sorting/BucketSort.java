@@ -20,8 +20,8 @@ public class BucketSort {
 		System.out.println(Arrays.toString(input));
 	}
 
-	public static void bucket(int[] a, int bucketSize) {
-		if (a == null || a.length == 0 || a.length == 1 || bucketSize == 0) { return; }
+	public static void bucket(int[] a, int eachBucketSize) {
+		if (a == null || a.length == 0 || a.length == 1 || eachBucketSize == 0) { return; }
 
 		int min = a[0], max = a[0];
 		
@@ -30,19 +30,23 @@ public class BucketSort {
 			max = Math.max(max, a[index]);
 		}
 		
-		int bucketCount = ((max - min) / bucketSize) + 1;
+		// find no. of buckets
+		int noOfBuckets = ((max - min) / eachBucketSize) + 1;
 
 		List<List<Integer>> buckets = new ArrayList<List<Integer>>();
-		for (int index = 0; index < bucketCount; index++) {
+		// initialize buckets
+		for (int index = 0; index < noOfBuckets; index++) {
 			buckets.add(new ArrayList<Integer>());
 		}
-		
+		// fill buckets
 		for (int index = 0; index < a.length; index++) {
-			buckets.get((a[index] - min)/bucketSize).add(a[index]);
+			// find a[index]'s bucket relative to min
+			buckets.get((a[index] - min)/eachBucketSize).add(a[index]);
 		}
 		
 		int position = 0;
 		for (List<Integer> bucket : buckets) {
+			// sort each bucket
 			Collections.sort(bucket);
 			for (int item : bucket) {
 				a[position++] = item;

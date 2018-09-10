@@ -19,7 +19,7 @@ public class ConversionLibrary {
 	public static String dec2bin(int decimal) {
 		if (decimal <= 0) return "0";
 		String binary = new String();
-		while (decimal != 0) {
+		while (decimal > 0) {
 			binary = (decimal % 2) + binary;
 			decimal /= 2;
 		}
@@ -49,13 +49,22 @@ public class ConversionLibrary {
 	 */
 	public static String dec2oct(int decimal) {
 		String octal = new String();
-		while (decimal != 0) {
+		while (decimal > 0) {
 			octal = (decimal % 8) + octal;
 			decimal /= 8;
 		}
-		if (octal.length() == 0) octal = "000";
-		if (octal.length() == 1) octal = "00" + octal;
-		if (octal.length() == 2) octal = "0" + octal;
+		switch(octal.length()) {
+			case 0:
+				octal = "000";
+				break;
+			case 1:
+				octal = "00" + octal;
+				break;
+			case 2:
+				octal = "0" + octal;
+				break;
+			default:
+		}
 		return octal;
 	}
 
@@ -83,7 +92,7 @@ public class ConversionLibrary {
 	public static String dec2hex(int decimal) {
 		if (decimal <= 0) return "0";
 		String hex = new String();
-		while (decimal != 0) {
+		while (decimal > 0) {
 			hex = getHexValue(decimal % 16) + hex;
 			decimal /= 16;
 		}

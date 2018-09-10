@@ -1,8 +1,5 @@
 package datastructure.tries;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * 								A<br>
  * 					/ 			| 			\<br>
@@ -41,8 +38,7 @@ public class SerializeDeserialize {
 	}
 
 	private static void serialize(TrieNodeSD node, StringBuilder sb) {
-		if (node == null)
-			return;
+		if (node == null) return;
 		sb.append(node.character + ",");
 		if (node.characters != null && node.characters.size() > 0) {
 			for (Character c : node.characters.keySet()) {
@@ -53,13 +49,15 @@ public class SerializeDeserialize {
 	}
 
 	private static TrieNodeSD deserialize(String[] data, int[] t) {
-		if (t[0] >= (data.length - 1) || data[t[0]].equals("#")) return null;
+		if (t[0] > (data.length - 1) || data[t[0]].equals("#")) return null;
 		TrieNodeSD node = new TrieNodeSD(data[t[0]].charAt(0));
 		while (true) {
 			t[0] = t[0] + 1;
 			TrieNodeSD child = deserialize(data, t);
-			if (child != null) node.characters.put(child.character, child);
-			else break;
+			if (child != null) 
+				node.characters.put(child.character, child);
+			else 
+				break;
 		}
 		return node;
 	}
@@ -81,20 +79,5 @@ public class SerializeDeserialize {
 		root.characters.get('D').characters.put('J', new TrieNodeSD('J'));
 
 		return root;
-	}
-}
-
-class TrieNodeSD {
-	Map<Character, TrieNodeSD> characters;
-	char character;
-
-	public TrieNodeSD(char c) {
-		this.characters = new HashMap<Character, TrieNodeSD>();
-		this.character = c;
-	}
-
-	@Override
-	public String toString() {
-		return this.character + "";
 	}
 }

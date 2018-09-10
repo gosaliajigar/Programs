@@ -7,8 +7,8 @@ package searching;
  * distributed</b>.<br>
  * <br>
  * 
- * Even when the data is sorted, binary search does not take advantage of that
- * to probe the position of desired data.<br>
+ * Even when the data is sorted, binary search does not take advantage of 
+ * probing the position of desired data.<br>
  * <br>
  * 
  * Interpolation Search searches a particular item by computing the probe

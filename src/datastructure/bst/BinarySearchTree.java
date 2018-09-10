@@ -25,7 +25,7 @@ public class BinarySearchTree {
 
 	private BinaryNode createBinarySearchTree(int array[], int low, int high) {
 		if (low <= high) {
-			int mid = (low + high) / 2;
+			int mid = low + ((high-low) / 2);
 			BinaryNode node = new BinaryNode(array[mid]);
 			node.setLeft(createBinarySearchTree(array, low, mid-1));
 			node.setRight(createBinarySearchTree(array, mid+1, high));
@@ -100,7 +100,7 @@ public class BinarySearchTree {
 		// 3. has just right child
 		// return transparent(root, node, node.right);
 		
-		// 4. has both children
+		// 4. has both children (get successor)
 		// Node y = treeMinimum(node.getRight());
 		// if (y.p != node) {
 		// 		transparent(root, y, y.getRight());
@@ -114,7 +114,7 @@ public class BinarySearchTree {
 
 	@SuppressWarnings("unused")
 	private static void transparent(BinaryNode root, BinaryNode u, BinaryNode v) {
-		// replace u by v on its parent node
+		// replace u by v on u's parent node
 		//	if (u.p == null) {
 		//		root = v;
 		//	} else if (u.p.left == u) {
@@ -122,13 +122,14 @@ public class BinarySearchTree {
 		//	} else {
 		//		u.p.right = v;
 		//	}
+		// make v's parent as u's parent
 		//	if (v != null) {
 		//		v.p = u.p; u.p = null;
 		//	}
 	}
 
 	// If the right subtree of node x is nonempty, then the successor of x is
-	// just the leftmost node in x’s right subtree
+	// just the leftmost node in xï¿½s right subtree
 	//
 	// If the right subtree of node x is empty and x has a successor y, then y 
 	// is the lowest ancestor of x whose left child is also an ancestor of x.

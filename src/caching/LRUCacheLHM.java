@@ -34,10 +34,8 @@ public class LRUCacheLHM<K, V> extends LinkedHashMap<K, V> {
 
 	public static void main(String[] args) {
 		LRUCacheLHM<String, Integer> cacheLHM = new LRUCacheLHM<String, Integer>(5);
-		cacheLHM.put("1", 1);
-		cacheLHM.put("2", 2);
-		cacheLHM.put("3", 3);
-		cacheLHM.put("4", 4);
+		cacheLHM.put("1", 1); cacheLHM.put("2", 2);
+		cacheLHM.put("3", 3); cacheLHM.put("4", 4);
 		System.out.println(cacheLHM);
 		cacheLHM.put("5", 5);
 		System.out.println(cacheLHM);

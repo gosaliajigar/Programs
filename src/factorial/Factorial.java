@@ -40,6 +40,6 @@ public class Factorial {
 
 	// O(n)
 	public static int factorialRecursive(final int n) {
-		return ((n == 0) ? 1 : (n * factorialRecursive(n - 1)));
+		return ((n == 0 || n == 1) ? 1 : (n * factorialRecursive(n - 1)));
 	}
 }

@@ -11,11 +11,16 @@ import java.util.List;
 public class PermutationArray {
 
 	public static void main(String[] args) {
+		int[] a = new int[] { 1, 2, 3 };
 		List<int[]> results = new ArrayList<int[]>();
-		permutations(new int[] { 1, 2, 3 }, 0, results);
+		System.out.println(Arrays.toString(a));
+		System.out.println();
+		permutations(a, 0, results);
 		for (int[] row : results) {
 			System.out.println(Arrays.toString(row));
 		}
+		System.out.println();
+		System.out.println(Arrays.toString(a));
 	}
 
 	public static void permutations(int[] a, int start, List<int[]> results) {

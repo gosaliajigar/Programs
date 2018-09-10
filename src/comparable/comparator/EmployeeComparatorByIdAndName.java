@@ -4,6 +4,8 @@ import java.util.Comparator;
 
 /**
  * Employee class implementing Comparator
+ * o1 - o2 ==> asc
+ * o2 - o1 ==> desc
  *
  * @author "Jigar Gosalia"
  *

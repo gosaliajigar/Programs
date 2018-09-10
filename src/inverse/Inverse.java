@@ -36,6 +36,7 @@ public class Inverse {
 		StringBuilder complement = new StringBuilder();
 		for (int index = 0; index < binary.length(); index++) {
 			// complement.append((Integer.parseInt("" + binary.charAt(index)) ^ 1));
+			// complement.append((binary.charAt(index) == '0') ? "1" : "0");
 			if (binary.charAt(index) == '0') {
 				complement.append("1");
 			} else {

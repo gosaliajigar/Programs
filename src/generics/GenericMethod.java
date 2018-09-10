@@ -1,7 +1,7 @@
 package generics;
 
 /**
- * Generic Methods
+ * Generic Methods (<T> must be placed before return type)
  *
  * @author "Jigar Gosalia"
  *
