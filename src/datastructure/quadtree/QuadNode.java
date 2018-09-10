@@ -13,15 +13,23 @@ package datastructure.quadtree;
  */
 public class QuadNode {
 
+	// boundaries
 	Coordinates topLeft;
 	Coordinates bottomRight;
 
+	// to traverse up
 	QuadNode parent;
+	
+	// children 4 nodes
 	QuadNode upperLeft;
 	QuadNode upperRight;
 	QuadNode lowerLeft;
 	QuadNode lowerRight;
 
+	// to traverse neighbour grids
+	QuadNode prev;
+	QuadNode next;
+	
 	public QuadNode(QuadNode parent, Coordinates topLeft, Coordinates bottomRight) {
 		this.parent = parent;
 		this.topLeft = new Coordinates(topLeft.latitude, topLeft.longitude);
