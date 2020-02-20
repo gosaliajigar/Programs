@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * On every 3 occurrences of a char, skip the 1st occurrence and return last 2 occurrences.
+ * On every 3 occurrences of a char, skip the 1st occurrence and return last 2
+ * occurrences.
  * 
  * Continue doing this for full string.
  * 
@@ -15,7 +16,8 @@ import java.util.Map.Entry;
 public class StringTriplets {
 
 	public static void main(String[] args) {
-		String[] input = { "aaa", "aaaa", "aaaaa", "aaaaaa", "aaabbb", "aaaabbbb", "abcccaaabbbc" };
+		String[] input = { null, "", "a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaabbb", "aaaabbbb",
+				"abcccaaabbbc" };
 		Map<String, String> responses = new LinkedHashMap<String, String>();
 		for (String i : input) {
 			responses.put(i, skipTriplets(i));
