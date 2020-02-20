@@ -16,11 +16,11 @@ import java.util.Map.Entry;
 public class StringTriplets {
 
 	public static void main(String[] args) {
-		String[] input = { null, "", "a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaabbb", "aaaabbbb",
+		String[] stream = { null, "", "a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaabbb", "aaaabbbb",
 				"abcccaaabbbc" };
 		Map<String, String> responses = new LinkedHashMap<String, String>();
-		for (String i : input) {
-			responses.put(i, skipTriplets(i));
+		for (String data : stream) {
+			responses.put(data, skipTriplets(data));
 		}
 		for (Entry<String, String> entry : responses.entrySet()) {
 			System.out.printf("%-20s ==> %-20s\n", entry.getKey(), entry.getValue());
