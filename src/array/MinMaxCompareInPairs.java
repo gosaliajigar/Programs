@@ -1,6 +1,8 @@
 package array;
 
 /**
+ * Find min and max integers in an array and find how many comparisons were done to find them.
+ * 
  * If n is odd,  we perform 3(n/2) comparisons.
  * If n is even, we perform 1 initial comparison followed by (3n/2)-2 comparisons.
  * 

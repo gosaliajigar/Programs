@@ -20,7 +20,7 @@ public class ConnectNRopesCost {
 	}
 	
 	public static int minCost(int[] a) {
-		// Create a priority queue
+		// Create a priority queue (default is min heap)
 		PriorityQueue<Integer> queue = new PriorityQueue<Integer>();
 		// Adding items to the queue
 		for (int i : a) { queue.offer(i); }

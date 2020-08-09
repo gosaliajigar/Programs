@@ -22,7 +22,7 @@ public class CheckAnagrams {
 		if (s1 != null && s2 != null && s1.length() != s2.length()) return false;
 		s1 = s1.toLowerCase();
 		s2 = s2.toLowerCase();
-		int[] letters = new int[1<<8];
+		int[] letters = new int[1<<8]; // 128
 		for (int i=0; i<s1.length(); i++) { 
 			letters[s1.charAt(i)]++;
 			letters[s2.charAt(i)]--;

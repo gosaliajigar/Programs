@@ -39,11 +39,11 @@ public class AddNumbers {
 			int one = 0;
 			int two = 0;
 			if (rootOne != null) {
-				one = (Integer) rootOne.getData();
+				one = rootOne.getData();
 				rootOne = rootOne.getNext();
 			}
 			if (rootTwo != null) {
-				two = (Integer) rootTwo.getData();
+				two = rootTwo.getData();
 				rootTwo = rootTwo.getNext();
 			}
 			int sum = carry + one + two;

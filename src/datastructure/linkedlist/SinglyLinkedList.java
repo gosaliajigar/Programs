@@ -32,7 +32,7 @@ public class SinglyLinkedList<T> {
 	 * @param data
 	 */
 	public void addRear(final T data) {
-		Node<T> node = new Node<T>(data, null);
+		Node<T> node = new Node<T>(data);
 		Node<T> current = root;
 
 		if (current != null) {
@@ -222,6 +222,9 @@ public class SinglyLinkedList<T> {
 		public void setData(T data) { this.data = data; }
 		public Node<T> getNext() { return next; }
 		public void setNext(Node<T> next) { this.next = next; }
+		public Node(final T data) {
+			this(data, null);
+		}
 		public Node(final T data, final Node<T> next) {
 			this.data = data;
 			this.next = next;

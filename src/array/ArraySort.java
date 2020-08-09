@@ -15,6 +15,7 @@ import java.util.Comparator;
  */
 public class ArraySort {
 
+	// class not implementing Comparable<T>
 	static class Person {
 		private String fName;
 		private String lName;
@@ -23,6 +24,7 @@ public class ArraySort {
 		public String toString() { return "Person:fName=" + this.fName + ";lName=" + this.lName; }
 	}
 
+	// class implementing Comparable<T>
 	static class Point implements Comparable<Point> {
 		private int x;
 		private int y;
@@ -50,6 +52,7 @@ public class ArraySort {
 		// The sorting is done in natural ascending order.
 		Arrays.sort(intArr);
 		System.out.println(Arrays.toString(intArr));
+		// String class implements Comparable<T>
 		Arrays.sort(strArr);
 		System.out.println(Arrays.toString(strArr));
 		// reverse the order by using collections helper methods

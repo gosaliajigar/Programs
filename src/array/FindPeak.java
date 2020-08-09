@@ -3,7 +3,7 @@ package array;
 import java.util.Arrays;
 
 /**
- * Find peak element of the peaks in an array using Binary Search.
+ * Find peak element of the peak in an array using Binary Search.
  * 
  * Time Complexity : O(logn)
  * 

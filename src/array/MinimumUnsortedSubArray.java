@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 /**
  * 
+ * 
+ * Given an unsorted array of size n, find the minimum length sub-array such that 
+ * sorting this sub-array makes the whole array sorted.
+ * 
  * Source : https://www.geeksforgeeks.org/minimum-length-unsorted-subarray-sorting-which-makes-the-complete-array-sorted/
  * 
  * @author Jigar Gosalia
