@@ -39,13 +39,18 @@ public class BubbleSort {
 				// Swap only if element is greater then next element.
 				// Bubble up higher number to end of array.
 				if (input[j].compareTo(input[j + 1]) > 0) {
-					T temp = input[j + 1];
-					input[j + 1] = input[j];
-					input[j] = temp;
+					swap(input, j, j + 1);
 				}
 			}
 		}
 		System.out.println("Iterations:<" + iterations + "> Size:<" + input.length + ">");
 		System.out.println("-" + Arrays.toString(input));
 	}
+
+	public static <T> void swap(T[] input, int src, int dest) {
+		T temp = input[src];
+		input[src] = input[dest];
+		input[dest] = temp;
+	}
+
 }

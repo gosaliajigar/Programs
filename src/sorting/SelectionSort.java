@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 /**
  * Selection sort is a in-place comparison based algorithm.<br>
- * Can be stable or unstable both.
- * Source : https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable
+ * Can be stable or unstable both. Source :
+ * https://stackoverflow.com/questions/20761396/why-selection-sort-can-be-stable-or-unstable
  * <br>
  * 
  * Selection sort is a simple sorting algorithm in which the list is divided
@@ -33,7 +33,7 @@ public class SelectionSort {
 	public static void selectionSort(Integer[] a) {
 		int iterations = 0;
 		// loop through all numbers
-		for (int i = 0; i < a.length-1; i++) {
+		for (int i = 0; i < a.length - 1; i++) {
 			// set current element as minimum
 			int minIndex = i;
 			// check the element to be minimum
@@ -45,12 +45,16 @@ public class SelectionSort {
 			}
 			// swap the numbers
 			if (minIndex != i) {
-				int temp = a[minIndex];
-				a[minIndex] = a[i];
-				a[i] = temp;
+				swap(a, minIndex, i);
 			}
 		}
 		System.out.println("Iterations:<" + iterations + "> Size:<" + a.length + ">");
 		System.out.println("-" + Arrays.toString(a));
+	}
+
+	public static <T> void swap(T[] input, int src, int dest) {
+		T temp = input[src];
+		input[src] = input[dest];
+		input[dest] = temp;
 	}
 }

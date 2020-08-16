@@ -1,5 +1,6 @@
 package array;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +31,8 @@ public class FindMissingNumbers {
 				a[Math.abs(a[i]) - 1] = -a[Math.abs(a[i]) - 1];
 			}
 		}
+		
+		System.out.println(Arrays.toString(a));
 		
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] > 0) set.add(i + 1);

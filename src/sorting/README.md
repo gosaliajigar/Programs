@@ -1,23 +1,33 @@
+Stable: 
+- Stable sorting algorithms maintain the relative order of records with equal keys (i.e. values). 
+- A sorting algorithm is stable if whenever there are two records R and S with the same key and with R appearing before S in the original list, R will appear before S in the sorted list.
+
+In-Place:
+- A sort algorithm in which the sorted items occupy the same storage as the original ones.
+- These algorithms may use o(n) additional memory for bookkeeping, but at most a constant number of items are kept in auxiliary memory at any time.
+
+
 Sorting			Average			Worst		Stable		In-Place	Space
 ---------------------------------------------------------------------
 Bubble			n2				n2			YES			YES			1
 Insertion		n2				n2			YES			YES			1
-Selection		n2				n2			YES & NO	YES			1
+Selection		n2				n2			YES & NO		YES			1
 
 Quick			nlogn			n2			NO			YES			logn
 Merge			nlogn			nlogn		YES			NO			n
-Heap			nlogn			nlogn		NO			YES			1
+Heap				nlogn			nlogn		NO			YES			1
 
-Counting		n+k				n+k			YES			NO			k
+Counting			n+k				n+k			YES			NO			k
 Bucket			n+k				n2			YES			NO			n
 										(underlying
 											sort)
-											
+
+
 Q: Which sorting algorithm makes minimum number of memory writes?
 Minimizing the number of writes is useful when making writes to some huge data set is very expensive, such as with EEPROMs or Flash memory, where each write reduces the life span of the memory.
 A: Selection sort makes least number of writes (it makes O(n) swaps), but Cycle sort almost always makes less number of writes compared to Selection Sort.
 
-In Cycle sort, each value is either written zero times, if it’s already in its correct position, or written one time to its correct position. This matches the minimal number of overwrites required for a completed in-place sort.
+In Cycle sort, each value is either written zero times, if it's already in its correct position, or written one time to its correct position. This matches the minimal number of overwrites required for a completed in-place sort.
 
 Q: Sorting 24,000,000 evenly distributed real numbers between 1 and 6,006?
 A: Bucket sort, the input is uniformly distributed, so Bucket sort runs in linear time.
