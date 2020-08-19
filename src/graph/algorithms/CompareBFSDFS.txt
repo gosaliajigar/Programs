@@ -1,0 +1,28 @@
+Source: https://www.tutorialspoint.com/difference-between-bfs-and-dfs
+
+Following are the important differences between BFS and DFS.
+
+1.	Definition
+		BFS, stands for Breadth First Search.
+		DFS, stands for Depth First Search.
+
+2.	Data structure
+	BFS uses Queue to find the shortest path.
+	DFS uses Stack to find the shortest path.
+
+3.	Source
+	BFS is better when target is closer to Source.
+	DFS is better when target is far from source.
+
+4.	Suitability for decision tree
+	As BFS considers all neighbor so it is not suitable for decision tree used in puzzle games.
+	DFS is more suitable for decision tree. As with one decision, we need to traverse further to augment the decision.
+		If we reach the conclusion, we won.
+
+5.	Speed
+	BFS is slower than DFS.
+	DFS is faster than BFS.
+
+6.	Time Complexity
+	BFS = O(V+E) where V is vertices and E is edges.
+	DFS = O(V+E) where V is vertices and E is edges.
