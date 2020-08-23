@@ -1,6 +1,7 @@
 package celebrity;
 
 /**
+ * Given node count and edges, find no of sink nodes in graph (all incoming edges).
  * 
  * Source : https://www.geeksforgeeks.org/number-sink-nodes-graph/
  * 

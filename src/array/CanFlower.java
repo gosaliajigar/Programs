@@ -17,7 +17,7 @@ public class CanFlower {
 
 	public static void main(String[] args) {
 		System.out.println(canFlower(new int[] {1,0,0,0,1}, 1));
-		System.out.println(canFlower(new int[] {1,0,0,0,1}, 2));
+		System.out.println(canFlower(new int[] {1,0,0,0,0,0,1,0,0,0}, 4));
 	}
 
 	public static boolean canFlower(int[] flowerbed, int n) {

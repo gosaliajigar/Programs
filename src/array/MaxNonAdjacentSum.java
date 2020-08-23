@@ -12,7 +12,6 @@ public class MaxNonAdjacentSum {
 		// current max including previous
 		int include = a[0];
 		int exclude = 0, excludeNew = 0;
-
 		for (int i = 1; i < a.length; i++) {
 			// current max excluding i
 			excludeNew = Math.max(include, exclude);
@@ -25,8 +24,8 @@ public class MaxNonAdjacentSum {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(maxNonAdjacentSum(new int[] {200, 5, 60, 40, 50, 100}));
-		System.out.println(maxNonAdjacentSum(new int[] {5, 5, 10, 40, 50, 35}));
-		System.out.println(maxNonAdjacentSum(new int[] {-5, -5, -10, -40, -50, -35}));
+		System.out.println(maxNonAdjacentSum(new int[] { 200, 5, 60, 40, 50, 100 }));
+		System.out.println(maxNonAdjacentSum(new int[] { 5, 5, 10, 40, 50, 35 }));
+		System.out.println(maxNonAdjacentSum(new int[] { -5, -5, -10, -40, -50, -35 }));
 	}
 }

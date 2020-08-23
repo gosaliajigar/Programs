@@ -51,6 +51,7 @@ public class ShiftArray {
 
 	/**
 	 * Called bubble rotate
+	 * 
 	 * Time  : O(nk)
 	 * Space : O(1)
 	 * 

@@ -35,7 +35,7 @@ public class ExtraElement {
 		// index is set to last element of bigger array
 		int left = 0, right = size, index = size+1;
 		while (left <= right) {
-			int mid = (left + right) / 2;
+			int mid = left + ((right - left) / 2);
 			if (a[mid] == b[mid]) {
 				// extra element in later half
 				left = mid + 1;

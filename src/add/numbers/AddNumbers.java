@@ -12,13 +12,16 @@ import datastructure.linkedlist.SinglyLinkedList.Node;
 public class AddNumbers {
 
 	public static void main(String[] args) {
+		// 979 + 21
 		SinglyLinkedList<Integer> listOne = new SinglyLinkedList<Integer>();
 		SinglyLinkedList<Integer> listTwo = new SinglyLinkedList<Integer>();
+		// 979
 		listOne.addFront(9);
 		listOne.addFront(7);
 		listOne.addFront(9);
 		listOne.print();
 		System.out.println();
+		// 21
 		listTwo.addFront(2);
 		listTwo.addFront(1);
 		listTwo.print();
@@ -36,24 +39,17 @@ public class AddNumbers {
 		SinglyLinkedList<Integer> result = new SinglyLinkedList<Integer>();
 		int carry = 0;
 		while (rootOne != null || rootTwo != null) {
-			int one = 0;
-			int two = 0;
+			int sum = carry;
 			if (rootOne != null) {
-				one = rootOne.getData();
+				sum += rootOne.getData();
 				rootOne = rootOne.getNext();
 			}
 			if (rootTwo != null) {
-				two = rootTwo.getData();
+				sum += rootTwo.getData();
 				rootTwo = rootTwo.getNext();
 			}
-			int sum = carry + one + two;
-			carry = 0;
-			if (sum > 9) {
-				carry = 1;
-				result.addRear(sum % 10);
-			} else {
-				result.addRear(sum);
-			}
+			result.addRear((sum > 9) ? sum % 10 : sum);
+			carry = (sum > 9) ? 1 : 0;
 		}
 		// if carry is greater than 0 then add another node
 		// with it's value

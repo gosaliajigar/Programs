@@ -27,7 +27,7 @@ public class MaxZeroProblem {
 			if ((n & 1) == 0 && count >= 0) {
 				count++;
 			}
-			n = n >> 1;
+			n >>= 1;
 		}
 		return max;
 	}

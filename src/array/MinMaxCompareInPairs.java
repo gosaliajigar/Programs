@@ -23,9 +23,11 @@ public class MinMaxCompareInPairs {
 
 	public static void compareInPairs(int[] a) {
 		if (a == null || a.length == 0 || a.length == 1) return;
+		// if odd elements
 		if (a.length%2 == 1) { 
 			min = max = a[0]; 
 			comparisons += 0;
+			// if even elements
 		} else {
 			if (a[0] < a[1]) {
 				min = a[0]; max = a[1];

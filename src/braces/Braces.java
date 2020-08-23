@@ -47,7 +47,7 @@ public class Braces {
 			// This condition is ONLY on assumption that input string has only
 			// braces. If input string has characters other than braces then,
 			// delete below condition.
-			if (braces.length() % 2 != 0) return false;
+			if (braces.replaceAll("()", "").trim().length() % 2 != 0) return false;
 
 			for (int i = 0; i < braces.length(); i++) {
 				if (braces.charAt(i) == '(') {

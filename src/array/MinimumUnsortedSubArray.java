@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 /**
  * 
- * 
  * Given an unsorted array of size n, find the minimum length sub-array such that 
  * sorting this sub-array makes the whole array sorted.
  * 
@@ -39,6 +38,7 @@ public class MinimumUnsortedSubArray {
 		for (e=a.length-1; e>0; e--) {
 			if (a[e] < a[e-1]) break;
 		}
+		System.out.println("s=" + s + ";e=" + e);
 
 		// find min and max in unsorted range s-e
 		for (int i=s; i<=e; i++) {

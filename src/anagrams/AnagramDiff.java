@@ -57,9 +57,7 @@ public class AnagramDiff {
 		System.out.println("Character Count : " + twoMap);
 		System.out.println("All characters  : " + finalMap);
 		for (Character character : finalMap.keySet()) {
-			int oneCount = oneMap.getOrDefault(character, 0); 
-			int twoCount = twoMap.getOrDefault(character, 0); 
-			finalMap.put(character, Math.abs(oneCount - twoCount));
+			finalMap.put(character, Math.abs(oneMap.getOrDefault(character, 0) - twoMap.getOrDefault(character, 0)));
 		}
 		return finalMap;
 	}

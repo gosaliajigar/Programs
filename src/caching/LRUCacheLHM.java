@@ -10,7 +10,7 @@ import java.util.Map;
  * @author "Jigar Gosalia"
  *
  */
-public class LRUCacheLHM<K, V> extends LinkedHashMap<K, V> {
+public final class LRUCacheLHM<K, V> extends LinkedHashMap<K, V> {
 
 	private static final long serialVersionUID = 1L;
 

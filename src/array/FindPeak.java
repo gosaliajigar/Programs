@@ -23,7 +23,7 @@ public class FindPeak {
 	 */
 	private static int peak(int[] a, int left, int right, int n) {
 		if (left <= right) {
-			int mid = ((left + right) / 2);
+			int mid = left + ((right - left) / 2);
 			// Compare middle element with its neighbors (if neighbors exist)
 			if ((mid == 0 || a[mid - 1] < a[mid])
 					&& (mid == n - 1 || a[mid + 1] < a[mid])) {

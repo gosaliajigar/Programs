@@ -25,24 +25,19 @@ public class ProductExceptItself {
 		int[] l = new int[nums.length];
 		int[] r = new int[nums.length];
 		int[] o = new int[nums.length];
-
+		// initialize left's 1st element and right's last element
 		l[0] = r[nums.length - 1] = 1;
-		l[1] = nums[0];
-		r[nums.length - 2] = nums[nums.length - 1];
-		for (int i = 2; i < nums.length; i++) {
+		for (int i = 1; i < nums.length; i++) {
 			l[i] = nums[i - 1] * l[i - 1];
 		}
 		for (int j = nums.length - 2; j >= 0; j--) {
 			r[j] = nums[j + 1] * r[j + 1];
 		}
-
-		o[0] = r[0];
-		o[nums.length - 1] = l[nums.length - 1];
-		for (int i = 1; i < o.length - 1; i++) {
+		for (int i = 0; i < o.length; i++) {
 			o[i] = l[i] * r[i];
 		}
-		System.out.println(Arrays.toString(l));
-		System.out.println(Arrays.toString(r));
-		System.out.println(Arrays.toString(o));
+		System.out.println("L:" + Arrays.toString(l));
+		System.out.println("R:" + Arrays.toString(r));
+		System.out.println("A:" + Arrays.toString(o));
 	}
 }

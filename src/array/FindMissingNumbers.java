@@ -1,6 +1,5 @@
 package array;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,25 +22,23 @@ public class FindMissingNumbers {
 
 	public static Set<Integer> findMissing(int[] a) {
 		if (a == null || a.length <= 1) return null;
-
 		Set<Integer> set = new HashSet<Integer>();
-
+		// mark elements as per their location/index
 		for (int i = 0; i < a.length; i++) {
+			// check if it is not already marked 
+			// else override will loose marking if number is repeated
 			if (a[Math.abs(a[i]) - 1] > 0) {
 				a[Math.abs(a[i]) - 1] = -a[Math.abs(a[i]) - 1];
 			}
 		}
-		
-		System.out.println(Arrays.toString(a));
-		
+		// capture elements that are not in place
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] > 0) set.add(i + 1);
 		}
-		
+		// reset all marked elements
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] < 0) a[i] = -a[i];
 		}
-		
 		return set;
 	}
 }

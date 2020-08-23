@@ -67,6 +67,8 @@ public class ArraySort {
 				return o1.fName.compareTo(o2.fName);
 			}
 		});
+		// Java-8 functional way
+		// Arrays.sort(personArr, (o1, o2) -> o1.fName.compareTo(o2.fName));
 		System.out.println(Arrays.toString(personArr));
 
 		Arrays.sort(pointArr);

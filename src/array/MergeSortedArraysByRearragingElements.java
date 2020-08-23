@@ -3,20 +3,20 @@ package array;
 import java.util.Arrays;
 
 /**
- * Merge sorted array in place
+ * Merge sorted array in place by re-arranging elements in same arrays.
  * 
  * @author "Jigar Gosalia"
  *
  */
-public class MergeSortedArrays {
+public class MergeSortedArraysByRearragingElements {
 
 	public static void main(String[] args) {
 		int[] A = {1, 5, 9, 10, 15, 20};
 		int[] B = {2, 3, 8, 13};
 		System.out.println("A: " + Arrays.toString(A));
 		System.out.println("B: " + Arrays.toString(B));
-		System.out.println("C: " + Arrays.toString(mergeN(A, B)));
-		merge(A, B);
+		System.out.println("C: " + Arrays.toString(mergeInNewArray(A, B)));
+		mergeInPlaceByRearranging(A, B);
 		System.out.println();
 		System.out.println("A: " + Arrays.toString(A));
 		System.out.println("B: " + Arrays.toString(B));
@@ -30,7 +30,7 @@ public class MergeSortedArrays {
 	 * @param a
 	 * @param b
 	 */
-	private static void merge(int[] a, int[] b) {
+	private static void mergeInPlaceByRearranging(int[] a, int[] b) {
 		// Iterate over second shorter array from rear
 		for (int i = b.length - 1; i >= 0; i--) {
 			// capture last element of first array
@@ -57,7 +57,7 @@ public class MergeSortedArrays {
 	 * @param b
 	 * @return
 	 */
-	private static int[] mergeN(int[] a, int[] b) {
+	private static int[] mergeInNewArray(int[] a, int[] b) {
 		int i=0, j=0, k=0;
 		int[] c = new int[a.length + b.length];
 		while (i < a.length && j < b.length) {

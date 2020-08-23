@@ -27,19 +27,22 @@ public class BracketPosition {
 	}
 
 	public static int findPosition(String s, int position) {
-		if (s != null && s.length() > 0 && position >= 0) {
+		if (s != null && s.length() > 0 && position >= 0 && position != s.length()-1) {
+			// no of brackets in middle of opening and closing bracket position
 			int count = 0;
 			char bracket = s.charAt(position);
-			for (int index = position + 1; index < s.length(); index++) {
-				if (brackets.containsKey(s.charAt(index))) {
-					count++;
-				} else if (brackets.containsValue(s.charAt(index))) {
-					if (s.charAt(index) == brackets.get(bracket) && count == 0) {
-						return index;
-					} else {
-						count--;
+			if (brackets.keySet().contains(bracket)) {
+				for (int index = position + 1; index < s.length(); index++) {
+					if (brackets.containsKey(s.charAt(index))) {
+						count++;
+					} else if (brackets.containsValue(s.charAt(index))) {
+						if (s.charAt(index) == brackets.get(bracket) && count == 0) {
+							return index;
+						} else {
+							count--;
+						}
 					}
-				}
+				}				
 			}
 		}
 		return -1;

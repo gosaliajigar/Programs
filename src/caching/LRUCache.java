@@ -23,7 +23,7 @@ public final class LRUCache<K, V> {
 	public V get(K key) {
 		if (map.containsKey(key)) {
 			Node<K, V> node = map.get(key);
-			remove(node);
+			removeNode(node);
 			setHead(node);
 			return node.getValue();
 		}
@@ -34,20 +34,21 @@ public final class LRUCache<K, V> {
 		if (map.containsKey(key)) {
 			Node<K, V> old = map.get(key);
 			old.setValue(value);
-			remove(old);
+			removeNode(old);
 			setHead(old);
 		} else {
 			Node<K, V> newNode = new Node<K, V>(key, value);
+			// eviction when cache is full
 			if (map.size() >= capacity) {
 				map.remove(tail.getKey());
-				remove(tail);
+				removeNode(tail);
 			}
 			setHead(newNode);
 			map.put(key, newNode);
 		}
 	}
 
-	private void remove(Node<K, V> node) {
+	private void removeNode(Node<K, V> node) {
 		// node can be head
 		if (node.getPrevious() != null) {
 			node.getPrevious().setNext(node.getNext());
