@@ -5,7 +5,7 @@ https://stackoverflow.com/questions/559839/big-o-summary-for-java-collections-fr
 
 List implementations:
 ---------------------
-                      		get  	add  	contains 		next 	remove(0) 	iterator.remove
+                      		get  		add  		contains 		next 		remove(0) 	iterator.remove
 ArrayList            	O(1) 	O(1) 	O(n)     	O(1) 	O(n)      	O(n)
 LinkedList            	O(n) 	O(1) 	O(n)     	O(1) 	O(1)      	O(1)
 CopyOnWriteArrayList 	O(1) 	O(n) 	O(n)     	O(1) 	O(n)      	O(n)
@@ -22,7 +22,7 @@ ConcurrentSkipListSet 	O(log n) 	O(log n) 	O(1)
 
 Map implementations:
 --------------------
-                      		get      		containsKey 		next     		Notes
+                      		get      		containsKey 	next     		Notes
 HashMap               	O(1)     	O(1)        	O(h/n)   h is the table capacity
 LinkedHashMap         	O(1)     	O(1)        	O(1) 
 IdentityHashMap       	O(1)     	O(1)        	O(h/n)   h is the table capacity 
@@ -33,7 +33,7 @@ ConcurrentSkipListMap 	O(log n) 	O(log n)    	O(1)
 
 Queue implementations:
 ----------------------
-                      		offer    		peek 	poll     		size
+                      		offer    		peek 		poll     		size
 PriorityQueue         	O(log n) 	O(1) 	O(log n) 	O(1)
 ConcurrentLinkedQueue	O(1)     	O(1) 	O(1)     	O(n)
 ArrayBlockingQueue    	O(1)     	O(1) 	O(1)     	O(1)

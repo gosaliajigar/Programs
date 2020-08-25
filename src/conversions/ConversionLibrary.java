@@ -221,7 +221,6 @@ public class ConversionLibrary {
 		for (int index = 0; index < ascii.length(); index++) {
 			if (ascii.charAt(index) >= '0' && ascii.charAt(index) <= '9') {
 				integer = (integer * 10) + (ascii.charAt(index) - '0');
-				// integer = (integer * 10) + getDecValue(ascii.charAt(index));
 			} else {
 				throw new Exception("Is not an Integer : " + ascii.charAt(index));
 			}
@@ -240,7 +239,7 @@ public class ConversionLibrary {
 		if (integer == 0) return "0";
 		while (integer != 0) {
 			ascii = (integer % 10) + ascii;
-			integer = integer / 10;
+			integer /= 10;
 		}
 		return ascii;
 	}

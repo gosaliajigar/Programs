@@ -32,7 +32,7 @@ public class Factorial {
 	public static int factorialNonRecursive(int n) {
 		int factorial = 1;
 		while (n > 1) {
-			factorial = n * factorial;
+			factorial *= n;
 			n--;
 		}
 		return factorial;

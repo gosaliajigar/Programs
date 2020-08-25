@@ -12,7 +12,6 @@ import java.util.Scanner;
  *
  */
 public class SimpleDateFormatClass {
-
 	public static void main(final String[] args) throws Exception {
 		// formatter parse  string to date
 		// formatter format date   to string
@@ -24,7 +23,6 @@ public class SimpleDateFormatClass {
 			stringDate = scanner.nextLine();
 		}
 		scanner.close();
-
 		Date parsedDate;
 		try {
 			parsedDate = formatter.parse(stringDate);
