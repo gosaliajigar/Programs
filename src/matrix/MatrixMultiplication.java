@@ -23,7 +23,7 @@ public class MatrixMultiplication {
 		if (a==null || b==null 
 				|| a.length==0 || b.length==0 
 				|| a[0].length== 0|| b[0].length==0
-				|| a[0].length != b.length) 
+				|| a[0].length != b.length)
 			return null;
 		int[][] c = new int[a.length][b[0].length];
 		for (int i = 0; i < a.length; i++) {

@@ -54,7 +54,7 @@
  * 
  * According to Oracle docs, fail safe iterator is ordinarily too costly, but
  * may be more efficient than alternatives when traversal operations vastly
- * out number mutations, and is useful when you cannot or don’t want to
+ * out number mutations, and is useful when you cannot or don't want to
  * synchronize traversals, yet need to preclude interference among concurrent
  * threads. The "snapshot" style iterator method uses a reference to the state
  * of the array at the point that the iterator was created. This array never

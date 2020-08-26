@@ -46,11 +46,14 @@ public class MergeIntervalLists {
 		Interval prev = queue.poll();
 		while (!queue.isEmpty()) {
 			Interval curr = queue.poll();
+			// prev is before curr 
 			if (prev.end < curr.start) {
 				results.add(prev);
 				prev = curr;
+				// curr is before prev
 			} else if (prev.start > curr.end) {
 				results.add(curr);
+				// prev and curr intersect
 			} else {
 				prev = new Interval(prev.start, Math.max(prev.end, curr.end));
 			}

@@ -16,10 +16,10 @@ public class MinimumRange {
 	}
 
 	private static int getMax(int i, int j, int k, int l) {
-		return (Math.max(Math.max(i, j), Math.max(k, l)));
+		return Math.max(Math.max(i, j), Math.max(k, l));
 	}
 
 	private static int getMin(int i, int j, int k, int l) {
-		return (Math.min(Math.min(i, j), Math.min(k, l)));
+		return Math.min(Math.min(i, j), Math.min(k, l));
 	}
 }

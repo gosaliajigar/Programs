@@ -23,10 +23,9 @@ public class Inverse {
 		int decimal = 0;
 		if (binary != null && binary.length() > 0) {
 			StringBuilder value = new StringBuilder(binary);
-			String reverse = value.reverse().toString();
-			for (int index = 0; index < reverse.length(); index++) {
-				int multiplier = ((reverse.charAt(index) == '1') ? 1 : 0);
-				decimal += multiplier * (int)(Math.pow(2, index));
+			for (int index = 0; index < value.length(); index++) {
+				int multiplier = ((value.charAt(index) == '1') ? 1 : 0);
+				decimal += multiplier * (int)(Math.pow(2, value.length() - 1 - index));
 			}
 		}
 		return decimal;
@@ -36,12 +35,7 @@ public class Inverse {
 		StringBuilder complement = new StringBuilder();
 		for (int index = 0; index < binary.length(); index++) {
 			// complement.append((Integer.parseInt("" + binary.charAt(index)) ^ 1));
-			// complement.append((binary.charAt(index) == '0') ? "1" : "0");
-			if (binary.charAt(index) == '0') {
-				complement.append("1");
-			} else {
-				complement.append("0");
-			}
+			complement.append((binary.charAt(index) == '0') ? "1" : "0");
 		}
 		return complement.toString();
 	}
@@ -50,7 +44,7 @@ public class Inverse {
 		StringBuilder binary = new StringBuilder();
 		while (decimal != 0) {
 			binary.append(decimal % 2);
-			decimal = decimal / 2;
+			decimal /= 2;
 		}
 		return binary.reverse().toString();
 	}

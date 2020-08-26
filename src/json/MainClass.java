@@ -22,7 +22,13 @@ import com.google.gson.Gson;
  */
 public class MainClass {
 
-	private static final String json = "{\"id\" : 1001,\"name\" : \"James\",\"tasks\":[13, 34, 34, 15, 67, 35, 12, 81],\"department\" : {\"name\" : \"HR\"}}";
+	private static final String json = 
+			"{"
+				+ "\"id\" : 1001,"
+				+ "\"name\" : \"James\","
+				+ "\"tasks\":[13, 34, 34, 15, 67, 35, 12, 81],"
+				+ "\"department\" : {\"name\" : \"HR\"}"
+			+ "}";
 
 	public static void main(String[] args) throws Exception {
 		useGsonLibrary();

@@ -26,9 +26,7 @@ public final class Employee {
 	 * Access function for mutable objects
 	 */
 	public Map<String, String> getDepartmentsMap() {
-		Map<String, String> departments = new HashMap<String, String>();
-		departments.putAll(this.departmentsMap);
-		return departments;
+		return new HashMap<String, String>(this.departmentsMap);
 	}
 
 	/**
@@ -41,8 +39,7 @@ public final class Employee {
 	public Employee(int id, String name, Map<String, String> departmentsMap) {
 		this.id = id;
 		this.name = name;
-		this.departmentsMap = new HashMap<String, String>();
-		this.departmentsMap.putAll(departmentsMap);
+		this.departmentsMap = new HashMap<String, String>(departmentsMap);
 	}
 
 	/**

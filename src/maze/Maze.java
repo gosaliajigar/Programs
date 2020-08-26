@@ -8,6 +8,10 @@ package maze;
  */
 public class Maze {
 
+	public static final int UNVISITED = 1;
+	public static final int VISITED = 3;
+	public static final int CHOSEN = 7;
+	
 	public static void main(String[] args) {
 		int[][] a = {{1,1,1,0,1,1,0,0,0,1,1,1,1},
 					{1,0,1,1,1,0,1,1,1,1,0,0,1},
@@ -23,28 +27,28 @@ public class Maze {
 	}
 
 	public static boolean traverse(int[][] a, int r, int c) {
-		boolean done = false;
-		if (isValid(a, r, c)) {
-			a[r][c] = 3;									// visited
-			if (isEnd(a, r, c)) {
-				done = true;
+		boolean reached = false;
+		if (canMove(a, r, c)) {
+			a[r][c] = VISITED;										// visited
+			if (haveReached(a, r, c)) {
+				reached = true;
 			} else {
-				done = traverse(a, r+1, c);					// right
-				if (!done) done = traverse(a, r-1, c);		// left
-				if (!done) done = traverse(a, r, c+1);		// down
-				if (!done) done = traverse(a, r, c-1);		// up
+				reached = traverse(a, r+1, c);						// right
+				if (!reached) reached = traverse(a, r-1, c);		// left
+				if (!reached) reached = traverse(a, r, c+1);		// down
+				if (!reached) reached = traverse(a, r, c-1);		// up
 			}
-			a[r][c] = 1;									// reset visited bit
+			a[r][c] = UNVISITED;									// reset visited bit
 		}
-		if (done) a[r][c] = 7;								// chosen
-		return done;
+		if (reached) a[r][c] = CHOSEN;								// chosen
+		return reached;
 	}
 
-	public static boolean isValid(int[][] a, int r, int c) {
-		return (r >= 0 && r < a.length && c >= 0 && c < a[0].length && a[r][c] == 1);
+	public static boolean canMove(int[][] a, int r, int c) {
+		return (r >= 0 && r < a.length && c >= 0 && c < a[0].length && a[r][c] == UNVISITED);
 	}
 
-	public static boolean isEnd(int[][] a, int r, int c) { return (r == a.length-1 && c == a[0].length-1); };
+	public static boolean haveReached(int[][] a, int r, int c) { return (r == a.length-1 && c == a[0].length-1); };
 	
 	public static void display(int[][] a) {
 		for (int[] row : a) {
