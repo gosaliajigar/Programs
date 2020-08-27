@@ -13,18 +13,18 @@ public class SpiralMatrix {
 
 	public static void main(String[] args) {
 		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-		System.out.println(spiralMatrix(a));
+		System.out.println(printMatrixSpirally(a));
 		int[][] b = { { 1, 2, 3 } };
-		System.out.println(spiralMatrix(b));
+		System.out.println(printMatrixSpirally(b));
 		int[][] c = { { 1 }, { 4 }, { 7 } };
-		System.out.println(spiralMatrix(c));
+		System.out.println(printMatrixSpirally(c));
 		System.out.println();
-		a = generateSpiral(4, 4);
+		a = generateSpiralMatrix(4, 4);
 		display(a);
-		System.out.println(spiralMatrix(a));
+		System.out.println(printMatrixSpirally(a));
 	}
 
-	public static List<Integer> spiralMatrix(int[][] a) {
+	public static List<Integer> printMatrixSpirally(int[][] a) {
 		List<Integer> spiral = new ArrayList<Integer>();
 		if (a != null && a.length > 0 && a[0].length > 0) {
 			// rows and columns
@@ -35,36 +35,23 @@ public class SpiralMatrix {
 			int x = 0, y = 0;
 
 			while (m > 0 && n > 0) {
+				// single row matrix
 				if (m == 1) {
-					for (int i = 0; i < n; i++) {
-						spiral.add(a[x][y++]);
-					}
+					for (int i = 0; i < n; i++) spiral.add(a[x][y++]);
 					break;
+					// single column matrix
 				} else if (n == 1) {
-					for (int i = 0; i < m; i++) {
-						spiral.add(a[x++][y]);
-					}
+					for (int i = 0; i < m; i++) spiral.add(a[x++][y]);
 					break;
 				}
 				// top -> right
-				for (int i = 0; i < n - 1; i++) {
-					spiral.add(a[x][y++]);
-				}
-
+				for (int i = 0; i < n - 1; i++) spiral.add(a[x][y++]);
 				// right -> bottom
-				for (int i = 0; i < m - 1; i++) {
-					spiral.add(a[x++][y]);
-				}
-
+				for (int i = 0; i < m - 1; i++) spiral.add(a[x++][y]);
 				// bottom -> left
-				for (int i = 0; i < n - 1; i++) {
-					spiral.add(a[x][y--]);
-				}
-
+				for (int i = 0; i < n - 1; i++) spiral.add(a[x][y--]);
 				// left -> top
-				for (int i = 0; i < m - 1; i++) {
-					spiral.add(a[x--][y]);
-				}
+				for (int i = 0; i < m - 1; i++) spiral.add(a[x--][y]);
 				x++; y++;
 				m = m - 2;
 				n = n - 2;
@@ -73,7 +60,7 @@ public class SpiralMatrix {
 		return spiral;
 	}
 
-	public static int[][] generateSpiral(int row, int column) {
+	public static int[][] generateSpiralMatrix(int row, int column) {
 		int count = 1;
 		int[][] a = new int[row][column];
 		int m=row, n=column, x=0, y=0;

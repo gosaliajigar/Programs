@@ -19,11 +19,7 @@ public class UsingBitwiseAnd {
 		scanner.close();
 		StringBuilder displayString = new StringBuilder();
 		displayString.append("Entered number <").append(number).append("> is ");
-		if ((number & 1) == 0) {
-			displayString.append("EVEN");
-		} else {
-			displayString.append("ODD");
-		}
+		displayString.append(((number & 1) == 0) ? "EVEN" : "ODD");
 		System.out.println();
 		System.out.println(displayString.toString());
 	}

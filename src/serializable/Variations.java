@@ -19,11 +19,11 @@ import java.io.Serializable;
  * 	6. non-serializable field <br>
  * <br>
  * <br>
- * 1. If a parent class has implemented Serializable interface then child class doesn’t 
+ * 1. If a parent class has implemented Serializable interface then child class doesn't 
  * 		need to implement it but vice-versa is not true.<br>
  * 2. Only <b>non-static data members</b> are saved via Serialization process.<br>
  * 3. <b>Static and transient data members</b> are not saved via Serialization process.
- * 		So, if you don’t want to save value of a non-static data member then
+ * 		So, if you don't want to save value of a non-static data member then
  * 		make it transient.<br>
  * 4. Constructor of object is never called when an object is deserialized.<br>
  * 5. Associated objects must be implementing Serializable interface.<br>
@@ -60,6 +60,7 @@ public class Variations {
 		System.out.println("--------------------");
 		blackNissan.print();
 		System.out.println("HashCode : " + blackNissan.hashCode());
+		file.delete();
 	}
 
 	private static void write(Serializable object) throws IOException {

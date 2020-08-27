@@ -26,6 +26,7 @@ public class Election {
 
 		Scanner scanner = new Scanner(System.in);
 		while(true) {
+			System.out.print("Vote for [1-4]: ");
 			int id = scanner.nextInt();
 			if (map.containsKey(id)) {
 				map.get(id).incrementCount();
@@ -79,6 +80,7 @@ class Candidate implements Comparable<Candidate> {
 	public boolean equals(Object obj) {	return this.id == ((Candidate) obj).id;	}
 	@Override
 	public int hashCode() { return this.id;	}
+	// order in reverse i.e. desc order
 	@Override
 	public int compareTo(Candidate c) { return c.getCount() - this.getCount(); }
 }

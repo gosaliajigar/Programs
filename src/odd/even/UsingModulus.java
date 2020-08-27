@@ -16,11 +16,7 @@ public class UsingModulus {
 		scanner.close();
 		StringBuilder displayString = new StringBuilder();
 		displayString.append("Entered number <").append(number).append("> is ");
-		if (number % 2 == 0) {
-			displayString.append("EVEN");
-		} else {
-			displayString.append("ODD");
-		}
+		displayString.append((number % 2 == 0) ? "EVEN" : "ODD");
 		System.out.println();
 		System.out.println(displayString.toString());
 	}

@@ -23,24 +23,24 @@ public class PalindromeCheck {
 		System.out.println("HellooolleH  : " + isPalindrome("HelloolleH"));
 
 		System.out.println();
-		System.out.println("Using isPalindromeSB");
+		System.out.println("Using isPalindromeStringUsingStringBuilder");
 		System.out.println("--------------------------------------");
-		System.out.println("Null         : " + isPalindromeSB(nullString));
-		System.out.println("Empty String : " + isPalindromeSB(""));
-		System.out.println("a            : " + isPalindromeSB("a"));
-		System.out.println("Hello        : " + isPalindromeSB("Hello"));
-		System.out.println("Hellooolleh  : " + isPalindromeSB("Helloolleh"));
-		System.out.println("HellooolleH  : " + isPalindromeSB("HelloolleH"));
+		System.out.println("Null         : " + isPalindromeStringUsingStringBuilder(nullString));
+		System.out.println("Empty String : " + isPalindromeStringUsingStringBuilder(""));
+		System.out.println("a            : " + isPalindromeStringUsingStringBuilder("a"));
+		System.out.println("Hello        : " + isPalindromeStringUsingStringBuilder("Hello"));
+		System.out.println("Hellooolleh  : " + isPalindromeStringUsingStringBuilder("Helloolleh"));
+		System.out.println("HellooolleH  : " + isPalindromeStringUsingStringBuilder("HelloolleH"));
 
 		System.out.println();
-		System.out.println("Using isPalindromeR");
+		System.out.println("Using isPalindromeRecursive");
 		System.out.println("--------------------------------------");
-		System.out.println("Null         : " + isPalindromeR(nullString));
-		System.out.println("Empty String : " + isPalindromeR(""));
-		System.out.println("a            : " + isPalindromeR("a"));
-		System.out.println("Hello        : " + isPalindromeR("Hello"));
-		System.out.println("Hellooolleh  : " + isPalindromeR("Helloolleh"));
-		System.out.println("HellooolleH  : " + isPalindromeR("HelloolleH"));
+		System.out.println("Null         : " + isPalindromeRecursive(nullString));
+		System.out.println("Empty String : " + isPalindromeRecursive(""));
+		System.out.println("a            : " + isPalindromeRecursive("a"));
+		System.out.println("Hello        : " + isPalindromeRecursive("Hello"));
+		System.out.println("Hellooolleh  : " + isPalindromeRecursive("Helloolleh"));
+		System.out.println("HellooolleH  : " + isPalindromeRecursive("HelloolleH"));
 
 	}
 
@@ -48,7 +48,7 @@ public class PalindromeCheck {
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindrome(final char[] inputArray) {
+	public static boolean isPalindromeUsingCheckTillHalf(final char[] inputArray) {
 		if (inputArray == null) return false;
 		if (inputArray.length <= 1) return true;
 		for (int i = 0; i <= inputArray.length/2; i++) {
@@ -66,22 +66,22 @@ public class PalindromeCheck {
 	 * @return
 	 */
 	public static boolean isPalindrome(final String inputString) {
-		return (inputString != null) ? isPalindrome(inputString.toCharArray()) : false;
+		return (inputString != null) ? isPalindromeUsingCheckTillHalf(inputString.toCharArray()) : false;
 	}
 
 	/**
 	 * @param inputArray
 	 * @return
 	 */
-	public static boolean isPalindromeSB(final char[] inputArray) {
-		return isPalindromeSB(Arrays.toString(inputArray));
+	public static boolean isPalindromeCharArrayUsingStringBuilder(final char[] inputArray) {
+		return isPalindromeStringUsingStringBuilder(Arrays.toString(inputArray));
 	}
 
 	/**
 	 * @param inputString
 	 * @return
 	 */
-	public static boolean isPalindromeSB(final String inputString) {
+	public static boolean isPalindromeStringUsingStringBuilder(final String inputString) {
 		if (inputString == null) return false;
 		if (inputString.length() <= 1) return true;
 		return new StringBuilder(inputString).reverse().toString().equalsIgnoreCase(inputString);
@@ -93,16 +93,12 @@ public class PalindromeCheck {
 	 * @param input
 	 * @return
 	 */
-	public static boolean isPalindromeR(String input) {
-		if (input != null) {
-			if (input.length() <= 1) {
-				return true;
-			} else if (input.length() == 2 || input.length() == 3) {
-				return (input.charAt(0) == input.charAt(input.length() - 1));
-			}
-			if (input.charAt(0) == input.charAt(input.length() - 1)) {
-				return isPalindromeR(input.substring(1, input.length()-1));
-			}
+	public static boolean isPalindromeRecursive(String input) {
+		if (input == null || input.length() <= 1) {
+			return true;
+		}
+		if (input.charAt(0) == input.charAt(input.length() - 1)) {
+			return isPalindromeRecursive(input.substring(1, input.length()-1));
 		}
 		return false;
 	}

@@ -2,6 +2,7 @@ package versions;
 
 /**
  * Compare versions and return -1, 0 and 1 appropriately.
+ * - version format major.minor.patch
  * 
  * @author "Jigar Gosalia"
  * 
@@ -33,7 +34,7 @@ public class CompareVersions {
 	 * @return
 	 */
 	public static int compareVersions(String one, String two) throws Exception {
-		int result = -2, index;
+		int index;
 		if (one != null & two != null && one.replaceAll("[^0-9.]", "").length() > 0 && two.replaceAll("[^0-9.]", "").length() > 0) {
 			String[] oneSplit = one.replaceAll("[^0-9.]", "").split("\\.");
 			String[] twoSplit = two.replaceAll("[^0-9.]", "").split("\\.");
@@ -41,12 +42,12 @@ public class CompareVersions {
 			// find minimum version sizes to be compared
 			int min = Math.min(oneSplit.length, twoSplit.length);
 
-			result = 0;
 			// compare till they are of same size
 			for (index = 0; index < min; index++) {
 				// compare current version and return if they are not same
-				if (Integer.valueOf(oneSplit[index]).compareTo(Integer.valueOf(twoSplit[index])) != 0) {
-					return Integer.valueOf(oneSplit[index]).compareTo(Integer.valueOf(twoSplit[index]));
+				int comparison = Integer.valueOf(oneSplit[index]).compareTo(Integer.valueOf(twoSplit[index]));
+				if (comparison != 0) {
+					return comparison;
 				}
 			}
 			while (index < oneSplit.length) {
@@ -56,7 +57,7 @@ public class CompareVersions {
 				if (Integer.valueOf(twoSplit[index++]) > 0) return -1;
 			}
 		}
-		return result;
+		return 0;
 	}
 
 }

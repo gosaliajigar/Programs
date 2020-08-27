@@ -14,15 +14,15 @@ public class AnyPermutationIsPalindrome {
 	}
 
 	public static boolean isAnyPermutationPalindrome(String s) {
-		int oddCount = 0;
+		int oddCountCharacters = 0;
 		int[] a = new int[26];
 		for (char c : s.toCharArray()) {
 			a[c - 'a']++;
 		}
 		for (int i : a) {
-			if (i % 2 != 0) oddCount++;
+			if (i % 2 != 0) oddCountCharacters++;
 		}
-		return (oddCount == 0 || oddCount == 1);
+		return (oddCountCharacters == 0 || oddCountCharacters == 1);
 	}
 
 }

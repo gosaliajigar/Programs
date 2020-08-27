@@ -35,6 +35,7 @@ public class MainClass {
 	private static boolean isPrimeSR(int number) {
 		if (number == 2) return true;
 		if (number == 0 || number == 1 || (number%2 == 0 && number != 2)) return false;
+		// skip even numbers
 		for (int i = 3; i*i <= number; i+=2) {
 			if ((number % i) == 0) return false;
 		}

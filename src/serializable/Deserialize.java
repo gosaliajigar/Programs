@@ -15,7 +15,7 @@ public class Deserialize {
 		FileInputStream fInputStream = null;
 		ObjectInputStream oInputStream = null;
 		try {
-			File file = new File("C:/employee.ser");
+			File file = new File("employee.ser");
 			fileName = file.getAbsolutePath();
 			fInputStream = new FileInputStream(file);
 			oInputStream = new ObjectInputStream(fInputStream);

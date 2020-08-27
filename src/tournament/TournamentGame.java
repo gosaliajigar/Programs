@@ -35,7 +35,7 @@ public class TournamentGame {
 			String team1 = teams.removeFirst().name;
 			String team2 = teams.removeLast().name;
 			System.out.printf("Game %-2d : %-14s v/s %-14s winner to play winner of Game %-2d\n", 
-					game, team1, team2, (games+1) - game);
+					game, team1, team2, games - game + 1);
 		}
 	}
 }
