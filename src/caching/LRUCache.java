@@ -72,6 +72,17 @@ public final class LRUCache<K, V> {
 		head = node;
 		if (tail == null) tail = head;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder data = new StringBuilder();
+		Node<K, V> current = head;
+		while (current != null) {
+			data.append("[" + current.getKey() + " : " + current.getValue() + "]");
+			current = current.getNext();
+		}
+		return data.toString();
+	}
 }
 
 /*
@@ -105,17 +116,5 @@ class Node<K, V> {
 	public Node<K, V> getNext() { return next; }
 
 	public void setNext(Node<K, V> next) { this.next = next; }
-
-	public static void main(String[] args) {
-		LRUCache<String, Integer> cache = new LRUCache<String, Integer>(5);
-		cache.put("1", 1); cache.put("2", 2); cache.put("3", 3); cache.put("4", 4);
-		System.out.println(cache);
-		cache.put("5", 5);
-		System.out.println(cache);
-		cache.put("2", 6);
-		System.out.println(cache);
-		cache.put("6", 6);
-		System.out.println(cache);
-	}
 }
 

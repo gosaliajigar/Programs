@@ -15,6 +15,9 @@ package array;
  */
 public class CanFlower {
 
+	private static int AVAILABLE = 0;
+	private static int BOOKED = 1;
+
 	public static void main(String[] args) {
 		System.out.println(canFlower(new int[] {1,0,0,0,1}, 1));
 		System.out.println(canFlower(new int[] {1,0,0,0,0,0,1,0,0,0}, 4));
@@ -26,11 +29,11 @@ public class CanFlower {
 		int count = 0;
 		for (int i = 0; i < flowerbed.length; i++) {
 			// if empty spot
-			if (flowerbed[i] == 0) {
+			if (flowerbed[i] == AVAILABLE) {
 				// check if empty spot has no flowers adjacent to it
-				if ((i == 0 || flowerbed[i - 1] == 0) 
-						&& (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
-					flowerbed[i] = 1;
+				if ((i == 0 || flowerbed[i - 1] == AVAILABLE) 
+						&& (i == flowerbed.length - 1 || flowerbed[i + 1] == AVAILABLE)) {
+					flowerbed[i] = BOOKED;
 					count++;
 					if (count >= n) return true;
 				}

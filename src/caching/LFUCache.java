@@ -1,7 +1,10 @@
 package caching;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,6 +29,12 @@ public class LFUCache {
 		public Data(int key, int value) {
 			this.key = key;
 			this.value = value;
+			this.frequency = 0;
+		}
+		
+		@Override
+		public String toString() {
+			return "(K=" + key + ";V=" + value + ";F:" + frequency + ")";
 		}
 	}
 
@@ -54,14 +63,14 @@ public class LFUCache {
 		Data node;
 		if (valueMap.containsKey(key)) {
 			node = valueMap.get(key);
+			node.value = value;
 		} else {
 			node = new Data(key, value);
 			if (valueMap.size() >= capacity)
 				deleteLeastFrequent();
 			minFrequency = 1;
+			valueMap.put(key, node);
 		}
-		node.value = value;
-		valueMap.put(key, node);
 		updateFrequency(key);
 	}
 
@@ -71,11 +80,14 @@ public class LFUCache {
 		data.frequency = frequency + 1;
 		valueMap.put(key, data);
 		// this can get linear if there are lot of collisions
+		// remove key from old frequency
 		if (frequencyMap.containsKey(frequency) && frequencyMap.get(frequency).contains(key))
 			frequencyMap.get(frequency).remove(key);
+		// add set for new frequency if doesn't exists
 		if (!frequencyMap.containsKey(frequency + 1))
 			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
 		frequencyMap.get(frequency+1).add(key);
+		// update minFrequency if no data exists for it to next minFrequency available 
 		if (minFrequency == frequency && frequencyMap.get(frequency) != null
 				&& frequencyMap.get(frequency).size() == 0)
 			minFrequency = frequency + 1;
@@ -85,5 +97,16 @@ public class LFUCache {
 		int key = frequencyMap.get(minFrequency).iterator().next();
 		frequencyMap.get(minFrequency).remove(key);
 		valueMap.remove(key);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder data = new StringBuilder();
+		List<Integer> frequencies = new ArrayList<Integer>(frequencyMap.keySet());
+		Collections.sort(frequencies);
+		for (int frequency : frequencies) {
+			data.append("F:" + frequency + " = " + frequencyMap.get(frequency) + " ");
+		}
+		return data.toString();
 	}
 }

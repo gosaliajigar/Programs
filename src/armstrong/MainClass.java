@@ -38,8 +38,8 @@ public class MainClass {
 		int result = 0;
 		while (number > 0) {
 			int reminder = number % 10;
-			result = result + (reminder * reminder * reminder);
-			number = number / 10;
+			result += (reminder * reminder * reminder);
+			number /= 10;
 		}
 		if (result == original) return true;
 		return false;

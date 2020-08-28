@@ -29,6 +29,7 @@ public class ProductExceptItself {
 		l[0] = r[nums.length - 1] = 1;
 		for (int i = 1; i < nums.length; i++) {
 			l[i] = nums[i - 1] * l[i - 1];
+			//r[nums.length - 1 - i] = nums[nums.length - i] * r[nums.length - i];
 		}
 		for (int j = nums.length - 2; j >= 0; j--) {
 			r[j] = nums[j + 1] * r[j + 1];

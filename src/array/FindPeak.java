@@ -21,21 +21,21 @@ public class FindPeak {
 	 * @param n
 	 * @return
 	 */
-	private static int peak(int[] a, int left, int right, int n) {
+	private static int peak(int[] a, int left, int right) {
 		if (left <= right) {
 			int mid = left + ((right - left) / 2);
 			// Compare middle element with its neighbors (if neighbors exist)
 			if ((mid == 0 || a[mid - 1] < a[mid])
-					&& (mid == n - 1 || a[mid + 1] < a[mid])) {
+					&& (mid == a.length - 1 || a[mid + 1] < a[mid])) {
 				return mid;
 				// If middle element is not peak and its left neighbor is
 				// greater than it, then left half must have a peak element
 			} else if (mid > 0 && a[mid - 1] > a[mid]) {
-				return peak(a, left, mid - 1, n);
+				return peak(a, left, mid - 1);
 				// If middle element is not peak and its right neighbor is
 				// greater than it, then right half must have a peak element
 			} else {
-				return peak(a, mid + 1, right, n);
+				return peak(a, mid + 1, right);
 			}
 		}
 		return Integer.MIN_VALUE;
@@ -46,6 +46,6 @@ public class FindPeak {
 		System.out.println("Peak Index" 
 								+ Arrays.toString(A) 
 								+ " : " 
-								+ peak(A, 0, A.length - 1, A.length));
+								+ peak(A, 0, A.length - 1));
 	}
 }

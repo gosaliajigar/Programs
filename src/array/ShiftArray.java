@@ -40,11 +40,9 @@ public class ShiftArray {
 	 */
 	private static void shiftNew(int[] array, int k) {
 		int[] result = new int[array.length];
-		int location = k;
 		for (int index = 0; index < array.length; index++) {
-			// increment location by constant k and wrap around the array
-			location = (index + k) % array.length;
-			result[index] = array[location];
+			// increment index by constant k and wrap around the array
+			result[index] = array[(index + k) % array.length];
 		}
 		System.arraycopy(result, 0, array, 0, array.length);
 	}

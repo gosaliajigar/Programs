@@ -12,6 +12,7 @@ public class InitializeArray {
 	public static void main(final String[] args) {
 		// Initialize with values
 		char[] charArray = { 'a', 'b', 'c', 'd' };
+		// int[] intArray = new int[]{ 1, 2, 3, 4 };
 		int[] intArray = { 1, 2, 3, 4 };
 		boolean[] boolArray = { 1 == 1, 2 == 3, 3 == 4, 5 == 5 };
 
