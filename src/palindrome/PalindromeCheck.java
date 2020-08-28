@@ -52,9 +52,7 @@ public class PalindromeCheck {
 		if (inputArray == null) return false;
 		if (inputArray.length <= 1) return true;
 		for (int i = 0; i <= inputArray.length/2; i++) {
-			if (String.valueOf(inputArray[i]).equalsIgnoreCase(String.valueOf(inputArray[inputArray.length - i - 1]))) {
-				continue;
-			} else {
+			if (!String.valueOf(inputArray[i]).equalsIgnoreCase(String.valueOf(inputArray[inputArray.length - i - 1]))) {
 				return false;
 			}
 		}

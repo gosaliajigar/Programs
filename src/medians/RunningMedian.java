@@ -19,8 +19,8 @@ public class RunningMedian {
 	private	static Queue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
 
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 		while (true) {
-			Scanner scanner = new Scanner(System.in);
 			int value = scanner.nextInt();
 			System.out.println("Median  : " + getMedian(value));
 			System.out.println("MaxHeap : " + minHeap);

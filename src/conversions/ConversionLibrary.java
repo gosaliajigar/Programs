@@ -18,12 +18,12 @@ public class ConversionLibrary {
 	 */
 	public static String dec2bin(int decimal) {
 		if (decimal <= 0) return "0";
-		String binary = new String();
+		StringBuilder binary = new StringBuilder();
 		while (decimal > 0) {
-			binary = (decimal % 2) + binary;
+			binary.append(decimal % 2);
 			decimal /= 2;
 		}
-		return binary;
+		return binary.reverse().toString();
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class ConversionLibrary {
 	public static String itoa(int integer) {
 		String ascii = "";
 		if (integer == 0) return "0";
-		while (integer != 0) {
+		while (integer > 0) {
 			ascii = (integer % 10) + ascii;
 			integer /= 10;
 		}

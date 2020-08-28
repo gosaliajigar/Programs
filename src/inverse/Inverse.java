@@ -22,10 +22,9 @@ public class Inverse {
 	private static int bin2dec(String binary) {
 		int decimal = 0;
 		if (binary != null && binary.length() > 0) {
-			StringBuilder value = new StringBuilder(binary);
-			for (int index = 0; index < value.length(); index++) {
-				int multiplier = ((value.charAt(index) == '1') ? 1 : 0);
-				decimal += multiplier * (int)(Math.pow(2, value.length() - 1 - index));
+			for (int index = 0; index < binary.length(); index++) {
+				int multiplier = ((binary.charAt(index) == '1') ? 1 : 0);
+				decimal += multiplier * (int)(Math.pow(2, binary.length() - 1 - index));
 			}
 		}
 		return decimal;
@@ -42,7 +41,7 @@ public class Inverse {
 
 	private static String dec2bin(int decimal) {
 		StringBuilder binary = new StringBuilder();
-		while (decimal != 0) {
+		while (decimal > 0) {
 			binary.append(decimal % 2);
 			decimal /= 2;
 		}

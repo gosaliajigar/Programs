@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * Given coins, find total number of combinations possible to reach total sum.
+ * source : https://www.geeksforgeeks.org/coin-change-dp-7/
  * 
  * @author "Jigar Gosalia"
  *
@@ -12,35 +13,39 @@ public class CoinProblem {
 
 	public static void main(String[] args) {
 		int[] coins = { 1, 2, 3, 5 };
-		int sum = 5;
-		System.out.println(Arrays.toString(coins) + " combinations for sum<" + sum + ">: " + countCoinsUsingDFS(sum, coins, 0));
-		System.out.println(countCoinsUsingDP(sum, coins));
+		int targetSum = 5;
+		System.out.println(Arrays.toString(coins) + " combinations for sum<" + targetSum + ">: " + countCoinsUsingDFS(coins, coins.length, targetSum));
+		System.out.println();
+		System.out.println(Arrays.toString(coins) + " combinations for sum<" + targetSum + ">: " + countCoinsUsingDP(coins, targetSum));
 	}
 
-	public static int countCoinsUsingDFS(int sum, int[] coins, int coin) {
-		// expected sum is ZERO
-		if (sum == 0) return 1;
+	public static int countCoinsUsingDFS(int[] coins, int coinCount, int targetSum) {
+		// expected targetSum is ZERO
+		if (targetSum == 0) return 1;
 
-		// expected sum is less than ZERO
-		// coins over and sum>0 so no solution
-		if (sum < 0 || (coin == coins.length && sum > 0)) return 0;
+		// expected targetSum is less than ZERO
+		// coinCount over and targetSum>=1 so no solution
+		if (targetSum < 0 || (coinCount <= 0 && targetSum >= 1)) return 0;
 
-		// with coin + without coin
-		return countCoinsUsingDFS(sum - coins[coin], coins, coin) + countCoinsUsingDFS(sum, coins, coin + 1);
+		// total count is sum of 
+		// (1). including coins[coinsCount - 1]
+		// (2). excluding coins[coinsCount - 1]
+		return countCoinsUsingDFS(coins, coinCount - 1, targetSum) + countCoinsUsingDFS(coins, coinCount, targetSum - coins[coinCount - 1]);
 	}
 
-	public static int countCoinsUsingDP(int sum, int[] coins) {
-		if (sum == 0) return 0;
-		int[] dp = new int[sum + 1];
+	// time: mn space: n
+	public static int countCoinsUsingDP(int[] coins, int targetSum) {
+		if (targetSum == 0) return 0;
+		int[] dp = new int[targetSum + 1];
 		dp[0] = 1;
-		for (int i = 0; i <= sum; i++) {
-			for (int coin : coins) {
-				if ((i + coin) <= sum) {
-					dp[i + coin] += dp[i];
-				}
+		// Pick all coins one by one
+		// update the dp[] values after index greater than or equal to value of picked coin 
+		for (int i = 0; i < coins.length; i++) {
+			for (int j=coins[i]; j<=targetSum; j++) {
+				dp[j] += dp[j-coins[i]];
 			}
 		}
 		System.out.println(Arrays.toString(dp));
-		return dp[sum];
+		return dp[targetSum];
 	}
 }

@@ -1,6 +1,5 @@
 package medians;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -41,12 +40,14 @@ public class Election {
 	}
 
 	private static void getWinner(Map<Integer, Candidate> map) {
-		Queue<Candidate> electionQueue = new PriorityQueue<Candidate>(new Comparator<Candidate>() {
-			@Override
-			public int compare(Candidate o1, Candidate o2) {
-				return o2.getCount() - o1.getCount();
-			}
-		});
+		// In absence of Comparable<Candidate>
+		//		Queue<Candidate> electionQueue = new PriorityQueue<Candidate>(new Comparator<Candidate>() {
+		//			@Override
+		//			public int compare(Candidate o1, Candidate o2) {
+		//				return o2.getCount() - o1.getCount();
+		//			}
+		//		});
+		Queue<Candidate> electionQueue = new PriorityQueue<Candidate>();
 		for (Integer key : map.keySet()) {
 			electionQueue.offer(map.get(key));	
 		}
