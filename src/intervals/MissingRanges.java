@@ -25,7 +25,7 @@ public class MissingRanges {
 		int prev = start - 1;
 		for (int i = 0; i <= a.length; i++) {
 			int curr = (i == a.length) ? end + 1 : a[i];
-			if (curr - prev >= 2) {
+			if (curr - prev > 1) {
 				ranges.add(getRange(prev + 1, curr - 1));
 			}
 			prev = curr;

@@ -12,7 +12,7 @@ import java.util.Set;
 /* 
 
 Suppose we have some input data describing a graph of relationships between parents and children over multiple 
-generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned a 
+generations. The data is formatted as a list of (parent, child) pairs, where each individual is assigned an 
 unique integer identifier.
 
 For example, in this diagram, 3 is a child of 1 and 2, and 5 is a child of 4:
@@ -56,7 +56,7 @@ parentChildPairs, 6, 8 => true
 
 Write a function that, for a given individual in our dataset, returns their earliest known ancestor -- 
 the one at the farthest distance from the input individual. If there is more than one ancestor tied 
-for “earliest”, return any one of them. If the input individual has no parents, the function should 
+for earliest, return any one of them. If the input individual has no parents, the function should 
 return null (or -1).
 
 Sample input and output:
@@ -79,19 +79,20 @@ public class Relationships {
 
 		Map<Integer, List<Integer>> childToParentsMap = prepareChildToParent(parentChildPairs);
 
-		Set<Integer> noParent = getNoParents(childToParentsMap);
-		Set<Integer> oneParent = getOneParent(childToParentsMap);
+		System.out.println(getNoParents(childToParentsMap));
+		System.out.println(getOneParent(childToParentsMap));
 
-		System.out.println(noParent);
-		System.out.println(oneParent);
-
-		System.out.println(parentChildPairs(3, 8, childToParentsMap));
-		System.out.println(parentChildPairs(5, 8, childToParentsMap));
-		System.out.println(parentChildPairs(6, 8, childToParentsMap));
+		System.out.println(shareAtLeastOneAncestor(3, 8, childToParentsMap));
+		System.out.println(shareAtLeastOneAncestor(5, 8, childToParentsMap));
+		System.out.println(shareAtLeastOneAncestor(6, 8, childToParentsMap));
 
 		System.out.println(getFarthestParent(8, childToParentsMap));
 		System.out.println(getFarthestParent(7, childToParentsMap));
 		System.out.println(getFarthestParent(6, childToParentsMap));
+		
+		System.out.println(getParentChain(8, childToParentsMap));
+		System.out.println(getParentChain(7, childToParentsMap));
+		System.out.println(getParentChain(6, childToParentsMap));
 	}
 
 	private static Map<Integer, List<Integer>> prepareChildToParent(int[][] parentChildPairs) {
@@ -108,26 +109,24 @@ public class Relationships {
 		return childToParentsMap;
 	}
 
-	private static Set<Integer> getNoParents(Map<Integer, List<Integer>> map) {
-		Set<Integer> childs = map.keySet();
+	private static Set<Integer> getNoParents(Map<Integer, List<Integer>> childToParentsMap) {
 		Set<Integer> parents = new HashSet<Integer>();
+		Set<Integer> noParent = new HashSet<Integer>();
 
 		// linear
-		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+		for (Map.Entry<Integer, List<Integer>> entry : childToParentsMap.entrySet()) {
 			parents.addAll(entry.getValue());
 		}
 
-		Set<Integer> noParent = new HashSet<Integer>();
 		for (Integer parent : parents) {
-			if (!childs.contains(parent)) noParent.add(parent);
+			if (!childToParentsMap.containsKey(parent)) noParent.add(parent);
 		}
 		return noParent;
 	}
 
-	private static Set<Integer> getOneParent(Map<Integer, List<Integer>> map) {
+	private static Set<Integer> getOneParent(Map<Integer, List<Integer>> childToParentsMap) {
 		// second collection
-		Map<Integer, List<Integer>> nMap = new HashMap<>();
-		nMap.putAll(map);
+		Map<Integer, List<Integer>> nMap = new HashMap<>(childToParentsMap);
 		nMap.entrySet().removeIf(e -> e.getValue().size() != 1);
 		// Set<Integer> singleParent = new HashSet<Integer>();
 		// for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
@@ -137,16 +136,17 @@ public class Relationships {
 		return nMap.keySet();
 	}
 
-	private static boolean parentChildPairs(int c1, int c2, Map<Integer, List<Integer>> map) {
+	private static boolean shareAtLeastOneAncestor(int c1, int c2, Map<Integer, List<Integer>> childToParentsMap) {
 		// check each of the chain if there is any common
 		// Set<Integer> p11 = getParentChain(c1, map);
 		// Set<Integer> p12 = getParentChain(c2, map);
-		List<Integer> p1 = map.get(c1);
-		List<Integer> p2 = map.get(c2);
+		List<Integer> p1 = childToParentsMap.get(c1);
+		List<Integer> p2 = childToParentsMap.get(c2);
 		if (p1 == null || p1.size() == 0 || p2 == null || p2.size() == 0) return false;
 		for (Integer parent : p1) {
 			// looking recursively parent
-			if (p2.contains(parent) || (map.get(parent) != null && map.get(parent).retainAll(p2))) {
+			if (p2.contains(parent) 
+					|| (childToParentsMap.get(parent) != null && childToParentsMap.get(parent).retainAll(p2))) {
 				return true;
 			}
 		}
@@ -154,26 +154,26 @@ public class Relationships {
 	}
 
 	// BFS
-	private static int getFarthestParent(int c, Map<Integer, List<Integer>> map) {
+	private static int getFarthestParent(int c, Map<Integer, List<Integer>> childToParentsMap) {
 		Queue<Integer> queue = new LinkedList<>();
 		queue.add(c);
 		while (!queue.isEmpty()) {
 			Integer child = queue.remove();
-			if (map.get(child) == null) return child;
-			queue.addAll(map.get(child));
+			if (childToParentsMap.get(child) == null) return child;
+			queue.addAll(childToParentsMap.get(child));
 		}
 		return -1;
 	}
 
-	private static Set<Integer> getParentChain(int c, Map<Integer, List<Integer>> map) {
+	private static Set<Integer> getParentChain(int c, Map<Integer, List<Integer>> childToParentsMap) {
 		Set<Integer> chain = new HashSet<Integer>();
 		Queue<Integer> queue = new LinkedList<Integer>();
 		queue.add(c);
 		while (!queue.isEmpty()) {
 			Integer child = queue.poll();
-			if (map.get(child) != null) {
-				chain.addAll(map.get(child));
-				queue.addAll(map.get(child));
+			if (childToParentsMap.get(child) != null) {
+				chain.addAll(childToParentsMap.get(child));
+				queue.addAll(childToParentsMap.get(child));
 			}
 		}
 		return chain;

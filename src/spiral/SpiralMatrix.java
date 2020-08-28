@@ -14,13 +14,16 @@ public class SpiralMatrix {
 	public static void main(String[] args) {
 		int[][] a = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
 		System.out.println(printMatrixSpirally(a));
+		System.out.println();
 		int[][] b = { { 1, 2, 3 } };
 		System.out.println(printMatrixSpirally(b));
+		System.out.println();
 		int[][] c = { { 1 }, { 4 }, { 7 } };
 		System.out.println(printMatrixSpirally(c));
 		System.out.println();
 		a = generateSpiralMatrix(4, 4);
 		display(a);
+		System.out.println();
 		System.out.println(printMatrixSpirally(a));
 	}
 
@@ -28,61 +31,61 @@ public class SpiralMatrix {
 		List<Integer> spiral = new ArrayList<Integer>();
 		if (a != null && a.length > 0 && a[0].length > 0) {
 			// rows and columns
-			int m = a.length;
-			int n = a[0].length;
+			int rows = a.length;
+			int columns = a[0].length;
 
 			// row and column pointers / sliders
-			int x = 0, y = 0;
+			int row = 0, column = 0;
 
-			while (m > 0 && n > 0) {
+			while (rows > 0 && columns > 0) {
 				// single row matrix
-				if (m == 1) {
-					for (int i = 0; i < n; i++) spiral.add(a[x][y++]);
+				if (rows == 1) {
+					for (int i = 0; i < columns; i++) spiral.add(a[row][column++]);
 					break;
 					// single column matrix
-				} else if (n == 1) {
-					for (int i = 0; i < m; i++) spiral.add(a[x++][y]);
+				} else if (columns == 1) {
+					for (int i = 0; i < rows; i++) spiral.add(a[row++][column]);
 					break;
 				}
 				// top -> right
-				for (int i = 0; i < n - 1; i++) spiral.add(a[x][y++]);
+				for (int i = 0; i < columns - 1; i++) spiral.add(a[row][column++]);
 				// right -> bottom
-				for (int i = 0; i < m - 1; i++) spiral.add(a[x++][y]);
+				for (int i = 0; i < rows - 1; i++) spiral.add(a[row++][column]);
 				// bottom -> left
-				for (int i = 0; i < n - 1; i++) spiral.add(a[x][y--]);
+				for (int i = 0; i < columns - 1; i++) spiral.add(a[row][column--]);
 				// left -> top
-				for (int i = 0; i < m - 1; i++) spiral.add(a[x--][y]);
-				x++; y++;
-				m = m - 2;
-				n = n - 2;
+				for (int i = 0; i < rows - 1; i++) spiral.add(a[row--][column]);
+				row++; column++;
+				rows -= 2;
+				columns -= 2;
 			}
 		}
 		return spiral;
 	}
 
-	public static int[][] generateSpiralMatrix(int row, int column) {
+	public static int[][] generateSpiralMatrix(int rows, int columns) {
 		int count = 1;
-		int[][] a = new int[row][column];
-		int m=row, n=column, x=0, y=0;
-		while (m>0 && n>0) {
-			if (m==1) {
-				for (int i=0; i<n; i++) a[x][y++] = count++; 
+		int[][] a = new int[rows][columns];
+		int row=0, column=0;
+		while (rows>0 && columns>0) {
+			if (rows==1) {
+				for (int i=0; i<columns; i++) a[row][column++] = count++; 
 				break;
-			} else if (n==1) {
-				for (int i=0; i<m; i++) a[x++][y] = count++;
+			} else if (columns==1) {
+				for (int i=0; i<columns; i++) a[row++][column] = count++;
 				break;
 			}
-			// left to right
-			for (int i=0; i<n-1; i++) a[x][y++] = count++;
-			// right to bottom
-			for (int i=0; i<m-1; i++) a[x++][y] = count++;
-			// bottom to left
-			for (int i=0; i<n-1; i++) a[x][y--] = count++;
-			// left to top
-			for (int i=0; i<m-1; i++) a[x--][y] = count++;
-			x++; y++;
-			m=m-2;
-			n=n-2;
+			// top -> right
+			for (int i=0; i<columns-1; i++) a[row][column++] = count++;
+			// right -> bottom
+			for (int i=0; i<rows-1; i++) a[row++][column] = count++;
+			// bottom -> left
+			for (int i=0; i<columns-1; i++) a[row][column--] = count++;
+			// left -> top
+			for (int i=0; i<rows-1; i++) a[row--][column] = count++;
+			row++; column++;
+			rows -= 2;
+			columns -= 2;
 		}
 		return a;
 	}

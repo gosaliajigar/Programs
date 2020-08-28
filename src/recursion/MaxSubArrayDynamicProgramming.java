@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 /**
  * 
+ * Maximum contiguous sub-array sum problem with -ve numbers.
+ * 
  * @author "Jigar Gosalia"
  * 
  */
