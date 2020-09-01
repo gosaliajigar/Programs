@@ -19,14 +19,14 @@ public class StringCombinationRecursive {
 
 	public static void main(final String[] args) {
 		String input = "ABC";
-		combinationsR(input, 0, new StringBuilder());
+		combinations(input, 0, new StringBuilder());
 	}
 
-	public static void combinationsR(String s, int index, StringBuilder output) {
+	public static void combinations(String s, int index, StringBuilder output) {
 		for (int i = index; i < s.length(); i++) {
 			output.append(s.charAt(i));
 			System.out.println(output);
-			combinationsR(s, i+1, output);
+			combinations(s, i+1, output);
 			output.deleteCharAt(output.length() - 1);
 		}
 	}

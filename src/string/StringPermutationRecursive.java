@@ -27,7 +27,7 @@ public class StringPermutationRecursive {
 	    int n = input.length();
 	    // Base Condition
 	    if (n == 0) {
-	    	System.out.print(prefix + " ");
+	    	System.out.println(prefix);
 	    } else {
 	    	// Recursive Condition
 	    	for (int i = 0; i < n; i++) {
