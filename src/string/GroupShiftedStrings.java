@@ -18,10 +18,10 @@ import java.util.Set;
  * @author "Jigar Gosalia"
  *
  */
-public class EquivalentStrings {
+public class GroupShiftedStrings {
 
 	public static void main(String[] args) {
-		System.out.println(EquivalentStrings
+		System.out.println(GroupShiftedStrings
 				.group(Arrays.asList("abc", "bcd", "acef", "xyz", "az", "ba", "a", "z", "acd", "bde", "zab")));
 	}
 

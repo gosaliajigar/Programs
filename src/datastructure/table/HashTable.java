@@ -35,8 +35,8 @@ public class HashTable<K, V> {
 				if (table[hash].getKey().equals(key)) break;
 				hash = (hash + 1) % TABLE_SIZE;
 			}
+			if (table[hash] == null) count++;
 			table[hash] = new HashEntry(key, value);
-			count++;
 		} else {
 			throw new Exception("Table Full!");
 		}

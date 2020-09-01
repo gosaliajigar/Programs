@@ -19,9 +19,9 @@ public class Heap {
 		StringBuilder data = new StringBuilder();
 		for (int index = 0; index < heapSize; index++) {
 			data.append(a[index]).append(",");
-		}
-		if (data.charAt(data.length()-1) == ',') {
-			data.deleteCharAt(data.length()-1);
+			if (index != heapSize - 1) {
+				data.append(",");
+			}
 		}
 		return data.toString();
 	}

@@ -32,7 +32,7 @@ public class HeapOperations {
 		int largest = location;
 		int left = getLeft(location);
 		int right = getRight(location);
-		if (left < heap.heapSize && heap.a[left] > heap.a[location]) {
+		if (left < heap.heapSize && heap.a[left] > heap.a[largest]) {
 			largest = left;
 		}
 		if (right < heap.heapSize && heap.a[right] > heap.a[largest]) {
