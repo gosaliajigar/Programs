@@ -8,6 +8,11 @@ package matrix;
  * 
  * relationship a[i][j] = a[n-1-j][i]
  * 
+ * 	00 == 30
+ *  30 == 33
+ *  33 == 03
+ *  03 == 00
+ * 
  * @author "Jigar Gosalia"
  *
  */

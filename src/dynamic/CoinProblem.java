@@ -19,18 +19,18 @@ public class CoinProblem {
 		System.out.println(Arrays.toString(coins) + " combinations for sum<" + targetSum + ">: " + countCoinsUsingDP(coins, targetSum));
 	}
 
-	public static int countCoinsUsingDFS(int[] coins, int coinCount, int targetSum) {
+	public static int countCoinsUsingDFS(int[] coins, int index, int targetSum) {
 		// expected targetSum is ZERO
 		if (targetSum == 0) return 1;
 
 		// expected targetSum is less than ZERO
-		// coinCount over and targetSum>=1 so no solution
-		if (targetSum < 0 || (coinCount <= 0 && targetSum >= 1)) return 0;
+		// index over and targetSum>0 so no solution
+		if (targetSum < 0 || (index <= 0 && targetSum > 0)) return 0;
 
 		// total count is sum of 
-		// (1). including coins[coinsCount - 1]
-		// (2). excluding coins[coinsCount - 1]
-		return countCoinsUsingDFS(coins, coinCount - 1, targetSum) + countCoinsUsingDFS(coins, coinCount, targetSum - coins[coinCount - 1]);
+		// (1). including coins[index - 1]
+		// (2). excluding coins[index - 1]
+		return countCoinsUsingDFS(coins, index - 1, targetSum) + countCoinsUsingDFS(coins, index, targetSum - coins[index - 1]);
 	}
 
 	// time: mn space: n

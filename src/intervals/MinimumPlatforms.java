@@ -35,6 +35,7 @@ public class MinimumPlatforms {
 			// increment count of platforms needed
 			if (arrivals[i] < departures[j]) {
 				platforms++;
+				// increment arrival as arrival at [i] needs a separate platform
 				i++;
 				result = Math.max(result, platforms);
 				// else decrement count of platforms needed

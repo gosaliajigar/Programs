@@ -68,7 +68,7 @@ public class MaxSubArrayDivideAndConquer {
 
 		int leftSum = Integer.MIN_VALUE;
 		for (int i = mid; i >= low; i--) {
-			sum = sum + values[i];
+			sum += values[i];
 			if (sum > leftSum) {
 				leftSum = sum;
 				maxLeft = i;
@@ -78,7 +78,7 @@ public class MaxSubArrayDivideAndConquer {
 		sum = 0;
 		int rightSum = Integer.MIN_VALUE;
 		for (int j = mid + 1; j <= high; j++) {
-			sum = sum + values[j];
+			sum += values[j];
 			if (sum > rightSum) {
 				rightSum = sum;
 				maxRight = j;

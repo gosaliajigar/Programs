@@ -1,7 +1,12 @@
 Source : 
-https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html
-https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html
-https://stackoverflow.com/questions/559839/big-o-summary-for-java-collections-framework-implementations
+ - https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html
+ - https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html
+ - https://stackoverflow.com/questions/559839/big-o-summary-for-java-collections-framework-implementations
+ - http://www.falkhausen.de/Java-8/java.util/Collection-Hierarchy.html
+ - http://www.falkhausen.de/Java-8/java.util/Collection-Hierarchy-simple.html
+ - http://www.falkhausen.de/Java-8/java.util/Collection-Hierarchy-concurrent.html
+ - http://www.falkhausen.de/Java-8/java.util/Map-Hierarchy.html
+
 
 List implementations:
 ---------------------

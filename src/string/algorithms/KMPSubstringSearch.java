@@ -3,7 +3,7 @@ package string.algorithms;
 import java.util.Arrays;
 
 /**
- * Do pattern matching using KMP algorithm (Knuth–Morris–Pratt)
+ * Do pattern matching using KMP algorithm (Knuth-Morris-Pratt)
  * 
  * Time complexity  - O(m + n); m=len(text) & n=len(pattern)
  * Space complexity - O(n)
@@ -60,5 +60,7 @@ public class KMPSubstringSearch {
 		System.out.print(KMP("abcxabcdabcdabcy".toCharArray(), "abcdabcy".toCharArray()));
 		System.out.println();
 		System.out.print(KMP("abcdabcyabcxabcd".toCharArray(), "abcdabcy".toCharArray()));
+		System.out.println();
+		System.out.println(KMP("TusharRoy".toCharArray(), "Roy".toCharArray()));
 	}
 }

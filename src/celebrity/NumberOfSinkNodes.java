@@ -20,4 +20,14 @@ public class NumberOfSinkNodes {
 		for (int i=0; i<nodes.length; i++) if (nodes[i] == 0) sinkNodesCount++;
 		return sinkNodesCount;
 	}
+
+	public static void main(String[] args) {
+		//				0
+		//		1				3
+		//		\				/
+		//			\		/
+		//				2
+		//
+		System.out.println(sinkNodes(4, new int[][] {{1, 2}, {3, 2}}));
+	}
 }

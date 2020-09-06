@@ -83,7 +83,7 @@ public class LFUCache {
 		// remove key from old frequency
 		if (frequencyMap.containsKey(frequency) && frequencyMap.get(frequency).contains(key))
 			frequencyMap.get(frequency).remove(key);
-		// add set for new frequency if doesn't exists
+		// add set for new frequency if doesn't exists 
 		if (!frequencyMap.containsKey(frequency + 1))
 			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
 		frequencyMap.get(frequency+1).add(key);

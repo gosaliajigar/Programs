@@ -26,7 +26,7 @@ public class RabinKarpSearch {
 
 	private static double reCalculateHash(char[] s, int oldIndex, int newIndex, double oldHash, int patternLen) {
 		double newHash = oldHash - s[oldIndex];
-		newHash = newHash / prime;
+		newHash /= prime;
 		newHash += s[newIndex] * Math.pow(prime, patternLen - 1);
 		return newHash;
 	}

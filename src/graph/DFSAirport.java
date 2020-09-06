@@ -69,6 +69,7 @@ public class DFSAirport {
 			results.add(new ArrayList<Trip>(curr));
 			return;
 		}
+		// check if any connections from destination of last trip
 		if (map.get(trip.to) != null && map.get(trip.to).size() > 0) {
 			for (Trip t : map.get(trip.to)) {
 				curr.add(t);

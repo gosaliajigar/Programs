@@ -39,7 +39,7 @@ public class DFSConnectedIslands {
 		// Mark this cell as visited
 		visited[r][c] = true;
 		// Recur for all connected neighbors
-		for (int k = 0; k < rowNbr.length; ++k)
+		for (int k = 0; k < rowNbr.length; k++)
 			if (isSafe(a, r + rowNbr[k], c + colNbr[k], visited))
 				dfs(a, r + rowNbr[k], c + colNbr[k], visited);
 	}

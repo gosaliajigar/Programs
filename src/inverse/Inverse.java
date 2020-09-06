@@ -20,14 +20,14 @@ public class Inverse {
 	}
 
 	private static int bin2dec(String binary) {
-		int decimal = 0;
+		double decimal = 0;
 		if (binary != null && binary.length() > 0) {
 			for (int index = 0; index < binary.length(); index++) {
 				int multiplier = ((binary.charAt(index) == '1') ? 1 : 0);
 				decimal += multiplier * (int)(Math.pow(2, binary.length() - 1 - index));
 			}
 		}
-		return decimal;
+		return decimal <= Integer.MAX_VALUE ? (int) decimal : 0;
 	}
 
 	private static String complement(String binary) {

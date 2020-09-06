@@ -12,6 +12,7 @@ public class SubtractLargeNumbers {
 
 	public static void main(String[] args) {
 		System.out.println(subtract("654154154151454545415415454", "63516561563156316545145146514654"));
+		System.out.println(subtract("63516561563156316545145146514654", "654154154151454545415415454"));
 		System.out.println();
 		System.out.println(subtract("15", "16"));
 		System.out.println();
@@ -33,10 +34,10 @@ public class SubtractLargeNumbers {
 		for (int i = 0; i < num1.length(); i++) {
 			int sub = ((i < num1.length()) ? (num1.charAt(i) - '0') : 0)
 					- ((i < num2.length()) ? (num2.charAt(i) - '0') : 0) - carry;
+			carry = (sub < 0) ? 1 : 0;
 			// If subtraction is less then zero, add 10 into sub and
 			// take carry as 1 for calculating next step
 			sub = (sub < 0) ? sub + 10 : sub;
-			carry = (sub < 0) ? 1 : 0;
 			sb.append(sub);
 		}
 		// remove front 0's

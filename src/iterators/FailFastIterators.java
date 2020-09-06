@@ -11,6 +11,7 @@ import java.util.Map;
  *
  */
 public class FailFastIterators {
+	
 	public static void main(String[] args) {
 		Map<String, String> premiumPhone = new HashMap<String, String>();
 		premiumPhone.put("Apple", "iPhone");

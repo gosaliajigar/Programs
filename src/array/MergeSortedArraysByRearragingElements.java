@@ -12,7 +12,7 @@ public class MergeSortedArraysByRearragingElements {
 
 	public static void main(String[] args) {
 		int[] A = {1, 5, 9, 10, 15, 20};
-		int[] B = {2, 3, 8, 13};
+		int[] B = {2, 3, 8, 21};
 		System.out.println("A: " + Arrays.toString(A));
 		System.out.println("B: " + Arrays.toString(B));
 		System.out.println("C: " + Arrays.toString(mergeInNewArray(A, B)));
@@ -25,7 +25,8 @@ public class MergeSortedArraysByRearragingElements {
 	/**
 	 * merge sorted arrays with O(1) space.
 	 * 
-	 * Time Complexity : O(m*n)
+	 * Time Complexity  : O(m*n)
+	 * Space Complexity : O(1)
 	 * 
 	 * @param a
 	 * @param b
@@ -51,7 +52,8 @@ public class MergeSortedArraysByRearragingElements {
 	/**
 	 * merge using an extra array
 	 * 
-	 * Time complexity O(m+n)
+	 * Time complexity  : O(m+n)
+	 * Space complexity : O(m+n)
 	 * 
 	 * @param a
 	 * @param b

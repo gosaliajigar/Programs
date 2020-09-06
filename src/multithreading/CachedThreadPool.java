@@ -58,6 +58,7 @@ public class CachedThreadPool {
 
 	public static void main(final String args[]) throws Exception {
 		// cached thread pool
+		// 60 seconds idle thread will be shutdown
 		ExecutorService service = Executors.newCachedThreadPool();
 		// creates 100 threads that take 3 seconds each to process
 		for (int i = 1; i <= 100; i++) {
