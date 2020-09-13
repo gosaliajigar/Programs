@@ -33,6 +33,7 @@ import pojos.Trip;
  */
 public class DFSAirport {
 
+	// flights [n][3]	==> from, to, price
 	private static String[][] flights = { { "Europe", "Swiss", "150" }, { "Europe", "Istanbul", "1100" },
 			{ "Europe", "Thailand", "400" }, { "Swiss", "China", "1000" }, { "Istanbul", "Thailand", "200" },
 			{ "Thailand", "China", "200" }, { "Japan", "Indonesia", "50" }, { "Indonesia", "Japan", "55" },
@@ -46,20 +47,21 @@ public class DFSAirport {
 	};
 
 	public static void main(String[] args) {
-		List<List<Trip>> trips = cheapDFS(flights, 4, "Europe", "China");
-		trips.forEach(System.out::println);
+		List<List<Trip>> routes = cheapDFS(flights, 4, "Europe", "China");
+		System.out.println("All routes from Europe to China:");
+		routes.forEach(System.out::println);
 		System.out.println();
-		System.out.println(getCheapest(trips));
+		System.out.println(getCheapest(routes));
 	}
 
 	public static List<List<Trip>> cheapDFS(String[][] flights, int maxConnections, String source, String destination) {
 		Map<String, PriorityQueue<Trip>> map = getMap(flights);
-		Trip t = map.get(source).poll();
+		Trip trip = map.get(source).peek();
 
 		List<List<Trip>> results = new ArrayList<List<Trip>>();
 		List<Trip> curr = new ArrayList<Trip>();
-		curr.add(t);
-		dfs(destination, maxConnections, t, curr, results, map);
+		curr.add(trip);
+		dfs(destination, maxConnections, trip, curr, results, map);
 		return results;
 	}
 

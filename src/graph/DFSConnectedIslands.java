@@ -1,6 +1,8 @@
 package graph;
 
 /**
+ * Count connected islands.
+ * 
  * @author Jigar Gosalia
  *
  */
@@ -32,6 +34,7 @@ public class DFSConnectedIslands {
 				}
 			}
 		}
+		display(visited);
 		return count;
 	}
 
@@ -47,4 +50,15 @@ public class DFSConnectedIslands {
 	public static boolean isSafe(int a[][], int r, int c, boolean visited[][]) {
 		return (r >= 0 && r < a.length && c >= 0 && c < a[0].length && a[r][c] == 1 && !visited[r][c]);
 	}
+
+	private static void display(boolean[][] visited) {
+		for (int i=0; i< visited.length; i++) {
+			for (int j=0; j<visited[0].length; j++) {
+				System.out.printf("%7s ", visited[i][j]);
+			}
+			System.out.println();
+		}
+		
+	}
 }
+

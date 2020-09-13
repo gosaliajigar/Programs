@@ -55,6 +55,7 @@ public class Election {
 			System.out.print(electionQueue.poll() + " ");
 		}
 		System.out.println();
+		System.out.println();
 	}
 
 	private static void getWinnerJava8(Map<Integer, Candidate> map) {

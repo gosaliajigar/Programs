@@ -21,23 +21,6 @@ import java.util.Set;
  */
 public class LFUCache {
 
-	class Data {
-		int key;
-		int value;
-		int frequency;
-	
-		public Data(int key, int value) {
-			this.key = key;
-			this.value = value;
-			this.frequency = 0;
-		}
-		
-		@Override
-		public String toString() {
-			return "(K=" + key + ";V=" + value + ";F:" + frequency + ")";
-		}
-	}
-
 	// key->Data
 	Map<Integer, Data> valueMap;
 	// frequency-><key, key, key>
@@ -110,3 +93,22 @@ public class LFUCache {
 		return data.toString();
 	}
 }
+
+
+class Data {
+	int key;
+	int value;
+	int frequency;
+
+	public Data(int key, int value) {
+		this.key = key;
+		this.value = value;
+		this.frequency = 0;
+	}
+	
+	@Override
+	public String toString() {
+		return "(K=" + key + ";V=" + value + ";F:" + frequency + ")";
+	}
+}
+

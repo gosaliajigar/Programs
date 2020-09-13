@@ -23,8 +23,9 @@ public class AddLargeNumbers {
 		String n1 = new StringBuilder(num1).reverse().toString();
 		String n2 = new StringBuilder(num2).reverse().toString();
 		for (int i = 0; i < Math.max(num1.length(), num2.length()); i++) {
-			int sum = carry + ((i < num1.length()) ? (n1.charAt(i) - '0') : 0)
-					+ ((i < num2.length()) ? (n2.charAt(i) - '0') : 0);
+			int sum = ((i < num1.length()) ? (n1.charAt(i) - '0') : 0)
+					+ ((i < num2.length()) ? (n2.charAt(i) - '0') : 0)
+					+ carry;
 			carry = sum / 10;
 			sb.append(sum % 10);
 		}

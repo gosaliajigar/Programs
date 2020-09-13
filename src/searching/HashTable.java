@@ -25,8 +25,8 @@ package searching;
 public class HashTable {
 
 	private static final int SIZE = 20;
-	private static int count = 0;
-	private static Data[] table = new Data[SIZE];
+	private int count = 0;
+	private Data[] table = new Data[SIZE];
 
 	/**
 	 * It may happen that the hashing technique used create already used index
@@ -41,8 +41,8 @@ public class HashTable {
 	 * @param key
 	 * @param value
 	 */
-	private static void put(int key, int value) throws Exception {
-		if (count >= SIZE) throw new Exception("HashTable full");
+	public void put(int key, int value) throws Exception {
+		if (this.count >= SIZE) throw new Exception("HashTable full");
 		Data data = new Data(key, value);
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
@@ -68,7 +68,7 @@ public class HashTable {
 	 * @param key
 	 * @return
 	 */
-	private static Data get(int key) {
+	public Data get(int key) {
 		// get the hash
 		int hashIndex = hashCode(key);
 		int iterations = 0;
@@ -95,7 +95,7 @@ public class HashTable {
 	 * @param data
 	 * @return
 	 */
-	private static Data remove(Data data) {
+	public Data remove(Data data) {
 		// get the hash
 		int hashIndex = hashCode(data.getKey());
 		int iterations = 0;
@@ -115,26 +115,27 @@ public class HashTable {
 		return null;
 	}
 
-	private static void display() {
+	public void display() {
 		for (int index = 0; index < table.length; index++) {
 			System.out.println("Location(" + index + "):" + table[index]);
 		}
 		System.out.println();
 	}
 
-	private static int hashCode(int key) { return key % SIZE; }
+	private int hashCode(int key) { return key % SIZE; }
 
 	public static void main(String[] args) throws Exception {
-		put(1, 20);  put(2, 70);  put(42, 80); put(4, 25);
-		put(12, 44); put(14, 32); put(17, 11); put(13, 78);
-		put(37, 97); put(57, 97);
+		HashTable hashTable = new HashTable();
+		hashTable.put(1, 20);  hashTable.put(2, 70);  hashTable.put(42, 80); hashTable.put(4, 25);
+		hashTable.put(12, 44); hashTable.put(14, 32); hashTable.put(17, 11); hashTable.put(13, 78);
+		hashTable.put(37, 97); hashTable.put(57, 97);
 		// Checkout the wrapping to start of array
-		put(77, 97);
-		display();
-		Data item = get(37);
+		hashTable.put(77, 97);
+		hashTable.display();
+		Data item = hashTable.get(37);
 		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
-		remove(item);
-		item = get(37);
+		hashTable.remove(item);
+		item = hashTable.get(37);
 		System.out.println((item != null) ? ("Element found: " + item) : ("Element 37 not found"));
 	}
 

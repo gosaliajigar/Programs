@@ -22,7 +22,7 @@ public class FindPeak {
 	 * @return
 	 */
 	private static int peak(int[] a, int left, int right) {
-		if (left <= right) {
+		while (left <= right) {
 			int mid = left + ((right - left) / 2);
 			// Compare middle element with its neighbors (if neighbors exist)
 			if ((mid == 0 || a[mid - 1] < a[mid])
@@ -31,11 +31,11 @@ public class FindPeak {
 				// If middle element is not peak and its left neighbor is
 				// greater than it, then left half must have a peak element
 			} else if (mid > 0 && a[mid - 1] > a[mid]) {
-				return peak(a, left, mid - 1);
+				right = mid - 1;
 				// If middle element is not peak and its right neighbor is
 				// greater than it, then right half must have a peak element
 			} else {
-				return peak(a, mid + 1, right);
+				left = mid + 1;
 			}
 		}
 		return Integer.MIN_VALUE;

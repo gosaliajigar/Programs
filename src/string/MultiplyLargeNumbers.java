@@ -33,10 +33,10 @@ public class MultiplyLargeNumbers {
 		}
 		// calculate each digit
 		for (int i = 0; i < d.length; i++) {
-			int mod = d[i] % 10;
-			int carry = d[i] / 10;
-			if (i < d.length-1) d[i + 1] += carry;
-			sb.append(mod);
+			// carry
+			if (i < d.length-1) d[i + 1] += d[i] / 10;
+			// mod
+			sb.append(d[i] % 10);
 		}
 		// remove front 0's
 		while (sb.charAt(sb.length()-1) == '0' && sb.length() > 1) {

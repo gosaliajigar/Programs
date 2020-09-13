@@ -1,7 +1,7 @@
 package graph;
 
 /**
- * Count connected cells in a matrix
+ * Get biggest connected cell region in a matrix
  * 
  * Source : https://www.youtube.com/watch?v=R4Nh-EgWjyQ
  * https://www.geeksforgeeks.org/find-length-largest-region-boolean-matrix/

@@ -26,7 +26,7 @@ public class MinimumPlatforms {
 
 	public static int minPlatforms(int[] arrivals, int[] departures) {
 		// platforms indicates platforms # needed at a time
-		int i = 1, j = 0, result = 1, platforms = 1;
+		int i = 1, j = 0, max = 1, platforms = 1;
 
 		// Similar to merge in merge sort to process
 		// all events in sorted order
@@ -37,14 +37,14 @@ public class MinimumPlatforms {
 				platforms++;
 				// increment arrival as arrival at [i] needs a separate platform
 				i++;
-				result = Math.max(result, platforms);
+				max = Math.max(max, platforms);
 				// else decrement count of platforms needed
 			} else {
 				platforms--;
 				j++;
 			}
 		}
-		return result;
+		return max;
 	}
 
 	private static int minPlatformsUsingPriorityQueue(int[] arrivals, int[] departures) {

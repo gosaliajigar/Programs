@@ -31,7 +31,7 @@ public class BracketPosition {
 			// no of brackets in middle of opening and closing bracket position
 			int count = 0;
 			char bracket = s.charAt(position);
-			if (brackets.keySet().contains(bracket)) {
+			if (brackets.containsKey(bracket)) {
 				for (int index = position + 1; index < s.length(); index++) {
 					if (brackets.containsKey(s.charAt(index))) {
 						count++;

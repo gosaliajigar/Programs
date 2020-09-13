@@ -31,7 +31,9 @@ public class SquareRoot {
 	private static double sqrtRecursive(int n, double low, double high) {
 		double mid = low + ((high-low) / 2);
 		double diff = mid * mid - n;
+		// go left
 		if (diff > TOLERANCE) return sqrtRecursive(n, low, mid);
+		// go right
 		if (-diff > TOLERANCE) return sqrtRecursive(n, mid, high);
 		return mid;
 	}

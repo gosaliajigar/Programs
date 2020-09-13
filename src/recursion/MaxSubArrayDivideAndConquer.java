@@ -92,38 +92,39 @@ public class MaxSubArrayDivideAndConquer {
 		int[] values = { 5, -15, 30, 10, 15, -40, 10 };
 		System.out.println("Max sub-array " + Arrays.toString(values) + ": " + maxSubArray(values, 0, 6));
 	}
+}
 
-	/**
-	 * Class to hold maximum sub-array details.
-	 */
-	static class SubArray {
 
-		private int start;
-		private int end;
-		private int sum;
+/**
+ * Class to hold maximum sub-array details.
+ */
+class SubArray {
 
-		public SubArray(int start, int end, int sum) {
-			super();
-			this.start = start;
-			this.end = end;
-			this.sum = sum;
-		}
+	private int start;
+	private int end;
+	private int sum;
 
-		public int getStart() { return start; }
+	public SubArray(int start, int end, int sum) {
+		super();
+		this.start = start;
+		this.end = end;
+		this.sum = sum;
+	}
 
-		public void setStart(int start) { this.start = start; }
+	public int getStart() { return start; }
 
-		public int getEnd() { return end; }
+	public void setStart(int start) { this.start = start; }
 
-		public void setEnd(int end) { this.end = end; }
+	public int getEnd() { return end; }
 
-		public int getSum() { return sum; }
+	public void setEnd(int end) { this.end = end; }
 
-		public void setSum(int sum) { this.sum = sum; }
+	public int getSum() { return sum; }
 
-		@Override
-		public String toString() {
-			return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum + "]";
-		}
+	public void setSum(int sum) { this.sum = sum; }
+
+	@Override
+	public String toString() {
+		return "SubArray [start=" + start + ", end=" + end + ", sum=" + sum + "]";
 	}
 }

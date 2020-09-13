@@ -4,6 +4,13 @@ import java.time.LocalTime;
 import java.util.concurrent.Callable;
 
 /**
+ * 
+ * The need for Callable
+ * 
+ * - There are two ways of creating threads – one by extending the Thread class and other by creating a 
+ *   thread with a Runnable. However, one feature lacking in Runnable is that we cannot make a thread 
+ *   return result when it terminates, i.e. when run() completes.
+ * 
  * @author Jigar Gosalia
  *
  */

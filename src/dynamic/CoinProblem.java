@@ -30,7 +30,8 @@ public class CoinProblem {
 		// total count is sum of 
 		// (1). including coins[index - 1]
 		// (2). excluding coins[index - 1]
-		return countCoinsUsingDFS(coins, index - 1, targetSum) + countCoinsUsingDFS(coins, index, targetSum - coins[index - 1]);
+		return countCoinsUsingDFS(coins, index - 1, targetSum)
+			 + countCoinsUsingDFS(coins, index, targetSum - coins[index - 1]);
 	}
 
 	// time: mn space: n

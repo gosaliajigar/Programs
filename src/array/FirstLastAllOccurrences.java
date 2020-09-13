@@ -21,14 +21,14 @@ public class FirstLastAllOccurrences {
 	 * @return
 	 */
 	private static int firstOccurrence(int[] a, int left, int right, int x) {
-		if (left <= right) {
+		while (left <= right) {
 			int mid = ((left + right) / 2);
 			if (a[mid] == x && (mid == 0 || a[mid - 1] < a[mid])) {
 				return mid;
 			} else if (a[mid] < x) {
-				return firstOccurrence(a, (mid + 1), right, x);
+				left = mid + 1;
 			} else {
-				return firstOccurrence(a, left, (mid - 1), x);
+				right = mid - 1;
 			}
 		}
 		return -1;
@@ -45,14 +45,14 @@ public class FirstLastAllOccurrences {
 	 * @return
 	 */
 	private static int lastOccurrence(int[] a, int left, int right, int x) {
-		if (left <= right) {
+		while (left <= right) {
 			int mid = ((left + right) / 2);
 			if (a[mid] == x && (mid == a.length - 1 || a[mid + 1] > a[mid])) {
 				return mid;
 			} else if (a[mid] > x) {
-				return lastOccurrence(a, left, mid - 1, x);
+				right = mid - 1;
 			} else {
-				return lastOccurrence(a, mid + 1, right, x);
+				left = mid + 1;
 			}
 		}
 		return -1;

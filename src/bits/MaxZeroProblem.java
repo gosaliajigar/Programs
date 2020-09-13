@@ -9,7 +9,7 @@ package bits;
 public class MaxZeroProblem {
 
 	public static void main(String[] args) {
-		int[] a = {2,5,9,17,273,265};
+		int[] a = {0,1,2,5,9,17,273,265};
 		for (int i : a) {
 			System.out.printf("%-20s - %d\n", toBinary(i), maxGap(i));
 		}
@@ -33,6 +33,7 @@ public class MaxZeroProblem {
 	}
 
 	public static String toBinary(int i) {
+		if (i < 2) return String.valueOf(i);
 		StringBuilder binary = new StringBuilder();
 		while (i > 0) {
 			binary.append(i%2);

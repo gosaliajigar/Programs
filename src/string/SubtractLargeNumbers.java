@@ -23,6 +23,7 @@ public class SubtractLargeNumbers {
 		boolean isNegative = false;
 		int carry = 0;
 		StringBuilder sb = new StringBuilder();
+		// str1 must be bigger than str2
 		if (isSmaller(str1, str2)) {
 			String smaller = str1;
 			str1 = str2;
@@ -33,7 +34,8 @@ public class SubtractLargeNumbers {
 		String num2 = new StringBuilder(str2).reverse().toString();
 		for (int i = 0; i < num1.length(); i++) {
 			int sub = ((i < num1.length()) ? (num1.charAt(i) - '0') : 0)
-					- ((i < num2.length()) ? (num2.charAt(i) - '0') : 0) - carry;
+					- ((i < num2.length()) ? (num2.charAt(i) - '0') : 0)
+					- carry;
 			carry = (sub < 0) ? 1 : 0;
 			// If subtraction is less then zero, add 10 into sub and
 			// take carry as 1 for calculating next step

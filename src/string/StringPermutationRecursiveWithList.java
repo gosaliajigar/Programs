@@ -13,7 +13,8 @@ public class StringPermutationRecursiveWithList {
 
 	public static void main(final String[] args) {
 		String sample1 = "ABC";
-		List<String> list = permutation("", sample1, new LinkedList<String>());
+		List<String> list = new LinkedList<String>();
+		permutation("", sample1, list);
 		System.out.println("\nPermutations for " + sample1 + " are: " + list);
 	}
 
@@ -23,7 +24,7 @@ public class StringPermutationRecursiveWithList {
 	 * @param list
 	 * @return
 	 */
-	private static List<String> permutation(String prefix, String input, List<String> list) {
+	private static void permutation(String prefix, String input, List<String> list) {
 	    int n = input.length();
 	    if (n == 0) {
 	    	list.add(prefix);
@@ -32,6 +33,5 @@ public class StringPermutationRecursiveWithList {
 	    		permutation(prefix + input.charAt(i), input.substring(0, i) + input.substring(i+1, n), list);
 	    	}
 	    }
-	    return list;
 	}
 }
