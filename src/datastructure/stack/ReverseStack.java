@@ -12,18 +12,18 @@ public class ReverseStack {
 		Stack<Integer> stack = new Stack<Integer>();
 		stack.push(1); stack.push(2); stack.push(3);
 		System.out.println(stack.peek() + " : " + stack);
-		stack = reverse(stack);
+		reverse(stack);
+		System.out.println(stack.peek() + " : " + stack);
 		while (!stack.isEmpty()) { System.out.print(stack.pop() + " "); }
 	}
 
-	public static Stack<Integer> reverse(Stack<Integer> stack) {
-		if (stack.isEmpty()) return stack;
+	public static void reverse(Stack<Integer> stack) {
+		if (stack.isEmpty()) return;
 		// top element is in stack
 		int top = stack.pop();
 		reverse(stack);
 		// stack unwinds now so insert top at bottom of stack
 		insertAtBottom(stack, top);
-		return stack;
 	}
 
 	public static void insertAtBottom(Stack<Integer> stack, int x) {
