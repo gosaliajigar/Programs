@@ -12,6 +12,7 @@ public class BinarySearchTree {
 	private BinaryNode root;
 	public BinarySearchTree () {}
 	public BinaryNode getRoot() { return root; }
+	public void setRoot(BinaryNode node) { this.root = node; }
 
 	public void create(int array[]) {
 		for (int index = 0; index < array.length; index++) {
