@@ -10,7 +10,7 @@ public class Location {
 	public Coordinate coordinates;
 
 	public Location(int id, Coordinate coordinates) {
-		this(0, coordinates.latitude, coordinates.longitude);
+		this(id, coordinates.latitude, coordinates.longitude);
 	}
 
 	public Location(int latitude, int longitude) {

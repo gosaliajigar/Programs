@@ -46,48 +46,75 @@ public class QuadNode {
 
 	/**
 	 * split into 4 kids i.e. QuadNode
+	 * 
+	 * 		topLeft	O--------B-------O
+	 * 				|		 |		 |
+	 * 				|	UL	 |	UR	 |
+	 * 				|		 |		 |
+	 * 				D--------A-------E
+	 * 				|		 |		 |
+	 * 				|	LL	 |	LR	 |
+	 * 				|		 |		 |
+	 * 				O--------C-------O bottomRight
+	 * 
 	 */
 	public void split() {
+		// A
 		Coordinate middleOfGrid = new Coordinate((this.topLeft.latitude + this.bottomRight.latitude) / 2,
 				(this.topLeft.longitude + this.bottomRight.longitude) / 2);
 
+		// B
 		Coordinate middleOfUpperLatitude = new Coordinate(this.topLeft.latitude,
 				(this.topLeft.longitude + this.bottomRight.longitude) / 2);
 
+		// C
 		Coordinate middleOfLowerLatitude = new Coordinate(this.bottomRight.latitude,
 				(this.topLeft.longitude + this.bottomRight.longitude) / 2);
 
+		// D
 		Coordinate middleOfLeftLongitude = new Coordinate((this.topLeft.latitude + this.bottomRight.latitude) / 2,
 				this.topLeft.longitude);
 
+		// E
 		Coordinate middleOfRightLongitude = new Coordinate((this.topLeft.latitude + this.bottomRight.latitude) / 2,
 				this.bottomRight.longitude);
 
+		// topLeft, A
 		this.upperLeft = new QuadNode(this, this.topLeft, middleOfGrid);
+		// B, E
 		this.upperRight = new QuadNode(this, middleOfUpperLatitude, middleOfRightLongitude);
+		// D, C
 		this.lowerLeft = new QuadNode(this, middleOfLeftLongitude, middleOfLowerLatitude);
+		// A, bottomRight
 		this.lowerRight = new QuadNode(this, middleOfGrid, this.bottomRight);
 	}
 
-	public static boolean insert(QuadNode node, Location l) {
+	/**
+	 * Insert given new location l into root node.
+	 * 
+	 * @param root
+	 * @param l
+	 * @return
+	 */
+	public static boolean insert(QuadNode root, Location l) {
 		// coordinates not in boundary of grid
-		if (!inBoundary(node, l.coordinates)) return false;
+		if (!inBoundary(root, l.coordinates)) return false;
 		// doesn't have children && less than 500 locations so insert in this node
-		if (!hasChildren(node) && (node.locations.size() < 500)) {
-			node.locations.add(new Location(l.id, l.coordinates.latitude, l.coordinates.longitude));
+		if (!hasChildren(root) && (root.locations.size() < 500)) {
+			root.locations.add(new Location(l.id, l.coordinates.latitude, l.coordinates.longitude));
 		} else {
 			// doesn't have children && more than 500 locations so split QuadNode
-			if (!hasChildren(node)) node.split();
+			if (!hasChildren(root)) root.split();
 			// populate locations to children
-			for (Location location : node.locations) {
-				QuadNode cnode = find(node, location.coordinates.latitude, location.coordinates.longitude);
+			for (Location location : root.locations) {
+				QuadNode cnode = find(root, location.coordinates.latitude, location.coordinates.longitude);
 				cnode.locations.add(new Location(location.id, location.coordinates.latitude, location.coordinates.longitude));
 			}
 			// add new location
-			QuadNode cnode = find(node, l.coordinates.latitude, l.coordinates.longitude);
+			QuadNode cnode = find(root, l.coordinates.latitude, l.coordinates.longitude);
 			cnode.locations.add(new Location(l.id, l.coordinates.latitude, l.coordinates.longitude));
 			// clear all locations from parent
-			node.locations.clear();
+			root.locations.clear();
 		}
 		return true;
 	}
