@@ -36,7 +36,8 @@ public class BracketPosition {
 					if (brackets.containsKey(s.charAt(index))) {
 						count++;
 					} else if (brackets.containsValue(s.charAt(index))) {
-						if (s.charAt(index) == brackets.get(bracket) && count == 0) {
+						// check if it is closing bracket
+						if (count == 0 && s.charAt(index) == brackets.get(bracket)) {
 							return index;
 						} else {
 							count--;

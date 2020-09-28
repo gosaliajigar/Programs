@@ -15,11 +15,11 @@ public class StringReversal {
 	}
 
 	private static String reverseRecursive(String input) {
-		return ((input != null && input.length() > 1) 
+		return (input != null && input.length() > 1) 
 				// recursive condition
 				? reverseRecursive(input.substring(1)) + input.charAt(0) 
 				// base condition
-				: input);
+				: input;
 	}
 
 	private static String reverse(String input) {

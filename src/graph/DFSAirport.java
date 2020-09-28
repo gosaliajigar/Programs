@@ -48,7 +48,7 @@ public class DFSAirport {
 
 	public static void main(String[] args) {
 		List<List<Trip>> routes = cheapDFS(flights, 4, "Europe", "China");
-		System.out.println("All routes from Europe to China:");
+		System.out.println("All routes from Europe to China (max 4 flights):");
 		routes.forEach(System.out::println);
 		System.out.println();
 		System.out.println(getCheapest(routes));
@@ -84,10 +84,7 @@ public class DFSAirport {
 	private static Map<String, PriorityQueue<Trip>> getMap(String[][] flights) {
 		Map<String, PriorityQueue<Trip>> map = new HashMap<String, PriorityQueue<Trip>>();
 		for (String[] flight : flights) {
-			if (!map.containsKey(flight[0])) {
-				map.put(flight[0], new PriorityQueue<Trip>(sortByPrices));
-			}
-			map.get(flight[0]).add(new Trip(flight[0], flight[1], Integer.valueOf(flight[2])));
+			map.computeIfAbsent(flight[0], key -> new PriorityQueue<Trip>(sortByPrices)).add(new Trip(flight[0], flight[1], Integer.valueOf(flight[2])));
 		}
 		return map;
 	}
