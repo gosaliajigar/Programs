@@ -3,8 +3,11 @@ package string;
 import java.util.Arrays;
 
 /**
- * This class shows how to convert String to byte array 
- * and byte array to String in java
+ * This class shows how to convert String to byte array and byte array to String
+ * in java
+ *
+ * str.getBytes() 			==> byte[] 
+ * new String(byte[]) 		==> str
  *
  * @author "Jigar Gosalia"
  *

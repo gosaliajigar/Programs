@@ -42,7 +42,7 @@ public class BracketPosition {
 						} else {
 							count--;
 						}
-					}
+					} // do nothing if its not a bracket
 				}				
 			}
 		}

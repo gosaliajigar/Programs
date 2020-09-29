@@ -47,6 +47,7 @@ public class Election {
 		//				return o2.getCount() - o1.getCount();
 		//			}
 		//		});
+		// max heap
 		Queue<Candidate> electionQueue = new PriorityQueue<Candidate>();
 		for (Integer key : map.keySet()) {
 			electionQueue.offer(map.get(key));	

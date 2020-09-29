@@ -15,7 +15,7 @@ public class CacheUsage {
 
 		System.out.println();
 
-		LFUCache cache = new LFUCache(5);
+		LFUCache<Integer, Integer> cache = new LFUCache<Integer, Integer>(5);
 		cache.put(1, 1); cache.put(2, 2); cache.put(3, 3); cache.put(4, 4);
 		System.out.println(cache);
 		cache.put(5, 5);

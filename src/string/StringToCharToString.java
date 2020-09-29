@@ -5,6 +5,12 @@ import java.util.Arrays;
 /**
  * This class show how to convert String to char to String in java
  * 
+ * str.charAt(index)		==> char
+ * str.toCharArray() 		==> char[]
+ * new String(char[]) 		==> str
+ * Character.toString(char)	==> str
+ * String.valueOf(char)		==> str
+ * 
  * @author Jigar Gosalia
  *
  */

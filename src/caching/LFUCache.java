@@ -19,36 +19,36 @@ import java.util.Set;
  * @author Jigar Gosalia
  *
  */
-public class LFUCache {
+public class LFUCache<K, V> {
 
 	// key->Data
-	Map<Integer, Data> valueMap;
+	Map<K, Data<K, V>> valueMap;
 	// frequency-><key, key, key>
-	Map<Integer, Set<Integer>> frequencyMap;
+	Map<Integer, Set<K>> frequencyMap;
 	int minFrequency = -1;
 	int capacity;
 
 	public LFUCache(int capacity) {
-		this.valueMap = new HashMap<Integer, Data>();
-		this.frequencyMap = new HashMap<Integer, Set<Integer>>();
+		this.valueMap = new HashMap<K, Data<K, V>>();
+		this.frequencyMap = new HashMap<Integer, Set<K>>();
 		this.capacity = capacity;
 	}
 
-	public int get(int key) {
+	public V get(K key) {
 		if (valueMap.containsKey(key)) {
 			updateFrequency(key);
 			return valueMap.get(key).value;
 		}
-		return Integer.MIN_VALUE;
+		return null;
 	}
 
-	public void put(int key, int value) {
-		Data node;
+	public void put(K key, V value) {
+		Data<K, V> node;
 		if (valueMap.containsKey(key)) {
 			node = valueMap.get(key);
 			node.value = value;
 		} else {
-			node = new Data(key, value);
+			node = new Data<K, V>(key, value);
 			if (valueMap.size() >= capacity)
 				deleteLeastFrequent();
 			minFrequency = 1;
@@ -57,8 +57,8 @@ public class LFUCache {
 		updateFrequency(key);
 	}
 
-	private void updateFrequency(int key) {
-		Data data = valueMap.get(key);
+	private void updateFrequency(K key) {
+		Data<K, V> data = valueMap.get(key);
 		int frequency = data.frequency;
 		data.frequency = frequency + 1;
 		valueMap.put(key, data);
@@ -68,7 +68,7 @@ public class LFUCache {
 			frequencyMap.get(frequency).remove(key);
 		// add set for new frequency if doesn't exists 
 		if (!frequencyMap.containsKey(frequency + 1))
-			frequencyMap.put(frequency + 1, new LinkedHashSet<Integer>());
+			frequencyMap.put(frequency + 1, new LinkedHashSet<K>());
 		frequencyMap.get(frequency+1).add(key);
 		// update minFrequency if no data exists for it to next minFrequency available 
 		if (minFrequency == frequency && frequencyMap.get(frequency) != null
@@ -77,7 +77,7 @@ public class LFUCache {
 	}
 
 	private void deleteLeastFrequent() {
-		int key = frequencyMap.get(minFrequency).iterator().next();
+		K key = frequencyMap.get(minFrequency).iterator().next();
 		frequencyMap.get(minFrequency).remove(key);
 		valueMap.remove(key);
 	}
@@ -94,13 +94,12 @@ public class LFUCache {
 	}
 }
 
-
-class Data {
-	int key;
-	int value;
+class Data<K, V> {
+	K key;
+	V value;
 	int frequency;
 
-	public Data(int key, int value) {
+	public Data(K key, V value) {
 		this.key = key;
 		this.value = value;
 		this.frequency = 0;

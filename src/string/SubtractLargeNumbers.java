@@ -55,13 +55,14 @@ public class SubtractLargeNumbers {
 			return true;
 		if (n2 < n1)
 			return false;
-
+		// same size string so compare value
 		for (int i = 0; i < n1; i++)
 			if (str1.charAt(i) < str2.charAt(i))
 				return true;
 			else if (str1.charAt(i) > str2.charAt(i))
 				return false;
 
+		// means they are same string
 		return false;
 	}
 }

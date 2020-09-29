@@ -15,12 +15,15 @@ package square;
  */
 public class SquareRoot {
 
-	private static final double TOLERANCE = 0.00001;
+	private static final double TOLERANCE = 0.000000001;
 
 	public static void main(String[] args) {
 		System.out.println(squareRoot(4));
+		System.out.println(squareRoot(9));
 		System.out.println(squareRoot(11));
+		System.out.println(squareRoot(16));
 		System.out.println(squareRoot(17));
+		System.out.println(squareRoot(25));
 		System.out.println(squareRoot(26));
 	}
 

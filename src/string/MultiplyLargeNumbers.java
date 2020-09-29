@@ -7,6 +7,25 @@ import java.util.Arrays;
  * Source : https://www.geeksforgeeks.org/multiply-large-numbers-represented-as-strings/
  * https://www.programcreek.com/2014/05/leetcode-multiply-strings-java/ 
  * 
+ * 
+ * 		555 * 5 = 2775
+ * 
+ * 		555
+ * 		  5
+ * 		---
+ * 		0	25	25	25		==> 2	7	7	5
+ * 
+ * ------------------------------------------
+ * 
+ * 		555 * 51 = 28305
+ * 
+ * 		555
+ * 		 51
+ * 		---
+ * 				5	5	5
+ * 		0	25	25	25		==> 2	8	3	0	5
+ * 
+ * 
  * @author Jigar Gosalia
  *
  */

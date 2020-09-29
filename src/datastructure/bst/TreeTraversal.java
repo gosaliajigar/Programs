@@ -1,7 +1,11 @@
 package datastructure.bst;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Queue;
+import java.util.TreeMap;
 
 import pojos.BinaryNode;
 
@@ -50,6 +54,8 @@ public class TreeTraversal {
 		System.out.printf("Level Order Traversal : ");
 		levelOrderTraversal(bstTree.getRoot());
 		System.out.println();
+		System.out.printf("Vertical Level Order Traversal : ");
+		System.out.println(verticalOrderTraversal(bstTree.getRoot()));
 		System.out.println();
 		int[] a = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
 		BinarySearchTree minBST = new BinarySearchTree();
@@ -117,6 +123,42 @@ public class TreeTraversal {
 				System.out.printf(node.getData() + " ");
 				if (node.getLeft() != null) queue.add(node.getLeft());
 				if (node.getRight() != null) queue.add(node.getRight());
+			}
+		}
+	}
+
+	/**
+	 * Vertical Level Order Tree Traversal (Print by Vertical Level)
+	 * 
+	 * @param root
+	 * @return
+	 */
+	public static List<List<Integer>> verticalOrderTraversal(BinaryNode root) {
+		Map<Integer, List<Integer>> map = new TreeMap<Integer, List<Integer>>();
+		helper(root, map);
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		result.addAll(map.values());
+		return result;
+	}
+
+	private static void helper(BinaryNode root, Map<Integer, List<Integer>> map) {
+		if (root != null) {
+			Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+			Queue<Integer> orders = new LinkedList<Integer>();
+			queue.offer(root);
+			orders.offer(0);
+			while (!queue.isEmpty()) {
+				BinaryNode node = queue.poll();
+				int order = orders.poll();
+				map.computeIfAbsent(order, key -> new ArrayList<Integer>()).add(node.data);
+				if (node.left != null) {
+					queue.offer(node.left);
+					orders.offer(order - 1);
+				}
+				if (node.right != null) {
+					queue.offer(node.right);
+					orders.offer(order + 1);
+				}
 			}
 		}
 	}
