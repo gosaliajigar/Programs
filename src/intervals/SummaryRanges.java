@@ -7,7 +7,7 @@ import java.util.List;
  * @author Jigar Gosalia
  *
  */
-public class PrintRanges {
+public class SummaryRanges {
 
 	public static void main(String[] args) {
 		printRanges(new int[] { 0, 1, 3, 8 });
